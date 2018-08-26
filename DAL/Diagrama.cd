@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.SqlHelper" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAABAAUAAAAAAAACAAAIAAAAAgAAQAAAAAAIAAAAA=</HashCode>
+      <FileName>SqlHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.UsuarioMapper">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>UsuarioMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.ConsultaMapper">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConsultaMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.CopiaSeguridadMapper">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CopiaSeguridadMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DigitoVerificadorMapper">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DigitoVerificadorMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.EjercicioMapper">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EjercicioMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.EntrenamientoMapper">
+    <Position X="2.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntrenamientoMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.IdiomaMapper">
+    <Position X="4.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IdiomaMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.PacienteMapper">
+    <Position X="6.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PacienteMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.PatologiaMapper">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PatologiaMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.PerfilMapper">
+    <Position X="2.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PerfilMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.TratamientoMapper">
+    <Position X="4.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TratamientoMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

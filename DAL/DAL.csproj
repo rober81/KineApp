@@ -40,13 +40,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsultaMapper.cs" />
+    <Compile Include="CopiaSeguridadMapper.cs" />
+    <Compile Include="DigitoVerificadorMapper.cs" />
+    <Compile Include="EjercicioMapper.cs" />
+    <Compile Include="EntrenamientoMapper.cs" />
+    <Compile Include="IdiomaMapper.cs" />
+    <Compile Include="PacienteMapper.cs" />
+    <Compile Include="PatologiaMapper.cs" />
+    <Compile Include="PerfilMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlHelper.cs" />
+    <Compile Include="TratamientoMapper.cs" />
+    <Compile Include="UsuarioMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{15adda90-15e2-41ab-801a-517d71dc782a}</Project>
       <Name>BE</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagrama.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
