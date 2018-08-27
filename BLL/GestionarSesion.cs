@@ -34,11 +34,29 @@ namespace BLL
             usr.Login = paramUser;
             usr.Password = GestionarEncriptacion.Encriptar(paramPass);
             _usuario = GestionarUsuario.Login(usr);
-            return _usuario == null ? false : true;
+            if (_usuario != null)
+            {
+                BE.Bitacora bitacora = new Bitacora();
+                bitacora.Usuario = this._usuario;
+                bitacora.Tabla = "";
+                bitacora.Dato = "";
+                bitacora.Accion = "Inicia sesion";
+                GestionarBitacora.Insertar(bitacora);
+                return true;
+            } else
+            {
+                return false;
+            }
         }
 
         public void cerrarSesion()
         {
+            BE.Bitacora bitacora = new Bitacora();
+            bitacora.Usuario = this._usuario;
+            bitacora.Accion = "Cierra sesion";
+            bitacora.Tabla = "";
+            bitacora.Dato = "";
+            GestionarBitacora.Insertar(bitacora);
             this._usuario = null;
         }
     }

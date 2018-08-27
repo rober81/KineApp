@@ -5,6 +5,15 @@ namespace BE {
         public string Password { get; set; }
         public string Login { get; set; }
 
+        public Usuario()
+        {
+        }
+
+        public Usuario(string login)
+        {
+            this.Login = login;
+        }
+
         public override string ToString()
         {
             return Login;

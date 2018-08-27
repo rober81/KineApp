@@ -3,15 +3,22 @@
   <Class Name="BE.Persona">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAQEAAAAgQAAAAAAAgAAAAAAAAIAAgA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAEAAAAgAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Persona.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.Usuario">
     <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAEAAAAAAAAIIAAAAACAAAQIAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAIAAAAACAAAQAAAAAAA=</HashCode>
       <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.Bitacora">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAEAAQAAAQ=</HashCode>
+      <FileName>Bitacora.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
