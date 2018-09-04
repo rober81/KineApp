@@ -5,8 +5,11 @@ namespace BE
     {
         public Bitacora()
         {
-            Fecha = DateTime.Now;
+            this.Fecha = DateTime.Now;
+            this.Tabla = "";
+            this.Dato = "";
         }
+
         public DateTime Fecha { get; set; }
         public Usuario Usuario { get; set; }
         public string Tabla { get; set; }

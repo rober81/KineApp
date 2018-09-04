@@ -217,12 +217,14 @@
             this.españolToolStripMenuItem.Name = "españolToolStripMenuItem";
             this.españolToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.españolToolStripMenuItem.Text = "Español";
+            this.españolToolStripMenuItem.Click += new System.EventHandler(this.españolToolStripMenuItem_Click);
             // 
             // inglesToolStripMenuItem
             // 
             this.inglesToolStripMenuItem.Name = "inglesToolStripMenuItem";
             this.inglesToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.inglesToolStripMenuItem.Text = "Ingles";
+            this.inglesToolStripMenuItem.Click += new System.EventHandler(this.inglesToolStripMenuItem_Click);
             // 
             // agregarIdiomaToolStripMenuItem
             // 

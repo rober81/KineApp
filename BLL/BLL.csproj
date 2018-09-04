@@ -43,6 +43,7 @@
     <Compile Include="GestionarBitacora.cs" />
     <Compile Include="GestionarEncriptacion.cs" />
     <Compile Include="GestionarError.cs" />
+    <Compile Include="GestionarIdioma.cs" />
     <Compile Include="GestionarSesion.cs" />
     <Compile Include="GestionarUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

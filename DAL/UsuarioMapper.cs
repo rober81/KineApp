@@ -11,7 +11,7 @@ namespace DAL
             SqlParameter[] parametros = new SqlParameter[2];
             parametros[0] = new SqlParameter("@usuario", unUsuario.Login);
             parametros[1] = new SqlParameter("@pass", unUsuario.Password);
-            DataTable tabla = SqlHelper.getInstance().leer("usuario_login", parametros);
+            DataTable tabla = SqlHelper.getInstance().leer("Usuario_login", parametros);
             foreach (DataRow item in tabla.Rows) {
                 obj = new BE.Usuario();
                 obj.Login = item["usuario"].ToString();

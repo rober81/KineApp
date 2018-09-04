@@ -8,7 +8,7 @@ namespace BLL
 {
     public class GestionarSesion
     {
-        private BE.Usuario _usuario;
+        private BE.Usuario usuario;
         private static GestionarSesion _instancia = null;
 
         private GestionarSesion() { }
@@ -24,7 +24,7 @@ namespace BLL
         {
             get
             {
-                return _usuario;
+                return this.usuario;
             }
         }
 
@@ -33,14 +33,12 @@ namespace BLL
             BE.Usuario usr = new BE.Usuario();
             usr.Login = paramUser;
             usr.Password = GestionarEncriptacion.Encriptar(paramPass);
-            _usuario = GestionarUsuario.Login(usr);
-            if (_usuario != null)
+            this.usuario = GestionarUsuario.Login(usr);
+            if (this.usuario != null)
             {
                 BE.Bitacora bitacora = new Bitacora();
-                bitacora.Usuario = this._usuario;
-                bitacora.Tabla = "";
-                bitacora.Dato = "";
-                bitacora.Accion = "Inicia sesion";
+                bitacora.Usuario = this.usuario;
+                bitacora.Accion = "Inicia Sesion";
                 GestionarBitacora.Insertar(bitacora);
                 return true;
             } else
@@ -52,12 +50,10 @@ namespace BLL
         public void cerrarSesion()
         {
             BE.Bitacora bitacora = new Bitacora();
-            bitacora.Usuario = this._usuario;
-            bitacora.Accion = "Cierra sesion";
-            bitacora.Tabla = "";
-            bitacora.Dato = "";
+            bitacora.Usuario = this.usuario;
+            bitacora.Accion = "Cierra Sesion";
             GestionarBitacora.Insertar(bitacora);
-            this._usuario = null;
+            this.usuario = null;
         }
     }
 }

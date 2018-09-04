@@ -41,11 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bitacora.cs" />
+    <Compile Include="Idioma.cs" />
+    <Compile Include="IdiomaDetalle.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Diagrama BE.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

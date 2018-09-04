@@ -12,16 +12,12 @@ namespace GUI
 {
     public partial class Maestro : Form
     {
+        private List<Form> formularios = new List<Form>();
+
         public Maestro()
         {
             InitializeComponent();
 
-            DialogResult resultado = MessageBox.Show("Error al conectar a la base de datos, desea continuar?", 
-            "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
-            BLL.GestionarError.loguear("Error al conectar a la base de datos.");
-            if (resultado == DialogResult.Cancel)
-                Application.Exit();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,6 +31,7 @@ namespace GUI
             mdi.MdiParent = this;
             mdi.StartPosition = FormStartPosition.CenterScreen;
             mdi.Show();
+            this.formularios.Add(mdi);
         }
 
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,6 +100,19 @@ namespace GUI
             this.Hide();
             Login form = new Login();
             form.ShowDialog();
+        }
+
+        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            foreach (Form item in this.formularios) {
+
+            }
+        }
+
+        private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
