@@ -60,6 +60,10 @@
       <Project>{15adda90-15e2-41ab-801a-517d71dc782a}</Project>
       <Name>BE</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Log\Log.csproj">
+      <Project>{0c5d7c39-afc7-48cf-af84-40f78eb6af66}</Project>
+      <Name>Log</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagrama.cd" />
