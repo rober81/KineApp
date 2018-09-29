@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE", "BE\BE.csproj", "{15ADDA90-15E2-41AB-801A-517D71DC782A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log", "Log\Log.csproj", "{0C5D7C39-AFC7-48CF-AF84-40F78EB6AF66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Util", "Log\Util.csproj", "{0C5D7C39-AFC7-48CF-AF84-40F78EB6AF66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

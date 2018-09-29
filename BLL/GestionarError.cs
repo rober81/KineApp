@@ -12,7 +12,7 @@ namespace BLL
         {
             BE.Usuario usuario = GestionarSesion.getInstance().Usuario;
             string log = "Usuario: " + usuario.ToString() + mensaje;
-            DAL.IoHelper.loguear(log);
+            Util.Log.Error(log);
         }
     }
 }

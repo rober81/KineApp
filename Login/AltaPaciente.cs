@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class AltaPaciente : Form
+    public partial class AltaPaciente : Form, BE.iCambiarIdioma
     {
         public AltaPaciente()
         {
@@ -25,6 +25,16 @@ namespace GUI
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void actualizar()
+        {
+            this.Text = BLL.GestionarIdioma.getInstance().getTexto("frmAltaPaciente");
+            foreach (Control item in this.Controls)
+            {
+                if (null != item.Tag)
+                    item.Text = BLL.GestionarIdioma.getInstance().getTexto(item.Tag.ToString());
+            }
         }
     }
 }

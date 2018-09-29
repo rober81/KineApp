@@ -17,9 +17,30 @@
   <Class Name="BE.Bitacora">
     <Position X="5.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAEAAQAAAQ=</HashCode>
+      <HashCode>AABAAAAAAAAAAAEAAAAAAAAAAAAAAAAABAAEAAAAAAQ=</HashCode>
       <FileName>Bitacora.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="BE.Idioma">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAEAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Idioma.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.IdiomaDetalle">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>IdiomaDetalle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BE.iCambiarIdioma">
+    <Position X="4.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>iCambiarIdioma.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

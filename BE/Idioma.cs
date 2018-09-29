@@ -7,8 +7,13 @@ namespace BE
 {
     public class Idioma
     {
+        public Idioma(string nombre)
+        {
+            this.Nombre = nombre;
+        }
         public String Nombre { get; set; }
-        public List<IdiomaDetalle> Detalle { get; set; }
+        public Dictionary<string, string> Detalle { get; set; }
+
         public override string ToString()
         {
             return Nombre;

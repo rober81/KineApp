@@ -60,9 +60,9 @@
       <Project>{f25bda64-8358-4897-8f95-701427250287}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Log\Log.csproj">
+    <ProjectReference Include="..\Log\Util.csproj">
       <Project>{0c5d7c39-afc7-48cf-af84-40f78eb6af66}</Project>
-      <Name>Log</Name>
+      <Name>Util</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

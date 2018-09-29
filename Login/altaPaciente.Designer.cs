@@ -28,44 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblEdad = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblDni = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(72, 86);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(58, 17);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Tag = "nombre";
+            this.lblNombre.Text = "Nombre";
             // 
-            // label2
+            // lblApellido
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 124);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Apellido";
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(72, 124);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(58, 17);
+            this.lblApellido.TabIndex = 1;
+            this.lblApellido.Tag = "apellido";
+            this.lblApellido.Text = "Apellido";
             // 
-            // label3
+            // lblEdad
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(72, 162);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Edad";
+            this.lblEdad.AutoSize = true;
+            this.lblEdad.Location = new System.Drawing.Point(72, 162);
+            this.lblEdad.Name = "lblEdad";
+            this.lblEdad.Size = new System.Drawing.Size(41, 17);
+            this.lblEdad.TabIndex = 2;
+            this.lblEdad.Tag = "edad";
+            this.lblEdad.Text = "Edad";
             // 
             // textBox1
             // 
@@ -88,25 +91,27 @@
             this.textBox3.Size = new System.Drawing.Size(328, 22);
             this.textBox3.TabIndex = 5;
             // 
-            // button1
+            // btnAceptar
             // 
-            this.button1.Location = new System.Drawing.Point(389, 331);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 43);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAceptar.Location = new System.Drawing.Point(389, 331);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(87, 43);
+            this.btnAceptar.TabIndex = 6;
+            this.btnAceptar.Tag = "aceptar";
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(296, 331);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 43);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCancelar.Location = new System.Drawing.Point(296, 331);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(87, 43);
+            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.Tag = "cancelar";
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox4
             // 
@@ -115,14 +120,15 @@
             this.textBox4.Size = new System.Drawing.Size(328, 22);
             this.textBox4.TabIndex = 9;
             // 
-            // label4
+            // lblDni
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(72, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "DNI";
+            this.lblDni.AutoSize = true;
+            this.lblDni.Location = new System.Drawing.Point(72, 48);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(31, 17);
+            this.lblDni.TabIndex = 8;
+            this.lblDni.Tag = "dni";
+            this.lblDni.Text = "DNI";
             // 
             // AltaPaciente
             // 
@@ -130,15 +136,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 418);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblDni);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblEdad);
+            this.Controls.Add(this.lblApellido);
+            this.Controls.Add(this.lblNombre);
             this.Name = "AltaPaciente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta de Paciente";
@@ -149,15 +155,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDni;
     }
 }

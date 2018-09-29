@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace GUI
+namespace BE
 {
-    interface iActualizable
+    public interface iCambiarIdioma
     {
         void actualizar();
     }

@@ -12,7 +12,7 @@ namespace GUI
 {
     public partial class Maestro : Form
     {
-        private List<Form> formularios = new List<Form>();
+        private List<BE.iCambiarIdioma> formularios = new List<BE.iCambiarIdioma>();
 
         public Maestro()
         {
@@ -31,7 +31,9 @@ namespace GUI
             mdi.MdiParent = this;
             mdi.StartPosition = FormStartPosition.CenterScreen;
             mdi.Show();
-            this.formularios.Add(mdi);
+            BE.iCambiarIdioma formulario = mdi as BE.iCambiarIdioma;
+            if (formulario != null)
+                this.formularios.Add(formulario);
         }
 
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,15 +106,25 @@ namespace GUI
 
         private void españolToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            foreach (Form item in this.formularios) {
-
-            }
+            cambiarIdioma("Español");
+            españolToolStripMenuItem.Checked = true;
+            inglesToolStripMenuItem.Checked = false;
         }
 
         private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            cambiarIdioma("Ingles");
+            españolToolStripMenuItem.Checked = false;
+            inglesToolStripMenuItem.Checked = true;
+        }
 
+        private void cambiarIdioma(string idioma)
+        {
+            BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma(idioma));
+            foreach (BE.iCambiarIdioma item in formularios)
+            {
+                item.actualizar();
+            }
         }
     }
 }

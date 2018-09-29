@@ -9,31 +9,24 @@ namespace DAL
     {
         public static List<BE.Idioma> Listar()
         {
-            BE.Idioma obj = null;
             List<BE.Idioma> lista = new List<BE.Idioma>();
             DataTable tabla = SqlHelper.getInstance().leer("Idioma_leer", null);
             foreach (DataRow item in tabla.Rows)
             {
-                obj = new BE.Idioma();
-                obj.Nombre = item["nombre"].ToString();
-                lista.Add(obj);
+                lista.Add(new BE.Idioma(item["nombre"].ToString()));
             }
             return lista;
         }
 
         public static void CargarDetalle(BE.Idioma unIdioma)
         {
-            BE.IdiomaDetalle obj = null;
-            List<BE.IdiomaDetalle> lista = new List<BE.IdiomaDetalle>();
+            Dictionary<string, string> lista = new Dictionary<string, string>(); ;
             SqlParameter[] parametros = new SqlParameter[1];
             parametros[0] = new SqlParameter("@idioma", unIdioma.Nombre);
             DataTable tabla = SqlHelper.getInstance().leer("IdiomaDetalle_leer", parametros);
             foreach (DataRow item in tabla.Rows)
             {
-                obj = new BE.IdiomaDetalle();
-                obj.Clave = item["clave"].ToString();
-                obj.Texto = item["texto"].ToString();
-                lista.Add(obj);
+                lista.Add(item["clave"].ToString(), item["texto"].ToString());
             }
             unIdioma.Detalle = lista;
         }

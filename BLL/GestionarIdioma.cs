@@ -6,32 +6,44 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    class GestionarIdioma
+    public class GestionarIdioma
     {
-        private Dictionary<string, BE.IdiomaDetalle> idiomaSeleccionado;
-        public Dictionary<string, BE.IdiomaDetalle> getIdiomaSeleccionado()
+        private BE.Idioma idiomaSeleccionado;
+        private static GestionarIdioma _instancia = null;
+
+        private GestionarIdioma() { }
+
+        public static GestionarIdioma getInstance()
         {
-            return idiomaSeleccionado;
+            if (_instancia == null)
+                _instancia = new GestionarIdioma();
+            return _instancia;
         }
 
-        public static List<BE.Idioma> Listar()
+        public List<BE.Idioma> Listar()
         {
             return DAL.IdiomaMapper.Listar();
-        }
-        private void CargarIdioma(BE.Idioma unIdioma)
-        {
-            DAL.IdiomaMapper.CargarDetalle(unIdioma);
         }
 
         public void CambiarIdioma(BE.Idioma unIdioma)
         {
-            this.idiomaSeleccionado = new Dictionary<string, BE.IdiomaDetalle>();
-            CargarIdioma(unIdioma);
-            foreach (BE.IdiomaDetalle item in unIdioma.Detalle)
-            {
-                idiomaSeleccionado.Add(item.Clave, item);
-            }
+            DAL.IdiomaMapper.CargarDetalle(unIdioma);
+            this.idiomaSeleccionado = unIdioma;
+        }
 
+        public string getTexto (string clave)
+        {
+            string resultado = null;
+            try
+            {
+                resultado = idiomaSeleccionado.Detalle[clave];
+            }
+            catch (KeyNotFoundException)
+            {
+                resultado = "Falta Traduccion";
+                Util.Log.Error("Falta traducir idioma:" + idiomaSeleccionado.Nombre + " clave:" + clave);
+            }
+            return resultado;
         }
 
     }
