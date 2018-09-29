@@ -39,6 +39,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.cmbIdioma = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -59,6 +60,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 1;
+            this.label2.Tag = "usuario";
             this.label2.Text = "Usuario:";
             // 
             // label3
@@ -68,6 +70,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 2;
+            this.label3.Tag = "password";
             this.label3.Text = "Contraseña:";
             // 
             // textBox1
@@ -91,7 +94,8 @@
             this.button1.Location = new System.Drawing.Point(484, 139);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 61);
-            this.button1.TabIndex = 5;
+            this.button1.TabIndex = 0;
+            this.button1.Tag = "aceptar";
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -104,6 +108,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(152, 17);
             this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
+            this.linkLabel1.Tag = "recuperarpass";
             this.linkLabel1.Text = "Recuperar Contraseña";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -114,6 +119,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(508, 17);
             this.label4.TabIndex = 7;
+            this.label4.Tag = "loginDescripcion";
             this.label4.Text = "SISTEMA DE GESTIÓN PARA CONSULTORIO DE KINESIOLOGÍA DEPORTIVA";
             // 
             // label5
@@ -123,6 +129,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 17);
             this.label5.TabIndex = 8;
+            this.label5.Tag = "correo";
             this.label5.Text = "Correo:";
             this.label5.Visible = false;
             // 
@@ -141,16 +148,31 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(118, 46);
             this.button2.TabIndex = 10;
+            this.button2.Tag = "recuperarpass";
             this.button2.Text = "Recuperar Contraseña";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // cmbIdioma
+            // 
+            this.cmbIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIdioma.FormattingEnabled = true;
+            this.cmbIdioma.Items.AddRange(new object[] {
+            "Español",
+            "English"});
+            this.cmbIdioma.Location = new System.Drawing.Point(183, 296);
+            this.cmbIdioma.Name = "cmbIdioma";
+            this.cmbIdioma.Size = new System.Drawing.Size(281, 24);
+            this.cmbIdioma.TabIndex = 11;
+            this.cmbIdioma.SelectedIndexChanged += new System.EventHandler(this.cmbIdioma_SelectedIndexChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 304);
+            this.ClientSize = new System.Drawing.Size(718, 333);
+            this.Controls.Add(this.cmbIdioma);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label5);
@@ -166,7 +188,9 @@
             this.MinimizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "frmLogin";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +209,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cmbIdioma;
     }
 }

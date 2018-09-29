@@ -147,6 +147,7 @@
             this.Controls.Add(this.lblNombre);
             this.Name = "AltaPaciente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "frmAltaPaciente";
             this.Text = "Alta de Paciente";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -8,7 +8,7 @@ namespace BLL
 {
     public class GestionarIdioma
     {
-        private BE.Idioma idiomaSeleccionado;
+        public BE.Idioma IdiomaSeleccionado { get; private set; }
         private static GestionarIdioma _instancia = null;
 
         private GestionarIdioma() { }
@@ -28,7 +28,7 @@ namespace BLL
         public void CambiarIdioma(BE.Idioma unIdioma)
         {
             DAL.IdiomaMapper.CargarDetalle(unIdioma);
-            this.idiomaSeleccionado = unIdioma;
+            IdiomaSeleccionado = unIdioma;
         }
 
         public string getTexto (string clave)
@@ -36,12 +36,12 @@ namespace BLL
             string resultado = null;
             try
             {
-                resultado = idiomaSeleccionado.Detalle[clave];
+                resultado = IdiomaSeleccionado.Detalle[clave];
             }
             catch (KeyNotFoundException)
             {
                 resultado = "Falta Traduccion";
-                Util.Log.Error("Falta traducir idioma:" + idiomaSeleccionado.Nombre + " clave:" + clave);
+                Util.Log.Error("Falta traducir idioma:" + IdiomaSeleccionado.Nombre + " clave:" + clave);
             }
             return resultado;
         }

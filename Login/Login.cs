@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Login : Form
+    public partial class Login : Form, BE.iCambiarIdioma
     {
         public Login()
         {
@@ -63,5 +63,24 @@ namespace GUI
             button2.Visible = true;
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+            cmbIdioma.SelectedIndex = 0;
+        }
+
+        private void cmbIdioma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma(cmbIdioma.SelectedItem.ToString()));
+            actualizar();
+        }
+
+        public void actualizar()
+        {
+            foreach (Control item in this.Controls)
+            {
+                if (null != item.Tag)
+                    item.Text = BLL.GestionarIdioma.getInstance().getTexto(item.Tag.ToString());
+            }
+        }
     }
 }

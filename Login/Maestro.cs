@@ -1,39 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Maestro : Form
+    public partial class Maestro : IdiomaForm
     {
         private List<BE.iCambiarIdioma> formularios = new List<BE.iCambiarIdioma>();
 
         public Maestro()
         {
             InitializeComponent();
-
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BLL.GestionarSesion.getInstance().cerrarSesion();
             Application.Exit();
-        }
-
-        private void abrirFormulario(Form mdi)
-        {
-            mdi.MdiParent = this;
-            mdi.StartPosition = FormStartPosition.CenterScreen;
-            mdi.Show();
-            BE.iCambiarIdioma formulario = mdi as BE.iCambiarIdioma;
-            if (formulario != null)
-                this.formularios.Add(formulario);
         }
 
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,9 +74,32 @@ namespace GUI
             abrirFormulario(new Consulta());
         }
 
+        private void agregarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new AdminIdioma());
+        }
+
+        private void abrirFormulario(Form mdi)
+        {
+            mdi.MdiParent = this;
+            mdi.StartPosition = FormStartPosition.CenterScreen;
+            mdi.Show();
+            BE.iCambiarIdioma formulario = mdi as BE.iCambiarIdioma;
+            if (formulario != null)
+                this.formularios.Add(formulario);
+        }
+
         private void Maestro_Load(object sender, EventArgs e)
         {
-
+            if ("Español".Equals(BLL.GestionarIdioma.getInstance().IdiomaSeleccionado.Nombre)) {
+                españolToolStripMenuItem.Checked = true;
+                inglesToolStripMenuItem.Checked = false;
+            } else
+            {
+                españolToolStripMenuItem.Checked = false;
+                inglesToolStripMenuItem.Checked = true;
+            }
+            this.actualizar();
         }
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,7 +119,7 @@ namespace GUI
 
         private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cambiarIdioma("Ingles");
+            cambiarIdioma("English");
             españolToolStripMenuItem.Checked = false;
             inglesToolStripMenuItem.Checked = true;
         }
@@ -124,6 +130,22 @@ namespace GUI
             foreach (BE.iCambiarIdioma item in formularios)
             {
                 item.actualizar();
+            }
+            this.actualizar();
+        }
+
+        public override void actualizar()
+        {
+            base.actualizar();
+            foreach (ToolStripMenuItem menu in menuStrip1.Items)
+            {
+                if (null != menu.Tag)
+                    menu.Text = BLL.GestionarIdioma.getInstance().getTexto(menu.Tag.ToString());
+                foreach (ToolStripMenuItem item in menu.DropDownItems)
+                {
+                    if (null != item.Tag)
+                        item.Text = BLL.GestionarIdioma.getInstance().getTexto(item.Tag.ToString());
+                }
             }
         }
     }

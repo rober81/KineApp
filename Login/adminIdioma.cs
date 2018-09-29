@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class AltaPaciente : IdiomaForm
+    public partial class AdminIdioma : Form
     {
-        public AltaPaciente()
+        public AdminIdioma()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

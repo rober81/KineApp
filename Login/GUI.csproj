@@ -77,6 +77,12 @@
     <Compile Include="AbmEjercicios.Designer.cs">
       <DependentUpon>AbmEjercicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminIdioma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminIdioma.Designer.cs">
+      <DependentUpon>AdminIdioma.cs</DependentUpon>
+    </Compile>
     <Compile Include="AltaPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,12 @@
     </Compile>
     <Compile Include="Historial.Designer.cs">
       <DependentUpon>Historial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdiomaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdiomaForm.Designer.cs">
+      <DependentUpon>IdiomaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -163,6 +175,9 @@
     <EmbeddedResource Include="AbmEjercicios.resx">
       <DependentUpon>AbmEjercicios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminIdioma.resx">
+      <DependentUpon>AdminIdioma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AltaPaciente.resx">
       <DependentUpon>AltaPaciente.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdiomaForm.resx">
+      <DependentUpon>IdiomaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
