@@ -31,16 +31,14 @@ namespace DAL
             unIdioma.Detalle = lista;
         }
 
-        // public static int Insertar(BE.Bitacora bitacora)
-        //{
-        //SqlParameter[] parametros = new SqlParameter[6];
-        //parametros[0] = new SqlParameter("@usuario", bitacora.Usuario.ToString());
-        //parametros[1] = new SqlParameter("@fecha", bitacora.Fecha);
-        //parametros[2] = new SqlParameter("@tabla", bitacora.Tabla);
-        //parametros[3] = new SqlParameter("@dato", bitacora.Dato);
-        //parametros[4] = new SqlParameter("@accion", bitacora.Accion);
-        //parametros[5] = new SqlParameter("@dvh", "dvh");
-        //return SqlHelper.getInstanceBitacora().escribir("Bitacora_alta", parametros);
-        //}
+        public static int Insertar(BE.IdiomaDetalle detalle)
+        {
+            SqlParameter[] parametros = new SqlParameter[3];
+            parametros[0] = new SqlParameter("@idioma", detalle.Idioma);
+            parametros[1] = new SqlParameter("@clave", detalle.Clave);
+            parametros[2] = new SqlParameter("@texto", detalle.Texto);
+
+            return SqlHelper.getInstance().escribir("IdiomaDetalle_alta", parametros);
+        }
     }
 }

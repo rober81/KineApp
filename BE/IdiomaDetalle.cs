@@ -7,7 +7,8 @@ namespace BE
 {
     public class IdiomaDetalle
     {
-        public String Clave { get; set; }
-        public String Texto { get; set; }
+        public string Idioma { get; set; }
+        public string Clave { get; set; }
+        public string Texto { get; set; }
     }
 }

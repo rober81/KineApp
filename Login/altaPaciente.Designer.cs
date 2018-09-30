@@ -97,7 +97,7 @@
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(87, 43);
             this.btnAceptar.TabIndex = 6;
-            this.btnAceptar.Tag = "aceptar";
+            this.btnAceptar.Tag = "btnAceptar";
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.button1_Click);
@@ -108,7 +108,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(87, 43);
             this.btnCancelar.TabIndex = 7;
-            this.btnCancelar.Tag = "cancelar";
+            this.btnCancelar.Tag = "btnCancelar";
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.button2_Click);

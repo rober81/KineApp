@@ -15,7 +15,6 @@ namespace GUI
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BLL.GestionarSesion.getInstance().cerrarSesion();
             Application.Exit();
         }
 
@@ -79,6 +78,11 @@ namespace GUI
             abrirFormulario(new AdminIdioma());
         }
 
+        private void Maestro_Closing(object sender, EventArgs e)
+        {
+            BLL.GestionarSesion.getInstance().cerrarSesion();
+        }
+
         private void abrirFormulario(Form mdi)
         {
             mdi.MdiParent = this;
@@ -91,6 +95,7 @@ namespace GUI
 
         private void Maestro_Load(object sender, EventArgs e)
         {
+            this.FormClosing += this.Maestro_Closing;
             if ("Español".Equals(BLL.GestionarIdioma.getInstance().IdiomaSeleccionado.Nombre)) {
                 españolToolStripMenuItem.Checked = true;
                 inglesToolStripMenuItem.Checked = false;

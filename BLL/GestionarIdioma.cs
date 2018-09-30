@@ -25,9 +25,14 @@ namespace BLL
             return DAL.IdiomaMapper.Listar();
         }
 
-        public void CambiarIdioma(BE.Idioma unIdioma)
+        public void Cargar(BE.Idioma unIdioma)
         {
             DAL.IdiomaMapper.CargarDetalle(unIdioma);
+        }
+
+        public void CambiarIdioma(BE.Idioma unIdioma)
+        {
+            Cargar(unIdioma);
             IdiomaSeleccionado = unIdioma;
         }
 
@@ -44,6 +49,12 @@ namespace BLL
                 Util.Log.Error("Falta traducir idioma:" + IdiomaSeleccionado.Nombre + " clave:" + clave);
             }
             return resultado;
+        }
+
+        public int insertarDetalle(BE.IdiomaDetalle unDetalle)
+        {
+            int respuesta = DAL.IdiomaMapper.Insertar(unDetalle);
+            return respuesta;
         }
 
     }

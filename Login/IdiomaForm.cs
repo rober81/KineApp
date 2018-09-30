@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BE;
 
 namespace GUI
 {
@@ -19,18 +20,25 @@ namespace GUI
 
         public virtual void actualizar()
         {
-            if (null != this.Tag)
-                this.Text = BLL.GestionarIdioma.getInstance().getTexto(this.Tag.ToString());
+            if (null != this.Tag && ! string.IsNullOrWhiteSpace(this.Tag.ToString()))
+                this.Text = Traducir(this.Tag.ToString());
             foreach (Control item in this.Controls)
             {
                 if (null != item.Tag)
-                    item.Text = BLL.GestionarIdioma.getInstance().getTexto(item.Tag.ToString());
+                    item.Text = Traducir(item.Tag.ToString());
             }
+        }
+
+        protected string Traducir(string texto)
+        {
+            return BLL.GestionarIdioma.getInstance().getTexto(texto);
         }
 
         private void IdiomaForm_Load(object sender, EventArgs e)
         {
             actualizar();
         }
+
+
     }
 }

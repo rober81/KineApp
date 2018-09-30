@@ -95,7 +95,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 61);
             this.button1.TabIndex = 0;
-            this.button1.Tag = "aceptar";
+            this.button1.Tag = "btnAceptar";
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -158,9 +158,6 @@
             // 
             this.cmbIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIdioma.FormattingEnabled = true;
-            this.cmbIdioma.Items.AddRange(new object[] {
-            "Español",
-            "English"});
             this.cmbIdioma.Location = new System.Drawing.Point(183, 296);
             this.cmbIdioma.Name = "cmbIdioma";
             this.cmbIdioma.Size = new System.Drawing.Size(281, 24);
@@ -188,7 +185,7 @@
             this.MinimizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Tag = "frmLogin";
+            this.Tag = "";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);

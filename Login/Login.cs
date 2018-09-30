@@ -10,10 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Login : Form, BE.iCambiarIdioma
+    public partial class Login : IdiomaForm
     {
         public Login()
         {
+            BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma("Español"));
             InitializeComponent();
         }
 
@@ -28,7 +29,7 @@ namespace GUI
                     form.ShowDialog();
                 } else
                 {
-                    MessageBox.Show("Usuario o contraseña incorrecta");
+                    MessageBox.Show(Traducir("errorLogin"));
                 }
             }
         }
@@ -37,12 +38,12 @@ namespace GUI
         {
             if (String.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Completar el usuario");
+                MessageBox.Show(Traducir("errorCompletarUser"));
                 return false;
             }
             if (String.IsNullOrWhiteSpace(textBox2.Text))
             {
-                MessageBox.Show("Completar la contraseña");
+                MessageBox.Show(Traducir("errorCompletarPass"));
                 return false;
             }
             return true;
@@ -57,7 +58,7 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Contraseña enviada por Correo");
+            MessageBox.Show(Traducir("msgEnviarPass"));
             label5.Visible = true;
             textBox3.Visible = true;
             button2.Visible = true;
@@ -65,22 +66,25 @@ namespace GUI
 
         private void Login_Load(object sender, EventArgs e)
         {
-            cmbIdioma.SelectedIndex = 0;
+            this.AcceptButton = this.button1;
+            try
+            {
+                cmbIdioma.DataSource = BLL.GestionarIdioma.getInstance().Listar();
+                cmbIdioma.SelectedIndex = 0;
+                BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma(cmbIdioma.SelectedItem.ToString()));
+                actualizar();
+            }
+            catch (Exception ex)
+            {
+                Util.Log.Error(ex.ToString());
+                throw;
+            }
         }
 
         private void cmbIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
             BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma(cmbIdioma.SelectedItem.ToString()));
             actualizar();
-        }
-
-        public void actualizar()
-        {
-            foreach (Control item in this.Controls)
-            {
-                if (null != item.Tag)
-                    item.Text = BLL.GestionarIdioma.getInstance().getTexto(item.Tag.ToString());
-            }
         }
     }
 }
