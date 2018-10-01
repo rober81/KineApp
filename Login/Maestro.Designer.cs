@@ -234,7 +234,7 @@
             this.españolToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.españolToolStripMenuItem.Name = "españolToolStripMenuItem";
             this.españolToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
-            this.españolToolStripMenuItem.Tag = "espaniol";
+            this.españolToolStripMenuItem.Tag = "lblEspaniol";
             this.españolToolStripMenuItem.Text = "Español";
             this.españolToolStripMenuItem.Click += new System.EventHandler(this.españolToolStripMenuItem_Click);
             // 
@@ -242,7 +242,7 @@
             // 
             this.inglesToolStripMenuItem.Name = "inglesToolStripMenuItem";
             this.inglesToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
-            this.inglesToolStripMenuItem.Tag = "ingles";
+            this.inglesToolStripMenuItem.Tag = "lblIngles";
             this.inglesToolStripMenuItem.Text = "Ingles";
             this.inglesToolStripMenuItem.Click += new System.EventHandler(this.inglesToolStripMenuItem_Click);
             // 

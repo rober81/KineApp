@@ -64,7 +64,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 17);
             this.label2.TabIndex = 5;
-            this.label2.Tag = "clave";
+            this.label2.Tag = "lblClave";
             this.label2.Text = "Clave";
             // 
             // label3
@@ -74,7 +74,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 6;
-            this.label3.Tag = "texto";
+            this.label3.Tag = "lblTexto";
             this.label3.Text = "Texto";
             // 
             // button1
@@ -95,7 +95,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 17);
             this.label4.TabIndex = 8;
-            this.label4.Tag = "espaniol";
+            this.label4.Tag = "lblEspaniol";
             this.label4.Text = "Español";
             // 
             // label5
@@ -105,7 +105,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 17);
             this.label5.TabIndex = 10;
-            this.label5.Tag = "ingles";
+            this.label5.Tag = "lblIngles";
             this.label5.Text = "Ingles";
             // 
             // listBox1
@@ -135,7 +135,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 17);
             this.label6.TabIndex = 15;
-            this.label6.Tag = "traduccion";
+            this.label6.Tag = "lblTraduccion";
             this.label6.Text = "Traduccion";
             // 
             // textBox3
@@ -154,7 +154,7 @@
             this.radioButton1.Size = new System.Drawing.Size(80, 21);
             this.radioButton1.TabIndex = 16;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Tag = "espaniol";
+            this.radioButton1.Tag = "lblEspaniol";
             this.radioButton1.Text = "Español";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
@@ -166,7 +166,7 @@
             this.radioButton2.Size = new System.Drawing.Size(66, 21);
             this.radioButton2.TabIndex = 17;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Tag = "ingles";
+            this.radioButton2.Tag = "lblIngles";
             this.radioButton2.Text = "Ingles";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 

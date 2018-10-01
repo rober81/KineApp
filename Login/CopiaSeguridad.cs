@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class CopiaSeguridad : Form
+    public partial class CopiaSeguridad : IdiomaForm
     {
         public CopiaSeguridad()
         {
@@ -19,7 +12,66 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                if (listBox1.SelectedItem != null)
+                {
+                    BE.CopiaDeSeguridad copia = (BE.CopiaDeSeguridad)listBox1.SelectedItem;
+                    BLL.GestionarCopiaDeSeguridad.Restaurar(copia);
+                    MessageBox.Show(Traducir("msgRestoreOk"));
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.Log.Error(ex.ToString());
+                MessageBox.Show(Traducir("msgRestoreNo"));
+            }
+      
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (! string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                try
+                {
+                    BE.CopiaDeSeguridad copia = new BE.CopiaDeSeguridad();
+                    copia.Nombre = textBox1.Text;
+                    copia.Fecha = DateTime.Now;
+                    BLL.GestionarCopiaDeSeguridad.Backup(copia);
+                    cargar();
+                    MessageBox.Show(Traducir("msgBackOk"));
+                }
+                catch (Exception ex)
+                {
+                    Util.Log.Error(ex.ToString());
+                    MessageBox.Show(Traducir("msgBackNo"));
+                }
+            }
+        }
+
+        private void cargar()
+        {
+            listBox1.DataSource = null;
+            listBox1.DataSource = BLL.GestionarCopiaDeSeguridad.Listar();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string archivo = "KineAPP_DB_" + DateTime.Now.ToString("dd-MM-yyyy-hhmmss") + ".BAK";
+            folderBrowserDialog1.ShowNewFolderButton = true;
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                textBox1.Text = folderBrowserDialog1.SelectedPath + "\\" + archivo;
+
+            }
+        }
+
+        private void CopiaSeguridad_Load(object sender, EventArgs e)
+        {
+            cargar();
         }
     }
 }

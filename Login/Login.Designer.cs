@@ -60,7 +60,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 1;
-            this.label2.Tag = "usuario";
+            this.label2.Tag = "lblUsuario";
             this.label2.Text = "Usuario:";
             // 
             // label3
@@ -70,7 +70,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 2;
-            this.label3.Tag = "password";
+            this.label3.Tag = "lblPassword";
             this.label3.Text = "Contraseña:";
             // 
             // textBox1
@@ -129,7 +129,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 17);
             this.label5.TabIndex = 8;
-            this.label5.Tag = "correo";
+            this.label5.Tag = "lblCorreo";
             this.label5.Text = "Correo:";
             this.label5.Visible = false;
             // 

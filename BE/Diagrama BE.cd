@@ -31,8 +31,15 @@
   <Class Name="BE.IdiomaDetalle">
     <Position X="2.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>IdiomaDetalle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.CopiaDeSeguridad">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CopiaDeSeguridad.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="BE.iCambiarIdioma">

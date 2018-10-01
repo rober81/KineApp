@@ -47,7 +47,7 @@
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(58, 17);
             this.lblNombre.TabIndex = 0;
-            this.lblNombre.Tag = "nombre";
+            this.lblNombre.Tag = "lblNombre";
             this.lblNombre.Text = "Nombre";
             // 
             // lblApellido
@@ -57,7 +57,7 @@
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(58, 17);
             this.lblApellido.TabIndex = 1;
-            this.lblApellido.Tag = "apellido";
+            this.lblApellido.Tag = "lblApellido";
             this.lblApellido.Text = "Apellido";
             // 
             // lblEdad
@@ -67,7 +67,7 @@
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(41, 17);
             this.lblEdad.TabIndex = 2;
-            this.lblEdad.Tag = "edad";
+            this.lblEdad.Tag = "lblEdad";
             this.lblEdad.Text = "Edad";
             // 
             // textBox1
@@ -127,7 +127,7 @@
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(31, 17);
             this.lblDni.TabIndex = 8;
-            this.lblDni.Tag = "dni";
+            this.lblDni.Tag = "lblDni";
             this.lblDni.Text = "DNI";
             // 
             // AltaPaciente

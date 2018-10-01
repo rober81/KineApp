@@ -99,5 +99,25 @@ namespace DAL
             }
             return filas;
         }
+
+        public int ejecutarSQL(string nombre, SqlParameter[] parametros)
+        {
+            int filas = 0;
+            try
+            {
+                SqlCommand cmd = new SqlCommand(nombre, _conexion);
+                cmd.CommandType = CommandType.Text;
+                if (parametros != null)
+                {
+                    cmd.Parameters.AddRange(parametros);
+                }
+                filas = cmd.ExecuteNonQuery();
+            }
+            catch (System.Exception e)
+            {
+                Log.Error("Error al Escribir " + e.ToString());
+            }
+            return filas;
+        }
     }
 }
