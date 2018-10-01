@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Util
 {
-    class DigitoVerificador
+    public class DigitoVerificador
     {
-        public static int CalcularDVH(string Registro)
+        public static int CalcularDV(string texto)
         {
             string Paridad = string.Empty;
             int Sum = 0;
-            byte[] Reg = Encoding.UTF8.GetBytes(Registro);
+            byte[] Reg = Encoding.UTF8.GetBytes(texto);
             for (int pos = Reg.Length - 1; pos >= 0; pos--)
             {
                 Sum += ObtenerDigito(Reg[pos], pos);

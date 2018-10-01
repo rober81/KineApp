@@ -50,6 +50,7 @@
             this.españolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeDigitoVerificadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -171,7 +172,8 @@
             this.rolesToolStripMenuItem,
             this.perfilesToolStripMenuItem,
             this.bitacoraToolStripMenuItem,
-            this.copiaDeSeguridadToolStripMenuItem});
+            this.copiaDeSeguridadToolStripMenuItem,
+            this.gestiónDeDigitoVerificadorToolStripMenuItem});
             this.administraciónToolStripMenuItem.Name = "administraciónToolStripMenuItem";
             this.administraciónToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
             this.administraciónToolStripMenuItem.Tag = "menuAdministracion";
@@ -254,6 +256,14 @@
             this.agregarIdiomaToolStripMenuItem.Text = "Administrar Idioma";
             this.agregarIdiomaToolStripMenuItem.Click += new System.EventHandler(this.agregarIdiomaToolStripMenuItem_Click);
             // 
+            // gestiónDeDigitoVerificadorToolStripMenuItem
+            // 
+            this.gestiónDeDigitoVerificadorToolStripMenuItem.Name = "gestiónDeDigitoVerificadorToolStripMenuItem";
+            this.gestiónDeDigitoVerificadorToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
+            this.gestiónDeDigitoVerificadorToolStripMenuItem.Tag = "frmDigito";
+            this.gestiónDeDigitoVerificadorToolStripMenuItem.Text = "Gestión de Digito Verificador";
+            this.gestiónDeDigitoVerificadorToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeDigitoVerificadorToolStripMenuItem_Click);
+            // 
             // Maestro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -298,6 +308,7 @@
         private System.Windows.Forms.ToolStripMenuItem perfilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestiónDeDigitoVerificadorToolStripMenuItem;
     }
 }
 

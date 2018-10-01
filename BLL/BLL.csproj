@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="GestionarBitacora.cs" />
     <Compile Include="GestionarCopiaDeSeguridad.cs" />
+    <Compile Include="GestionarDigitoVerificador.cs" />
     <Compile Include="GestionarEncriptacion.cs" />
     <Compile Include="GestionarError.cs" />
     <Compile Include="GestionarIdioma.cs" />

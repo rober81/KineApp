@@ -83,6 +83,11 @@ namespace GUI
             BLL.GestionarSesion.getInstance().cerrarSesion();
         }
 
+        private void gestiónDeDigitoVerificadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new DigitoVerificador());
+        }
+
         private void abrirFormulario(Form mdi)
         {
             mdi.MdiParent = this;

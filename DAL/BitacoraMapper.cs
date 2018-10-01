@@ -9,11 +9,13 @@ namespace DAL
 {
     public class BitacoraMapper
     {
+        public static string Tabla = "Bitacora";
+
         public static List<BE.Bitacora> Listar()
         {
             BE.Bitacora obj = null;
             List<BE.Bitacora> lista = new List<BE.Bitacora>();
-            DataTable tabla = SqlHelper.getInstanceBitacora().leer("Bitacora_leer", null);
+            DataTable tabla = SqlHelper.getInstanceBitacora().leer(Tabla + "_leer", null);
             foreach (DataRow item in tabla.Rows)
             {
                 obj = new BE.Bitacora();
@@ -36,7 +38,7 @@ namespace DAL
             parametros[3] = new SqlParameter("@dato", bitacora.Dato);
             parametros[4] = new SqlParameter("@accion", bitacora.Accion);
             parametros[5] = new SqlParameter("@dvh", "dvh");
-            return SqlHelper.getInstanceBitacora().escribir("Bitacora_alta", parametros);
+            return SqlHelper.getInstanceBitacora().escribir(Tabla + "_alta", parametros);
         }
     }
 }

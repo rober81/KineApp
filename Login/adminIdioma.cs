@@ -96,10 +96,24 @@ namespace GUI
             if (resultado != 1)
                 MessageBox.Show(Traducir("errorGuardar"));
             cargar();
+            Limpiar();
             } else
             {
                 MessageBox.Show(Traducir("errorFaltaDato"));
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            radioButton1.Checked = true;
+            textBox1.Text = string.Empty;
+            textBox2.Text = string.Empty;
+            textBox3.Text = string.Empty;
         }
     }
 }

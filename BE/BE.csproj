@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="Bitacora.cs" />
     <Compile Include="CopiaDeSeguridad.cs" />
+    <Compile Include="DigitoVerificador.cs" />
     <Compile Include="iCambiarIdioma.cs" />
+    <Compile Include="iDigitoVerificador.cs" />
     <Compile Include="Idioma.cs" />
     <Compile Include="IdiomaDetalle.cs" />
     <Compile Include="Persona.cs" />

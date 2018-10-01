@@ -119,6 +119,12 @@
     <Compile Include="CopiaSeguridad.Designer.cs">
       <DependentUpon>CopiaSeguridad.cs</DependentUpon>
     </Compile>
+    <Compile Include="DigitoVerificador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DigitoVerificador.Designer.cs">
+      <DependentUpon>DigitoVerificador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Historial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CopiaSeguridad.resx">
       <DependentUpon>CopiaSeguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DigitoVerificador.resx">
+      <DependentUpon>DigitoVerificador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>

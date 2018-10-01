@@ -7,12 +7,13 @@ namespace DAL
 {
     public class CopiaSeguridadMapper
     {
-        private static string db = "KineApp";
+        public static string db = "KineApp";
+        public static string Tabla = "CopiaDeSeguridad";
 
         public static List<BE.CopiaDeSeguridad> Listar()
         {
             List<BE.CopiaDeSeguridad> lista = new List<BE.CopiaDeSeguridad>();
-            DataTable tabla = SqlHelper.getInstance().leer("CopiaDeSeguridad_Leer", null);
+            DataTable tabla = SqlHelper.getInstance().leer(Tabla + "_Leer", null);
             foreach (DataRow item in tabla.Rows)
             {
                 BE.CopiaDeSeguridad obj = new BE.CopiaDeSeguridad();
@@ -28,7 +29,7 @@ namespace DAL
             SqlParameter[] parametros = new SqlParameter[2];
             parametros[0] = new SqlParameter("@nombre", copia.Nombre);
             parametros[1] = new SqlParameter("@fecha", copia.Fecha);
-            return SqlHelper.getInstance().escribir("CopiaDeSeguridad_Alta", parametros);
+            return SqlHelper.getInstance().escribir(Tabla + "_Alta", parametros);
         }
 
         public static int Backup(BE.CopiaDeSeguridad copia)
