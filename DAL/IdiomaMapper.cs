@@ -23,7 +23,7 @@ namespace DAL
 
         public static void CargarDetalle(BE.Idioma unIdioma)
         {
-            Dictionary<string, string> lista = new Dictionary<string, string>(); ;
+            Dictionary<string, string> lista = new Dictionary<string, string>();
             SqlParameter[] parametros = new SqlParameter[1];
             parametros[0] = new SqlParameter("@idioma", unIdioma.Nombre);
             DataTable tabla = SqlHelper.getInstance().leer(Tabla2 + "_leer", parametros);
