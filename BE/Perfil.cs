@@ -7,11 +7,16 @@ namespace BE
 {
     public class Perfil : iPermisos
     {
+
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public bool VerificarPermiso()
+
+        public List<iPermisos> Hijos
         {
-            throw new NotImplementedException();
+            get
+            {
+                return null;
+            }
         }
     }
 }

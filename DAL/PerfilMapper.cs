@@ -21,7 +21,8 @@ namespace DAL
                 BE.Perfiles obj = new BE.Perfiles();
                 obj.Id = int.Parse(item["id"].ToString());
                 obj.Nombre = item["nombre"].ToString();
-                obj.Padre = int.Parse(item["padre"].ToString());
+                if (! string.IsNullOrEmpty(item["padre"].ToString()))
+                    obj.Padre = int.Parse(item["padre"].ToString());
                 lista.Add(obj);
             }
             return lista;

@@ -9,6 +9,8 @@ namespace BLL
     public class GestionarSesion
     {
         private BE.Usuario usuario;
+        private List<BE.iPermisos> permisos = new List<BE.iPermisos>();
+
         private static GestionarSesion _instancia = null;
 
         private GestionarSesion() { }
@@ -40,6 +42,8 @@ namespace BLL
                 bitacora.Usuario = this.usuario;
                 bitacora.Accion = "Inicia Sesion";
                 GestionarBitacora.Insertar(bitacora);
+                GestionarRolesPerfiles roles = new GestionarRolesPerfiles();
+                permisos = roles.ListarUsuarioPerfil(this.usuario);
                 return true;
             } else
             {
@@ -49,11 +53,20 @@ namespace BLL
 
         public void cerrarSesion()
         {
+            if (this.usuario != null) //al cambiar de usuario y cerrar es null
+            {
             BE.Bitacora bitacora = new Bitacora();
             bitacora.Usuario = this.usuario;
             bitacora.Accion = "Cierra Sesion";
             GestionarBitacora.Insertar(bitacora);
             this.usuario = null;
+            }
+        }
+
+        public bool VerificarPermisos(string permiso)
+        {
+            bool resultado = permisos.Where(p => p.Hijos.Any(h => h.Nombre.Equals(permiso))).ToList().Count > 0;
+            return resultado;
         }
     }
 }

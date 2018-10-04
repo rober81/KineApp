@@ -10,7 +10,7 @@ namespace BLL
         List<BE.iPermisos> arbol = new List<BE.iPermisos>();
         List<BE.Perfiles> lista = DAL.PerfilMapper.ListarPerfiles();
 
-        public void armarArbol()
+        private void armarArbol()
         {
             foreach (BE.Perfiles item in lista)
             {
@@ -25,16 +25,34 @@ namespace BLL
             }
         }
 
-        private void Buscar(BE.iPermisos punto)
+        private void Buscar(BE.Rol punto)
         {
             foreach (BE.Perfiles item in lista)
             {
                 if (item.Padre == punto.Id)
                 {
-                    //punto.Add(rol);
+                    BE.Perfil perfil = new BE.Perfil();
+                    perfil.Id = item.Id;
+                    perfil.Nombre = item.Nombre;
+                    punto.Add(perfil);
                 }
 
             }
+        }
+
+        public List<BE.iPermisos> ListarUsuarioPerfil(BE.Usuario param)
+        {
+            armarArbol();
+            List<int> lista = DAL.PerfilMapper.ListarUsuarioPerfil(param);
+            List<BE.iPermisos> permisosDelUsuario = new List<BE.iPermisos>();
+            foreach (BE.iPermisos item in arbol)
+            {
+                if (lista.Contains(item.Id))
+                {
+                    permisosDelUsuario.Add(item);
+                }
+            }
+            return permisosDelUsuario;
         }
     }
 }

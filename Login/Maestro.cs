@@ -153,10 +153,16 @@ namespace GUI
                     menu.Text = BLL.GestionarIdioma.getInstance().getTexto(menu.Tag.ToString());
                 foreach (ToolStripMenuItem item in menu.DropDownItems)
                 {
+                    item.Enabled = BLL.GestionarSesion.getInstance().VerificarPermisos(item.Name);
                     if (null != item.Tag)
                         item.Text = BLL.GestionarIdioma.getInstance().getTexto(item.Tag.ToString());
                 }
+                
             }
+            cerrarSesiónToolStripMenuItem.Enabled = true;
+            salirToolStripMenuItem.Enabled = true;
+            españolToolStripMenuItem.Enabled = true;
+            inglesToolStripMenuItem.Enabled = true;
         }
     }
 }

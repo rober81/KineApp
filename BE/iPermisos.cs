@@ -7,8 +7,8 @@ namespace BE
 {
     public interface iPermisos
     {
-        Boolean VerificarPermiso();
         int Id { get; set; }
         string Nombre { get; set; }
+        List<iPermisos> Hijos { get;}
     }
 }

@@ -11,6 +11,14 @@ namespace BE
         public int Id { get; set; }
         public string Nombre { get; set; }
 
+        public List<iPermisos> Hijos
+        {
+            get
+            {
+                return this.hijos;
+            }
+        }
+
         public void Add(iPermisos param)
         {
             hijos.Add(param);
@@ -18,10 +26,6 @@ namespace BE
         public void Remove(iPermisos param)
         {
             hijos.Remove(param);
-        }
-        public bool VerificarPermiso()
-        {
-            throw new NotImplementedException();
         }
     }
 }
