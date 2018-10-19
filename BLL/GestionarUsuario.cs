@@ -12,5 +12,15 @@ namespace BLL
             return DAL.UsuarioMapper.Login(usr);
         }
 
+        public static int Insertar(BE.Usuario usr)
+        {
+            return DAL.UsuarioMapper.Insertar(usr);
+        }
+
+        public static int Modificar(BE.Usuario usr)
+        {
+            return DAL.UsuarioMapper.Modificar(usr);
+        }
+
     }
 }
