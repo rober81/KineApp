@@ -16,5 +16,11 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void Bitacora_Load(object sender, EventArgs e)
+        {
+
+            dataGridView1.DataSource = BLL.GestionarBitacora.Listar();
+        }
     }
 }

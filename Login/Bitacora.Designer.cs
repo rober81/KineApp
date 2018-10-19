@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tabla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,48 +40,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.Usuario,
-            this.Fecha,
-            this.Accion,
-            this.Tabla,
-            this.Dato});
             this.dataGridView1.Location = new System.Drawing.Point(22, 52);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(831, 533);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            // 
-            // Usuario
-            // 
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.Name = "Usuario";
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            // 
-            // Accion
-            // 
-            this.Accion.HeaderText = "Accion";
-            this.Accion.Name = "Accion";
-            // 
-            // Tabla
-            // 
-            this.Tabla.HeaderText = "Tabla";
-            this.Tabla.Name = "Tabla";
-            // 
-            // Dato
-            // 
-            this.Dato.HeaderText = "Dato";
-            this.Dato.Name = "Dato";
             // 
             // label1
             // 
@@ -143,6 +100,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Bitacora";
             this.Text = "Bitacora";
+            this.Load += new System.EventHandler(this.Bitacora_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -152,12 +110,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Accion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tabla;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dato;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;

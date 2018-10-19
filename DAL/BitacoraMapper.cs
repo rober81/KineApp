@@ -34,6 +34,7 @@ namespace DAL
             SqlParameter[] parametros = new SqlParameter[6];
             parametros[0] = new SqlParameter("@usuario", bitacora.Usuario.ToString());
             parametros[1] = new SqlParameter("@fecha", bitacora.Fecha);
+            parametros[1].DbType = DbType.DateTime;
             parametros[2] = new SqlParameter("@tabla", bitacora.Tabla);
             parametros[3] = new SqlParameter("@dato", bitacora.Dato);
             parametros[4] = new SqlParameter("@accion", bitacora.Accion);

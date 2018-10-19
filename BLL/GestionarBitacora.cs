@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    class GestionarBitacora
+    public class GestionarBitacora
     {
         public static List<BE.Bitacora> Listar()
         {
