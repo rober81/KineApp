@@ -29,7 +29,7 @@ namespace GUI
                     form.ShowDialog();
                 } else
                 {
-                    MessageBox.Show(Traducir("errorLogin"));
+                    Mensaje("errorLogin");
                 }
             }
         }
@@ -38,12 +38,12 @@ namespace GUI
         {
             if (String.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show(Traducir("errorCompletarUser"));
+                Mensaje("errorCompletarUser");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(textBox2.Text))
             {
-                MessageBox.Show(Traducir("errorCompletarPass"));
+                Mensaje("errorCompletarPass");
                 return false;
             }
             return true;
@@ -58,7 +58,7 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Traducir("msgEnviarPass"));
+            Mensaje("msgEnviarPass");
             label5.Visible = true;
             textBox3.Visible = true;
             button2.Visible = true;

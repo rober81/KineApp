@@ -34,6 +34,16 @@ namespace GUI
             return BLL.GestionarIdioma.getInstance().getTexto(texto);
         }
 
+        protected void Mensaje (string texto)
+        {
+             MessageBox.Show(Traducir(texto));
+        }
+
+        protected void Mensaje(string texto, string titulo)
+        {
+            MessageBox.Show(Traducir(texto), Traducir(titulo));
+        }
+
         private void IdiomaForm_Load(object sender, EventArgs e)
         {
             actualizar();

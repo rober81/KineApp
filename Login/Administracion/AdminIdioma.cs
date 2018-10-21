@@ -94,12 +94,12 @@ namespace GUI
                     int resultado2 = BLL.GestionarIdioma.getInstance().insertarDetalle(traduccion);
                 }
             if (resultado != 1)
-                MessageBox.Show(Traducir("errorGuardar"));
-            cargar();
-            Limpiar();
+                Mensaje("errorGuardar");
+                cargar();
+                Limpiar();
             } else
             {
-                MessageBox.Show(Traducir("errorFaltaDato"));
+                Mensaje("errorFaltaDato");
             }
         }
 

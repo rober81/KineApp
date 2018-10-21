@@ -7,7 +7,7 @@ namespace BLL
 {
     public class GestionarUsuario
     {
-        public static BE.Usuario Login (BE.Usuario usr)
+        public static BE.Usuario Login(BE.Usuario usr)
         {
             return DAL.UsuarioMapper.Login(usr);
         }
@@ -22,5 +22,9 @@ namespace BLL
             return DAL.UsuarioMapper.Modificar(usr);
         }
 
+        public static List<BE.Usuario> Listar()
+        {
+            return DAL.UsuarioMapper.Listar();
+        }
     }
 }

@@ -18,13 +18,13 @@ namespace GUI
                 {
                     BE.CopiaDeSeguridad copia = (BE.CopiaDeSeguridad)listBox1.SelectedItem;
                     BLL.GestionarCopiaDeSeguridad.Restaurar(copia);
-                    MessageBox.Show(Traducir("msgRestoreOk"));
+                    Mensaje("msgRestoreOk");
                 }
             }
             catch (Exception ex)
             {
                 Util.Log.Error(ex.ToString());
-                MessageBox.Show(Traducir("msgRestoreNo"));
+                Mensaje("msgRestoreNo");
             }
       
 
@@ -41,12 +41,12 @@ namespace GUI
                     copia.Fecha = DateTime.Now;
                     BLL.GestionarCopiaDeSeguridad.Backup(copia);
                     cargar();
-                    MessageBox.Show(Traducir("msgBackOk"));
+                    Mensaje("msgBackOk");
                 }
                 catch (Exception ex)
                 {
                     Util.Log.Error(ex.ToString());
-                    MessageBox.Show(Traducir("msgBackNo"));
+                    Mensaje("msgBackNo");
                 }
             }
         }
