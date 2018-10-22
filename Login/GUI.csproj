@@ -131,6 +131,7 @@
     <Compile Include="Administracion\Historial.Designer.cs">
       <DependentUpon>Historial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Personalizado\Estilo.cs" />
     <Compile Include="Personalizado\IdiomaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,9 +266,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BEFuncional\BEFuncional.csproj">
+      <Project>{43cd6602-4f53-4693-ae0a-619592bffe4d}</Project>
+      <Name>BEFuncional</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{15adda90-15e2-41ab-801a-517d71dc782a}</Project>
       <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLLFuncional\BLLFuncional.csproj">
+      <Project>{45d48fc2-aa99-46a9-95fe-5332a8213272}</Project>
+      <Name>BLLFuncional</Name>
     </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{24d4a73a-afc6-45f0-ad49-655a02734473}</Project>

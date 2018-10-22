@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DAL
+namespace DALFuncional
 {
-    public class TratamientoMapper
+    public class ConsultaMapper
     {
     }
 }

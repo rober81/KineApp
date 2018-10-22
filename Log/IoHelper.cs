@@ -6,22 +6,58 @@ namespace Util
 {
     public class IoHelper
     {
-        static string path = AppDomain.CurrentDomain.BaseDirectory + @"\" + "log.txt";
+        static string raizApp = AppDomain.CurrentDomain.BaseDirectory + @"\";
+        static string logArchivo = raizApp + "log.txt";
+        static string configuracionArchivo = raizApp + "configuracion.json";
 
         public static void Log(String mensaje)
         {
-            File.AppendAllText(path, mensaje);
+            File.AppendAllText(logArchivo, mensaje);
         }
 
-        static string Serializar (Object objeto)
+        public static string Serializar (Object objeto)
         {
             string resultado = JsonConvert.SerializeObject(objeto);
             return resultado;
         }
-        static T DesSerializar<T>(string mensaje)
+        public static T DesSerializar<T>(string mensaje)
         {
             T resultado = JsonConvert.DeserializeObject<T>(mensaje);
             return resultado;
         }
+
+        public static void CrearConfiguracion()
+        {
+            Configuracion config = new Configuracion();
+            config.aplicacionDB = "KineApp";
+            config.bitacoraDB = "KineAppBitacora";
+            config.servidor = "SQLEXPRESS";
+            File.WriteAllText(configuracionArchivo, JsonConvert.SerializeObject(config));
+        }
+
+        public static Configuracion LeerConfiguracion()
+        {
+            Configuracion config = null;
+            
+            try
+            {
+                if (! File.Exists(configuracionArchivo))
+                {
+                    CrearConfiguracion(); //Configuracion por defecto
+                }
+                using (StreamReader file = File.OpenText(configuracionArchivo))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    config = (Configuracion)serializer.Deserialize(file, typeof(Configuracion));
+                }
+            }
+            catch (Exception)
+            {
+                Log("Error al leer Configuracion.json");
+            }
+            return config;
+        }
+
+
     }
 }

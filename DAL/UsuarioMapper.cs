@@ -23,7 +23,6 @@ namespace DAL
                 obj.Nombre = item["nombre"].ToString();
                 obj.Apellido = item["apellido"].ToString();
                 obj.Correo = item["correo"].ToString();
-                obj.Edad = int.Parse(item["edad"].ToString());
                 obj.Dni = int.Parse(item["dni"].ToString());
                 obj.DVH = int.Parse(item["Dvh"].ToString());
             }
@@ -43,7 +42,6 @@ namespace DAL
                 obj.Nombre = item["nombre"].ToString();
                 obj.Apellido = item["apellido"].ToString();
                 obj.Correo = item["correo"].ToString();
-                obj.Edad = int.Parse(item["edad"].ToString());
                 obj.Dni = int.Parse(item["dni"].ToString());
                 obj.DVH = int.Parse(item["Dvh"].ToString());
                 lista.Add(obj);
@@ -53,30 +51,28 @@ namespace DAL
 
         public static int Insertar(BE.Usuario param)
         {
-            SqlParameter[] parametros = new SqlParameter[8];
+            SqlParameter[] parametros = new SqlParameter[7];
             parametros[0] = new SqlParameter("@usuario", param.Login);
             parametros[1] = new SqlParameter("@pass", param.Password);
             parametros[2] = new SqlParameter("@nombre", param.Nombre);
             parametros[3] = new SqlParameter("@apellido", param.Apellido);
             parametros[4] = new SqlParameter("@correo", param.Correo);
-            parametros[5] = new SqlParameter("@edad", param.Edad);
-            parametros[6] = new SqlParameter("@dni", param.Dni);
-            parametros[7] = new SqlParameter("@dvh", param.DVH);
+            parametros[5] = new SqlParameter("@dni", param.Dni);
+            parametros[6] = new SqlParameter("@dvh", param.DVH);
 
             return SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
         }
 
         public static int Modificar(BE.Usuario param)
         {
-            SqlParameter[] parametros = new SqlParameter[8];
+            SqlParameter[] parametros = new SqlParameter[7];
             parametros[0] = new SqlParameter("@usuario", param.Login);
             parametros[1] = new SqlParameter("@pass", param.Password);
             parametros[2] = new SqlParameter("@nombre", param.Nombre);
             parametros[3] = new SqlParameter("@apellido", param.Apellido);
             parametros[4] = new SqlParameter("@correo", param.Correo);
-            parametros[5] = new SqlParameter("@edad", param.Edad);
-            parametros[6] = new SqlParameter("@dni", param.Dni);
-            parametros[7] = new SqlParameter("@dvh", param.DVH);
+            parametros[5] = new SqlParameter("@dni", param.Dni);
+            parametros[6] = new SqlParameter("@dvh", param.DVH);
 
             return SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
         }

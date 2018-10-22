@@ -76,8 +76,9 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                Util.Log.Error(ex.ToString());
-                throw;
+                Util.Log.Error("Login: " + ex.ToString());
+                MessageBox.Show("Error al Conectar a la DB");
+                Application.Exit();
             }
         }
 

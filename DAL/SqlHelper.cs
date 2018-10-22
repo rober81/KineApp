@@ -5,29 +5,36 @@ using Util;
 
 namespace DAL
 {
-    class SqlHelper
+    public class SqlHelper
     {
         protected SqlConnection _conexion;
         private static SqlHelper _instancia = null;
         private static SqlHelper _instanciaBitacora = null;
+        private static Configuracion _config = null;
 
         public static SqlHelper getInstance()
         {
             if (_instancia == null)
-                _instancia = new SqlHelper("KineApp");
+            {
+                _config = IoHelper.LeerConfiguracion();
+                _instancia = new SqlHelper(_config.aplicacionDB);
+            }
             return _instancia;
         }
 
         public static SqlHelper getInstanceBitacora()
         {
             if (_instanciaBitacora == null)
-                _instanciaBitacora = new SqlHelper("KineAppBitacora");
+            {
+             _config = IoHelper.LeerConfiguracion();
+             _instanciaBitacora = new SqlHelper(_config.bitacoraDB);
+            }
             return _instanciaBitacora;
         }
 
         private SqlHelper(string db)
         {
-            _conexion = new SqlConnection("INITIAL CATALOG = " + db + "; DATA SOURCE =.\\SQLEXPRESS; INTEGRATED SECURITY = SSPI");
+            _conexion = new SqlConnection("INITIAL CATALOG = " + db + "; DATA SOURCE =.\\" + _config.servidor + "; INTEGRATED SECURITY = SSPI");
         }
 
         public void abrir()
@@ -40,6 +47,7 @@ namespace DAL
             catch (SqlException e)
             {
                 Log.Error("Error al abrir " + e.ToString());
+                throw;
             }
         }
 
@@ -52,6 +60,7 @@ namespace DAL
             catch (SqlException e)
             {
                 Log.Error("Error al cerrar " + e.ToString());
+                throw;
             }
         }
 
