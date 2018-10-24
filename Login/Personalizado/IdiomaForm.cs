@@ -22,10 +22,17 @@ namespace GUI
         {
             if (null != this.Tag && ! string.IsNullOrWhiteSpace(this.Tag.ToString()))
                 this.Text = Traducir(this.Tag.ToString());
-            foreach (Control item in this.Controls)
+            actualizarControles(this.Controls);
+        }
+
+        private void actualizarControles(Control.ControlCollection controles)
+        {
+            foreach (Control item in controles)
             {
                 if (null != item.Tag && !(item is TextBox))
                     item.Text = Traducir(item.Tag.ToString());
+                if (item is GroupBox)
+                    actualizarControles(item.Controls);
             }
         }
 
@@ -49,7 +56,7 @@ namespace GUI
             actualizar();
         }
 
-        protected Boolean validarTextbox()
+        protected virtual Boolean validarTextbox()
         {
             foreach (Control tb in this.Controls)
             {

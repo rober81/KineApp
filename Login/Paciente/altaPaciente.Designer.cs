@@ -43,18 +43,20 @@
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(72, 48);
+            this.lblDni.Location = new System.Drawing.Point(54, 39);
+            this.lblDni.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(31, 17);
+            this.lblDni.Size = new System.Drawing.Size(26, 13);
             this.lblDni.TabIndex = 8;
             this.lblDni.Tag = "lblDni";
             this.lblDni.Text = "DNI";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(280, 331);
+            this.btnCancelar.Location = new System.Drawing.Point(220, 269);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(90, 40);
+            this.btnCancelar.Size = new System.Drawing.Size(68, 32);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Tag = "btnCancelar";
             this.btnCancelar.Text = "Cancelar";
@@ -63,9 +65,10 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(389, 331);
+            this.btnAceptar.Location = new System.Drawing.Point(292, 269);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(90, 40);
+            this.btnAceptar.Size = new System.Drawing.Size(68, 32);
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Tag = "btnAceptar";
             this.btnAceptar.Text = "Aceptar";
@@ -74,34 +77,38 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(150, 119);
+            this.textBox3.Location = new System.Drawing.Point(112, 97);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(328, 22);
+            this.textBox3.Size = new System.Drawing.Size(247, 20);
             this.textBox3.TabIndex = 5;
             this.textBox3.Tag = "lblApellido";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(150, 83);
+            this.textBox2.Location = new System.Drawing.Point(112, 67);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(328, 22);
+            this.textBox2.Size = new System.Drawing.Size(247, 20);
             this.textBox2.TabIndex = 4;
             this.textBox2.Tag = "lblNombre";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 48);
+            this.textBox1.Location = new System.Drawing.Point(112, 39);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(328, 22);
+            this.textBox1.Size = new System.Drawing.Size(247, 20);
             this.textBox1.TabIndex = 3;
             this.textBox1.Tag = "lblDni";
             // 
             // lblEdad
             // 
             this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(72, 162);
+            this.lblEdad.Location = new System.Drawing.Point(54, 132);
+            this.lblEdad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEdad.Name = "lblEdad";
-            this.lblEdad.Size = new System.Drawing.Size(141, 17);
+            this.lblEdad.Size = new System.Drawing.Size(108, 13);
             this.lblEdad.TabIndex = 2;
             this.lblEdad.Tag = "lblEdad";
             this.lblEdad.Text = "Fecha de Nacimiento";
@@ -109,9 +116,10 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(72, 124);
+            this.lblApellido.Location = new System.Drawing.Point(54, 101);
+            this.lblApellido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(58, 17);
+            this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 1;
             this.lblApellido.Tag = "lblApellido";
             this.lblApellido.Text = "Apellido";
@@ -119,9 +127,10 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(72, 86);
+            this.lblNombre.Location = new System.Drawing.Point(54, 70);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(58, 17);
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 0;
             this.lblNombre.Tag = "lblNombre";
             this.lblNombre.Text = "Nombre";
@@ -129,17 +138,18 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(280, 156);
+            this.dateTimePicker1.Location = new System.Drawing.Point(166, 127);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(198, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(194, 20);
             this.dateTimePicker1.TabIndex = 10;
             // 
             // AltaPaciente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 418);
+            this.ClientSize = new System.Drawing.Size(438, 340);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lblDni);
             this.Controls.Add(this.btnCancelar);

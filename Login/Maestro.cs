@@ -92,6 +92,8 @@ namespace GUI
         {
             mdi.MdiParent = this;
             mdi.StartPosition = FormStartPosition.CenterScreen;
+            mdi.MaximizeBox = false;
+            mdi.FormBorderStyle = FormBorderStyle.FixedDialog;
             mdi.Show();
             BE.iCambiarIdioma formulario = mdi as BE.iCambiarIdioma;
             if (formulario != null)

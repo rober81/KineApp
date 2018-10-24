@@ -78,11 +78,12 @@ namespace DAL
                     adapter.SelectCommand.Parameters.AddRange(parametros);
                 }
                 adapter.Fill(tabla);
-                cerrar();
             }
             catch (System.Exception e)
             {
                 Log.Error("Error al Leer " + e.ToString());
+            } finally{
+                cerrar();
             }
             return tabla;
         }
@@ -105,6 +106,8 @@ namespace DAL
             catch (System.Exception e)
             {
                 Log.Error("Error al Escribir " + e.ToString());
+            } finally{
+                cerrar();
             }
             return filas;
         }

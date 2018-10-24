@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using Util;
 
 namespace DAL
 {
@@ -34,24 +35,42 @@ namespace DAL
 
         public static int Backup(BE.CopiaDeSeguridad copia)
         {
-            string back = String.Format("USE [master] BACKUP DATABASE [{0}] TO DISK='{1}'", db, copia.Nombre);
-            SqlHelper.getInstance().abrir();
-            int r = SqlHelper.getInstance().ejecutarSQL(back, null);
-            SqlHelper.getInstance().cerrar();
+            int r = 0;
+            try
+            {
+                string back = String.Format("USE [master] BACKUP DATABASE [{0}] TO DISK='{1}'", db, copia.Nombre);
+                SqlHelper.getInstance().abrir();
+                r = SqlHelper.getInstance().ejecutarSQL(back, null);
+                SqlHelper.getInstance().cerrar();
+            }
+            catch (Exception e)
+            {
+                Log.Error("Error al hacer Backup " + e.ToString());
+                throw;
+            }
             return r;
         }
 
         public static int Restaurar(BE.CopiaDeSeguridad copia)
         {
-            SqlHelper.getInstance().abrir();
-            string antes = String.Format("ALTER DATABASE [{0}] SET Single_User WITH Rollback Immediate;", db);
-            int r1 = SqlHelper.getInstance().ejecutarSQL(antes, null);
-            string restore = String.Format("USE [master] RESTORE DATABASE [{0}] FROM DISK='{1}' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 10", db, copia.Nombre);
-            int r2 = SqlHelper.getInstance().ejecutarSQL(restore, null);
-            string despues = String.Format("ALTER DATABASE [{0}] SET Multi_User;", db);
-            int r3 = SqlHelper.getInstance().ejecutarSQL(despues, null);
-            SqlHelper.getInstance().cerrar();
-            return r1 + r2 + r3;
+            int r1, r2, r3;
+            try
+            {
+                SqlHelper.getInstance().abrir();
+                string antes = String.Format("ALTER DATABASE [{0}] SET Single_User WITH Rollback Immediate;", db);
+                r1 = SqlHelper.getInstance().ejecutarSQL(antes, null);
+                string restore = String.Format("USE [master] RESTORE DATABASE [{0}] FROM DISK='{1}' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 10", db, copia.Nombre);
+                r2 = SqlHelper.getInstance().ejecutarSQL(restore, null);
+                string despues = String.Format("ALTER DATABASE [{0}] SET Multi_User;", db);
+                r3 = SqlHelper.getInstance().ejecutarSQL(despues, null);
+                SqlHelper.getInstance().cerrar();
+            }
+            catch (Exception e)
+            {
+                Log.Error("Error al Restaurar " + e.ToString());
+                throw;
+            }
+                return r1 + r2 + r3;
         }
     }
 }

@@ -38,7 +38,9 @@ namespace GUI
                     pa.Nombre = textBox2.Text;
                     pa.Apellido = textBox3.Text;
                     pa.FechaNacimiento = dateTimePicker1.Value;
-                    GestionarPaciente.Insertar(pa);
+                    int respuesta = GestionarPaciente.Insertar(pa);
+                    if (respuesta == 0)
+                        Mensaje("msgErrorAltaPaciente", "msgError");
                 }
             }
             catch (Exception)

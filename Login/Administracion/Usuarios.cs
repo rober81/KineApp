@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.Personalizado;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,21 +11,33 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Usuarios : Form
+    public partial class Usuarios : IdiomaForm
     {
         public Usuarios()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Usuarios_Load(object sender, EventArgs e)
         {
-            this.Close();
+            Estilo.Guardar(btnAceptar);
+            Estilo.Cancelar(btnCancelar);
+            Estilo.Nuevo(btnNuevo);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
