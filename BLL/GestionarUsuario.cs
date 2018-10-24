@@ -14,11 +14,13 @@ namespace BLL
 
         public static int Insertar(BE.Usuario usr)
         {
+            usr.Password = GestionarEncriptacion.Encriptar(usr.Password);
             return DAL.UsuarioMapper.Insertar(usr);
         }
 
         public static int Modificar(BE.Usuario usr)
         {
+            usr.Password = GestionarEncriptacion.Encriptar(usr.Password);
             return DAL.UsuarioMapper.Modificar(usr);
         }
 

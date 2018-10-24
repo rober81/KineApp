@@ -58,7 +58,7 @@ namespace DAL
             parametros[3] = new SqlParameter("@apellido", param.Apellido);
             parametros[4] = new SqlParameter("@correo", param.Correo);
             parametros[5] = new SqlParameter("@dni", param.Dni);
-            parametros[6] = new SqlParameter("@dvh", param.DVH);
+            parametros[6] = new SqlParameter("@dvh", Util.DigitoVerificador.CalcularDV(param.getDVH()));
 
             return SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
         }
@@ -72,7 +72,7 @@ namespace DAL
             parametros[3] = new SqlParameter("@apellido", param.Apellido);
             parametros[4] = new SqlParameter("@correo", param.Correo);
             parametros[5] = new SqlParameter("@dni", param.Dni);
-            parametros[6] = new SqlParameter("@dvh", param.DVH);
+            parametros[6] = new SqlParameter("@dvh", Util.DigitoVerificador.CalcularDV(param.getDVH()));
 
             return SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
         }

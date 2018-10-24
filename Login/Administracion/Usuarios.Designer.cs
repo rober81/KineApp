@@ -34,10 +34,8 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -74,14 +72,15 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(230, 355);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.textBox4);
             this.groupBox3.Controls.Add(this.btnNuevo);
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox8);
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label7);
@@ -111,7 +110,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 90);
+            this.textBox3.Location = new System.Drawing.Point(120, 86);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.PasswordChar = '*';
@@ -120,37 +119,25 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.textBox8);
             this.groupBox1.Location = new System.Drawing.Point(12, 160);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(371, 158);
+            this.groupBox1.Size = new System.Drawing.Size(371, 130);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Tag = "lblPersona";
+            this.groupBox1.Tag = "lblPersonales";
             this.groupBox1.Text = "Persona";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(138, 118);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(217, 20);
-            this.dateTimePicker1.TabIndex = 28;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(108, 28);
+            this.textBox4.Location = new System.Drawing.Point(120, 116);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(247, 20);
@@ -166,17 +153,6 @@
             this.label4.TabIndex = 26;
             this.label4.Tag = "lblDni";
             this.label4.Text = "DNI";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 124);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 13);
-            this.label3.TabIndex = 22;
-            this.label3.Tag = "lblEdad";
-            this.label3.Text = "Fecha de Nacimiento";
             // 
             // label2
             // 
@@ -202,7 +178,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(108, 59);
+            this.textBox5.Location = new System.Drawing.Point(108, 28);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(247, 20);
@@ -210,7 +186,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(108, 90);
+            this.textBox6.Location = new System.Drawing.Point(108, 59);
             this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(247, 20);
@@ -227,7 +203,7 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(120, 121);
+            this.textBox8.Location = new System.Drawing.Point(108, 86);
             this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(247, 20);
@@ -336,10 +312,8 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox5;

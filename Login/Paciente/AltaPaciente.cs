@@ -41,6 +41,8 @@ namespace GUI
                     int respuesta = GestionarPaciente.Insertar(pa);
                     if (respuesta == 0)
                         Mensaje("msgErrorAltaPaciente", "msgError");
+                    else
+                        Mensaje("msgOperacionOk");
                 }
             }
             catch (Exception)
