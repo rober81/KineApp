@@ -39,9 +39,9 @@ namespace GUI
                 if (this.ValidarTextbox())
                 {
                     Paciente pa = new Paciente();
-                    pa.Dni = int.Parse(txtDni.Text);
-                    pa.Nombre = txtNombre.Text;
-                    pa.Apellido = txtApellido.Text;
+                    pa.Dni = int.Parse(txtDni.Text.Trim());
+                    pa.Nombre = txtNombre.Text.Trim();
+                    pa.Apellido = txtApellido.Text.Trim();
                     pa.FechaNacimiento = dtFecha.Value;
                     int respuesta = GestionarPaciente.Modificar(pa);
                     if (respuesta == 0)
