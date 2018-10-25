@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 
 namespace DAL
 {
@@ -26,22 +23,23 @@ namespace DAL
             return lista;
         }
 
-        public static int Insertar(BE.DigitoVerificador param)
+        private static SqlParameter[] crearParametros(BE.DigitoVerificador param)
         {
             SqlParameter[] parametros = new SqlParameter[3];
             parametros[0] = new SqlParameter("@tabla", param.Tabla);
             parametros[1] = new SqlParameter("@dvv", param.DVV);
-            parametros[2] = new SqlParameter("@dvh", param.DVH);
-            return SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
+            parametros[2] = new SqlParameter("@dvh", Util.DigitoVerificador.CalcularDV(param.getDVH()));
+            return parametros;
+        }
+
+        public static int Insertar(BE.DigitoVerificador param)
+        {
+            return SqlHelper.getInstance().escribir(Tabla + "_alta", crearParametros(param));
         }
 
         public static int Modificar(BE.DigitoVerificador param)
         {
-            SqlParameter[] parametros = new SqlParameter[3];
-            parametros[0] = new SqlParameter("@tabla", param.Tabla);
-            parametros[1] = new SqlParameter("@dvv", param.DVV);
-            parametros[2] = new SqlParameter("@dvh", param.DVH);
-            return SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
+            return SqlHelper.getInstance().escribir(Tabla + "_modificar", crearParametros(param));
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using System.Collections.Generic;
-using System;
+using BE;
 
 namespace DAL
 {
@@ -9,15 +9,15 @@ namespace DAL
     {
         public static string Tabla = "Usuario";
 
-        public static BE.Usuario Login(BE.Usuario unUsuario)
+        public static Usuario Login(Usuario unUsuario)
         {
-            BE.Usuario obj = null;
+            Usuario obj = null;
             SqlParameter[] parametros = new SqlParameter[2];
             parametros[0] = new SqlParameter("@usuario", unUsuario.Login);
             parametros[1] = new SqlParameter("@pass", unUsuario.Password);
             DataTable tabla = SqlHelper.getInstance().leer(Tabla + "_login", parametros);
             foreach (DataRow item in tabla.Rows) {
-                obj = new BE.Usuario();
+                obj = new Usuario();
                 obj.Login = item["usuario"].ToString();
                 obj.Password = item["password"].ToString();
                 obj.Nombre = item["nombre"].ToString();
@@ -29,14 +29,14 @@ namespace DAL
             return obj;
         }
 
-        public static List<BE.Usuario> Listar()
+        public static List<Usuario> Listar()
         {
-            BE.Usuario obj = null;
-            List<BE.Usuario> lista = new List<BE.Usuario>();
+            Usuario obj = null;
+            List<Usuario> lista = new List<Usuario>();
             DataTable tabla = SqlHelper.getInstance().leer(Tabla + "_leer", null);
             foreach (DataRow item in tabla.Rows)
             {
-                obj = new BE.Usuario();
+                obj = new Usuario();
                 obj.Login = item["usuario"].ToString();
                 obj.Password = item["password"].ToString();
                 obj.Nombre = item["nombre"].ToString();
@@ -49,7 +49,7 @@ namespace DAL
             return lista;
         }
 
-        public static int Insertar(BE.Usuario param)
+        private static SqlParameter[] crearParametros(Usuario param)
         {
             SqlParameter[] parametros = new SqlParameter[7];
             parametros[0] = new SqlParameter("@usuario", param.Login);
@@ -59,28 +59,23 @@ namespace DAL
             parametros[4] = new SqlParameter("@correo", param.Correo);
             parametros[5] = new SqlParameter("@dni", param.Dni);
             parametros[6] = new SqlParameter("@dvh", Util.DigitoVerificador.CalcularDV(param.getDVH()));
-
-            return SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
+            return parametros;
         }
 
-        public static int Modificar(BE.Usuario param)
+        public static int Insertar(Usuario param)
         {
-            SqlParameter[] parametros = new SqlParameter[7];
-            parametros[0] = new SqlParameter("@usuario", param.Login);
-            parametros[1] = new SqlParameter("@pass", param.Password);
-            parametros[2] = new SqlParameter("@nombre", param.Nombre);
-            parametros[3] = new SqlParameter("@apellido", param.Apellido);
-            parametros[4] = new SqlParameter("@correo", param.Correo);
-            parametros[5] = new SqlParameter("@dni", param.Dni);
-            parametros[6] = new SqlParameter("@dvh", Util.DigitoVerificador.CalcularDV(param.getDVH()));
+            return SqlHelper.getInstance().escribir(Tabla + "_alta", crearParametros(param));
+        }
 
-            return SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
+        public static int Modificar(Usuario param)
+        {
+            return SqlHelper.getInstance().escribir(Tabla + "_modificar", crearParametros(param));
         }
 
         public static int CalcularDVH()
         {
             int cantidad = 0;
-            foreach (BE.Usuario item in Listar())
+            foreach (Usuario item in Listar())
             {
                 item.DVH = Util.DigitoVerificador.CalcularDV(item.getDVH());
                 Modificar(item);
@@ -92,7 +87,7 @@ namespace DAL
         public static int CalcularDVV()
         {
             string cadena = string.Empty;
-            foreach (BE.Usuario item in Listar())
+            foreach (Usuario item in Listar())
             {
                 cadena += item.DVH;
             }

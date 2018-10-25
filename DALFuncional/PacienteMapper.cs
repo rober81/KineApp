@@ -44,28 +44,25 @@ namespace DALFuncional
             }
         }
 
-        public static int Insertar(Paciente param)
+        private static SqlParameter[] crearParametros(Paciente param)
         {
             SqlParameter[] parametros = new SqlParameter[5];
             parametros[0] = new SqlParameter("@dni", param.Dni);
             parametros[1] = new SqlParameter("@nombre", param.Nombre);
             parametros[2] = new SqlParameter("@apellido", param.Apellido);
-            parametros[3] = new SqlParameter("@fechaNacimiento", param.FechaNacimiento);
-            parametros[4] = new SqlParameter("@dvh", param.DVH);
+            parametros[3] = new SqlParameter("@fecha", param.FechaNacimiento);
+            parametros[4] = new SqlParameter("@dvh", Util.DigitoVerificador.CalcularDV(param.getDVH()));
+            return parametros;
+        }
 
-            return SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
+        public static int Insertar(Paciente param)
+        {
+             return SqlHelper.getInstance().escribir(Tabla + "_alta", crearParametros(param));
         }
 
         public static int Modificar(Paciente param)
         {
-            SqlParameter[] parametros = new SqlParameter[5];
-            parametros[0] = new SqlParameter("@dni", param.Dni);
-            parametros[1] = new SqlParameter("@nombre", param.Nombre);
-            parametros[2] = new SqlParameter("@apellido", param.Apellido);
-            parametros[3] = new SqlParameter("@fechaNacimiento", param.FechaNacimiento);
-            parametros[4] = new SqlParameter("@dvh", param.DVH);
-
-            return SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
+             return SqlHelper.getInstance().escribir(Tabla + "_modificar", crearParametros(param));
         }
     }
 }

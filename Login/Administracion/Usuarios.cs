@@ -36,14 +36,15 @@ namespace GUI
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            textBox1.Text = string.Empty;
-            textBox1.Enabled = true;
-            textBox2.Text = string.Empty;
-            textBox3.Text = string.Empty;
-            textBox4.Text = string.Empty;
-            textBox5.Text = string.Empty;
-            textBox6.Text = string.Empty;
-            textBox8.Text = string.Empty;
+            txtUsuario.Text = string.Empty;
+            txtUsuario.Enabled = true;
+            txtPass.Text = string.Empty;
+            txtPass2.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
+            txtDni.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            listBox1.SelectedItem = null;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -56,21 +57,21 @@ namespace GUI
             int respuesta;
             try
             {
-                if (this.validarTextbox())
+                if (this.ValidarTextbox())
                 {
-                    if (!textBox2.Text.Equals(textBox3.Text))
+                    if (!txtPass.Text.Equals(txtPass2.Text))
                     {
                         Mensaje("msgErrorPassNoIguales", "msgError");
                         return;
                     }
                     Usuario usr = new Usuario();
-                    usr.Login = textBox1.Text;
-                    usr.Password = textBox2.Text;
-                    usr.Nombre = textBox6.Text;
-                    usr.Apellido = textBox8.Text;
-                    usr.Correo = textBox4.Text;
-                    usr.Dni = int.Parse(textBox5.Text);
-                    if (textBox1.Enabled)
+                    usr.Login = txtUsuario.Text.Trim();
+                    usr.Password = txtPass.Text.Trim();
+                    usr.Nombre = txtNombre.Text.Trim();
+                    usr.Apellido = txtApellido.Text.Trim();
+                    usr.Correo = txtCorreo.Text.Trim();
+                    usr.Dni = int.Parse(txtDni.Text.Trim());
+                    if (txtUsuario.Enabled)
                         respuesta = GestionarUsuario.Insertar(usr);
                     else
                         respuesta = GestionarUsuario.Modificar(usr);
@@ -78,13 +79,29 @@ namespace GUI
                         Mensaje("msgErrorAlta", "msgError");
                     else
                         Mensaje("msgOperacionOk");
+                    ActualizarLista();
+                    btnNuevo_Click(null, null);
                 }
             }
             catch (Exception)
             {
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }
-            ActualizarLista();
+        }
+
+        protected override Boolean ValidarTextbox()
+        {
+            if (txtUsuario.Text.Length < 6)
+            {
+                Mensaje("msgLargoUsr", "msgFaltaCompletarTitulo");
+                return false;
+            }
+            if (txtPass.Text.Length < 6)
+            {
+                Mensaje("msgLargoPass", "msgFaltaCompletarTitulo");
+                return false;
+            }
+            return base.ValidarTextbox();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,14 +109,14 @@ namespace GUI
             Usuario usr = (Usuario)listBox1.SelectedItem;
             if (usr != null)
             {
-                textBox1.Text = usr.Login;
-                textBox2.Text = usr.Password;
-                textBox3.Text = usr.Password;
-                textBox1.Enabled = false;
-                textBox4.Text = usr.Correo;
-                textBox5.Text = usr.Dni.ToString();
-                textBox6.Text = usr.Nombre;
-                textBox8.Text = usr.Apellido;
+                txtUsuario.Text = usr.Login;
+                txtPass.Text = usr.Password;
+                txtPass2.Text = usr.Password;
+                txtUsuario.Enabled = false;
+                txtCorreo.Text = usr.Correo;
+                txtDni.Text = usr.Dni.ToString();
+                txtNombre.Text = usr.Nombre;
+                txtApellido.Text = usr.Apellido;
             } else
             {
                 btnNuevo_Click(null,null);

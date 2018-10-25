@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BE;
 
 namespace GUI
 {
@@ -31,7 +23,7 @@ namespace GUI
             {
                 if (null != item.Tag && !(item is TextBox))
                     item.Text = Traducir(item.Tag.ToString());
-                if (item is GroupBox)
+                if (item.Controls.Count > 0)
                     actualizarControles(item.Controls);
             }
         }
@@ -56,16 +48,23 @@ namespace GUI
             actualizar();
         }
 
-        protected virtual Boolean validarTextbox()
+        protected virtual Boolean ValidarTextbox()
         {
-            foreach (Control tb in this.Controls)
+            return ValidarTextbox(this.Controls);
+        }
+
+        private Boolean ValidarTextbox(Control.ControlCollection controles)
+        {
+            foreach (Control item in controles)
             {
-                if (tb is TextBox && tb.CausesValidation && string.IsNullOrWhiteSpace(tb.Text))
+                if (item is TextBox && item.CausesValidation && string.IsNullOrWhiteSpace(item.Text))
                 {
-                    if (null != tb.Tag)
-                        MessageBox.Show(Traducir("msgFaltaCompletar") + " " + Traducir(tb.Tag.ToString()), Traducir("msgFaltaCompletarTitulo"));
+                    if (null != item.Tag)
+                        MessageBox.Show(Traducir("msgFaltaCompletar") + " " + Traducir(item.Tag.ToString()), Traducir("msgFaltaCompletarTitulo"));
                     return false;
                 }
+                if (item.Controls.Count > 0)
+                    return ValidarTextbox(item.Controls);
             }
             return true;
         }

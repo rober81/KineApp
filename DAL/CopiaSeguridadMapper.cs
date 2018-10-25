@@ -8,7 +8,7 @@ namespace DAL
 {
     public class CopiaSeguridadMapper
     {
-        public static string db = "KineApp";
+        public static string db = Configuracion.getInstance().aplicacionDB;
         public static string Tabla = "CopiaDeSeguridad";
 
         public static List<BE.CopiaDeSeguridad> Listar()

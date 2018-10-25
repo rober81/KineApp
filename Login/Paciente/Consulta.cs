@@ -9,9 +9,10 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Consulta : Form
+    public partial class Consulta : IdiomaForm
     {
-        private List<Paciente> listaPaciente; 
+        private List<Paciente> listaPaciente;
+        private GestionarPaciente gp;
 
         public Consulta()
         {
@@ -22,7 +23,8 @@ namespace GUI
         {
             Estilo.Guardar(btnNuevaConsulta);
             Estilo.Buscar(btnBuscar);
-            listaPaciente = GestionarPaciente.Listar();
+            gp = new GestionarPaciente();
+            listaPaciente = gp.Listar();
             ActualizarLista(listaPaciente);
         }
 
@@ -36,13 +38,7 @@ namespace GUI
         {
             if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
-                string busqueda = txtBuscar.Text;
-                IEnumerable<Paciente> filtro = from item in listaPaciente
-                                               where item.Nombre.Contains(busqueda) ||
-                                               item.Apellido.Contains(busqueda) ||
-                                               item.Dni.ToString().Contains(busqueda)
-                                               select item;
-                ActualizarLista(filtro.ToList<Paciente>());
+                ActualizarLista(gp.Listar(txtBuscar.Text));
             }
         }
 

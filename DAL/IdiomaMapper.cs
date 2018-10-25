@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -40,7 +39,6 @@ namespace DAL
             parametros[0] = new SqlParameter("@idioma", detalle.Idioma);
             parametros[1] = new SqlParameter("@clave", detalle.Clave);
             parametros[2] = new SqlParameter("@texto", detalle.Texto);
-
             return SqlHelper.getInstance().escribir(Tabla2 + "_alta", parametros);
         }
     }

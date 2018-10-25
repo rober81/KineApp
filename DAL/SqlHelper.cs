@@ -7,41 +7,38 @@ namespace DAL
 {
     public class SqlHelper
     {
-        protected SqlConnection _conexion;
-        private static SqlHelper _instancia = null;
-        private static SqlHelper _instanciaBitacora = null;
-        private static Configuracion _config = null;
+        protected SqlConnection conexion;
+        private static SqlHelper instancia = null;
+        private static SqlHelper instanciaBitacora = null;
 
         public static SqlHelper getInstance()
         {
-            if (_instancia == null)
+            if (instancia == null)
             {
-                _config = IoHelper.LeerConfiguracion();
-                _instancia = new SqlHelper(_config.aplicacionDB);
+                instancia = new SqlHelper(Configuracion.getInstance().aplicacionDB);
             }
-            return _instancia;
+            return instancia;
         }
 
         public static SqlHelper getInstanceBitacora()
         {
-            if (_instanciaBitacora == null)
+            if (instanciaBitacora == null)
             {
-             _config = IoHelper.LeerConfiguracion();
-             _instanciaBitacora = new SqlHelper(_config.bitacoraDB);
+             instanciaBitacora = new SqlHelper(Configuracion.getInstance().bitacoraDB);
             }
-            return _instanciaBitacora;
+            return instanciaBitacora;
         }
 
         private SqlHelper(string db)
         {
-            _conexion = new SqlConnection("INITIAL CATALOG = " + db + "; DATA SOURCE =.\\" + _config.servidor + "; INTEGRATED SECURITY = SSPI");
+            conexion = new SqlConnection("INITIAL CATALOG = " + db + "; DATA SOURCE =.\\" + Configuracion.getInstance().servidor + "; INTEGRATED SECURITY = SSPI");
         }
 
         public void abrir()
         {
             try
             {
-                _conexion.Open();
+                conexion.Open();
 
             }
             catch (SqlException e)
@@ -55,7 +52,7 @@ namespace DAL
         {
             try
             {
-                _conexion.Close();
+                conexion.Close();
             }
             catch (SqlException e)
             {
@@ -71,7 +68,7 @@ namespace DAL
             {
                 abrir();
                 SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = new SqlCommand(nombre, _conexion);
+                adapter.SelectCommand = new SqlCommand(nombre, conexion);
                 adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 if (parametros != null)
                 {
@@ -94,7 +91,7 @@ namespace DAL
             try
             {
                 abrir();
-                SqlCommand cmd = new SqlCommand(nombre, _conexion);
+                SqlCommand cmd = new SqlCommand(nombre, conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 if (parametros != null)
                 {
@@ -117,7 +114,7 @@ namespace DAL
             int filas = 0;
             try
             {
-                SqlCommand cmd = new SqlCommand(nombre, _conexion);
+                SqlCommand cmd = new SqlCommand(nombre, conexion);
                 cmd.CommandType = CommandType.Text;
                 if (parametros != null)
                 {

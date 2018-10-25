@@ -2,14 +2,6 @@
 using BLLFuncional;
 using GUI.Personalizado;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GUI
 {
@@ -31,18 +23,23 @@ namespace GUI
         {
             try
             {
-                if (this.validarTextbox())
+                if (this.ValidarTextbox())
                 {
                     Paciente pa = new Paciente();
-                    pa.Dni = int.Parse(textBox1.Text);
-                    pa.Nombre = textBox2.Text;
-                    pa.Apellido = textBox3.Text;
+                    pa.Dni = int.Parse(txtDni.Text.Trim());
+                    pa.Nombre = txtNombre.Text.Trim();
+                    pa.Apellido = txtApellido.Text.Trim();
                     pa.FechaNacimiento = dateTimePicker1.Value;
                     int respuesta = GestionarPaciente.Insertar(pa);
                     if (respuesta == 0)
                         Mensaje("msgErrorAltaPaciente", "msgError");
                     else
+                    {
                         Mensaje("msgOperacionOk");
+                        txtDni.Text = string.Empty;
+                        txtNombre.Text = string.Empty;
+                        txtApellido.Text = string.Empty;
+                    }
                 }
             }
             catch (Exception)
@@ -54,6 +51,7 @@ namespace GUI
         private void AltaPaciente_Load(object sender, EventArgs e)
         {
             dateTimePicker1.MaxDate = DateTime.Now;
+            this.AcceptButton = this.btnAceptar;
         }
     }
 }

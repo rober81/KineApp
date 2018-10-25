@@ -1,20 +1,36 @@
 ﻿using BEFuncional;
 using DALFuncional;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BLLFuncional
 {
     public class GestionarPaciente
     {
-        public static List<Paciente> Listar()
+        List<Paciente> lista;
+
+        public GestionarPaciente()
+        {
+            lista = PacienteMapper.Listar(); ;
+        }
+
+        public List<Paciente> Listar(string busqueda)
+        {
+            string bus = busqueda.Trim().ToLower();
+            IEnumerable<Paciente> filtro = from item in lista
+                                           where item.Nombre.ToLower().Contains(bus) ||
+                                           item.Apellido.ToLower().Contains(bus) ||
+                                           item.Dni.ToString().Contains(bus)
+                                           select item;
+            return filtro.ToList<Paciente>();
+        }
+
+        public List<Paciente> Listar()
         {
             return PacienteMapper.Listar();
         }
-
+        
         public static void Buscar(Paciente param)
         {
             PacienteMapper.Buscar(param);

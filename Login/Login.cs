@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -23,7 +16,7 @@ namespace GUI
             if (validar())
             {
                 BLL.GestionarSesion sesion = BLL.GestionarSesion.getInstance();
-                if (sesion.iniciarSesion(textBox1.Text, textBox2.Text)){
+                if (sesion.iniciarSesion(txtUsuario.Text, txtPass.Text)){
                     this.Hide();
                     Maestro form = new Maestro();
                     form.ShowDialog();
@@ -36,12 +29,12 @@ namespace GUI
 
         private Boolean validar()
         {
-            if (String.IsNullOrWhiteSpace(textBox1.Text))
+            if (String.IsNullOrWhiteSpace(txtUsuario.Text))
             {
                 Mensaje("errorCompletarUser");
                 return false;
             }
-            if (String.IsNullOrWhiteSpace(textBox2.Text))
+            if (String.IsNullOrWhiteSpace(txtPass.Text))
             {
                 Mensaje("errorCompletarPass");
                 return false;
@@ -51,28 +44,35 @@ namespace GUI
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            label5.Visible = true;
-            textBox3.Visible = true;
-            button2.Visible = true;
+            Boolean visible = ! label5.Visible;
+            label5.Visible = visible;
+            txtCorreo.Visible = visible;
+            button2.Visible = visible;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Mensaje("msgEnviarPass");
             label5.Visible = true;
-            textBox3.Visible = true;
+            txtCorreo.Visible = true;
             button2.Visible = true;
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
+            label1.Parent = pictureBox1;
+            label4.Parent = pictureBox1;
+
             this.AcceptButton = this.button1;
             try
             {
                 cmbIdioma.DataSource = BLL.GestionarIdioma.getInstance().Listar();
-                cmbIdioma.SelectedIndex = 0;
-                BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma(cmbIdioma.SelectedItem.ToString()));
-                actualizar();
+                if (cmbIdioma.Items.Count > 0)
+                {
+                    cmbIdioma.SelectedIndex = 0;
+                    BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma(cmbIdioma.SelectedItem.ToString()));
+                    actualizar();
+                }
             }
             catch (Exception ex)
             {

@@ -49,7 +49,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(843, 598);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 8;
             // 
             // label1
             // 
@@ -89,14 +89,14 @@
             this.dateTimePicker2.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(121, 22);
-            this.dateTimePicker2.TabIndex = 4;
+            this.dateTimePicker2.TabIndex = 3;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(557, 18);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 68);
-            this.button1.TabIndex = 5;
+            this.button1.TabIndex = 6;
             this.button1.Tag = "btnFiltrar";
             this.button1.Text = "Filtrar por Fecha";
             this.button1.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@
             this.button2.Location = new System.Drawing.Point(718, 18);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(137, 68);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 7;
             this.button2.Tag = "btnLimpiar";
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             this.comboBox1.Location = new System.Drawing.Point(119, 62);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(323, 24);
-            this.comboBox1.TabIndex = 7;
+            this.comboBox1.TabIndex = 5;
             // 
             // label3
             // 
@@ -138,7 +138,7 @@
             this.checkBox1.Location = new System.Drawing.Point(21, 19);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(18, 17);
-            this.checkBox1.TabIndex = 9;
+            this.checkBox1.TabIndex = 1;
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // checkBox2
@@ -147,7 +147,7 @@
             this.checkBox2.Location = new System.Drawing.Point(21, 65);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(18, 17);
-            this.checkBox2.TabIndex = 10;
+            this.checkBox2.TabIndex = 4;
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // Bitacora

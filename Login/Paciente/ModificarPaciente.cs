@@ -3,13 +3,13 @@ using BLLFuncional;
 using GUI.Personalizado;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace GUI
 {
     public partial class ModificarPaciente : IdiomaForm
     {
         private List<Paciente> lista;
+        private GestionarPaciente gp;
 
         public ModificarPaciente()
         {
@@ -21,7 +21,8 @@ namespace GUI
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
             Estilo.Buscar(btnBuscar);
-            lista = GestionarPaciente.Listar();
+            gp = new GestionarPaciente();
+            lista = gp.Listar();
             ActualizarLista(lista);
         }
 
@@ -34,16 +35,25 @@ namespace GUI
         {
             try
             {
-                if (this.validarTextbox())
+                if (this.ValidarTextbox())
                 {
                     Paciente pa = new Paciente();
-                    pa.Dni = int.Parse(textBox1.Text);
-                    pa.Nombre = textBox2.Text;
-                    pa.Apellido = textBox3.Text;
-                    pa.FechaNacimiento = dateTimePicker1.Value;
+                    pa.Dni = int.Parse(txtDni.Text);
+                    pa.Nombre = txtNombre.Text;
+                    pa.Apellido = txtApellido.Text;
+                    pa.FechaNacimiento = dtFecha.Value;
                     int respuesta = GestionarPaciente.Modificar(pa);
                     if (respuesta == 0)
                         Mensaje("msgPacienteNoEncontrado", "msgError");
+                    else
+                    {
+                        Mensaje("msgOperacionOk");
+                        txtDni.Text = string.Empty;
+                        txtNombre.Text = string.Empty;
+                        txtApellido.Text = string.Empty;
+                        lista = gp.Listar();
+                        ActualizarLista(lista);
+                    }
                 }
             }
             catch (Exception)
@@ -60,21 +70,53 @@ namespace GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (! string.IsNullOrWhiteSpace(textBox5.Text))
+            if (! string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
-                string busqueda = textBox5.Text;
-                IEnumerable<Paciente> filtro = from item in lista
-                                               where item.Nombre.Contains(busqueda) ||
-                                               item.Apellido.Contains(busqueda) ||
-                                               item.Dni.ToString().Contains(busqueda)
-                                               select item;
-                ActualizarLista(filtro.ToList<Paciente>());
+                ActualizarLista(gp.Listar(txtBuscar.Text));
             }
+            listBox1.SelectedItem = null;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             ActualizarLista(lista);
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = this.btnBuscar;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = this.btnAceptar;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = this.btnAceptar;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = this.btnAceptar;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Paciente pa = (Paciente)listBox1.SelectedItem;
+            if (pa != null)
+            {
+                txtDni.Text = pa.Dni.ToString();
+                txtNombre.Text = pa.Nombre;
+                txtApellido.Text = pa.Apellido;
+                dtFecha.Value = pa.FechaNacimiento;
+            } else
+            {
+                txtDni.Text = string.Empty;
+                txtNombre.Text = string.Empty;
+                txtApellido.Text = string.Empty;
+            }
         }
     }
 }
