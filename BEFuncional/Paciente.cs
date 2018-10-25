@@ -11,7 +11,7 @@ namespace BEFuncional
 
         public override string ToString()
         {
-            return Nombre + " " + Apellido;
+            return String.Format("{0,10}", Dni) + " " + Nombre + " " + Apellido;
         }
 
         public string getDVH()

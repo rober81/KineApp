@@ -7,23 +7,26 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Consulta : IdiomaForm
+    public partial class Historial : IdiomaForm
     {
         private List<Paciente> listaPaciente;
         private GestionarPaciente gp;
 
-        public Consulta()
+        public Historial()
         {
             InitializeComponent();
         }
 
-        private void Consulta_Load(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Estilo.Guardar(btnNuevaConsulta);
-            Estilo.Buscar(btnBuscar);
-            this.AcceptButton = this.btnBuscar;
-            gp = new GestionarPaciente();
-            listaPaciente = gp.Listar();
+            if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                ActualizarLista(gp.Listar(txtBuscar.Text));
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
             ActualizarLista(listaPaciente);
         }
 
@@ -41,25 +44,16 @@ namespace GUI
             dataGridView1.MultiSelect = false;
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void Historial_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
-            {
-                ActualizarLista(gp.Listar(txtBuscar.Text));
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
+            Estilo.Buscar(btnBuscar);
+            this.AcceptButton = this.btnBuscar;
+            gp = new GestionarPaciente();
+            listaPaciente = gp.Listar();
             ActualizarLista(listaPaciente);
         }
 
-        private void btnNuevaConsulta_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -3,6 +3,7 @@ using BLLFuncional;
 using GUI.Personalizado;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace GUI
 {
@@ -64,8 +65,14 @@ namespace GUI
 
         private void ActualizarLista(List<Paciente> pacientes)
         {
-            listBox1.DataSource = null;
-            listBox1.DataSource = pacientes;
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = pacientes;
+            dataGridView1.Columns["Dni"].DisplayIndex = 0;
+            dataGridView1.Columns["Nombre"].DisplayIndex = 1;
+            dataGridView1.Columns["Apellido"].DisplayIndex = 2;
+            dataGridView1.Columns["FechaNacimiento"].DisplayIndex = 3;
+            dataGridView1.Columns["DVH"].DisplayIndex = 4;
+            dataGridView1.Columns["DVH"].Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -73,8 +80,9 @@ namespace GUI
             if (! string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
                 ActualizarLista(gp.Listar(txtBuscar.Text));
-            }
-            listBox1.SelectedItem = null;
+            } else
+                ActualizarLista(lista);
+            dataGridView1.ClearSelection();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,20 +110,24 @@ namespace GUI
             this.AcceptButton = this.btnAceptar;
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-            Paciente pa = (Paciente)listBox1.SelectedItem;
-            if (pa != null)
+            if (e.Row != null)
             {
-                txtDni.Text = pa.Dni.ToString();
-                txtNombre.Text = pa.Nombre;
-                txtApellido.Text = pa.Apellido;
-                dtFecha.Value = pa.FechaNacimiento;
-            } else
-            {
-                txtDni.Text = string.Empty;
-                txtNombre.Text = string.Empty;
-                txtApellido.Text = string.Empty;
+                Paciente pa = (Paciente)e.Row.DataBoundItem;
+                if (pa != null)
+                {
+                    txtDni.Text = pa.Dni.ToString();
+                    txtNombre.Text = pa.Nombre;
+                    txtApellido.Text = pa.Apellido;
+                    dtFecha.Value = pa.FechaNacimiento;
+                }
+                else
+                {
+                    txtDni.Text = string.Empty;
+                    txtNombre.Text = string.Empty;
+                    txtApellido.Text = string.Empty;
+                }
             }
         }
     }

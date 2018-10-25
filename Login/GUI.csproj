@@ -125,10 +125,10 @@
     <Compile Include="Administracion\DigitoVerificador.Designer.cs">
       <DependentUpon>DigitoVerificador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\Historial.cs">
+    <Compile Include="Paciente\Historial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\Historial.Designer.cs">
+    <Compile Include="Paciente\Historial.Designer.cs">
       <DependentUpon>Historial.cs</DependentUpon>
     </Compile>
     <Compile Include="Personalizado\Estilo.cs" />
@@ -206,7 +206,7 @@
     <EmbeddedResource Include="Administracion\DigitoVerificador.resx">
       <DependentUpon>DigitoVerificador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\Historial.resx">
+    <EmbeddedResource Include="Paciente\Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personalizado\IdiomaForm.resx">
