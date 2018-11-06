@@ -65,70 +65,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Paciente\AbmEntrenamiento.cs">
+    <Compile Include="PacienteForms\AbmEntrenamiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Paciente\AbmEntrenamiento.Designer.cs">
+    <Compile Include="PacienteForms\AbmEntrenamiento.Designer.cs">
       <DependentUpon>AbmEntrenamiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Paciente\AbmEjercicios.cs">
+    <Compile Include="PacienteForms\AbmEjercicios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Paciente\AbmEjercicios.Designer.cs">
+    <Compile Include="PacienteForms\AbmEjercicios.Designer.cs">
       <DependentUpon>AbmEjercicios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\AdminIdioma.cs">
+    <Compile Include="AdministracionForms\AdminIdioma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\AdminIdioma.Designer.cs">
+    <Compile Include="AdministracionForms\AdminIdioma.Designer.cs">
       <DependentUpon>AdminIdioma.cs</DependentUpon>
     </Compile>
-    <Compile Include="Paciente\AltaPaciente.cs">
+    <Compile Include="PacienteForms\AltaPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Paciente\AltaPaciente.Designer.cs">
+    <Compile Include="PacienteForms\AltaPaciente.Designer.cs">
       <DependentUpon>AltaPaciente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\Bitacora.cs">
+    <Compile Include="AdministracionForms\Bitacora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\Bitacora.Designer.cs">
+    <Compile Include="AdministracionForms\Bitacora.Designer.cs">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="Paciente\Consulta.cs">
+    <Compile Include="PacienteForms\BuscarEjercicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Paciente\Consulta.Designer.cs">
+    <Compile Include="PacienteForms\BuscarEjercicio.Designer.cs">
+      <DependentUpon>BuscarEjercicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PacienteForms\Consulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacienteForms\Consulta.Designer.cs">
       <DependentUpon>Consulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Paciente\ConsultaPatologia.cs">
+    <Compile Include="PacienteForms\ConsultaPatologia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Paciente\ConsultaPatologia.Designer.cs">
+    <Compile Include="PacienteForms\ConsultaPatologia.Designer.cs">
       <DependentUpon>ConsultaPatologia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Paciente\ConsultaTratamiento.cs">
+    <Compile Include="PacienteForms\ConsultaTratamiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Paciente\ConsultaTratamiento.Designer.cs">
+    <Compile Include="PacienteForms\ConsultaTratamiento.Designer.cs">
       <DependentUpon>ConsultaTratamiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\CopiaSeguridad.cs">
+    <Compile Include="AdministracionForms\CopiaSeguridad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\CopiaSeguridad.Designer.cs">
+    <Compile Include="AdministracionForms\CopiaSeguridad.Designer.cs">
       <DependentUpon>CopiaSeguridad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\DigitoVerificador.cs">
+    <Compile Include="AdministracionForms\DigitoVerificador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\DigitoVerificador.Designer.cs">
+    <Compile Include="AdministracionForms\DigitoVerificador.Designer.cs">
       <DependentUpon>DigitoVerificador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Paciente\Historial.cs">
+    <Compile Include="PacienteForms\Historial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Paciente\Historial.Designer.cs">
+    <Compile Include="PacienteForms\Historial.Designer.cs">
       <DependentUpon>Historial.cs</DependentUpon>
     </Compile>
     <Compile Include="Personalizado\Estilo.cs" />
@@ -150,63 +156,66 @@
     <Compile Include="Maestro.Designer.cs">
       <DependentUpon>Maestro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Paciente\ModificarPaciente.cs">
+    <Compile Include="PacienteForms\ModificarPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Paciente\ModificarPaciente.Designer.cs">
+    <Compile Include="PacienteForms\ModificarPaciente.Designer.cs">
       <DependentUpon>ModificarPaciente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\Perfiles.cs">
+    <Compile Include="AdministracionForms\Perfiles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\Perfiles.Designer.cs">
+    <Compile Include="AdministracionForms\Perfiles.Designer.cs">
       <DependentUpon>Perfiles.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Administracion\Roles.cs">
+    <Compile Include="AdministracionForms\Roles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\Roles.Designer.cs">
+    <Compile Include="AdministracionForms\Roles.Designer.cs">
       <DependentUpon>Roles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\Usuarios.cs">
+    <Compile Include="AdministracionForms\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\Usuarios.Designer.cs">
+    <Compile Include="AdministracionForms\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Paciente\AbmEntrenamiento.resx">
+    <EmbeddedResource Include="PacienteForms\AbmEntrenamiento.resx">
       <DependentUpon>AbmEntrenamiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Paciente\AbmEjercicios.resx">
+    <EmbeddedResource Include="PacienteForms\AbmEjercicios.resx">
       <DependentUpon>AbmEjercicios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\AdminIdioma.resx">
+    <EmbeddedResource Include="AdministracionForms\AdminIdioma.resx">
       <DependentUpon>AdminIdioma.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Paciente\AltaPaciente.resx">
+    <EmbeddedResource Include="PacienteForms\AltaPaciente.resx">
       <DependentUpon>AltaPaciente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\Bitacora.resx">
+    <EmbeddedResource Include="AdministracionForms\Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Paciente\Consulta.resx">
+    <EmbeddedResource Include="PacienteForms\BuscarEjercicio.resx">
+      <DependentUpon>BuscarEjercicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PacienteForms\Consulta.resx">
       <DependentUpon>Consulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Paciente\ConsultaPatologia.resx">
+    <EmbeddedResource Include="PacienteForms\ConsultaPatologia.resx">
       <DependentUpon>ConsultaPatologia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Paciente\ConsultaTratamiento.resx">
+    <EmbeddedResource Include="PacienteForms\ConsultaTratamiento.resx">
       <DependentUpon>ConsultaTratamiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\CopiaSeguridad.resx">
+    <EmbeddedResource Include="AdministracionForms\CopiaSeguridad.resx">
       <DependentUpon>CopiaSeguridad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\DigitoVerificador.resx">
+    <EmbeddedResource Include="AdministracionForms\DigitoVerificador.resx">
       <DependentUpon>DigitoVerificador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Paciente\Historial.resx">
+    <EmbeddedResource Include="PacienteForms\Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personalizado\IdiomaForm.resx">
@@ -218,10 +227,10 @@
     <EmbeddedResource Include="Maestro.resx">
       <DependentUpon>Maestro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Paciente\ModificarPaciente.resx">
+    <EmbeddedResource Include="PacienteForms\ModificarPaciente.resx">
       <DependentUpon>ModificarPaciente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\Perfiles.resx">
+    <EmbeddedResource Include="AdministracionForms\Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -234,10 +243,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Administracion\Roles.resx">
+    <EmbeddedResource Include="AdministracionForms\Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\Usuarios.resx">
+    <EmbeddedResource Include="AdministracionForms\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

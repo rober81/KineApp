@@ -56,6 +56,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(497, 20);
             this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label5
             // 
@@ -67,6 +68,7 @@
             this.label5.TabIndex = 30;
             this.label5.Tag = "lblBuscar";
             this.label5.Text = "Buscar";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // dataGridView1
             // 
@@ -80,6 +82,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(748, 436);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnNuevaConsulta
             // 

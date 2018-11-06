@@ -10,21 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class AbmEntrenamiento : Form
+    public partial class BuscarEjercicio : Form
     {
-        public AbmEntrenamiento()
+        public BuscarEjercicio()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
