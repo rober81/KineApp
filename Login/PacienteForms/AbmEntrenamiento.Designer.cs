@@ -28,48 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtDesc = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescripcionE = new System.Windows.Forms.TextBox();
+            this.txtNombreE = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtRepeticiones = new System.Windows.Forms.TextBox();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.EjerCargados = new System.Windows.Forms.ListBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.txtRepeticiones = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.EjerCargados = new System.Windows.Forms.ListBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnRemover = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtDesc
+            // txtDescripcionE
             // 
-            this.txtDesc.Location = new System.Drawing.Point(94, 46);
-            this.txtDesc.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(245, 20);
-            this.txtDesc.TabIndex = 14;
-            this.txtDesc.Tag = "lblDescripcion";
+            this.txtDescripcionE.Location = new System.Drawing.Point(94, 46);
+            this.txtDescripcionE.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDescripcionE.Name = "txtDescripcionE";
+            this.txtDescripcionE.Size = new System.Drawing.Size(245, 20);
+            this.txtDescripcionE.TabIndex = 14;
+            this.txtDescripcionE.Tag = "lblDescripcion";
             // 
-            // textBox1
+            // txtNombreE
             // 
-            this.textBox1.Location = new System.Drawing.Point(94, 15);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 20);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Tag = "lblNombre";
+            this.txtNombreE.Location = new System.Drawing.Point(94, 15);
+            this.txtNombreE.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombreE.Name = "txtNombreE";
+            this.txtNombreE.Size = new System.Drawing.Size(245, 20);
+            this.txtNombreE.TabIndex = 13;
+            this.txtNombreE.Tag = "lblNombre";
             // 
             // label2
             // 
@@ -95,12 +97,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtObservaciones);
             this.groupBox1.Controls.Add(this.txtRepeticiones);
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.txtDescripcion);
@@ -112,92 +116,37 @@
             this.groupBox1.Size = new System.Drawing.Size(677, 490);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "lblBuscar";
             this.groupBox1.Text = "Ejercicios";
             // 
-            // label4
+            // btnBuscar
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 353);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 13);
-            this.label4.TabIndex = 37;
-            this.label4.Tag = "lblObservaciones";
-            this.label4.Text = "Observaciones";
+            this.btnBuscar.Location = new System.Drawing.Point(601, 16);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(65, 35);
+            this.btnBuscar.TabIndex = 49;
+            this.btnBuscar.Tag = "btnBuscar";
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // txtRepeticiones
+            // btnAgregar
             // 
-            this.txtRepeticiones.Location = new System.Drawing.Point(96, 271);
-            this.txtRepeticiones.Margin = new System.Windows.Forms.Padding(2);
-            this.txtRepeticiones.MaxLength = 500;
-            this.txtRepeticiones.Multiline = true;
-            this.txtRepeticiones.Name = "txtRepeticiones";
-            this.txtRepeticiones.Size = new System.Drawing.Size(573, 75);
-            this.txtRepeticiones.TabIndex = 40;
-            this.txtRepeticiones.Tag = "lblRepeticiones";
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Location = new System.Drawing.Point(96, 174);
-            this.txtCantidad.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCantidad.MaxLength = 500;
-            this.txtCantidad.Multiline = true;
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(573, 91);
-            this.txtCantidad.TabIndex = 39;
-            this.txtCantidad.Tag = "lblCantidad";
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Location = new System.Drawing.Point(96, 76);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDescripcion.MaxLength = 1000;
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(573, 91);
-            this.txtDescripcion.TabIndex = 38;
-            this.txtDescripcion.Tag = "lblDescripcion";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnNuevo);
-            this.groupBox2.Controls.Add(this.btnRemover);
-            this.groupBox2.Controls.Add(this.EjerCargados);
-            this.groupBox2.Location = new System.Drawing.Point(12, 71);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(327, 430);
-            this.groupBox2.TabIndex = 29;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Tag = "lblEntrenamientos";
-            this.groupBox2.Text = "Entrenamientos";
-            // 
-            // EjerCargados
-            // 
-            this.EjerCargados.FormattingEnabled = true;
-            this.EjerCargados.Items.AddRange(new object[] {
-            "Correr",
-            "Nadar"});
-            this.EjerCargados.Location = new System.Drawing.Point(13, 20);
-            this.EjerCargados.Margin = new System.Windows.Forms.Padding(2);
-            this.EjerCargados.Name = "EjerCargados";
-            this.EjerCargados.Size = new System.Drawing.Size(301, 355);
-            this.EjerCargados.TabIndex = 33;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(96, 350);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.MaxLength = 500;
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(573, 75);
-            this.textBox2.TabIndex = 41;
-            this.textBox2.Tag = "lblRepeticiones";
+            this.btnAgregar.Location = new System.Drawing.Point(601, 445);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(68, 32);
+            this.btnAgregar.TabIndex = 45;
+            this.btnAgregar.Tag = "btnAgregar";
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 274);
+            this.label5.Location = new System.Drawing.Point(19, 284);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
@@ -208,7 +157,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 177);
+            this.label3.Location = new System.Drawing.Point(19, 186);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
@@ -219,7 +168,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 79);
+            this.label6.Location = new System.Drawing.Point(19, 88);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
@@ -227,17 +176,113 @@
             this.label6.Tag = "lblDescripcion";
             this.label6.Text = "Descripción";
             // 
-            // btnAgregar
+            // txtObservaciones
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(601, 439);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(68, 32);
-            this.btnAgregar.TabIndex = 45;
-            this.btnAgregar.Tag = "btnAgregar";
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.txtObservaciones.Location = new System.Drawing.Point(96, 363);
+            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(2);
+            this.txtObservaciones.MaxLength = 500;
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtObservaciones.Size = new System.Drawing.Size(573, 75);
+            this.txtObservaciones.TabIndex = 41;
+            this.txtObservaciones.Tag = "lblObservaciones";
+            // 
+            // txtRepeticiones
+            // 
+            this.txtRepeticiones.Location = new System.Drawing.Point(96, 281);
+            this.txtRepeticiones.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRepeticiones.MaxLength = 500;
+            this.txtRepeticiones.Multiline = true;
+            this.txtRepeticiones.Name = "txtRepeticiones";
+            this.txtRepeticiones.ReadOnly = true;
+            this.txtRepeticiones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtRepeticiones.Size = new System.Drawing.Size(573, 75);
+            this.txtRepeticiones.TabIndex = 40;
+            this.txtRepeticiones.Tag = "lblRepeticiones";
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Location = new System.Drawing.Point(96, 183);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCantidad.MaxLength = 500;
+            this.txtCantidad.Multiline = true;
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.ReadOnly = true;
+            this.txtCantidad.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtCantidad.Size = new System.Drawing.Size(573, 91);
+            this.txtCantidad.TabIndex = 39;
+            this.txtCantidad.Tag = "lblCantidad";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(96, 85);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDescripcion.MaxLength = 1000;
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.ReadOnly = true;
+            this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDescripcion.Size = new System.Drawing.Size(573, 91);
+            this.txtDescripcion.TabIndex = 38;
+            this.txtDescripcion.Tag = "lblDescripcion";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 366);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 37;
+            this.label4.Tag = "lblObservaciones";
+            this.label4.Text = "Observaciones";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnRemover);
+            this.groupBox2.Controls.Add(this.EjerCargados);
+            this.groupBox2.Location = new System.Drawing.Point(12, 71);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(327, 430);
+            this.groupBox2.TabIndex = 29;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Tag = "menuEntrenamientosEjercicios";
+            this.groupBox2.Text = "Entrenamientos";
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(813, 512);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(65, 32);
+            this.btnNuevo.TabIndex = 48;
+            this.btnNuevo.Tag = "btnNuevo";
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.Location = new System.Drawing.Point(246, 385);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(68, 32);
+            this.btnRemover.TabIndex = 47;
+            this.btnRemover.Tag = "btnRemover";
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            // 
+            // EjerCargados
+            // 
+            this.EjerCargados.FormattingEnabled = true;
+            this.EjerCargados.Location = new System.Drawing.Point(13, 20);
+            this.EjerCargados.Margin = new System.Windows.Forms.Padding(2);
+            this.EjerCargados.Name = "EjerCargados";
+            this.EjerCargados.Size = new System.Drawing.Size(301, 355);
+            this.EjerCargados.TabIndex = 33;
+            this.EjerCargados.SelectedIndexChanged += new System.EventHandler(this.EjerCargados_SelectedIndexChanged);
             // 
             // btnCancelar
             // 
@@ -263,59 +308,47 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // btnRemover
+            // txtNombre
             // 
-            this.btnRemover.Location = new System.Drawing.Point(177, 383);
-            this.btnRemover.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(68, 32);
-            this.btnRemover.TabIndex = 47;
-            this.btnRemover.Tag = "btnRemover";
-            this.btnRemover.Text = "Remover";
-            this.btnRemover.UseVisualStyleBackColor = true;
-            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            this.txtNombre.Location = new System.Drawing.Point(96, 58);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombre.MaxLength = 500;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
+            this.txtNombre.Size = new System.Drawing.Size(573, 20);
+            this.txtNombre.TabIndex = 51;
+            this.txtNombre.Tag = "lblNombre";
             // 
-            // btnNuevo
+            // label7
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(249, 383);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(65, 32);
-            this.btnNuevo.TabIndex = 48;
-            this.btnNuevo.Tag = "btnNuevo";
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(96, 23);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(65, 35);
-            this.btnBuscar.TabIndex = 49;
-            this.btnBuscar.Tag = "btnBuscar";
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 61);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 13);
+            this.label7.TabIndex = 50;
+            this.label7.Tag = "lblNombre";
+            this.label7.Text = "Nombre";
             // 
             // AbmEntrenamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 553);
+            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtDesc);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDescripcionE);
+            this.Controls.Add(this.txtNombreE);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AbmEntrenamiento";
             this.Tag = "menuEntrenamientosEntrenamientos";
             this.Text = "Entrenamientos";
+            this.Load += new System.EventHandler(this.AbmEntrenamiento_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -325,13 +358,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtDesc;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescripcionE;
+        private System.Windows.Forms.TextBox txtNombreE;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.TextBox txtRepeticiones;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.TextBox txtDescripcion;
@@ -346,5 +379,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -12,17 +12,17 @@ namespace BLLFuncional
 
         public GestionarPaciente()
         {
-            lista = PacienteMapper.Listar(); ;
+            lista = Listar();
         }
 
         public List<Paciente> Listar(string busqueda)
         {
             string bus = busqueda.Trim().ToLower();
-            IEnumerable<Paciente> filtro = from item in lista
-                                           where item.Nombre.ToLower().Contains(bus) ||
-                                           item.Apellido.ToLower().Contains(bus) ||
-                                           item.Dni.ToString().Contains(bus)
-                                           select item;
+            var filtro = from item in lista
+                         where item.Nombre.ToLower().Contains(bus) ||
+                         item.Apellido.ToLower().Contains(bus) ||
+                         item.Dni.ToString().Contains(bus)
+                         select item;
             return filtro.ToList<Paciente>();
         }
 

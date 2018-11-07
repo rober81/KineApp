@@ -1,6 +1,6 @@
 ﻿using BEFuncional;
 using BLLFuncional;
-using GUI.Personalizado;
+using GUI;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;

@@ -1,5 +1,5 @@
 ﻿using BLL;
-using GUI.Personalizado;
+using GUI;
 using System;
 using System.Collections.Generic;
 

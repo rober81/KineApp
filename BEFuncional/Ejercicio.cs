@@ -13,6 +13,11 @@ namespace BEFuncional
         public string Descripcion { get; set; }
         public string Cantidad { get; set; }
         public string Repeticiones { get; set; }
+        public string Observaciones { get; set; }
 
+        public override string ToString()
+        {
+            return Id + " - " + Nombre;
+        }
     }
 }

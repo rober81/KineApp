@@ -46,19 +46,20 @@
             // 
             // txtRepeticiones
             // 
-            this.txtRepeticiones.Location = new System.Drawing.Point(84, 451);
+            this.txtRepeticiones.Location = new System.Drawing.Point(84, 457);
             this.txtRepeticiones.Margin = new System.Windows.Forms.Padding(2);
             this.txtRepeticiones.MaxLength = 500;
             this.txtRepeticiones.Multiline = true;
             this.txtRepeticiones.Name = "txtRepeticiones";
-            this.txtRepeticiones.Size = new System.Drawing.Size(577, 75);
+            this.txtRepeticiones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtRepeticiones.Size = new System.Drawing.Size(676, 75);
             this.txtRepeticiones.TabIndex = 32;
             this.txtRepeticiones.Tag = "lblRepeticiones";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 471);
+            this.label5.Location = new System.Drawing.Point(12, 479);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
@@ -68,40 +69,42 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(84, 349);
+            this.txtCantidad.Location = new System.Drawing.Point(84, 360);
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.txtCantidad.MaxLength = 500;
             this.txtCantidad.Multiline = true;
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(577, 91);
+            this.txtCantidad.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtCantidad.Size = new System.Drawing.Size(676, 91);
             this.txtCantidad.TabIndex = 28;
             this.txtCantidad.Tag = "lblCantidad";
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(84, 244);
+            this.txtDescripcion.Location = new System.Drawing.Point(84, 263);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.MaxLength = 1000;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(577, 91);
+            this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDescripcion.Size = new System.Drawing.Size(676, 91);
             this.txtDescripcion.TabIndex = 27;
             this.txtDescripcion.Tag = "lblDescripcion";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(84, 213);
+            this.txtNombre.Location = new System.Drawing.Point(84, 237);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(577, 20);
+            this.txtNombre.Size = new System.Drawing.Size(676, 20);
             this.txtNombre.TabIndex = 26;
             this.txtNombre.Tag = "lblNombre";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 353);
+            this.label3.Location = new System.Drawing.Point(12, 363);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
@@ -112,7 +115,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 247);
+            this.label2.Location = new System.Drawing.Point(12, 263);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
@@ -123,7 +126,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 216);
+            this.label1.Location = new System.Drawing.Point(12, 237);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
@@ -142,13 +145,13 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(650, 190);
+            this.dataGridView1.Size = new System.Drawing.Size(750, 210);
             this.dataGridView1.TabIndex = 33;
             this.dataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView1_RowStateChanged);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(521, 545);
+            this.btnCancelar.Location = new System.Drawing.Point(620, 545);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(68, 32);
@@ -160,7 +163,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(593, 545);
+            this.btnAceptar.Location = new System.Drawing.Point(692, 545);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(68, 32);
@@ -172,7 +175,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(452, 545);
+            this.btnNuevo.Location = new System.Drawing.Point(551, 545);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(65, 32);
@@ -186,7 +189,7 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.CausesValidation = false;
-            this.lblID.Location = new System.Drawing.Point(12, 281);
+            this.lblID.Location = new System.Drawing.Point(12, 341);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(18, 13);
             this.lblID.TabIndex = 37;
@@ -197,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 588);
+            this.ClientSize = new System.Drawing.Size(771, 588);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnCancelar);
@@ -211,6 +214,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AbmEjercicios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "menuEntrenamientosEjercicios";

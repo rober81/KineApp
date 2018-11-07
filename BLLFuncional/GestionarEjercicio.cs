@@ -10,9 +10,25 @@ namespace BLLFuncional
 {
     public class GestionarEjercicio
     {
+        List<Ejercicio> lista;
+        public GestionarEjercicio()
+        {
+            lista = Listar();
+        }
+
         public List<Ejercicio> Listar()
         {
             return EjercicioMapper.Listar();
+        }
+
+        public List<Ejercicio> Listar(string busqueda)
+        {
+            string bus = busqueda.Trim().ToLower();
+            var filtro = from item in Listar()
+                         where item.Nombre.ToLower().Contains(bus) ||
+                         item.Descripcion.ToLower().Contains(bus)
+                         select item;
+            return filtro.ToList<Ejercicio>();
         }
 
         public static int Insertar(Ejercicio param)

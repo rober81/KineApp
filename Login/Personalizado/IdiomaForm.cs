@@ -45,6 +45,10 @@ namespace GUI
 
         private void IdiomaForm_Load(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             actualizar();
         }
 

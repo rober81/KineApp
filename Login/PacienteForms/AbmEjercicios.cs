@@ -1,6 +1,6 @@
 ﻿using BEFuncional;
 using BLLFuncional;
-using GUI.Personalizado;
+using GUI;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -21,6 +21,10 @@ namespace GUI
         {
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
+            Estilo.Nuevo(btnNuevo);
+            btnAceptar.DialogResult = DialogResult.OK;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+
             lblID.Text = string.Empty;
             ge = new GestionarEjercicio();
             listaEjercicios = ge.Listar();
@@ -32,10 +36,15 @@ namespace GUI
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = lista;
             dataGridView1.Columns["Id"].DisplayIndex = 0;
+            dataGridView1.Columns["Id"].Width = 25;
             dataGridView1.Columns["Nombre"].DisplayIndex = 1;
+            dataGridView1.Columns["Nombre"].Width = 180;
             dataGridView1.Columns["descripcion"].DisplayIndex = 2;
+            dataGridView1.Columns["descripcion"].Width = 300;
             dataGridView1.Columns["cantidad"].DisplayIndex = 3;
+            dataGridView1.Columns["cantidad"].Width = 100;
             dataGridView1.Columns["repeticiones"].DisplayIndex = 4;
+            dataGridView1.Columns["repeticiones"].Width = 100;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -67,7 +76,10 @@ namespace GUI
                     else
                         Mensaje("msgOperacionOk");
                     ActualizarLista(ge.Listar());
-                    btnNuevo_Click(null, null);
+                    if (this.Owner == null)
+                        nuevo();
+                    else
+                        this.Close();
                 }
             }
             catch (Exception)
@@ -77,6 +89,11 @@ namespace GUI
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            nuevo();
+        }
+
+        private void nuevo()
         {
             lblID.Text = string.Empty;
             txtNombre.Text = string.Empty;
