@@ -1,10 +1,11 @@
 ﻿using BEFuncional;
 using System;
 using System.Windows.Forms;
+using BLLFuncional;
 
 namespace GUI
 {
-    public partial class AbmEntrenamiento : Form
+    public partial class AbmEntrenamiento : IdiomaForm
     {
         private Ejercicio ejercicioSeleccionado;
         public Entrenamiento entrenamientoSeleccionado { get; set; }
@@ -37,11 +38,11 @@ namespace GUI
             {
                 ejercicioSeleccionado = null;
             }
-            actualizarEjer();
+            actualizarEjercicio();
             dialog.Dispose();
         }
 
-        private void actualizarEjer()
+        private void actualizarEjercicio()
         {
             if (null != ejercicioSeleccionado)
             {
@@ -61,27 +62,55 @@ namespace GUI
             }
         }
 
+        private void actualizarListaEjercicios()
+        {
+            EjerCargados.DataSource = null;
+            EjerCargados.DataSource = entrenamientoSeleccionado.ListaEjercicios;
+            EjerCargados.ClearSelected();
+        }
+
+        private void actualizarEntrenamiento()
+        {
+            if (null != entrenamientoSeleccionado)
+            {
+                lblID.Text = entrenamientoSeleccionado.Id.ToString();
+                txtNombreE.Text = entrenamientoSeleccionado.Nombre;
+                txtDescripcionE.Text = entrenamientoSeleccionado.Descripcion;
+            }
+            else
+            {
+                entrenamientoSeleccionado = new Entrenamiento();
+                txtNombreE.Text = string.Empty;
+                txtDescripcionE.Text = string.Empty;
+                actualizarEntrenamiento();
+            }
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (null != ejercicioSeleccionado)
             {
-                EjerCargados.Items.Add(ejercicioSeleccionado);
+                ejercicioSeleccionado.Observaciones = txtObservaciones.Text;
+                if (! entrenamientoSeleccionado.ListaEjercicios.Contains(ejercicioSeleccionado))
+                    entrenamientoSeleccionado.ListaEjercicios.Add(ejercicioSeleccionado);
                 ejercicioSeleccionado = null;
-                actualizarEjer();
+                actualizarEjercicio();
+                actualizarListaEjercicios();
             }
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            if (EjerCargados.Items.Count > 0)
-                EjerCargados.Items.Remove(EjerCargados.SelectedItem);
+            if (entrenamientoSeleccionado.ListaEjercicios.Count > 0)
+                entrenamientoSeleccionado.ListaEjercicios.Remove((Ejercicio)EjerCargados.SelectedItem);
+            actualizarListaEjercicios();
         }
 
         private void EjerCargados_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (EjerCargados.Items.Count > 0)
                 ejercicioSeleccionado = (Ejercicio) EjerCargados.SelectedItem;
-            actualizarEjer();
+            actualizarEjercicio();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -91,29 +120,48 @@ namespace GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void actualizarEntrenamiento()
-        {
-            if (null != entrenamientoSeleccionado)
+            int respuesta;
+            try
             {
-                txtNombreE.Text = entrenamientoSeleccionado.Nombre;
-                txtDescripcionE.Text = entrenamientoSeleccionado.Descripcion;
-                EjerCargados.DataSource = null;
-                EjerCargados.Items.Clear();
-                EjerCargados.DataSource = entrenamientoSeleccionado.ListaEjercicios;
-            } else
+                if (this.ValidarTextbox())
+                {
+                    entrenamientoSeleccionado.Nombre = txtNombreE.Text.Trim();
+                    entrenamientoSeleccionado.Descripcion = txtDescripcionE.Text.Trim();
+                    if (string.IsNullOrWhiteSpace(lblID.Text) || "0".Equals(lblID.Text))
+                        respuesta = GestionarEntrenamiento.Insertar(entrenamientoSeleccionado);
+                    else
+                    {
+                        entrenamientoSeleccionado.Id = int.Parse(lblID.Text);
+                        respuesta = GestionarEntrenamiento.Modificar(entrenamientoSeleccionado);
+                    }
+                    if (respuesta == 0)
+                        Mensaje("msgErrorAlta", "msgError");
+                    else
+                        Mensaje("msgOperacionOk");
+                    if (this.Owner == null)
+                        nuevo();
+                    else
+                        this.Close();
+                }
+            }
+            catch (Exception)
             {
-                entrenamientoSeleccionado = new Entrenamiento();
-                actualizarEntrenamiento();
+                Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            nuevo();
+        }
+
+        private void nuevo()
+        {
             entrenamientoSeleccionado = null;
+            ejercicioSeleccionado = null;
+            actualizarEjercicio();
             actualizarEntrenamiento();
+            actualizarListaEjercicios();
         }
 
     }

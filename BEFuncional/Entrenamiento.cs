@@ -9,5 +9,10 @@ namespace BEFuncional
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public List<Ejercicio> ListaEjercicios { get; set; }
+
+        public Entrenamiento()
+        {
+            ListaEjercicios = new List<Ejercicio>();
+        }
     }
 }

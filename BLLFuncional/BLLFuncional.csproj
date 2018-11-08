@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GestionarEjercicio.cs" />
+    <Compile Include="GestionarEntrenamiento.cs" />
     <Compile Include="GestionarPaciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

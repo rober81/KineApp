@@ -33,6 +33,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,13 +46,12 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.EjerCargados = new System.Windows.Forms.ListBox();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -119,6 +120,29 @@
             this.groupBox1.Tag = "lblBuscar";
             this.groupBox1.Text = "Ejercicios";
             // 
+            // txtNombre
+            // 
+            this.txtNombre.CausesValidation = false;
+            this.txtNombre.Location = new System.Drawing.Point(96, 58);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombre.MaxLength = 500;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
+            this.txtNombre.Size = new System.Drawing.Size(573, 20);
+            this.txtNombre.TabIndex = 51;
+            this.txtNombre.Tag = "lblNombre";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 61);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 13);
+            this.label7.TabIndex = 50;
+            this.label7.Tag = "lblNombre";
+            this.label7.Text = "Nombre";
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(601, 16);
@@ -178,6 +202,7 @@
             // 
             // txtObservaciones
             // 
+            this.txtObservaciones.CausesValidation = false;
             this.txtObservaciones.Location = new System.Drawing.Point(96, 363);
             this.txtObservaciones.Margin = new System.Windows.Forms.Padding(2);
             this.txtObservaciones.MaxLength = 500;
@@ -190,6 +215,7 @@
             // 
             // txtRepeticiones
             // 
+            this.txtRepeticiones.CausesValidation = false;
             this.txtRepeticiones.Location = new System.Drawing.Point(96, 281);
             this.txtRepeticiones.Margin = new System.Windows.Forms.Padding(2);
             this.txtRepeticiones.MaxLength = 500;
@@ -203,6 +229,7 @@
             // 
             // txtCantidad
             // 
+            this.txtCantidad.CausesValidation = false;
             this.txtCantidad.Location = new System.Drawing.Point(96, 183);
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.txtCantidad.MaxLength = 500;
@@ -216,6 +243,7 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.CausesValidation = false;
             this.txtDescripcion.Location = new System.Drawing.Point(96, 85);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.MaxLength = 1000;
@@ -250,18 +278,6 @@
             this.groupBox2.Tag = "menuEntrenamientosEjercicios";
             this.groupBox2.Text = "Entrenamientos";
             // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Location = new System.Drawing.Point(813, 512);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(65, 32);
-            this.btnNuevo.TabIndex = 48;
-            this.btnNuevo.Tag = "btnNuevo";
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
             // btnRemover
             // 
             this.btnRemover.Location = new System.Drawing.Point(246, 385);
@@ -283,6 +299,18 @@
             this.EjerCargados.Size = new System.Drawing.Size(301, 355);
             this.EjerCargados.TabIndex = 33;
             this.EjerCargados.SelectedIndexChanged += new System.EventHandler(this.EjerCargados_SelectedIndexChanged);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(813, 512);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(65, 32);
+            this.btnNuevo.TabIndex = 48;
+            this.btnNuevo.Tag = "btnNuevo";
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnCancelar
             // 
@@ -308,33 +336,23 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // txtNombre
+            // lblID
             // 
-            this.txtNombre.Location = new System.Drawing.Point(96, 58);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNombre.MaxLength = 500;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(573, 20);
-            this.txtNombre.TabIndex = 51;
-            this.txtNombre.Tag = "lblNombre";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 61);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 13);
-            this.label7.TabIndex = 50;
-            this.label7.Tag = "lblNombre";
-            this.label7.Text = "Nombre";
+            this.lblID.AutoSize = true;
+            this.lblID.CausesValidation = false;
+            this.lblID.Location = new System.Drawing.Point(790, 531);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(18, 13);
+            this.lblID.TabIndex = 49;
+            this.lblID.Text = "ID";
+            this.lblID.Visible = false;
             // 
             // AbmEntrenamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 553);
+            this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -344,8 +362,11 @@
             this.Controls.Add(this.txtNombreE);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AbmEntrenamiento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "menuEntrenamientosEntrenamientos";
             this.Text = "Entrenamientos";
             this.Load += new System.EventHandler(this.AbmEntrenamiento_Load);
@@ -381,5 +402,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblID;
     }
 }

@@ -59,18 +59,19 @@ namespace GUI
 
         private Boolean ValidarTextbox(Control.ControlCollection controles)
         {
+            bool resultado = true;
             foreach (Control item in controles)
             {
                 if (item.Controls.Count > 0 && item is GroupBox)
-                    return ValidarTextbox(item.Controls);
+                    resultado = resultado && ValidarTextbox(item.Controls);
                 if (item is TextBox && item.CausesValidation && string.IsNullOrWhiteSpace(item.Text))
                 {
                     if (null != item.Tag)
                         MessageBox.Show(Traducir("msgFaltaCompletar") + " " + Traducir(item.Tag.ToString()), Traducir("msgFaltaCompletarTitulo"));
-                    return false;
+                    resultado = false;
                 }
             }
-            return true;
+            return resultado;
         }
     }
 }
