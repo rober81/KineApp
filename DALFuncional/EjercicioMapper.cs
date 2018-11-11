@@ -28,6 +28,24 @@ namespace DALFuncional
             return lista;
         }
 
+        public static Ejercicio Buscar(int id)
+        {
+            Ejercicio obj = null;
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = new SqlParameter("@id", id);
+            DataTable tabla = SqlHelper.getInstance().leer(Tabla + "_buscar", parametros);
+            foreach (DataRow item in tabla.Rows)
+            {
+                obj = new Ejercicio();
+                obj.Id = int.Parse(item["id"].ToString());
+                obj.Nombre = item["nombre"].ToString();
+                obj.Descripcion = item["descripcion"].ToString();
+                obj.Cantidad = item["cantidad"].ToString();
+                obj.Repeticiones = item["repeticiones"].ToString();
+            }
+            return obj;
+        }
+
         public static int Insertar(Ejercicio param)
         {
             SqlParameter[] parametros = new SqlParameter[4];

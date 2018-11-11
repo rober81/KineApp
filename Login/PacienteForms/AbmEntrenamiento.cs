@@ -123,7 +123,7 @@ namespace GUI
             int respuesta;
             try
             {
-                if (this.ValidarTextbox())
+                if (this.Validar())
                 {
                     entrenamientoSeleccionado.Nombre = txtNombreE.Text.Trim();
                     entrenamientoSeleccionado.Descripcion = txtDescripcionE.Text.Trim();
@@ -142,12 +142,24 @@ namespace GUI
                         nuevo();
                     else
                         this.Close();
+                } else
+                {
+                    Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
                 }
             }
             catch (Exception)
             {
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }
+        }
+
+        private bool Validar()
+        {
+            if (entrenamientoSeleccionado.ListaEjercicios.Count == 0)
+            {
+                return false;
+            }
+            return this.ValidarTextbox();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
