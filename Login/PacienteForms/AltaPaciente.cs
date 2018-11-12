@@ -10,8 +10,6 @@ namespace GUI
         public AltaPaciente()
         {
             InitializeComponent();
-            Estilo.Guardar(btnAceptar);
-            Estilo.Cancelar(btnCancelar);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -50,6 +48,10 @@ namespace GUI
 
         private void AltaPaciente_Load(object sender, EventArgs e)
         {
+            Estilo.Guardar(btnAceptar);
+            Estilo.Cancelar(btnCancelar);
+            btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             dateTimePicker1.MaxDate = DateTime.Now;
             this.AcceptButton = this.btnAceptar;
         }

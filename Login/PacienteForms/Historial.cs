@@ -17,19 +17,6 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
-            {
-                ActualizarLista(gp.Listar(txtBuscar.Text));
-            }
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            ActualizarLista(listaPaciente);
-        }
-
         private void ActualizarLista(List<Paciente> pacientes)
         {
             dataGridView1.DataSource = null;
@@ -46,8 +33,8 @@ namespace GUI
 
         private void Historial_Load(object sender, EventArgs e)
         {
-            Estilo.Buscar(btnBuscar);
-            this.AcceptButton = this.btnBuscar;
+            //Estilo.Buscar(btnBuscar);
+            //this.AcceptButton = this.btnBuscar;
             gp = new GestionarPaciente();
             listaPaciente = gp.Listar();
             ActualizarLista(listaPaciente);
@@ -56,6 +43,17 @@ namespace GUI
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                ActualizarLista(listaPaciente);
+            } else
+            {
+                ActualizarLista(gp.Listar(txtBuscar.Text));
+            }
         }
     }
 }

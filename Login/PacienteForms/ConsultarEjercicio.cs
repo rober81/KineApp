@@ -41,6 +41,8 @@ namespace GUI
             dataGridView1.Columns["cantidad"].Width = 100;
             dataGridView1.Columns["repeticiones"].DisplayIndex = 4;
             dataGridView1.Columns["repeticiones"].Width = 100;
+            dataGridView1.Columns["Observaciones"].DisplayIndex = 5;
+            dataGridView1.Columns["Observaciones"].Visible = false;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -66,7 +68,9 @@ namespace GUI
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            if (! string.IsNullOrWhiteSpace((txtBuscar.Text))){
+            if (string.IsNullOrWhiteSpace((txtBuscar.Text))){
+                ActualizarLista(ge.Listar());
+            } else {
                 ActualizarLista(ge.Listar(txtBuscar.Text));
             }
         }
@@ -77,6 +81,11 @@ namespace GUI
                 seleccionado = (Ejercicio) dataGridView1.SelectedRows[0].DataBoundItem;
             else
                 seleccionado = null;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

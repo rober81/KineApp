@@ -45,6 +45,8 @@ namespace GUI
             dataGridView1.Columns["cantidad"].Width = 100;
             dataGridView1.Columns["repeticiones"].DisplayIndex = 4;
             dataGridView1.Columns["repeticiones"].Width = 100;
+            dataGridView1.Columns["Observaciones"].DisplayIndex = 5;
+            dataGridView1.Columns["Observaciones"].Visible = false;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -123,6 +125,18 @@ namespace GUI
                     txtCantidad.Text = string.Empty;
                     txtRepeticiones.Text = string.Empty;
                 }
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace((txtBuscar.Text)))
+            {
+                ActualizarLista(ge.Listar());
+            }
+            else
+            {
+                ActualizarLista(ge.Listar(txtBuscar.Text));
             }
         }
     }

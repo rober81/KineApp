@@ -99,7 +99,10 @@ namespace GUI.PacienteForms
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace((txtBuscar.Text)))
+            if (string.IsNullOrWhiteSpace((txtBuscar.Text)))
+            {
+                ActualizarLista(ge.Listar());
+            } else
             {
                 ActualizarLista(ge.Listar(txtBuscar.Text));
             }

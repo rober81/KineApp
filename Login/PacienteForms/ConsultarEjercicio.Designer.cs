@@ -55,6 +55,7 @@
             this.label5.TabIndex = 36;
             this.label5.Tag = "lblBuscar";
             this.label5.Text = "Buscar";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // dataGridView1
             // 
@@ -118,7 +119,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BuscarEjercicio";

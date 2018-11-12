@@ -21,10 +21,12 @@ namespace GUI
         {
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
-            Estilo.Buscar(btnBuscar);
+            Estilo.Nuevo(btnNuevo);
             gp = new GestionarPaciente();
             lista = gp.Listar();
             ActualizarLista(lista);
+            dtFecha.MaxDate = DateTime.Now;
+            this.AcceptButton = this.btnAceptar;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -67,47 +69,26 @@ namespace GUI
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = pacientes;
-            dataGridView1.Columns["Dni"].DisplayIndex = 0;
-            dataGridView1.Columns["Nombre"].DisplayIndex = 1;
-            dataGridView1.Columns["Apellido"].DisplayIndex = 2;
-            dataGridView1.Columns["FechaNacimiento"].DisplayIndex = 3;
+            dataGridView1.Columns["dni"].DisplayIndex = 0;
+            dataGridView1.Columns["nombre"].DisplayIndex = 1;
+            dataGridView1.Columns["apellido"].DisplayIndex = 2;
+            dataGridView1.Columns["fechaNacimiento"].DisplayIndex = 3;
+            dataGridView1.Columns["fechaNacimiento"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dataGridView1.Columns["DVH"].DisplayIndex = 4;
             dataGridView1.Columns["DVH"].Visible = false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (! string.IsNullOrWhiteSpace(txtBuscar.Text))
-            {
-                ActualizarLista(gp.Listar(txtBuscar.Text));
-            } else
-                ActualizarLista(lista);
-            dataGridView1.ClearSelection();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ActualizarLista(lista);
-        }
-
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            this.AcceptButton = this.btnBuscar;
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            this.AcceptButton = this.btnAceptar;
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            this.AcceptButton = this.btnAceptar;
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            this.AcceptButton = this.btnAceptar;
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                ActualizarLista(lista);
+            }
+            else
+            {
+                ActualizarLista(gp.Listar(txtBuscar.Text));
+            }
+            dataGridView1.ClearSelection();
         }
 
         private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -129,6 +110,21 @@ namespace GUI
                     txtApellido.Text = string.Empty;
                 }
             }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            AltaPaciente dialog = new AltaPaciente();
+
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                ActualizarLista(lista);
+            }
+            else
+            {
+                ActualizarLista(lista);
+            }
+            dialog.Dispose();
         }
     }
 }
