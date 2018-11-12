@@ -133,6 +133,7 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Tag = "recuperarpass";
             this.linkLabel1.Text = "Recuperar Contraseña";
+            this.linkLabel1.Visible = false;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // button1

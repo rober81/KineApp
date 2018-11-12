@@ -95,11 +95,11 @@
     <Compile Include="AdministracionForms\Bitacora.Designer.cs">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="PacienteForms\BuscarEjercicio.cs">
+    <Compile Include="PacienteForms\ConsultarEjercicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PacienteForms\BuscarEjercicio.Designer.cs">
-      <DependentUpon>BuscarEjercicio.cs</DependentUpon>
+    <Compile Include="PacienteForms\ConsultarEjercicio.Designer.cs">
+      <DependentUpon>ConsultarEjercicio.cs</DependentUpon>
     </Compile>
     <Compile Include="PacienteForms\Consulta.cs">
       <SubType>Form</SubType>
@@ -107,17 +107,23 @@
     <Compile Include="PacienteForms\Consulta.Designer.cs">
       <DependentUpon>Consulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="PacienteForms\ConsultaPatologia.cs">
+    <Compile Include="PacienteForms\ConsultarEntrenamiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PacienteForms\ConsultaPatologia.Designer.cs">
-      <DependentUpon>ConsultaPatologia.cs</DependentUpon>
+    <Compile Include="PacienteForms\ConsultarEntrenamiento.Designer.cs">
+      <DependentUpon>ConsultarEntrenamiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="PacienteForms\ConsultaTratamiento.cs">
+    <Compile Include="PacienteForms\ConsultarPatologia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PacienteForms\ConsultaTratamiento.Designer.cs">
-      <DependentUpon>ConsultaTratamiento.cs</DependentUpon>
+    <Compile Include="PacienteForms\ConsultarPatologia.Designer.cs">
+      <DependentUpon>ConsultarPatologia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PacienteForms\ConsultarTratamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacienteForms\ConsultarTratamiento.Designer.cs">
+      <DependentUpon>ConsultarTratamiento.cs</DependentUpon>
     </Compile>
     <Compile Include="AdministracionForms\CopiaSeguridad.cs">
       <SubType>Form</SubType>
@@ -197,17 +203,20 @@
     <EmbeddedResource Include="AdministracionForms\Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PacienteForms\BuscarEjercicio.resx">
-      <DependentUpon>BuscarEjercicio.cs</DependentUpon>
+    <EmbeddedResource Include="PacienteForms\ConsultarEjercicio.resx">
+      <DependentUpon>ConsultarEjercicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PacienteForms\Consulta.resx">
       <DependentUpon>Consulta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PacienteForms\ConsultaPatologia.resx">
-      <DependentUpon>ConsultaPatologia.cs</DependentUpon>
+    <EmbeddedResource Include="PacienteForms\ConsultarEntrenamiento.resx">
+      <DependentUpon>ConsultarEntrenamiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PacienteForms\ConsultaTratamiento.resx">
-      <DependentUpon>ConsultaTratamiento.cs</DependentUpon>
+    <EmbeddedResource Include="PacienteForms\ConsultarPatologia.resx">
+      <DependentUpon>ConsultarPatologia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PacienteForms\ConsultarTratamiento.resx">
+      <DependentUpon>ConsultarTratamiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdministracionForms\CopiaSeguridad.resx">
       <DependentUpon>CopiaSeguridad.cs</DependentUpon>

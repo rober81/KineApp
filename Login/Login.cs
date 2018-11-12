@@ -19,7 +19,7 @@ namespace GUI
                 if (sesion.iniciarSesion(txtUsuario.Text, txtPass.Text)){
                     this.Hide();
                     Maestro form = new Maestro();
-                    form.ShowDialog();
+                    form.Show();
                 } else
                 {
                     Mensaje("errorLogin");

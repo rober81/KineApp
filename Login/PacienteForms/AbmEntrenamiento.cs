@@ -62,28 +62,28 @@ namespace GUI
             }
         }
 
-        private void actualizarListaEjercicios()
+        public void actualizarListaEjercicios()
         {
             EjerCargados.DataSource = null;
             EjerCargados.DataSource = entrenamientoSeleccionado.ListaEjercicios;
             EjerCargados.ClearSelected();
         }
 
-        private void actualizarEntrenamiento()
+        public void actualizarEntrenamiento()
         {
             if (null != entrenamientoSeleccionado)
             {
                 lblID.Text = entrenamientoSeleccionado.Id.ToString();
                 txtNombreE.Text = entrenamientoSeleccionado.Nombre;
                 txtDescripcionE.Text = entrenamientoSeleccionado.Descripcion;
+                actualizarListaEjercicios();
             }
             else
             {
                 entrenamientoSeleccionado = new Entrenamiento();
-                txtNombreE.Text = string.Empty;
-                txtDescripcionE.Text = string.Empty;
                 actualizarEntrenamiento();
             }
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

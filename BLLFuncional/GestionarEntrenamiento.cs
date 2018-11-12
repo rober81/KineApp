@@ -33,12 +33,12 @@ namespace BLLFuncional
 
         public static int Insertar(Entrenamiento param)
         {
-            int id =  EntrenamientoMapper.Insertar(param);
+            param.Id = EntrenamientoMapper.Insertar(param);
             foreach(Ejercicio item in param.ListaEjercicios)
             {
-                EntrenamientoMapper.InsertarEjercicio(id, item);
+                EntrenamientoMapper.InsertarEjercicio(param, item);
             }
-            return 0;
+            return param.Id;
         }
 
         public static int Modificar(Entrenamiento param)
@@ -46,7 +46,7 @@ namespace BLLFuncional
             EntrenamientoMapper.BorrarEjercicio(param);
             foreach (Ejercicio item in param.ListaEjercicios)
             {
-                EntrenamientoMapper.InsertarEjercicio(param.Id, item);
+                EntrenamientoMapper.InsertarEjercicio(param, item);
             }
             return EntrenamientoMapper.Modificar(param);
         }

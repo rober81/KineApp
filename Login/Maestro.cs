@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.PacienteForms;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -35,7 +36,7 @@ namespace GUI
 
         private void entrenamientosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new AbmEntrenamiento());
+            abrirFormulario(new ConsultarEntrenamiento());
         }
 
         private void modificaciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,6 +114,8 @@ namespace GUI
                 inglesToolStripMenuItem.Checked = true;
             }
             this.actualizar();
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.MinimizeBox = true;
         }
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)

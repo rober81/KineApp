@@ -40,19 +40,19 @@ namespace DALFuncional
             return id;
         }
 
-        public static int InsertarEjercicio(int id_entrenamiento, Ejercicio param)
+        public static int InsertarEjercicio(Entrenamiento entrenamiento, Ejercicio ejercicio)
         {
             SqlParameter[] parametros = new SqlParameter[3];
-            parametros[0] = new SqlParameter("@id_entrenamiento", id_entrenamiento);
-            parametros[1] = new SqlParameter("@id_ejercicio", param.Id);
-            parametros[2] = new SqlParameter("@observaciones", param.Observaciones);
+            parametros[0] = new SqlParameter("@id_entrenamiento", entrenamiento.Id);
+            parametros[1] = new SqlParameter("@id_ejercicio", ejercicio.Id);
+            parametros[2] = new SqlParameter("@observaciones", ejercicio.Observaciones);
             return SqlHelper.getInstance().escribir(Tabla2 + "_alta", parametros);
         }
 
         public static int BorrarEjercicio(Entrenamiento param)
         {
             SqlParameter[] parametros = new SqlParameter[1];
-            parametros[0] = new SqlParameter("@id", param.Id);
+            parametros[0] = new SqlParameter("@id_entrenamiento", param.Id);
             return SqlHelper.getInstance().escribir(Tabla2 + "_baja", parametros);
         }
 
@@ -61,7 +61,7 @@ namespace DALFuncional
             Ejercicio obj = null;
             List<Ejercicio> lista = new List<Ejercicio>();
             SqlParameter[] parametros = new SqlParameter[1];
-            parametros[0] = new SqlParameter("@id", id);
+            parametros[0] = new SqlParameter("@id_entrenamiento", id);
             DataTable tabla = SqlHelper.getInstance().leer(Tabla2 + "_leer", parametros);
             foreach (DataRow item in tabla.Rows)
             {
