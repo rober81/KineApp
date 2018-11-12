@@ -28,7 +28,7 @@ namespace GUI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            BuscarEjercicio dialog = new BuscarEjercicio();
+            ConsultarEjercicio dialog = new ConsultarEjercicio();
 
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {

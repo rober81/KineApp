@@ -26,7 +26,8 @@ namespace BLLFuncional
             string bus = busqueda.Trim().ToLower();
             var filtro = from item in Listar()
                          where item.Nombre.ToLower().Contains(bus) ||
-                         item.Descripcion.ToLower().Contains(bus)
+                         item.Descripcion.ToLower().Contains(bus) ||
+                         item.Id.ToString().Contains(bus)
                          select item;
             return filtro.ToList<Entrenamiento>();
         }

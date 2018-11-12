@@ -6,12 +6,12 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class BuscarEjercicio : IdiomaForm
+    public partial class ConsultarEjercicio : IdiomaForm
     {
         GestionarEjercicio ge;
         public Ejercicio seleccionado { get; set; }
 
-        public BuscarEjercicio()
+        public ConsultarEjercicio()
         {
             InitializeComponent();
         }
@@ -21,6 +21,7 @@ namespace GUI
             Estilo.Nuevo(btnNuevo);
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
+            Estilo.Modificar(btnModificar);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
             ge = new GestionarEjercicio();
@@ -77,14 +78,35 @@ namespace GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-                seleccionado = (Ejercicio) dataGridView1.SelectedRows[0].DataBoundItem;
+            if (this.Owner == null)
+            {
+                this.Close();
+            }
             else
-                seleccionado = null;
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                    seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
+                else
+                    seleccionado = null;
+            }
+                
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0){
+                AbmEjercicios dialog = new AbmEjercicios();
+                dialog.seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    ActualizarLista(ge.Listar());
+                }
+                else
+                {
+                    ActualizarLista(ge.Listar());
+                }
+                dialog.Dispose();
+            }
 
         }
     }

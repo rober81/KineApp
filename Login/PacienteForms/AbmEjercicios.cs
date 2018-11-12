@@ -1,6 +1,5 @@
 ﻿using BEFuncional;
 using BLLFuncional;
-using GUI;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,6 +8,7 @@ namespace GUI
 {
     public partial class AbmEjercicios : IdiomaForm
     {
+        public Ejercicio seleccionado { get; set; }
         List<Ejercicio> listaEjercicios;
         GestionarEjercicio ge;
 
@@ -28,25 +28,27 @@ namespace GUI
             lblID.Text = string.Empty;
             ge = new GestionarEjercicio();
             listaEjercicios = ge.Listar();
-            ActualizarLista(listaEjercicios);
+            Actualizar();
         }
 
-        private void ActualizarLista(List<Ejercicio> lista)
+        private void Actualizar()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = lista;
-            dataGridView1.Columns["Id"].DisplayIndex = 0;
-            dataGridView1.Columns["Id"].Width = 25;
-            dataGridView1.Columns["Nombre"].DisplayIndex = 1;
-            dataGridView1.Columns["Nombre"].Width = 180;
-            dataGridView1.Columns["descripcion"].DisplayIndex = 2;
-            dataGridView1.Columns["descripcion"].Width = 300;
-            dataGridView1.Columns["cantidad"].DisplayIndex = 3;
-            dataGridView1.Columns["cantidad"].Width = 100;
-            dataGridView1.Columns["repeticiones"].DisplayIndex = 4;
-            dataGridView1.Columns["repeticiones"].Width = 100;
-            dataGridView1.Columns["Observaciones"].DisplayIndex = 5;
-            dataGridView1.Columns["Observaciones"].Visible = false;
+            if (seleccionado != null)
+            {
+                lblID.Text = seleccionado.Id.ToString();
+                txtNombre.Text = seleccionado.Nombre;
+                txtDescripcion.Text = seleccionado.Descripcion;
+                txtCantidad.Text = seleccionado.Cantidad;
+                txtRepeticiones.Text = seleccionado.Repeticiones;
+            }
+            else
+            {
+                lblID.Text = string.Empty;
+                txtNombre.Text = string.Empty;
+                txtDescripcion.Text = string.Empty;
+                txtCantidad.Text = string.Empty;
+                txtRepeticiones.Text = string.Empty;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -77,7 +79,6 @@ namespace GUI
                         Mensaje("msgErrorAlta", "msgError");
                     else
                         Mensaje("msgOperacionOk");
-                    ActualizarLista(ge.Listar());
                     if (this.Owner == null)
                         nuevo();
                     else
@@ -102,42 +103,6 @@ namespace GUI
             txtDescripcion.Text = string.Empty;
             txtCantidad.Text = string.Empty;
             txtRepeticiones.Text = string.Empty;
-        }
-
-        private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-        {
-            if (e.Row != null)
-            {
-                Ejercicio ej = (Ejercicio)e.Row.DataBoundItem;
-                if (ej != null)
-                {
-                    lblID.Text = ej.Id.ToString();
-                    txtNombre.Text = ej.Nombre;
-                    txtDescripcion.Text = ej.Descripcion;
-                    txtCantidad.Text = ej.Cantidad;
-                    txtRepeticiones.Text = ej.Repeticiones;
-                }
-                else
-                {
-                    lblID.Text = string.Empty;
-                    txtNombre.Text = string.Empty;
-                    txtDescripcion.Text = string.Empty;
-                    txtCantidad.Text = string.Empty;
-                    txtRepeticiones.Text = string.Empty;
-                }
-            }
-        }
-
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace((txtBuscar.Text)))
-            {
-                ActualizarLista(ge.Listar());
-            }
-            else
-            {
-                ActualizarLista(ge.Listar(txtBuscar.Text));
-            }
         }
     }
 }

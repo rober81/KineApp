@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class BuscarEjercicio
+    partial class ConsultarEjercicio
     {
         /// <summary>
         /// Required designer variable.
@@ -34,49 +34,50 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(73, 25);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtBuscar.Location = new System.Drawing.Point(55, 20);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(648, 22);
+            this.txtBuscar.Size = new System.Drawing.Size(363, 20);
             this.txtBuscar.TabIndex = 31;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 28);
+            this.label5.Location = new System.Drawing.Point(11, 23);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 17);
+            this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 36;
             this.label5.Tag = "lblBuscar";
             this.label5.Text = "Buscar";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 62);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 50);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1000, 554);
+            this.dataGridView1.Size = new System.Drawing.Size(750, 450);
             this.dataGridView1.TabIndex = 33;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(828, 16);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(621, 13);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(91, 39);
+            this.btnCancelar.Size = new System.Drawing.Size(68, 32);
             this.btnCancelar.TabIndex = 37;
             this.btnCancelar.Tag = "btnCancelar";
             this.btnCancelar.Text = "Cancelar";
@@ -85,10 +86,10 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(732, 16);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNuevo.Location = new System.Drawing.Point(549, 13);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(91, 39);
+            this.btnNuevo.Size = new System.Drawing.Size(68, 32);
             this.btnNuevo.TabIndex = 38;
             this.btnNuevo.Tag = "btnNuevo";
             this.btnNuevo.Text = "Nuevo";
@@ -97,21 +98,34 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(924, 16);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAceptar.Location = new System.Drawing.Point(693, 13);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(91, 39);
+            this.btnAceptar.Size = new System.Drawing.Size(68, 32);
             this.btnAceptar.TabIndex = 39;
             this.btnAceptar.Tag = "btnAceptar";
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // BuscarEjercicio
+            // btnModificar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.btnModificar.Location = new System.Drawing.Point(477, 13);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(68, 32);
+            this.btnModificar.TabIndex = 40;
+            this.btnModificar.Tag = "btnModificar";
+            this.btnModificar.Text = "btnModificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // ConsultarEjercicio
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 633);
+            this.ClientSize = new System.Drawing.Size(769, 514);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnCancelar);
@@ -119,13 +133,13 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "BuscarEjercicio";
+            this.Name = "ConsultarEjercicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "frmBuscarEjer";
-            this.Text = "BuscarEjercicio";
+            this.Text = "ConsultarEjercicio";
             this.Load += new System.EventHandler(this.BuscarEjercicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -140,5 +154,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

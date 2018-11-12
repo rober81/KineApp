@@ -31,7 +31,7 @@ namespace GUI
 
         private void tratamientosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new AbmEjercicios());
+            abrirFormulario(new ConsultarEjercicio());
         }
 
         private void entrenamientosToolStripMenuItem_Click(object sender, EventArgs e)
