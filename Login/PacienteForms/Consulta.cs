@@ -20,7 +20,7 @@ namespace GUI
         private void Consulta_Load(object sender, EventArgs e)
         {
             Estilo.Guardar(btnAceptar);
-            Estilo.Cancelar(btnCancelar);
+            Estilo.Modificar(btnModificar);
             Estilo.Nuevo(btnNuevo);
             gp = new GestionarPaciente();
             listaPaciente = gp.Listar();
@@ -31,13 +31,13 @@ namespace GUI
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = pacientes;
-            dataGridView1.Columns["dni"].DisplayIndex = 0;
-            dataGridView1.Columns["nombre"].DisplayIndex = 1;
-            dataGridView1.Columns["nombre"].Width = 200;
-            dataGridView1.Columns["apellido"].DisplayIndex = 2;
-            dataGridView1.Columns["apellido"].Width = 200;
-            dataGridView1.Columns["fechaNacimiento"].DisplayIndex = 3;
-            dataGridView1.Columns["fechaNacimiento"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dataGridView1.Columns["Dni"].DisplayIndex = 0;
+            dataGridView1.Columns["Nombre"].DisplayIndex = 1;
+            dataGridView1.Columns["Nombre"].Width = 250;
+            dataGridView1.Columns["Apellido"].DisplayIndex = 2;
+            dataGridView1.Columns["Apellido"].Width = 250;
+            dataGridView1.Columns["FechaNacimiento"].DisplayIndex = 3;
+            dataGridView1.Columns["FechaNacimiento"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dataGridView1.Columns["DVH"].DisplayIndex = 4;
             dataGridView1.Columns["DVH"].Visible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -56,10 +56,7 @@ namespace GUI
             }
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -68,11 +65,40 @@ namespace GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (this.Owner == null)
+            {
+                this.Close();
+            }
+            else
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    //seleccionado = (Paciente)dataGridView1.SelectedRows[0].DataBoundItem;
+                }
+                else
+                {
+                    //seleccionado = null;
+                }
+            }
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                ConsultaTratamiento dialog = new ConsultaTratamiento();
+                //dialog.seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                   // ActualizarLista(ge.Listar());
+                }
+                else
+                {
+                    //ActualizarLista(ge.Listar());
+                }
+                dialog.Dispose();
+            }
 
         }
     }
