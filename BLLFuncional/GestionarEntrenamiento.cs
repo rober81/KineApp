@@ -1,10 +1,7 @@
 ﻿using BEFuncional;
 using DALFuncional;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLLFuncional
 {
@@ -18,7 +15,19 @@ namespace BLLFuncional
 
         public List<Entrenamiento> Listar()
         {
-            return EntrenamientoMapper.Listar();
+            List<Entrenamiento> lista = EntrenamientoMapper.Listar();
+            foreach (Entrenamiento item in lista)
+            {
+                item.ListaEjercicios = EjercicioMapper.BuscarEjercicio(item);
+            }
+            return lista;
+        }
+
+        public Entrenamiento Buscar(Entrenamiento param)
+        {
+            Entrenamiento resultado = EntrenamientoMapper.Buscar(param);
+            resultado.ListaEjercicios = EjercicioMapper.BuscarEjercicio(param);
+            return resultado;
         }
 
         public List<Entrenamiento> Listar(string busqueda)
@@ -37,17 +46,17 @@ namespace BLLFuncional
             param.Id = EntrenamientoMapper.Insertar(param);
             foreach(Ejercicio item in param.ListaEjercicios)
             {
-                EntrenamientoMapper.InsertarEjercicio(param, item);
+                EjercicioMapper.InsertarEjercicio(param, item);
             }
             return param.Id;
         }
 
         public static int Modificar(Entrenamiento param)
         {
-            EntrenamientoMapper.BorrarEjercicio(param);
+            EjercicioMapper.BorrarEjercicio(param);
             foreach (Ejercicio item in param.ListaEjercicios)
             {
-                EntrenamientoMapper.InsertarEjercicio(param, item);
+                EjercicioMapper.InsertarEjercicio(param, item);
             }
             return EntrenamientoMapper.Modificar(param);
         }

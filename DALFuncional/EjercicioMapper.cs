@@ -9,6 +9,7 @@ namespace DALFuncional
     public class EjercicioMapper
     {
         public static string Tabla = "Ejercicio";
+        public static string Tabla2 = "EntrenamientoEjercicio";
 
         public static List<Ejercicio> Listar()
         {
@@ -28,11 +29,11 @@ namespace DALFuncional
             return lista;
         }
 
-        public static Ejercicio Buscar(int id)
+        public static Ejercicio Buscar(Ejercicio param)
         {
             Ejercicio obj = null;
             SqlParameter[] parametros = new SqlParameter[1];
-            parametros[0] = new SqlParameter("@id", id);
+            parametros[0] = new SqlParameter("@id", param.Id);
             DataTable tabla = SqlHelper.getInstance().leer(Tabla + "_buscar", parametros);
             foreach (DataRow item in tabla.Rows)
             {
@@ -65,6 +66,43 @@ namespace DALFuncional
             parametros[3] = new SqlParameter("@cantidad", param.Cantidad);
             parametros[4] = new SqlParameter("@repeticiones", param.Repeticiones);
             return SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
+        }
+
+        public static int InsertarEjercicio(Entrenamiento entrenamiento, Ejercicio ejercicio)
+        {
+            SqlParameter[] parametros = new SqlParameter[3];
+            parametros[0] = new SqlParameter("@id_entrenamiento", entrenamiento.Id);
+            parametros[1] = new SqlParameter("@id_ejercicio", ejercicio.Id);
+            parametros[2] = new SqlParameter("@observaciones", ejercicio.Observaciones);
+            return SqlHelper.getInstance().escribir(Tabla2 + "_alta", parametros);
+        }
+
+        public static int BorrarEjercicio(Entrenamiento param)
+        {
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = new SqlParameter("@id_entrenamiento", param.Id);
+            return SqlHelper.getInstance().escribir(Tabla2 + "_baja", parametros);
+        }
+
+        public static List<Ejercicio> BuscarEjercicio(Entrenamiento param)
+        {
+            Ejercicio obj = null;
+            List<Ejercicio> lista = new List<Ejercicio>();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = new SqlParameter("@id_entrenamiento", param.Id);
+            DataTable tabla = SqlHelper.getInstance().leer(Tabla2 + "_leer", parametros);
+            foreach (DataRow item in tabla.Rows)
+            {
+                obj = new Ejercicio();
+                obj.Id = int.Parse(item["id_ejercicio"].ToString());
+                obj.Nombre = item["nombre"].ToString();
+                obj.Descripcion = item["descripcion"].ToString();
+                obj.Cantidad = item["cantidad"].ToString();
+                obj.Repeticiones = item["repeticiones"].ToString();
+                obj.Observaciones = item["observaciones"].ToString();
+                lista.Add(obj);
+            }
+            return lista;
         }
     }
 }
