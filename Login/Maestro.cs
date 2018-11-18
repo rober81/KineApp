@@ -71,7 +71,7 @@ namespace GUI
 
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new Consulta());
+            abrirFormulario(new ConsultarConsulta());
         }
 
         private void agregarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)

@@ -23,6 +23,7 @@ namespace DALFuncional
             {
                 obj = new Consulta();
                 obj.Id = int.Parse(item["id"].ToString());
+                obj.Paciente = new Paciente() { Dni = int.Parse(item["paciente"].ToString()) };
                 obj.Fecha = DateTime.Parse(item["fecha"].ToString());
                 obj.Resumen = item["resumen"].ToString();
                 lista.Add(obj);
@@ -30,11 +31,11 @@ namespace DALFuncional
             return lista;
         }
 
-        public static Consulta Buscar(Consulta param)
+        public static Consulta Buscar(int param)
         {
             Consulta obj = null;
             SqlParameter[] parametros = new SqlParameter[1];
-            parametros[0] = new SqlParameter("@id", param.Id);
+            parametros[0] = new SqlParameter("@id", param);
             DataTable tabla = SqlHelper.getInstance().leer(Tabla + "_buscar", parametros);
             foreach (DataRow item in tabla.Rows)
             {

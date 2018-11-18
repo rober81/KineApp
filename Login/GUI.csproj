@@ -101,11 +101,11 @@
     <Compile Include="PacienteForms\ConsultarEjercicio.Designer.cs">
       <DependentUpon>ConsultarEjercicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="PacienteForms\Consulta.cs">
+    <Compile Include="PacienteForms\ConsultarConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PacienteForms\Consulta.Designer.cs">
-      <DependentUpon>Consulta.cs</DependentUpon>
+    <Compile Include="PacienteForms\ConsultarConsulta.Designer.cs">
+      <DependentUpon>ConsultarConsulta.cs</DependentUpon>
     </Compile>
     <Compile Include="PacienteForms\ConsultarEntrenamiento.cs">
       <SubType>Form</SubType>
@@ -206,8 +206,8 @@
     <EmbeddedResource Include="PacienteForms\ConsultarEjercicio.resx">
       <DependentUpon>ConsultarEjercicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PacienteForms\Consulta.resx">
-      <DependentUpon>Consulta.cs</DependentUpon>
+    <EmbeddedResource Include="PacienteForms\ConsultarConsulta.resx">
+      <DependentUpon>ConsultarConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PacienteForms\ConsultarEntrenamiento.resx">
       <DependentUpon>ConsultarEntrenamiento.cs</DependentUpon>

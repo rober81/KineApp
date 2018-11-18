@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Consulta
+    partial class ConsultarConsulta
     {
         /// <summary>
         /// Required designer variable.

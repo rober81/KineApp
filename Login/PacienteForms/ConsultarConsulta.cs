@@ -1,18 +1,17 @@
 ﻿using BEFuncional;
 using BLLFuncional;
-using GUI;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Consulta : IdiomaForm
+    public partial class ConsultarConsulta : IdiomaForm
     {
-        private List<Paciente> listaPaciente;
-        private GestionarPaciente gp;
+        private List<Consulta> lista;
+        private GestionarConsulta gc;
 
-        public Consulta()
+        public ConsultarConsulta()
         {
             InitializeComponent();
         }
@@ -22,24 +21,32 @@ namespace GUI
             Estilo.Guardar(btnAceptar);
             Estilo.Modificar(btnModificar);
             Estilo.Nuevo(btnNuevo);
-            gp = new GestionarPaciente();
-            listaPaciente = gp.Listar();
-            ActualizarLista(listaPaciente);
+            gc = new GestionarConsulta();
+            lista = gc.Listar();
+            dataGridView1.ColumnCount = 5;
+            dataGridView1.Columns[0].Name = "Id";
+            dataGridView1.Columns[1].Name = "Dni";
+            dataGridView1.Columns[2].Name = "Nombre";
+            dataGridView1.Columns[3].Name = "Apellido";
+            dataGridView1.Columns[4].Name = "Resumen";
+            dataGridView1.Columns[0].Width = 25;
+            dataGridView1.Columns[1].Width = 100;
+            dataGridView1.Columns[2].Width = 150;
+            dataGridView1.Columns[3].Width = 150;
+            dataGridView1.Columns[4].Width = 200;
+
+            ActualizarLista(lista);
         }
 
-        private void ActualizarLista(List<Paciente> pacientes)
+        private void ActualizarLista(List<Consulta> consultas)
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = pacientes;
-            dataGridView1.Columns["Dni"].DisplayIndex = 0;
-            dataGridView1.Columns["Nombre"].DisplayIndex = 1;
-            dataGridView1.Columns["Nombre"].Width = 250;
-            dataGridView1.Columns["Apellido"].DisplayIndex = 2;
-            dataGridView1.Columns["Apellido"].Width = 250;
-            dataGridView1.Columns["FechaNacimiento"].DisplayIndex = 3;
-            dataGridView1.Columns["FechaNacimiento"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dataGridView1.Columns["DVH"].DisplayIndex = 4;
-            dataGridView1.Columns["DVH"].Visible = false;
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            foreach (var item in consultas)
+            {
+                string[] fila = new string[]{item.Id.ToString(),item.Paciente.Dni.ToString(), item.Paciente.Nombre, item.Paciente.Apellido, item.Resumen};
+                dataGridView1.Rows.Add(fila);
+            }
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.MultiSelect = false;
         }
@@ -48,11 +55,11 @@ namespace GUI
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
-                ActualizarLista(gp.Listar());
+                ActualizarLista(gc.Listar());
             }
             else
             {
-                ActualizarLista(gp.Listar(txtBuscar.Text));
+                ActualizarLista(gc.Listar(txtBuscar.Text));
             }
         }
 
