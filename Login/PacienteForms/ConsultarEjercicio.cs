@@ -58,7 +58,7 @@ namespace GUI
 
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
-                ActualizarLista(ge.Listar());
+                ActualizarLista(gestor.Listar());
             }
             dialog.Dispose();
         }
