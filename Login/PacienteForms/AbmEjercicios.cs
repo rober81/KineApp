@@ -8,7 +8,7 @@ namespace GUI
 {
     public partial class AbmEjercicios : IdiomaForm
     {
-        public Ejercicio seleccionado { get; set; }
+        public Ejercicio Seleccionado { get; set; }
         List<Ejercicio> listaEjercicios;
         GestionarEjercicio gestor;
 
@@ -31,13 +31,13 @@ namespace GUI
 
         private void Actualizar()
         {
-            if (seleccionado != null)
+            if (Seleccionado != null)
             {
-                lblID.Text = seleccionado.Id.ToString();
-                txtNombre.Text = seleccionado.Nombre;
-                txtDescripcion.Text = seleccionado.Descripcion;
-                txtCantidad.Text = seleccionado.Cantidad;
-                txtRepeticiones.Text = seleccionado.Repeticiones;
+                lblID.Text = Seleccionado.Id.ToString();
+                txtNombre.Text = Seleccionado.Nombre;
+                txtDescripcion.Text = Seleccionado.Descripcion;
+                txtCantidad.Text = Seleccionado.Cantidad;
+                txtRepeticiones.Text = Seleccionado.Repeticiones;
             }
             else
             {

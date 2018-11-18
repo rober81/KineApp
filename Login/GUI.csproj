@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PacienteForms\AbmConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacienteForms\AbmConsulta.Designer.cs">
+      <DependentUpon>AbmConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="PacienteForms\AbmEntrenamiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     <Compile Include="AdministracionForms\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PacienteForms\AbmConsulta.resx">
+      <DependentUpon>AbmConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PacienteForms\AbmEntrenamiento.resx">
       <DependentUpon>AbmEntrenamiento.cs</DependentUpon>
     </EmbeddedResource>

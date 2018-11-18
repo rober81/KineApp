@@ -74,7 +74,7 @@ namespace GUI
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 AbmTratamiento dialog = new AbmTratamiento();
-                dialog.seleccionado = (Tratamiento)dataGridView1.SelectedRows[0].DataBoundItem;
+                dialog.Seleccionado = (Tratamiento)dataGridView1.SelectedRows[0].DataBoundItem;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                     ActualizarLista(gestor.Listar());

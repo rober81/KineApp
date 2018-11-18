@@ -74,7 +74,7 @@ namespace GUI
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 AbmPatologia dialog = new AbmPatologia();
-                dialog.seleccionado = (Patologia)dataGridView1.SelectedRows[0].DataBoundItem;
+                dialog.Seleccionado = (Patologia)dataGridView1.SelectedRows[0].DataBoundItem;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                     ActualizarLista(gestor.Listar());

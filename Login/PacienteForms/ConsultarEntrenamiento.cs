@@ -74,7 +74,7 @@ namespace GUI.PacienteForms
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 AbmEntrenamiento dialog = new AbmEntrenamiento();
-                dialog.entrenamientoSeleccionado = (Entrenamiento)dataGridView1.SelectedRows[0].DataBoundItem;
+                dialog.EntrenamientoSeleccionado = (Entrenamiento)dataGridView1.SelectedRows[0].DataBoundItem;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                     ActualizarLista(gestor.Listar());

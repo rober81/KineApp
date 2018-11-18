@@ -7,7 +7,7 @@ namespace GUI.PacienteForms
 {
     public partial class AbmTratamiento : IdiomaForm
     {
-        public Tratamiento seleccionado { get; set; }
+        public Tratamiento Seleccionado { get; set; }
         private GestionarTratamiento gestor;
         public AbmTratamiento()
         {
@@ -26,11 +26,11 @@ namespace GUI.PacienteForms
 
         private void Actualizar()
         {
-            if (seleccionado != null)
+            if (Seleccionado != null)
             {
-                lblID.Text = seleccionado.Id.ToString();
-                txtNombre.Text = seleccionado.Nombre;
-                txtDescripcion.Text = seleccionado.Descripcion;
+                lblID.Text = Seleccionado.Id.ToString();
+                txtNombre.Text = Seleccionado.Nombre;
+                txtDescripcion.Text = Seleccionado.Descripcion;
             }
             else
             {

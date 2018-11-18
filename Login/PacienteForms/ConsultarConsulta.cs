@@ -1,5 +1,6 @@
 ﻿using BEFuncional;
 using BLLFuncional;
+using GUI.PacienteForms;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,7 +10,7 @@ namespace GUI
     public partial class ConsultarConsulta : IdiomaForm
     {
         private List<Consulta> lista;
-        private GestionarConsulta gc;
+        private GestionarConsulta gestor;
 
         public ConsultarConsulta()
         {
@@ -20,8 +21,8 @@ namespace GUI
         {
             Estilo.Modificar(btnModificar);
             Estilo.Nuevo(btnNuevo);
-            gc = new GestionarConsulta();
-            lista = gc.Listar();
+            gestor = new GestionarConsulta();
+            lista = gestor.Listar();
             dataGridView1.ColumnCount = 5;
             dataGridView1.Columns[0].Name = "Id";
             dataGridView1.Columns[1].Name = "Dni";
@@ -54,11 +55,11 @@ namespace GUI
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
-                ActualizarLista(gc.Listar());
+                ActualizarLista(gestor.Listar());
             }
             else
             {
-                ActualizarLista(gc.Listar(txtBuscar.Text));
+                ActualizarLista(gestor.Listar(txtBuscar.Text));
             }
         }
 
@@ -66,11 +67,11 @@ namespace GUI
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                ConsultaTratamiento dialog = new ConsultaTratamiento();
-                //dialog.seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
+                AbmConsulta dialog = new AbmConsulta();
+                dialog.Seleccionado = (Consulta)dataGridView1.SelectedRows[0].DataBoundItem;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
-                   // ActualizarLista(ge.Listar());
+                   ActualizarLista(gestor.Listar());
                 }
                 dialog.Dispose();
             }
@@ -80,11 +81,10 @@ namespace GUI
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                ConsultaTratamiento dialog = new ConsultaTratamiento();
-                //dialog.seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
+                AbmConsulta dialog = new AbmConsulta();
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    // ActualizarLista(ge.Listar());
+                    ActualizarLista(gestor.Listar());
                 }
                 dialog.Dispose();
             }

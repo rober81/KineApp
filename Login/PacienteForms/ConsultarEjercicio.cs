@@ -92,7 +92,7 @@ namespace GUI
         {
             if (dataGridView1.SelectedRows.Count > 0){
                 AbmEjercicios dialog = new AbmEjercicios();
-                dialog.seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
+                dialog.Seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                     ActualizarLista(gestor.Listar());

@@ -7,10 +7,10 @@ namespace GUI
 {
     public partial class AbmEntrenamiento : IdiomaForm
     {
-        private Ejercicio ejercicioSeleccionado;
+        private Ejercicio EjercicioSeleccionado;
         private GestionarEntrenamiento gestor = new GestionarEntrenamiento();
 
-        public Entrenamiento entrenamientoSeleccionado { get; set; }
+        public Entrenamiento EntrenamientoSeleccionado { get; set; }
 
 
         public AbmEntrenamiento()
@@ -35,11 +35,11 @@ namespace GUI
 
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
-                ejercicioSeleccionado = dialog.seleccionado;
+                EjercicioSeleccionado = dialog.seleccionado;
             }
             else
             {
-                ejercicioSeleccionado = null;
+                EjercicioSeleccionado = null;
             }
             actualizarEjercicio();
             dialog.Dispose();
@@ -47,13 +47,13 @@ namespace GUI
 
         private void actualizarEjercicio()
         {
-            if (null != ejercicioSeleccionado)
+            if (null != EjercicioSeleccionado)
             {
-                txtNombre.Text = ejercicioSeleccionado.ToString();
-                txtDescripcion.Text = ejercicioSeleccionado.Descripcion;
-                txtCantidad.Text = ejercicioSeleccionado.Cantidad;
-                txtRepeticiones.Text = ejercicioSeleccionado.Repeticiones;
-                txtObservaciones.Text = ejercicioSeleccionado.Observaciones;
+                txtNombre.Text = EjercicioSeleccionado.ToString();
+                txtDescripcion.Text = EjercicioSeleccionado.Descripcion;
+                txtCantidad.Text = EjercicioSeleccionado.Cantidad;
+                txtRepeticiones.Text = EjercicioSeleccionado.Repeticiones;
+                txtObservaciones.Text = EjercicioSeleccionado.Observaciones;
             }
             else
             {
@@ -68,22 +68,22 @@ namespace GUI
         public void actualizarListaEjercicios()
         {
             EjerCargados.DataSource = null;
-            EjerCargados.DataSource = entrenamientoSeleccionado.ListaEjercicios;
+            EjerCargados.DataSource = EntrenamientoSeleccionado.ListaEjercicios;
             EjerCargados.ClearSelected();
         }
 
         public void actualizarEntrenamiento()
         {
-            if (null != entrenamientoSeleccionado)
+            if (null != EntrenamientoSeleccionado)
             {
-                lblID.Text = entrenamientoSeleccionado.Id.ToString();
-                txtNombreE.Text = entrenamientoSeleccionado.Nombre;
-                txtDescripcionE.Text = entrenamientoSeleccionado.Descripcion;
+                lblID.Text = EntrenamientoSeleccionado.Id.ToString();
+                txtNombreE.Text = EntrenamientoSeleccionado.Nombre;
+                txtDescripcionE.Text = EntrenamientoSeleccionado.Descripcion;
                 actualizarListaEjercicios();
             }
             else
             {
-                entrenamientoSeleccionado = new Entrenamiento();
+                EntrenamientoSeleccionado = new Entrenamiento();
                 actualizarEntrenamiento();
             }
 
@@ -91,12 +91,12 @@ namespace GUI
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (null != ejercicioSeleccionado)
+            if (null != EjercicioSeleccionado)
             {
-                ejercicioSeleccionado.Observaciones = txtObservaciones.Text;
-                if (! entrenamientoSeleccionado.ListaEjercicios.Contains(ejercicioSeleccionado))
-                    entrenamientoSeleccionado.ListaEjercicios.Add(ejercicioSeleccionado);
-                ejercicioSeleccionado = null;
+                EjercicioSeleccionado.Observaciones = txtObservaciones.Text;
+                if (! EntrenamientoSeleccionado.ListaEjercicios.Contains(EjercicioSeleccionado))
+                    EntrenamientoSeleccionado.ListaEjercicios.Add(EjercicioSeleccionado);
+                EjercicioSeleccionado = null;
                 actualizarEjercicio();
                 actualizarListaEjercicios();
             }
@@ -104,15 +104,15 @@ namespace GUI
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            if (entrenamientoSeleccionado.ListaEjercicios.Count > 0)
-                entrenamientoSeleccionado.ListaEjercicios.Remove((Ejercicio)EjerCargados.SelectedItem);
+            if (EntrenamientoSeleccionado.ListaEjercicios.Count > 0)
+                EntrenamientoSeleccionado.ListaEjercicios.Remove((Ejercicio)EjerCargados.SelectedItem);
             actualizarListaEjercicios();
         }
 
         private void EjerCargados_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (EjerCargados.Items.Count > 0)
-                ejercicioSeleccionado = (Ejercicio) EjerCargados.SelectedItem;
+                EjercicioSeleccionado = (Ejercicio) EjerCargados.SelectedItem;
             actualizarEjercicio();
         }
 
@@ -128,14 +128,14 @@ namespace GUI
             {
                 if (this.Validar())
                 {
-                    entrenamientoSeleccionado.Nombre = txtNombreE.Text.Trim();
-                    entrenamientoSeleccionado.Descripcion = txtDescripcionE.Text.Trim();
+                    EntrenamientoSeleccionado.Nombre = txtNombreE.Text.Trim();
+                    EntrenamientoSeleccionado.Descripcion = txtDescripcionE.Text.Trim();
                     if (string.IsNullOrWhiteSpace(lblID.Text) || "0".Equals(lblID.Text))
-                        respuesta = gestor.Insertar(entrenamientoSeleccionado);
+                        respuesta = gestor.Insertar(EntrenamientoSeleccionado);
                     else
                     {
-                        entrenamientoSeleccionado.Id = int.Parse(lblID.Text);
-                        respuesta = gestor.Modificar(entrenamientoSeleccionado);
+                        EntrenamientoSeleccionado.Id = int.Parse(lblID.Text);
+                        respuesta = gestor.Modificar(EntrenamientoSeleccionado);
                     }
                     if (respuesta == 0)
                         Mensaje("msgErrorAlta", "msgError");
@@ -159,7 +159,7 @@ namespace GUI
 
         private bool Validar()
         {
-            if (entrenamientoSeleccionado.ListaEjercicios.Count == 0)
+            if (EntrenamientoSeleccionado.ListaEjercicios.Count == 0)
             {
                 return false;
             }
@@ -173,8 +173,8 @@ namespace GUI
 
         private void nuevo()
         {
-            entrenamientoSeleccionado = null;
-            ejercicioSeleccionado = null;
+            EntrenamientoSeleccionado = null;
+            EjercicioSeleccionado = null;
             actualizarEjercicio();
             actualizarEntrenamiento();
             actualizarListaEjercicios();
