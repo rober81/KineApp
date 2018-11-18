@@ -18,7 +18,6 @@ namespace GUI
 
         private void Consulta_Load(object sender, EventArgs e)
         {
-            Estilo.Guardar(btnAceptar);
             Estilo.Modificar(btnModificar);
             Estilo.Nuevo(btnNuevo);
             gc = new GestionarConsulta();
@@ -31,9 +30,9 @@ namespace GUI
             dataGridView1.Columns[4].Name = "Resumen";
             dataGridView1.Columns[0].Width = 25;
             dataGridView1.Columns[1].Width = 100;
-            dataGridView1.Columns[2].Width = 150;
-            dataGridView1.Columns[3].Width = 150;
-            dataGridView1.Columns[4].Width = 200;
+            dataGridView1.Columns[2].Width = 160;
+            dataGridView1.Columns[3].Width = 160;
+            dataGridView1.Columns[4].Width = 220;
 
             ActualizarLista(lista);
         }
@@ -63,33 +62,6 @@ namespace GUI
             }
         }
 
- 
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            if (this.Owner == null)
-            {
-                this.Close();
-            }
-            else
-            {
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-                    //seleccionado = (Paciente)dataGridView1.SelectedRows[0].DataBoundItem;
-                }
-                else
-                {
-                    //seleccionado = null;
-                }
-            }
-
-        }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -100,12 +72,13 @@ namespace GUI
                 {
                    // ActualizarLista(ge.Listar());
                 }
-                else
-                {
-                    //ActualizarLista(ge.Listar());
-                }
                 dialog.Dispose();
             }
+
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
 
         }
     }

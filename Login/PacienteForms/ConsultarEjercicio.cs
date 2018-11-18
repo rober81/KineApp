@@ -8,7 +8,7 @@ namespace GUI
 {
     public partial class ConsultarEjercicio : IdiomaForm
     {
-        GestionarEjercicio ge;
+        GestionarEjercicio gestor;
         public Ejercicio seleccionado { get; set; }
 
         public ConsultarEjercicio()
@@ -24,8 +24,8 @@ namespace GUI
             Estilo.Modificar(btnModificar);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            ge = new GestionarEjercicio();
-            ActualizarLista(ge.Listar());
+            gestor = new GestionarEjercicio();
+            ActualizarLista(gestor.Listar());
         }
 
         private void ActualizarLista(List<Ejercicio> lista)
@@ -60,19 +60,15 @@ namespace GUI
             {
                 ActualizarLista(ge.Listar());
             }
-            else
-            {
-                ActualizarLista(ge.Listar());
-            }
             dialog.Dispose();
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace((txtBuscar.Text))){
-                ActualizarLista(ge.Listar());
+                ActualizarLista(gestor.Listar());
             } else {
-                ActualizarLista(ge.Listar(txtBuscar.Text));
+                ActualizarLista(gestor.Listar(txtBuscar.Text));
             }
         }
 
@@ -99,11 +95,7 @@ namespace GUI
                 dialog.seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    ActualizarLista(ge.Listar());
-                }
-                else
-                {
-                    ActualizarLista(ge.Listar());
+                    ActualizarLista(gestor.Listar());
                 }
                 dialog.Dispose();
             }

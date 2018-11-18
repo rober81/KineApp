@@ -1,23 +1,28 @@
-﻿using System.Collections.Generic;
-using BEFuncional;
-using System.Data;
+﻿using BEFuncional;
 using DAL;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DALFuncional
 {
-    public class PatologiaMapper
+    public class DatoBaseMapper<T> where T : DatoBase, new()
     {
-        public static string Tabla = "Patologia";
+        private string Tabla;
 
-        public static List<Patologia> Listar()
+        public DatoBaseMapper(string param)
         {
-            Patologia obj = null;
-            List<Patologia> lista = new List<Patologia>();
+            Tabla = param;
+        }
+
+        public List<T> Listar()
+        {
+            T obj = null;
+            List<T> lista = new List<T>();
             DataTable tabla = SqlHelper.getInstance().leer(Tabla + "_leer", null);
             foreach (DataRow item in tabla.Rows)
             {
-                obj = new Patologia();
+                obj = new T();
                 obj.Id = int.Parse(item["id"].ToString());
                 obj.Nombre = item["nombre"].ToString();
                 obj.Descripcion = item["descripcion"].ToString();
@@ -26,15 +31,15 @@ namespace DALFuncional
             return lista;
         }
 
-        public static Patologia Buscar(Patologia param)
+        public T Buscar(T param)
         {
-            Patologia obj = null;
+            T obj = null;
             SqlParameter[] parametros = new SqlParameter[1];
             parametros[0] = new SqlParameter("@id", param.Id);
             DataTable tabla = SqlHelper.getInstance().leer(Tabla + "_buscar", parametros);
             foreach (DataRow item in tabla.Rows)
             {
-                obj = new Patologia();
+                obj = new T();
                 obj.Id = int.Parse(item["id"].ToString());
                 obj.Nombre = item["nombre"].ToString();
                 obj.Descripcion = item["descripcion"].ToString();
@@ -42,17 +47,21 @@ namespace DALFuncional
             return obj;
         }
 
-        public static int Insertar(Patologia param)
+        public int Insertar(T param)
         {
-            SqlParameter[] parametros = new SqlParameter[2];
+            SqlParameter[] parametros = new SqlParameter[3];
             parametros[0] = new SqlParameter("@nombre", param.Nombre);
             parametros[1] = new SqlParameter("@descripcion", param.Descripcion);
-            return SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
+            parametros[2] = new SqlParameter("@id", 0);
+            parametros[2].Direction = ParameterDirection.Output;
+            SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
+            int id = int.Parse(parametros[2].Value.ToString());
+            return id;
         }
 
-        public static int Modificar(Ejercicio param)
+        public int Modificar(T param)
         {
-            SqlParameter[] parametros = new SqlParameter[2];
+            SqlParameter[] parametros = new SqlParameter[3];
             parametros[0] = new SqlParameter("@id", param.Id);
             parametros[1] = new SqlParameter("@nombre", param.Nombre);
             parametros[2] = new SqlParameter("@descripcion", param.Descripcion);

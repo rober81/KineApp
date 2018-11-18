@@ -8,7 +8,10 @@ namespace GUI
     public partial class AbmEntrenamiento : IdiomaForm
     {
         private Ejercicio ejercicioSeleccionado;
+        private GestionarEntrenamiento gestor = new GestionarEntrenamiento();
+
         public Entrenamiento entrenamientoSeleccionado { get; set; }
+
 
         public AbmEntrenamiento()
         {
@@ -128,11 +131,11 @@ namespace GUI
                     entrenamientoSeleccionado.Nombre = txtNombreE.Text.Trim();
                     entrenamientoSeleccionado.Descripcion = txtDescripcionE.Text.Trim();
                     if (string.IsNullOrWhiteSpace(lblID.Text) || "0".Equals(lblID.Text))
-                        respuesta = GestionarEntrenamiento.Insertar(entrenamientoSeleccionado);
+                        respuesta = gestor.Insertar(entrenamientoSeleccionado);
                     else
                     {
                         entrenamientoSeleccionado.Id = int.Parse(lblID.Text);
-                        respuesta = GestionarEntrenamiento.Modificar(entrenamientoSeleccionado);
+                        respuesta = gestor.Modificar(entrenamientoSeleccionado);
                     }
                     if (respuesta == 0)
                         Mensaje("msgErrorAlta", "msgError");
@@ -145,6 +148,7 @@ namespace GUI
                 } else
                 {
                     Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
+                    this.DialogResult = DialogResult.None;
                 }
             }
             catch (Exception)

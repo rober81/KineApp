@@ -29,7 +29,7 @@ namespace DALFuncional
             return lista;
         }
 
-        public static void Buscar(Paciente param)
+        public static Paciente Buscar(Paciente param)
         {
             SqlParameter[] parametros = new SqlParameter[1];
             parametros[0] = new SqlParameter("@dni", param.Dni);
@@ -42,6 +42,7 @@ namespace DALFuncional
                 param.FechaNacimiento = DateTime.Parse(item["fechaNacimiento"].ToString());
                 param.DVH = int.Parse(item["Dvh"].ToString());
             }
+            return param;
         }
 
         private static SqlParameter[] crearParametros(Paciente param)

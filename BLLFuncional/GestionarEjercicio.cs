@@ -1,10 +1,7 @@
 ﻿using BEFuncional;
 using DALFuncional;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLLFuncional
 {
@@ -18,13 +15,14 @@ namespace BLLFuncional
 
         public List<Ejercicio> Listar()
         {
-            return EjercicioMapper.Listar();
+            lista = EjercicioMapper.Listar();
+            return lista;
         }
 
         public List<Ejercicio> Listar(string busqueda)
         {
             string bus = busqueda.Trim().ToLower();
-            var filtro = from item in Listar()
+            var filtro = from item in lista
                          where item.Nombre.ToLower().Contains(bus) ||
                          item.Descripcion.ToLower().Contains(bus) ||
                          item.Id.ToString().Contains(bus)

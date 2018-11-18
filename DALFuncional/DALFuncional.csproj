@@ -42,11 +42,9 @@
   <ItemGroup>
     <Compile Include="ConsultaMapper.cs" />
     <Compile Include="EjercicioMapper.cs" />
-    <Compile Include="EntrenamientoMapper.cs" />
+    <Compile Include="DatoBaseMapper.cs" />
     <Compile Include="PacienteMapper.cs" />
-    <Compile Include="PatologiaMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TratamientoMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BEFuncional\BEFuncional.csproj">

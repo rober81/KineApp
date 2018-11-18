@@ -1,32 +1,27 @@
 ﻿using BEFuncional;
 using BLLFuncional;
 using System;
-using System.Collections.Generic;
+
 using System.Windows.Forms;
 
-namespace GUI
+namespace GUI.PacienteForms
 {
-    public partial class AbmEjercicios : IdiomaForm
+    public partial class AbmPatologia : IdiomaForm
     {
-        public Ejercicio seleccionado { get; set; }
-        List<Ejercicio> listaEjercicios;
-        GestionarEjercicio gestor;
-
-        public AbmEjercicios()
+        public Patologia seleccionado { get; set; }
+        private GestionarPatologia gestor;
+        public AbmPatologia()
         {
             InitializeComponent();
         }
 
-        private void AbmEjercicios_Load(object sender, EventArgs e)
+        private void AbmPatologia_Load(object sender, EventArgs e)
         {
+            gestor = new GestionarPatologia();
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
-            Estilo.Nuevo(btnNuevo);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
-
-            gestor = new GestionarEjercicio();
-            listaEjercicios = gestor.Listar();
             Actualizar();
         }
 
@@ -37,16 +32,12 @@ namespace GUI
                 lblID.Text = seleccionado.Id.ToString();
                 txtNombre.Text = seleccionado.Nombre;
                 txtDescripcion.Text = seleccionado.Descripcion;
-                txtCantidad.Text = seleccionado.Cantidad;
-                txtRepeticiones.Text = seleccionado.Repeticiones;
             }
             else
             {
                 lblID.Text = string.Empty;
                 txtNombre.Text = string.Empty;
                 txtDescripcion.Text = string.Empty;
-                txtCantidad.Text = string.Empty;
-                txtRepeticiones.Text = string.Empty;
             }
         }
 
@@ -62,48 +53,29 @@ namespace GUI
             {
                 if (this.ValidarTextbox())
                 {
-                    Ejercicio ej = new Ejercicio();
-                    ej.Nombre = txtNombre.Text.Trim();
-                    ej.Descripcion = txtDescripcion.Text.Trim();
-                    ej.Cantidad = txtCantidad.Text.Trim();
-                    ej.Repeticiones = txtRepeticiones.Text.Trim();
+                    Patologia obj = new Patologia();
+                    obj.Nombre = txtNombre.Text.Trim();
+                    obj.Descripcion = txtDescripcion.Text.Trim();
                     if (string.IsNullOrWhiteSpace(lblID.Text))
-                        respuesta = GestionarEjercicio.Insertar(ej);
+                        respuesta = gestor.Insertar(obj);
                     else
                     {
-                        ej.Id = int.Parse(lblID.Text);
-                        respuesta = GestionarEjercicio.Modificar(ej);
+                        obj.Id = int.Parse(lblID.Text);
+                        respuesta = gestor.Modificar(obj);
                     }
                     if (respuesta == 0)
                         Mensaje("msgErrorAlta", "msgError");
                     else
                         Mensaje("msgOperacionOk");
-                    if (this.Owner == null)
-                        nuevo();
-                    else
+                    if (this.Owner != null)
                         this.Close();
-                }
-                else
+                } else
                     this.DialogResult = DialogResult.None;
             }
             catch (Exception)
             {
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            nuevo();
-        }
-
-        private void nuevo()
-        {
-            lblID.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            txtDescripcion.Text = string.Empty;
-            txtCantidad.Text = string.Empty;
-            txtRepeticiones.Text = string.Empty;
         }
     }
 }

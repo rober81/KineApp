@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consulta.cs" />
+    <Compile Include="DatoBase.cs" />
     <Compile Include="Ejercicio.cs" />
     <Compile Include="Entrenamiento.cs" />
     <Compile Include="Paciente.cs" />
@@ -53,6 +54,9 @@
       <Project>{15adda90-15e2-41ab-801a-517d71dc782a}</Project>
       <Name>BE</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

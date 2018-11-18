@@ -73,8 +73,19 @@ namespace DALFuncional
         {
             SqlParameter[] parametros = new SqlParameter[3];
             parametros[0] = new SqlParameter("@id_consulta", con.Id);
-            parametros[1] = new SqlParameter("@id_patologia", con.Patologia.Id);
+            parametros[1] = new SqlParameter("@id_patologia", 0);
             parametros[2] = new SqlParameter("@id_entrenamiento", ent.Id);
+            parametros[3] = new SqlParameter("@id_tratamiento", 0);
+            parametros[4] = new SqlParameter("@resultado", "");
+            return SqlHelper.getInstance().escribir(Tabla2 + "_alta", parametros);
+        }
+
+        public static int InsertarDetallePatologia(Consulta con, Patologia pat)
+        {
+            SqlParameter[] parametros = new SqlParameter[3];
+            parametros[0] = new SqlParameter("@id_consulta", con.Id);
+            parametros[1] = new SqlParameter("@id_patologia", pat.Id);
+            parametros[2] = new SqlParameter("@id_entrenamiento", 0);
             parametros[3] = new SqlParameter("@id_tratamiento", 0);
             parametros[4] = new SqlParameter("@resultado", "");
             return SqlHelper.getInstance().escribir(Tabla2 + "_alta", parametros);
@@ -84,7 +95,7 @@ namespace DALFuncional
         {
             SqlParameter[] parametros = new SqlParameter[3];
             parametros[0] = new SqlParameter("@id_consulta", con.Id);
-            parametros[1] = new SqlParameter("@id_patologia", con.Patologia.Id);
+            parametros[1] = new SqlParameter("@id_patologia", 0);
             parametros[2] = new SqlParameter("@id_entrenamiento", 0);
             parametros[3] = new SqlParameter("@id_tratamiento", trat.Id);
             parametros[4] = new SqlParameter("@resultado", "");

@@ -2,19 +2,13 @@
 using BLLFuncional;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI.PacienteForms
 {
     public partial class ConsultarEntrenamiento : IdiomaForm
     {
-        GestionarEntrenamiento ge;
+        GestionarEntrenamiento gestor;
         public Entrenamiento seleccionado { get; set; }
 
         public ConsultarEntrenamiento()
@@ -30,8 +24,8 @@ namespace GUI.PacienteForms
             Estilo.Modificar(btnModificar);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            ge = new GestionarEntrenamiento();
-            ActualizarLista(ge.Listar());
+            gestor = new GestionarEntrenamiento();
+            ActualizarLista(gestor.Listar());
         }
 
         private void ActualizarLista(List<Entrenamiento> lista)
@@ -57,11 +51,7 @@ namespace GUI.PacienteForms
             AbmEntrenamiento dialog = new AbmEntrenamiento();
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
-                ActualizarLista(ge.Listar());
-            }
-            else
-            {
-                ActualizarLista(ge.Listar());
+                ActualizarLista(gestor.Listar());
             }
             dialog.Dispose();
         }
@@ -87,11 +77,7 @@ namespace GUI.PacienteForms
                 dialog.entrenamientoSeleccionado = (Entrenamiento)dataGridView1.SelectedRows[0].DataBoundItem;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    ActualizarLista(ge.Listar());
-                }
-                else
-                {
-                    ActualizarLista(ge.Listar());
+                    ActualizarLista(gestor.Listar());
                 }
                 dialog.Dispose();
             }
@@ -101,10 +87,10 @@ namespace GUI.PacienteForms
         {
             if (string.IsNullOrWhiteSpace((txtBuscar.Text)))
             {
-                ActualizarLista(ge.Listar());
+                ActualizarLista(gestor.Listar());
             } else
             {
-                ActualizarLista(ge.Listar(txtBuscar.Text));
+                ActualizarLista(gestor.Listar(txtBuscar.Text));
             }
         }
     }

@@ -14,7 +14,7 @@ namespace BLLFuncional
             lista = ConsultaMapper.Listar();
             foreach (var item in lista)
             {
-                GestionarPaciente.Buscar(item.Paciente);
+                item.Paciente = GestionarPaciente.Buscar(item.Paciente);
             }
             return lista;
         }
@@ -22,7 +22,7 @@ namespace BLLFuncional
         public Consulta Buscar(Consulta param)
         {
             Consulta resultado = ConsultaMapper.Buscar(param.Id);
-            GestionarPaciente.Buscar(resultado.Paciente);
+            resultado.Paciente = GestionarPaciente.Buscar(resultado.Paciente);
             return resultado;
         }
 

@@ -3,7 +3,6 @@ using DALFuncional;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace BLLFuncional
 {
     public class GestionarPaciente
@@ -13,6 +12,12 @@ namespace BLLFuncional
         public GestionarPaciente()
         {
             lista = Listar();
+        }
+
+        public List<Paciente> Listar()
+        {
+            lista = PacienteMapper.Listar();
+            return lista;
         }
 
         public List<Paciente> Listar(string busqueda)
@@ -25,15 +30,10 @@ namespace BLLFuncional
                          select item;
             return filtro.ToList<Paciente>();
         }
-
-        public List<Paciente> Listar()
-        {
-            return PacienteMapper.Listar();
-        }
         
-        public static void Buscar(Paciente param)
+        public static Paciente Buscar(Paciente param)
         {
-            PacienteMapper.Buscar(param);
+            return PacienteMapper.Buscar(param);
         }
 
         public static int Insertar(Paciente param)

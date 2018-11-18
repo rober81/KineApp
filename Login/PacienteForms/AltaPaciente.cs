@@ -1,6 +1,5 @@
 ﻿using BEFuncional;
 using BLLFuncional;
-using GUI;
 using System;
 
 namespace GUI

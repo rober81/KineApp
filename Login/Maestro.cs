@@ -19,6 +19,11 @@ namespace GUI
             Application.Exit();
         }
 
+        private void Maestro_Closing(object sender, EventArgs e)
+        {
+            BLL.GestionarSesion.getInstance().cerrarSesion();
+        }
+
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             abrirFormulario(new AltaPaciente());
@@ -79,14 +84,19 @@ namespace GUI
             abrirFormulario(new AdminIdioma());
         }
 
-        private void Maestro_Closing(object sender, EventArgs e)
-        {
-            BLL.GestionarSesion.getInstance().cerrarSesion();
-        }
-
         private void gestiónDeDigitoVerificadorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             abrirFormulario(new DigitoVerificador());
+        }
+
+        private void patologiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new ConsultaPatologia());
+        }
+
+        private void tratamientosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            abrirFormulario(new ConsultaTratamiento());
         }
 
         private void abrirFormulario(Form mdi)
@@ -170,5 +180,6 @@ namespace GUI
             españolToolStripMenuItem.Enabled = true;
             inglesToolStripMenuItem.Enabled = true;
         }
+
     }
 }

@@ -51,6 +51,8 @@
             this.españolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.patologiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tratamientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,7 +146,9 @@
             // 
             this.serviciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ejerciciosToolStripMenuItem,
-            this.entrenamientosToolStripMenuItem});
+            this.entrenamientosToolStripMenuItem,
+            this.patologiasToolStripMenuItem,
+            this.tratamientosToolStripMenuItem});
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
             this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
             this.serviciosToolStripMenuItem.Tag = "menuEntrenamientos";
@@ -265,6 +269,22 @@
             this.agregarIdiomaToolStripMenuItem.Text = "Administrar Idioma";
             this.agregarIdiomaToolStripMenuItem.Click += new System.EventHandler(this.agregarIdiomaToolStripMenuItem_Click);
             // 
+            // patologiasToolStripMenuItem
+            // 
+            this.patologiasToolStripMenuItem.Name = "patologiasToolStripMenuItem";
+            this.patologiasToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.patologiasToolStripMenuItem.Tag = "frmConsultaPatologias";
+            this.patologiasToolStripMenuItem.Text = "Patologias";
+            this.patologiasToolStripMenuItem.Click += new System.EventHandler(this.patologiasToolStripMenuItem_Click);
+            // 
+            // tratamientosToolStripMenuItem
+            // 
+            this.tratamientosToolStripMenuItem.Name = "tratamientosToolStripMenuItem";
+            this.tratamientosToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.tratamientosToolStripMenuItem.Tag = "frmConsultaTratamientos";
+            this.tratamientosToolStripMenuItem.Text = "Tratamientos";
+            this.tratamientosToolStripMenuItem.Click += new System.EventHandler(this.tratamientosToolStripMenuItem_Click_1);
+            // 
             // Maestro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -275,6 +295,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Maestro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KineAPP";
@@ -312,6 +333,8 @@
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeDigitoVerificadorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem patologiasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tratamientosToolStripMenuItem;
     }
 }
 

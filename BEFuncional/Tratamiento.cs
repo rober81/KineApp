@@ -1,9 +1,6 @@
 ﻿namespace BEFuncional
 {
-    public class Tratamiento
+    public class Tratamiento : DatoBase
     {
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
     }
 }

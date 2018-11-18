@@ -83,6 +83,18 @@
     <Compile Include="AdministracionForms\AdminIdioma.Designer.cs">
       <DependentUpon>AdminIdioma.cs</DependentUpon>
     </Compile>
+    <Compile Include="PacienteForms\AbmPatologia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacienteForms\AbmPatologia.Designer.cs">
+      <DependentUpon>AbmPatologia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PacienteForms\AbmTratamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacienteForms\AbmTratamiento.Designer.cs">
+      <DependentUpon>AbmTratamiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="PacienteForms\AltaPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +208,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdministracionForms\AdminIdioma.resx">
       <DependentUpon>AdminIdioma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PacienteForms\AbmPatologia.resx">
+      <DependentUpon>AbmPatologia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PacienteForms\AbmTratamiento.resx">
+      <DependentUpon>AbmTratamiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PacienteForms\AltaPaciente.resx">
       <DependentUpon>AltaPaciente.cs</DependentUpon>
