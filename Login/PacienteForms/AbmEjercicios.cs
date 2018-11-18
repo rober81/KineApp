@@ -21,7 +21,6 @@ namespace GUI
         {
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
-            Estilo.Nuevo(btnNuevo);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
 
@@ -90,11 +89,6 @@ namespace GUI
             {
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            nuevo();
         }
 
         private void nuevo()

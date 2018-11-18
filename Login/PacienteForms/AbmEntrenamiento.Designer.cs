@@ -58,7 +58,7 @@
             // 
             // txtDescripcionE
             // 
-            this.txtDescripcionE.Location = new System.Drawing.Point(125, 57);
+            this.txtDescripcionE.Location = new System.Drawing.Point(120, 55);
             this.txtDescripcionE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescripcionE.MaxLength = 1000;
             this.txtDescripcionE.Multiline = true;
@@ -70,7 +70,7 @@
             // 
             // txtNombreE
             // 
-            this.txtNombreE.Location = new System.Drawing.Point(125, 18);
+            this.txtNombreE.Location = new System.Drawing.Point(120, 16);
             this.txtNombreE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombreE.MaxLength = 100;
             this.txtNombreE.Name = "txtNombreE";
@@ -81,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 60);
+            this.label2.Location = new System.Drawing.Point(18, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 17);
             this.label2.TabIndex = 11;
@@ -91,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 22);
+            this.label1.Location = new System.Drawing.Point(18, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 10;
@@ -112,7 +112,7 @@
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(471, 14);
+            this.groupBox1.Location = new System.Drawing.Point(466, 12);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -267,10 +267,10 @@
             // 
             this.groupBox2.Controls.Add(this.btnRemover);
             this.groupBox2.Controls.Add(this.EjerCargados);
-            this.groupBox2.Location = new System.Drawing.Point(27, 210);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(22, 208);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(436, 407);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
@@ -302,7 +302,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(1084, 630);
+            this.btnNuevo.Location = new System.Drawing.Point(1079, 628);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(87, 39);
@@ -314,7 +314,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(1176, 630);
+            this.btnCancelar.Location = new System.Drawing.Point(1171, 628);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(91, 39);
@@ -326,7 +326,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(1272, 630);
+            this.btnAceptar.Location = new System.Drawing.Point(1267, 628);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(91, 39);
@@ -340,7 +340,7 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.CausesValidation = false;
-            this.lblID.Location = new System.Drawing.Point(1053, 654);
+            this.lblID.Location = new System.Drawing.Point(1048, 652);
             this.lblID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(21, 17);
@@ -364,7 +364,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AbmEntrenamiento";

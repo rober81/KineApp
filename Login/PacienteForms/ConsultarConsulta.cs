@@ -74,12 +74,20 @@ namespace GUI
                 }
                 dialog.Dispose();
             }
-
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                ConsultaTratamiento dialog = new ConsultaTratamiento();
+                //dialog.seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    // ActualizarLista(ge.Listar());
+                }
+                dialog.Dispose();
+            }
         }
     }
 }

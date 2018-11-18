@@ -43,7 +43,7 @@
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(72, 48);
+            this.lblDni.Location = new System.Drawing.Point(89, 83);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(31, 17);
             this.lblDni.TabIndex = 8;
@@ -52,7 +52,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(293, 331);
+            this.btnCancelar.Location = new System.Drawing.Point(307, 296);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(91, 39);
@@ -64,7 +64,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(389, 331);
+            this.btnAceptar.Location = new System.Drawing.Point(403, 296);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(91, 39);
@@ -76,7 +76,7 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(149, 119);
+            this.txtApellido.Location = new System.Drawing.Point(166, 154);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtApellido.MaxLength = 20;
             this.txtApellido.Name = "txtApellido";
@@ -86,7 +86,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(149, 82);
+            this.txtNombre.Location = new System.Drawing.Point(166, 117);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre.MaxLength = 20;
             this.txtNombre.Name = "txtNombre";
@@ -96,7 +96,7 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(149, 48);
+            this.txtDni.Location = new System.Drawing.Point(166, 83);
             this.txtDni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDni.MaxLength = 15;
             this.txtDni.Name = "txtDni";
@@ -107,7 +107,7 @@
             // lblEdad
             // 
             this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(72, 162);
+            this.lblEdad.Location = new System.Drawing.Point(89, 197);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(141, 17);
             this.lblEdad.TabIndex = 2;
@@ -117,7 +117,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(72, 124);
+            this.lblApellido.Location = new System.Drawing.Point(89, 159);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(58, 17);
             this.lblApellido.TabIndex = 1;
@@ -127,7 +127,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(72, 86);
+            this.lblNombre.Location = new System.Drawing.Point(89, 121);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(58, 17);
             this.lblNombre.TabIndex = 0;
@@ -137,7 +137,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(221, 156);
+            this.dateTimePicker1.Location = new System.Drawing.Point(238, 191);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.MinDate = new System.DateTime(1910, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
