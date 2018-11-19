@@ -26,7 +26,7 @@ namespace GUI
 
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new AltaPaciente());
+            abrirFormulario(new AbmPaciente());
         }
 
         private void historialToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace GUI
 
         private void modificaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new ModificarPaciente());
+            abrirFormulario(new ConsultarPaciente());
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)

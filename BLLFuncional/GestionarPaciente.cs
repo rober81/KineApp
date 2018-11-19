@@ -36,11 +36,11 @@ namespace BLLFuncional
             return PacienteMapper.Buscar(param);
         }
 
-        public static int Insertar(Paciente param)
+        public int Insertar(Paciente param)
         {
             return PacienteMapper.Insertar(param);
         }
-        public static int Modificar(Paciente param)
+        public int Modificar(Paciente param)
         {
             return PacienteMapper.Modificar(param);
         }

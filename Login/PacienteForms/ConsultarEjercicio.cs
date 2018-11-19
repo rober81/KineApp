@@ -36,12 +36,12 @@ namespace GUI
             dataGridView1.Columns["Id"].Width = 25;
             dataGridView1.Columns["Nombre"].DisplayIndex = 1;
             dataGridView1.Columns["Nombre"].Width = 180;
-            dataGridView1.Columns["descripcion"].DisplayIndex = 2;
-            dataGridView1.Columns["descripcion"].Width = 300;
-            dataGridView1.Columns["cantidad"].DisplayIndex = 3;
-            dataGridView1.Columns["cantidad"].Width = 100;
-            dataGridView1.Columns["repeticiones"].DisplayIndex = 4;
-            dataGridView1.Columns["repeticiones"].Width = 100;
+            dataGridView1.Columns["Descripcion"].DisplayIndex = 2;
+            dataGridView1.Columns["Descripcion"].Width = 300;
+            dataGridView1.Columns["Cantidad"].DisplayIndex = 3;
+            dataGridView1.Columns["Cantidad"].Width = 100;
+            dataGridView1.Columns["Repeticiones"].DisplayIndex = 4;
+            dataGridView1.Columns["Repeticiones"].Width = 100;
             dataGridView1.Columns["Observaciones"].DisplayIndex = 5;
             dataGridView1.Columns["Observaciones"].Visible = false;
         }

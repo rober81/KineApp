@@ -101,12 +101,6 @@
     <Compile Include="PacienteForms\AbmTratamiento.Designer.cs">
       <DependentUpon>AbmTratamiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="PacienteForms\AltaPaciente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PacienteForms\AltaPaciente.Designer.cs">
-      <DependentUpon>AltaPaciente.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdministracionForms\Bitacora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +124,12 @@
     </Compile>
     <Compile Include="PacienteForms\ConsultarEntrenamiento.Designer.cs">
       <DependentUpon>ConsultarEntrenamiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PacienteForms\ConsultarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacienteForms\ConsultarPaciente.Designer.cs">
+      <DependentUpon>ConsultarPaciente.cs</DependentUpon>
     </Compile>
     <Compile Include="PacienteForms\ConsultarPatologia.cs">
       <SubType>Form</SubType>
@@ -180,11 +180,11 @@
     <Compile Include="Maestro.Designer.cs">
       <DependentUpon>Maestro.cs</DependentUpon>
     </Compile>
-    <Compile Include="PacienteForms\ModificarPaciente.cs">
+    <Compile Include="PacienteForms\AbmPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PacienteForms\ModificarPaciente.Designer.cs">
-      <DependentUpon>ModificarPaciente.cs</DependentUpon>
+    <Compile Include="PacienteForms\AbmPaciente.Designer.cs">
+      <DependentUpon>AbmPaciente.cs</DependentUpon>
     </Compile>
     <Compile Include="AdministracionForms\Perfiles.cs">
       <SubType>Form</SubType>
@@ -224,9 +224,6 @@
     <EmbeddedResource Include="PacienteForms\AbmTratamiento.resx">
       <DependentUpon>AbmTratamiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PacienteForms\AltaPaciente.resx">
-      <DependentUpon>AltaPaciente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdministracionForms\Bitacora.resx">
       <DependentUpon>Bitacora.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PacienteForms\ConsultarEntrenamiento.resx">
       <DependentUpon>ConsultarEntrenamiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PacienteForms\ConsultarPaciente.resx">
+      <DependentUpon>ConsultarPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PacienteForms\ConsultarPatologia.resx">
       <DependentUpon>ConsultarPatologia.cs</DependentUpon>
@@ -263,8 +263,8 @@
     <EmbeddedResource Include="Maestro.resx">
       <DependentUpon>Maestro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PacienteForms\ModificarPaciente.resx">
-      <DependentUpon>ModificarPaciente.cs</DependentUpon>
+    <EmbeddedResource Include="PacienteForms\AbmPaciente.resx">
+      <DependentUpon>AbmPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdministracionForms\Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>

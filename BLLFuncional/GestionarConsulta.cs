@@ -39,13 +39,13 @@ namespace BLLFuncional
             return filtro.ToList<Consulta>();
         }
 
-        public static int Insertar(Consulta param)
+        public int Insertar(Consulta param)
         {
             param.Id = ConsultaMapper.Insertar(param);
             return param.Id;
         }
 
-        public static int Modificar(Consulta param)
+        public int Modificar(Consulta param)
         {
             //foreach (Ejercicio item in param.ListaEjercicios)
             //{

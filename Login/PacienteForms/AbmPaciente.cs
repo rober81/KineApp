@@ -1,44 +1,49 @@
 ﻿using BEFuncional;
 using BLLFuncional;
 using System;
-
 using System.Windows.Forms;
 
-namespace GUI.PacienteForms
+namespace GUI
 {
-    public partial class AbmPatologia : IdiomaForm
+    public partial class AbmPaciente : IdiomaForm
     {
-        public Patologia Seleccionado { get; set; }
-        private GestionarPatologia gestor;
+        public Paciente Seleccionado { get; set; }
+        private GestionarPaciente gestor;
 
-        public AbmPatologia()
+        public AbmPaciente()
         {
             InitializeComponent();
         }
 
-        private void AbmPatologia_Load(object sender, EventArgs e)
+        private void AbmPaciente_Load(object sender, EventArgs e)
         {
-            gestor = new GestionarPatologia();
+            gestor = new GestionarPaciente();
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
+            this.AcceptButton = this.btnAceptar;
             Actualizar();
+            dtFecha.MaxDate = DateTime.Now;
         }
 
         private void Actualizar()
         {
             if (Seleccionado != null)
             {
-                lblID.Text = Seleccionado.Id.ToString();
+                txtDni.Text = Seleccionado.Dni.ToString();
+                txtDni.ReadOnly = true;
                 txtNombre.Text = Seleccionado.Nombre;
-                txtDescripcion.Text = Seleccionado.Descripcion;
+                txtApellido.Text = Seleccionado.Apellido;
+                dtFecha.Value = Seleccionado.FechaNacimiento;
             }
             else
             {
-                lblID.Text = string.Empty;
+                txtDni.Text = string.Empty;
+                txtDni.ReadOnly = false;
                 txtNombre.Text = string.Empty;
-                txtDescripcion.Text = string.Empty;
+                txtApellido.Text = string.Empty;
+                dtFecha.Value = DateTime.Now;
             }
         }
 
@@ -54,15 +59,16 @@ namespace GUI.PacienteForms
             {
                 if (this.ValidarTextbox())
                 {
-                    Patologia obj = new Patologia();
-                    obj.Nombre = txtNombre.Text.Trim();
-                    obj.Descripcion = txtDescripcion.Text.Trim();
-                    if (string.IsNullOrWhiteSpace(lblID.Text))
-                        respuesta = gestor.Insertar(obj);
+                    Seleccionado.Dni = int.Parse(txtDni.Text.Trim());
+                    Seleccionado.Nombre = txtNombre.Text.Trim();
+                    Seleccionado.Apellido = txtApellido.Text.Trim();
+                    Seleccionado.FechaNacimiento = dtFecha.Value;
+                    if (string.IsNullOrWhiteSpace(txtDni.Text))
+                        respuesta = gestor.Insertar(Seleccionado);
                     else
                     {
-                        obj.Id = int.Parse(lblID.Text);
-                        respuesta = gestor.Modificar(obj);
+                        Seleccionado.Dni = int.Parse(txtDni.Text);
+                        respuesta = gestor.Modificar(Seleccionado);
                     }
                     if (respuesta == 0)
                         Mensaje("msgErrorAlta", "msgError");
@@ -70,7 +76,8 @@ namespace GUI.PacienteForms
                         Mensaje("msgOperacionOk");
                     if (this.Owner != null)
                         this.Close();
-                } else
+                }
+                else
                     this.DialogResult = DialogResult.None;
             }
             catch (Exception)
@@ -79,4 +86,5 @@ namespace GUI.PacienteForms
             }
         }
     }
+
 }

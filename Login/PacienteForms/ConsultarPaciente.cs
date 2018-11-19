@@ -1,23 +1,28 @@
 ﻿using BEFuncional;
 using BLLFuncional;
-using GUI.PacienteForms;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI
+namespace GUI.PacienteForms
 {
-    public partial class ConsultaPatologia : IdiomaForm
+    public partial class ConsultarPaciente : IdiomaForm
     {
-        GestionarPatologia gestor;
-        public Patologia Seleccionado { get; set; }
+        GestionarPaciente gestor;
+        public Paciente Seleccionado { get; set; }
 
-        public ConsultaPatologia()
+        public ConsultarPaciente()
         {
             InitializeComponent();
         }
 
-        private void ConsultaPatologia_Load(object sender, EventArgs e)
+        private void ConsultarPaciente_Load(object sender, EventArgs e)
         {
             Estilo.Nuevo(btnNuevo);
             Estilo.Guardar(btnAceptar);
@@ -25,25 +30,29 @@ namespace GUI
             Estilo.Modificar(btnModificar);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            gestor = new GestionarPatologia();
+            gestor = new GestionarPaciente();
             ActualizarLista(gestor.Listar());
         }
 
-        private void ActualizarLista(List<Patologia> lista)
+        private void ActualizarLista(List<Paciente> lista)
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = lista;
-            dataGridView1.Columns["Id"].DisplayIndex = 0;
-            dataGridView1.Columns["Id"].Width = 25;
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = lista;
+            dataGridView1.Columns["Dni"].Width = 100;
+            dataGridView1.Columns["Nombre"].Width = 300;
+            dataGridView1.Columns["Apellido"].Width = 300;
+            dataGridView1.Columns["Dni"].DisplayIndex = 0;
             dataGridView1.Columns["Nombre"].DisplayIndex = 1;
-            dataGridView1.Columns["Nombre"].Width = 220;
-            dataGridView1.Columns["descripcion"].DisplayIndex = 2;
-            dataGridView1.Columns["descripcion"].Width = 460;
+            dataGridView1.Columns["Apellido"].DisplayIndex = 2;
+            dataGridView1.Columns["FechaNacimiento"].Visible = false;
+            dataGridView1.Columns["DVH"].Visible = false;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            AbmPatologia dialog = new AbmPatologia();
+            AbmPaciente dialog = new AbmPaciente();
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 ActualizarLista(gestor.Listar());
@@ -61,7 +70,7 @@ namespace GUI
             if (this.Owner != null)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
-                    Seleccionado = (Patologia)dataGridView1.SelectedRows[0].DataBoundItem;
+                    Seleccionado = (Paciente)dataGridView1.SelectedRows[0].DataBoundItem;
                 else
                     Seleccionado = null;
             }
@@ -73,8 +82,8 @@ namespace GUI
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                AbmPatologia dialog = new AbmPatologia();
-                dialog.Seleccionado = (Patologia)dataGridView1.SelectedRows[0].DataBoundItem;
+                AbmPaciente dialog = new AbmPaciente();
+                dialog.Seleccionado = (Paciente)dataGridView1.SelectedRows[0].DataBoundItem;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                     ActualizarLista(gestor.Listar());
