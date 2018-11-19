@@ -55,7 +55,6 @@ namespace GUI
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             AbmEjercicios dialog = new AbmEjercicios();
-
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 ActualizarLista(gestor.Listar());

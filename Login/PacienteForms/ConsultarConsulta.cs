@@ -79,15 +79,12 @@ namespace GUI
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            AbmConsulta dialog = new AbmConsulta();
+            if (dialog.ShowDialog(this) == DialogResult.OK)
             {
-                AbmConsulta dialog = new AbmConsulta();
-                if (dialog.ShowDialog(this) == DialogResult.OK)
-                {
-                    ActualizarLista(gestor.Listar());
-                }
-                dialog.Dispose();
+                ActualizarLista(gestor.Listar());
             }
+            dialog.Dispose();
         }
     }
 }

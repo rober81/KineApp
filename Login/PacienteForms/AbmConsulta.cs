@@ -21,10 +21,10 @@ namespace GUI.PacienteForms
             Estilo.Cancelar(btnCancelar);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            dtFecha.MaxDate = DateTime.Now;
-            dtFecha.CustomFormat = "dd/MM/yyyy";
             gestor = new GestionarConsulta();
             Actualizar();
+            dtFecha.MaxDate = DateTime.Now;
+            dtFecha.CustomFormat = "dd/MM/yyyy";
         }
 
         private void Actualizar()
@@ -33,6 +33,7 @@ namespace GUI.PacienteForms
             {
                 lblID.Text = Seleccionado.Id.ToString();
                 txtPaciente.Text = Seleccionado.Paciente.ToString();
+                btnBuscarPaciente.Enabled = false;
                 txtResumen.Text = Seleccionado.Resumen;
                 dtFecha.Value = Seleccionado.Fecha;
             }
@@ -40,6 +41,7 @@ namespace GUI.PacienteForms
             {
                 lblID.Text = string.Empty;
                 txtPaciente.Text = string.Empty;
+                btnBuscarPaciente.Enabled = true;
                 txtResumen.Text = string.Empty;
                 dtFecha.Value = DateTime.Now;
                 Seleccionado = new Consulta();
@@ -97,9 +99,15 @@ namespace GUI.PacienteForms
             return resultado && this.ValidarTextbox();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnBuscarPaciente_Click(object sender, EventArgs e)
         {
-
+            ConsultarPaciente dialog = new ConsultarPaciente();
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                Seleccionado.Paciente = dialog.Seleccionado;
+                txtPaciente.Text = Seleccionado.Paciente.ToString();
+            }
+            dialog.Dispose();
         }
     }
 }

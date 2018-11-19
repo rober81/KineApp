@@ -32,7 +32,7 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.txtPaciente = new System.Windows.Forms.TextBox();
             this.lblPaciente = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnBuscarPaciente = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
@@ -85,17 +85,17 @@
             this.lblPaciente.Tag = "lblPaciente";
             this.lblPaciente.Text = "Paciente";
             // 
-            // btnBuscar
+            // btnBuscarPaciente
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(665, 30);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(91, 39);
-            this.btnBuscar.TabIndex = 40;
-            this.btnBuscar.Tag = "btnBuscar";
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscarPaciente.Location = new System.Drawing.Point(665, 30);
+            this.btnBuscarPaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarPaciente.Name = "btnBuscarPaciente";
+            this.btnBuscarPaciente.Size = new System.Drawing.Size(91, 39);
+            this.btnBuscarPaciente.TabIndex = 40;
+            this.btnBuscarPaciente.Tag = "btnBuscar";
+            this.btnBuscarPaciente.Text = "Buscar";
+            this.btnBuscarPaciente.UseVisualStyleBackColor = true;
+            this.btnBuscarPaciente.Click += new System.EventHandler(this.btnBuscarPaciente_Click);
             // 
             // lblID
             // 
@@ -162,7 +162,7 @@
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblID);
-            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnBuscarPaciente);
             this.Controls.Add(this.txtPaciente);
             this.Controls.Add(this.lblPaciente);
             this.Controls.Add(this.btnCancelar);
@@ -186,7 +186,7 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.TextBox txtPaciente;
         private System.Windows.Forms.Label lblPaciente;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnBuscarPaciente;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.Label lblFecha;
