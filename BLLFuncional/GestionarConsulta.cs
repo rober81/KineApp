@@ -23,6 +23,7 @@ namespace BLLFuncional
         {
             Consulta resultado = ConsultaMapper.Buscar(param.Id);
             resultado.Paciente = GestionarPaciente.Buscar(resultado.Paciente);
+            resultado.Detalle = ConsultaMapper.BuscarDetalle(param);
             return resultado;
         }
 
@@ -42,16 +43,26 @@ namespace BLLFuncional
         public int Insertar(Consulta param)
         {
             param.Id = ConsultaMapper.Insertar(param);
+            foreach (ConsultaDetalle item in param.Detalle)
+            {
+                ConsultaMapper.InsertarDetalle(param.Id, item);
+            }
             return param.Id;
         }
 
         public int Modificar(Consulta param)
         {
-            //foreach (Ejercicio item in param.ListaEjercicios)
-            //{
-            //    EjercicioMapper.InsertarEjercicio(param, item);
-            //}
+            ConsultaMapper.BorrarDetalle(param);
+            foreach (ConsultaDetalle item in param.Detalle)
+            {
+                ConsultaMapper.InsertarDetalle(param.Id, item);
+            }
             return ConsultaMapper.Modificar(param);
+        }
+
+        public List<ConsultaDetalle> BuscarDetalle(Consulta param)
+        {
+            return ConsultaMapper.BuscarDetalle(param);
         }
     }
 }

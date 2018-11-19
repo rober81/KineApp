@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class ConsultaTratamiento : IdiomaForm
+    public partial class ConsultarTratamiento : IdiomaForm
     {
         GestionarTratamiento gestor;
-        public Tratamiento seleccionado { get; set; }
+        public Tratamiento Seleccionado { get; set; }
 
-        public ConsultaTratamiento()
+        public ConsultarTratamiento()
         {
             InitializeComponent();
         }
@@ -61,9 +61,9 @@ namespace GUI
             if (this.Owner != null)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
-                    seleccionado = (Tratamiento)dataGridView1.SelectedRows[0].DataBoundItem;
+                    Seleccionado = (Tratamiento)dataGridView1.SelectedRows[0].DataBoundItem;
                 else
-                    seleccionado = null;
+                    Seleccionado = null;
             }
             else
                 this.Close();

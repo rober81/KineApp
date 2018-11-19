@@ -1,5 +1,6 @@
 ﻿using System;
 using BE;
+using System.Globalization;
 
 namespace BEFuncional
 {
@@ -11,7 +12,7 @@ namespace BEFuncional
 
         public override string ToString()
         {
-            return Dni + " " + Nombre + " " + Apellido;
+            return Dni + " " + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Nombre) + " " + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Apellido);
         }
 
         public string getDVH()

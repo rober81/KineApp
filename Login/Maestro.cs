@@ -91,12 +91,12 @@ namespace GUI
 
         private void patologiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new ConsultaPatologia());
+            abrirFormulario(new ConsultarPatologia());
         }
 
         private void tratamientosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            abrirFormulario(new ConsultaTratamiento());
+            abrirFormulario(new ConsultarTratamiento());
         }
 
         private void abrirFormulario(Form mdi)

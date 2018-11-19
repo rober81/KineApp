@@ -35,7 +35,7 @@ namespace GUI
 
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
-                EjercicioSeleccionado = dialog.seleccionado;
+                EjercicioSeleccionado = dialog.Seleccionado;
             }
             else
             {

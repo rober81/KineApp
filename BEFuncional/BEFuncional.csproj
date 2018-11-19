@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consulta.cs" />
+    <Compile Include="ConsultaDetalle.cs" />
     <Compile Include="DatoBase.cs" />
     <Compile Include="Ejercicio.cs" />
     <Compile Include="Entrenamiento.cs" />

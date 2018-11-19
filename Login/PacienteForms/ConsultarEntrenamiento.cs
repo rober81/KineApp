@@ -9,7 +9,7 @@ namespace GUI.PacienteForms
     public partial class ConsultarEntrenamiento : IdiomaForm
     {
         GestionarEntrenamiento gestor;
-        public Entrenamiento seleccionado { get; set; }
+        public Entrenamiento Seleccionado { get; set; }
 
         public ConsultarEntrenamiento()
         {
@@ -42,7 +42,7 @@ namespace GUI.PacienteForms
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            seleccionado = null;
+            Seleccionado = null;
             this.Close();
         }
 
@@ -61,9 +61,9 @@ namespace GUI.PacienteForms
             if (this.Owner != null)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
-                    seleccionado = (Entrenamiento)dataGridView1.SelectedRows[0].DataBoundItem;
+                    Seleccionado = (Entrenamiento)dataGridView1.SelectedRows[0].DataBoundItem;
                 else
-                    seleccionado = null;
+                    Seleccionado = null;
             }
             else
                 this.Close();

@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class ConsultaPatologia : IdiomaForm
+    public partial class ConsultarPatologia : IdiomaForm
     {
         GestionarPatologia gestor;
         public Patologia Seleccionado { get; set; }
 
-        public ConsultaPatologia()
+        public ConsultarPatologia()
         {
             InitializeComponent();
         }

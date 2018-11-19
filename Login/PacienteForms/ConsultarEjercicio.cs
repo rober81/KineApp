@@ -9,7 +9,7 @@ namespace GUI
     public partial class ConsultarEjercicio : IdiomaForm
     {
         GestionarEjercicio gestor;
-        public Ejercicio seleccionado { get; set; }
+        public Ejercicio Seleccionado { get; set; }
 
         public ConsultarEjercicio()
         {
@@ -48,7 +48,7 @@ namespace GUI
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            seleccionado = null;
+            Seleccionado = null;
             this.Close();
         }
 
@@ -80,9 +80,9 @@ namespace GUI
             else
             {
                 if (dataGridView1.SelectedRows.Count > 0)
-                    seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
+                    Seleccionado = (Ejercicio)dataGridView1.SelectedRows[0].DataBoundItem;
                 else
-                    seleccionado = null;
+                    Seleccionado = null;
             }
                 
         }
