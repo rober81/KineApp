@@ -44,6 +44,14 @@ namespace GUI
             dataGridView1.Columns["Repeticiones"].Width = 100;
             dataGridView1.Columns["Observaciones"].DisplayIndex = 5;
             dataGridView1.Columns["Observaciones"].Visible = false;
+            if (Seleccionado != null)
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (((DatoBase)row.DataBoundItem).Id.Equals(Seleccionado.Id))
+                        row.Selected = true;
+                }
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

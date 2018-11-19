@@ -19,6 +19,11 @@ namespace BLLFuncional
             return lista;
         }
 
+        public Ejercicio Buscar(Ejercicio param)
+        {
+            return EjercicioMapper.Buscar(param);
+        }
+
         public List<Ejercicio> Listar(string busqueda)
         {
             string bus = busqueda.Trim().ToLower();

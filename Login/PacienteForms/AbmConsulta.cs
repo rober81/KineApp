@@ -1,6 +1,7 @@
 ﻿using BEFuncional;
 using BLLFuncional;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GUI.PacienteForms
@@ -26,7 +27,6 @@ namespace GUI.PacienteForms
             gestor = new GestionarConsulta();
             Actualizar();
             dtFecha.MaxDate = DateTime.Now;
-            dtFecha.CustomFormat = "dd/MM/yyyy";
         }
 
         private void Actualizar()
@@ -73,7 +73,7 @@ namespace GUI.PacienteForms
                     Consulta obj = new Consulta();
                     Seleccionado.Resumen = txtResumen.Text.Trim();
                     Seleccionado.Fecha = dtFecha.Value;
-                    Seleccionado.Detalle.Clear();
+                    Seleccionado.Detalle = new List<ConsultaDetalle>();
                     foreach (ConsultaDetalle item in listaPAT.Items)
                     {
                         Seleccionado.Detalle.Add(item);
@@ -90,12 +90,13 @@ namespace GUI.PacienteForms
                         Seleccionado.Id = int.Parse(lblID.Text);
                         respuesta = gestor.Modificar(Seleccionado);
                     }
-                    if (respuesta == 0)
+                    if (respuesta == 0) {
                         Mensaje("msgErrorAlta", "msgError");
+                        this.DialogResult = DialogResult.None;
+                    }
                     else
                     {
                         Mensaje("msgOperacionOk");
-                        this.Close();
                     }
                 }
                 else
@@ -115,6 +116,10 @@ namespace GUI.PacienteForms
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
                 resultado = false;
             }
+            if (listaPAT.Items.Count == 0)
+                resultado = false;
+            if (listaTRA.Items.Count == 0)
+                resultado = false;
             return resultado && this.ValidarTextbox();
         }
 
@@ -132,6 +137,7 @@ namespace GUI.PacienteForms
         private void btnBuscarPAT_Click(object sender, EventArgs e)
         {
             ConsultarPatologia dialog = new ConsultarPatologia();
+            dialog.Seleccionado = patologiaSeleccionada;
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 patologiaSeleccionada = dialog.Seleccionado;
@@ -139,8 +145,7 @@ namespace GUI.PacienteForms
             }
             else
             {
-                patologiaSeleccionada = null;
-                txtDescripcionPAT.Text = string.Empty;
+                LimpiarPatologia();
             }
             dialog.Dispose();
         }
@@ -148,6 +153,7 @@ namespace GUI.PacienteForms
         private void btnBuscarTRA_Click(object sender, EventArgs e)
         {
             ConsultarTratamiento dialog = new ConsultarTratamiento();
+            dialog.Seleccionado = tratamientoSeleccionado as Tratamiento;
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 tratamientoSeleccionado = dialog.Seleccionado;
@@ -155,8 +161,7 @@ namespace GUI.PacienteForms
             }
             else
             {
-                tratamientoSeleccionado = null;
-                txtDescripcionTRA.Text = string.Empty;
+                LimpiarTratamiento();
             }
             dialog.Dispose();
         }
@@ -164,6 +169,7 @@ namespace GUI.PacienteForms
         private void btnBuscarEN_Click(object sender, EventArgs e)
         {
             ConsultarEntrenamiento dialog = new ConsultarEntrenamiento();
+            dialog.Seleccionado = tratamientoSeleccionado as Entrenamiento;
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 tratamientoSeleccionado = dialog.Seleccionado;
@@ -171,8 +177,7 @@ namespace GUI.PacienteForms
             }
             else
             {
-                tratamientoSeleccionado = null;
-                txtDescripcionTRA.Text = string.Empty;
+                LimpiarTratamiento();
             }
             dialog.Dispose();
         }
@@ -180,6 +185,7 @@ namespace GUI.PacienteForms
         private void btnBuscarEJ_Click(object sender, EventArgs e)
         {
             ConsultarEjercicio dialog = new ConsultarEjercicio();
+            dialog.Seleccionado = tratamientoSeleccionado as Ejercicio;
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 tratamientoSeleccionado = dialog.Seleccionado;
@@ -187,8 +193,7 @@ namespace GUI.PacienteForms
             }
             else
             {
-                tratamientoSeleccionado = null;
-                txtDescripcionTRA.Text = string.Empty;
+                LimpiarTratamiento();
             }
             dialog.Dispose();
         }
@@ -201,6 +206,7 @@ namespace GUI.PacienteForms
                 detalle.Item = patologiaSeleccionada;
                 detalle.Observaciones = txtObservacionesPAT.Text;
                 listaPAT.Items.Add(detalle);
+                LimpiarPatologia();
             }
         }
 
@@ -213,17 +219,58 @@ namespace GUI.PacienteForms
                 detalle.Observaciones = txtObservacionesTRA.Text;
                 detalle.Resultado = txtResultadoTRA.Text;
                 listaTRA.Items.Add(detalle);
+                LimpiarTratamiento();
             }
         }
 
         private void btnRemoverPAT_Click(object sender, EventArgs e)
         {
             listaPAT.Items.Remove(listaPAT.SelectedItem);
+            LimpiarPatologia();
         }
 
         private void btnRemoverTRA_Click(object sender, EventArgs e)
         {
-            listaPAT.Items.Remove(listaPAT.SelectedItem);
+            listaTRA.Items.Remove(listaTRA.SelectedItem);
+            LimpiarTratamiento();
+        }
+
+        private void listaPAT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ConsultaDetalle detalle = listaPAT.SelectedItem as ConsultaDetalle;
+            if (detalle != null)
+            {
+                patologiaSeleccionada = (Patologia) detalle.Item;
+                txtDescripcionPAT.Text = patologiaSeleccionada.ToString();
+                txtObservacionesPAT.Text = detalle.Observaciones;
+            }
+        }
+
+        private void listaTRA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ConsultaDetalle detalle = listaTRA.SelectedItem as ConsultaDetalle;
+            if (detalle != null)
+            {
+                tratamientoSeleccionado = (DatoBase)detalle.Item;
+                txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
+                txtObservacionesTRA.Text = detalle.Observaciones;
+                txtResultadoTRA.Text = detalle.Resultado;
+            }
+        }
+
+        private void LimpiarTratamiento()
+        {
+            tratamientoSeleccionado = null;
+            txtDescripcionTRA.Text = string.Empty;
+            txtObservacionesTRA.Text = string.Empty;
+            txtResultadoTRA.Text = string.Empty;
+        }
+
+        private void LimpiarPatologia()
+        {
+            patologiaSeleccionada = null;
+            txtDescripcionPAT.Text = string.Empty;
+            txtObservacionesPAT.Text = string.Empty;
         }
     }
 }

@@ -220,7 +220,7 @@
             this.groupBox1.Controls.Add(this.listaPAT);
             this.groupBox1.Location = new System.Drawing.Point(28, 98);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1277, 185);
+            this.groupBox1.Size = new System.Drawing.Size(1306, 185);
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             this.groupBox1.Tag = "frmPatologias";
@@ -251,12 +251,12 @@
             // 
             // btnBuscarPAT
             // 
-            this.btnBuscarPAT.Location = new System.Drawing.Point(1169, 36);
+            this.btnBuscarPAT.Location = new System.Drawing.Point(1169, 34);
             this.btnBuscarPAT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarPAT.Name = "btnBuscarPAT";
-            this.btnBuscarPAT.Size = new System.Drawing.Size(91, 39);
+            this.btnBuscarPAT.Size = new System.Drawing.Size(111, 54);
             this.btnBuscarPAT.TabIndex = 71;
-            this.btnBuscarPAT.Tag = "btnBuscar";
+            this.btnBuscarPAT.Tag = "btnBuscarPatologia";
             this.btnBuscarPAT.Text = "Buscar";
             this.btnBuscarPAT.UseVisualStyleBackColor = true;
             this.btnBuscarPAT.Click += new System.EventHandler(this.btnBuscarPAT_Click);
@@ -315,6 +315,7 @@
             this.listaPAT.Name = "listaPAT";
             this.listaPAT.Size = new System.Drawing.Size(399, 148);
             this.listaPAT.TabIndex = 66;
+            this.listaPAT.SelectedIndexChanged += new System.EventHandler(this.listaPAT_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -332,7 +333,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(28, 300);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1277, 318);
+            this.groupBox2.Size = new System.Drawing.Size(1306, 318);
             this.groupBox2.TabIndex = 67;
             this.groupBox2.TabStop = false;
             this.groupBox2.Tag = "frmTratamientos";
@@ -340,25 +341,25 @@
             // 
             // btnBuscarEJ
             // 
-            this.btnBuscarEJ.Location = new System.Drawing.Point(1169, 144);
+            this.btnBuscarEJ.Location = new System.Drawing.Point(1169, 162);
             this.btnBuscarEJ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarEJ.Name = "btnBuscarEJ";
-            this.btnBuscarEJ.Size = new System.Drawing.Size(91, 39);
+            this.btnBuscarEJ.Size = new System.Drawing.Size(111, 54);
             this.btnBuscarEJ.TabIndex = 70;
-            this.btnBuscarEJ.Tag = "btnBuscar";
-            this.btnBuscarEJ.Text = "Buscar";
+            this.btnBuscarEJ.Tag = "btnBuscarEjercicio";
+            this.btnBuscarEJ.Text = "Ejercicio";
             this.btnBuscarEJ.UseVisualStyleBackColor = true;
             this.btnBuscarEJ.Click += new System.EventHandler(this.btnBuscarEJ_Click);
             // 
             // btnBuscarEN
             // 
-            this.btnBuscarEN.Location = new System.Drawing.Point(1169, 91);
+            this.btnBuscarEN.Location = new System.Drawing.Point(1169, 100);
             this.btnBuscarEN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarEN.Name = "btnBuscarEN";
-            this.btnBuscarEN.Size = new System.Drawing.Size(91, 39);
+            this.btnBuscarEN.Size = new System.Drawing.Size(111, 55);
             this.btnBuscarEN.TabIndex = 69;
-            this.btnBuscarEN.Tag = "btnBuscar";
-            this.btnBuscarEN.Text = "Buscar";
+            this.btnBuscarEN.Tag = "btnBuscarEntrenamiento";
+            this.btnBuscarEN.Text = "Entrenamiento";
             this.btnBuscarEN.UseVisualStyleBackColor = true;
             this.btnBuscarEN.Click += new System.EventHandler(this.btnBuscarEN_Click);
             // 
@@ -367,10 +368,10 @@
             this.btnBuscarTRA.Location = new System.Drawing.Point(1169, 41);
             this.btnBuscarTRA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarTRA.Name = "btnBuscarTRA";
-            this.btnBuscarTRA.Size = new System.Drawing.Size(91, 39);
+            this.btnBuscarTRA.Size = new System.Drawing.Size(111, 55);
             this.btnBuscarTRA.TabIndex = 68;
-            this.btnBuscarTRA.Tag = "btnBuscar";
-            this.btnBuscarTRA.Text = "Buscar";
+            this.btnBuscarTRA.Tag = "btnBuscarTratamiento";
+            this.btnBuscarTRA.Text = "Tratamiento";
             this.btnBuscarTRA.UseVisualStyleBackColor = true;
             this.btnBuscarTRA.Click += new System.EventHandler(this.btnBuscarTRA_Click);
             // 
@@ -429,6 +430,7 @@
             this.listaTRA.Name = "listaTRA";
             this.listaTRA.Size = new System.Drawing.Size(399, 276);
             this.listaTRA.TabIndex = 62;
+            this.listaTRA.SelectedIndexChanged += new System.EventHandler(this.listaTRA_SelectedIndexChanged);
             // 
             // txtObservacionesTRA
             // 
@@ -447,7 +449,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 790);
+            this.ClientSize = new System.Drawing.Size(1346, 790);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblResumen);

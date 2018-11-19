@@ -31,9 +31,9 @@ namespace GUI
             dataGridView1.Columns[4].Name = "Resumen";
             dataGridView1.Columns[0].Width = 25;
             dataGridView1.Columns[1].Width = 100;
-            dataGridView1.Columns[2].Width = 160;
-            dataGridView1.Columns[3].Width = 160;
-            dataGridView1.Columns[4].Width = 220;
+            dataGridView1.Columns[2].Width = 170;
+            dataGridView1.Columns[3].Width = 170;
+            dataGridView1.Columns[4].Width = 240;
 
             ActualizarLista(lista);
         }
@@ -68,8 +68,9 @@ namespace GUI
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 AbmConsulta dialog = new AbmConsulta();
-                dialog.Seleccionado = (Consulta)dataGridView1.SelectedRows[0].DataBoundItem;
-                if (dialog.ShowDialog(this) == DialogResult.OK)
+                DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
+                dialog.Seleccionado = new Consulta() { Id = int.Parse(filaSeleccionada.Cells[0].Value.ToString()) };
+                    if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                    ActualizarLista(gestor.Listar());
                 }

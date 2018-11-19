@@ -24,6 +24,23 @@ namespace BLLFuncional
             Consulta resultado = ConsultaMapper.Buscar(param.Id);
             resultado.Paciente = GestionarPaciente.Buscar(resultado.Paciente);
             resultado.Detalle = ConsultaMapper.BuscarDetalle(param);
+
+            GestionarEjercicio gestorEjercicio = new GestionarEjercicio();
+            GestionarTratamiento gestorTratamiento = new GestionarTratamiento();
+            GestionarEntrenamiento gestorEntrenamiento = new GestionarEntrenamiento();
+            GestionarPatologia gestorPAtologia = new GestionarPatologia();
+
+            foreach (var item in resultado.Detalle)
+            {
+                if (item.Item is Ejercicio)
+                    item.Item = gestorEjercicio.Buscar((Ejercicio)item.Item);
+                if (item.Item is Entrenamiento)
+                    item.Item = gestorEntrenamiento.Buscar((Entrenamiento)item.Item);
+                if (item.Item is Tratamiento)
+                    item.Item = gestorTratamiento.Buscar((Tratamiento)item.Item);
+                if (item.Item is Patologia)
+                    item.Item = gestorPAtologia.Buscar((Patologia)item.Item);
+            }
             return resultado;
         }
 

@@ -38,6 +38,14 @@ namespace GUI.PacienteForms
             dataGridView1.Columns["Nombre"].Width = 220;
             dataGridView1.Columns["descripcion"].DisplayIndex = 2;
             dataGridView1.Columns["descripcion"].Width = 460;
+            if (Seleccionado != null)
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (((DatoBase)row.DataBoundItem).Id.Equals(Seleccionado.Id))
+                        row.Selected = true;
+                }
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
