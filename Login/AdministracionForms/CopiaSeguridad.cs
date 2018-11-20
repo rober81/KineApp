@@ -21,6 +21,7 @@ namespace GUI
                     if (File.Exists(copia.Nombre)){
                         BLL.GestionarCopiaDeSeguridad.Restaurar(copia);
                         Mensaje("msgRestoreOk");
+                        Application.Exit();
                     } else
                     {
                         Mensaje("msgErrorArchivoNoExiste", "msgError");

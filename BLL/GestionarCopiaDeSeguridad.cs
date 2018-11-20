@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BE;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -9,17 +10,28 @@ namespace BLL
             return DAL.CopiaSeguridadMapper.Listar();
         }
 
-        public static int Backup(BE.CopiaDeSeguridad copia)
+        public static int Backup(CopiaDeSeguridad param)
         {
-            int resultado1 = DAL.CopiaSeguridadMapper.Insertar(copia);
-            int resultado2 = DAL.CopiaSeguridadMapper.Backup(copia);
+            int resultado1 = DAL.CopiaSeguridadMapper.Insertar(param);
+            int resultado2 = DAL.CopiaSeguridadMapper.Backup(param);
+            Bitacora("Backup", param);
             return resultado1 + resultado2;
         }
 
-        public static int Restaurar(BE.CopiaDeSeguridad copia)
+        public static int Restaurar(CopiaDeSeguridad param)
         {
-            int resultado1 = DAL.CopiaSeguridadMapper.Restaurar(copia);
+            int resultado1 = DAL.CopiaSeguridadMapper.Restaurar(param);
+            Bitacora("Restaurar", param);
             return resultado1;
+        }
+
+        private static void Bitacora(string accion, CopiaDeSeguridad param)
+        {
+            Bitacora bitacora = new Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "Backup";
+            bitacora.Dato = param.ToString();
+            GestionarBitacora.Insertar(bitacora);
         }
 
     }

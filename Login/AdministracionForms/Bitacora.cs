@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using GUI;
 using System;
 using System.Collections.Generic;
@@ -19,26 +20,27 @@ namespace GUI
         {
             gb = new GestionarBitacora();
             lista = gb.Listar();
-            comboBox1.DataSource = BLL.GestionarUsuario.Listar();
+            comboBox1.Items.Add("");
+            foreach ( var item in GestionarUsuario.Listar())
+            {
+                comboBox1.Items.Add(item);
+            }
             Actualizar(lista);
             dateTimePicker1.MaxDate = DateTime.Now;
             dateTimePicker2.MaxDate = DateTime.Now;
-            Estilo.Buscar(button1);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             List<BE.Bitacora> temp = null;
-            
-            if (checkBox1.Checked && ! checkBox2.Checked)
+            Usuario seleccionado = comboBox1.SelectedItem as Usuario;
+            if (seleccionado == null)
             {
                 temp = gb.ListarFecha(dateTimePicker1.Value, dateTimePicker2.Value);
-            } else if (! checkBox1.Checked && checkBox2.Checked)
+            } else 
             {
-                temp = gb.ListarUsuario(((BE.Usuario)comboBox1.SelectedItem));
-            } else if (checkBox1.Checked && checkBox2.Checked)
-            {
-                temp = gb.ListarFechaUsuario(dateTimePicker1.Value, dateTimePicker2.Value, ((BE.Usuario)comboBox1.SelectedItem));
+                temp = gb.ListarFechaUsuario(dateTimePicker1.Value, dateTimePicker2.Value, seleccionado);
             }
             
             if (temp != null)
@@ -49,6 +51,9 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            comboBox1.SelectedIndex = 0;
+            dateTimePicker1.Value = DateTime.Parse("01/01/2018");
+            dateTimePicker2.Value = DateTime.Now;
             Actualizar(lista);
         }
 
@@ -56,6 +61,11 @@ namespace GUI
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = param;
+            dataGridView1.Columns[0].Width = 100;
+            dataGridView1.Columns[1].Width = 80;
+            dataGridView1.Columns[2].Width = 100;
+            dataGridView1.Columns[3].Width = 90;
+            dataGridView1.Columns[4].Width = 280;
         }
     }
 }

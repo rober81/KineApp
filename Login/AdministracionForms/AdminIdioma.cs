@@ -28,6 +28,7 @@ namespace GUI
         {
             BLL.GestionarIdioma.getInstance().Cargar(esp);
             BLL.GestionarIdioma.getInstance().Cargar(ing);
+            lista.Clear();
             foreach (KeyValuePair<string, string> item in esp.Detalle)
             {
                 IdiomaFila fila = new IdiomaFila();
@@ -59,6 +60,7 @@ namespace GUI
                 detalle2.Clave = textBox1.Text;
                 detalle2.Texto = textBox3.Text;
                 int resultado2 = BLL.GestionarIdioma.getInstance().insertarDetalle(detalle2);
+                cargar();
                 resultado += resultado2;
             if (resultado != 2)
                 Mensaje("errorGuardar", "msgError");

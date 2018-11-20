@@ -1,8 +1,5 @@
-﻿using System;
+﻿using BE;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
@@ -51,10 +48,20 @@ namespace BLL
             return resultado;
         }
 
-        public int insertarDetalle(BE.IdiomaDetalle unDetalle)
+        public int insertarDetalle(IdiomaDetalle unDetalle)
         {
+            Bitacora("Insertar", unDetalle);
             int respuesta = DAL.IdiomaMapper.Insertar(unDetalle);
             return respuesta;
+        }
+
+        private void Bitacora(string accion, IdiomaDetalle param)
+        {
+            BE.Bitacora bitacora = new BE.Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "IdiomaDetalle";
+            bitacora.Dato = param.ToString();
+            BLL.GestionarBitacora.Insertar(bitacora);
         }
 
     }

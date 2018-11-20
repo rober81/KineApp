@@ -77,7 +77,17 @@ namespace BLL
             {
                 res += PerfilMapper.InsertarUsuarioPerfil(param, item);
             }
+            Bitacora("Insertar", param);
             return res;
+        }
+
+        private void Bitacora(string accion, Usuario param)
+        {
+            BE.Bitacora bitacora = new BE.Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "UsuarioPerfil";
+            bitacora.Dato = param.ToString();
+            BLL.GestionarBitacora.Insertar(bitacora);
         }
     }
 }
