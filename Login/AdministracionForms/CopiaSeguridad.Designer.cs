@@ -97,8 +97,10 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(35, 47);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(725, 22);
             this.textBox1.TabIndex = 5;
+            this.textBox1.Tag = "lblCarpeta";
             // 
             // button3
             // 
@@ -123,7 +125,11 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CopiaSeguridad";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "frmCopiaSeguridad";
             this.Text = "Copia de seguridad y restauración";
             this.Load += new System.EventHandler(this.CopiaSeguridad_Load);

@@ -8,7 +8,7 @@ namespace BE
         public DateTime Fecha { get; set; }
         public override string ToString()
         {
-            return Nombre + " " + Fecha;
+            return Nombre;
         }
     }
 }

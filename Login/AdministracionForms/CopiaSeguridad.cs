@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace GUI
@@ -17,14 +18,19 @@ namespace GUI
                 if (listBox1.SelectedItem != null)
                 {
                     BE.CopiaDeSeguridad copia = (BE.CopiaDeSeguridad)listBox1.SelectedItem;
-                    BLL.GestionarCopiaDeSeguridad.Restaurar(copia);
-                    Mensaje("msgRestoreOk");
+                    if (File.Exists(copia.Nombre)){
+                        BLL.GestionarCopiaDeSeguridad.Restaurar(copia);
+                        Mensaje("msgRestoreOk");
+                    } else
+                    {
+                        Mensaje("msgErrorArchivoNoExiste", "msgError");
+                    }
                 }
             }
             catch (Exception ex)
             {
                 Util.Log.Error(ex.ToString());
-                Mensaje("msgRestoreNo");
+                Mensaje("msgRestoreNo", "msgError");
             }
       
 
@@ -32,16 +38,22 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (! string.IsNullOrWhiteSpace(textBox1.Text))
+            if (this.ValidarTextbox())
             {
                 try
                 {
                     BE.CopiaDeSeguridad copia = new BE.CopiaDeSeguridad();
                     copia.Nombre = textBox1.Text;
                     copia.Fecha = DateTime.Now;
-                    BLL.GestionarCopiaDeSeguridad.Backup(copia);
-                    cargar();
-                    Mensaje("msgBackOk");
+                    int res = BLL.GestionarCopiaDeSeguridad.Backup(copia);
+                    if (res == 0)
+                    {
+                        Mensaje("msgBackOk");
+                        cargar();
+                    } else
+                    {
+                        Mensaje("msgBackNo");
+                    }
                 }
                 catch (Exception ex)
                 {

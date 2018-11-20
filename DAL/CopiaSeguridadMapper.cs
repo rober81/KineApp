@@ -38,7 +38,7 @@ namespace DAL
             int r = 0;
             try
             {
-                string back = String.Format("USE [master] BACKUP DATABASE [{0}] TO DISK='{1}'", db, copia.Nombre);
+                string back = String.Format("USE [master]; BACKUP DATABASE [{0}] TO DISK='{1}'", db, copia.Nombre);
                 SqlHelper.getInstance().abrir();
                 r = SqlHelper.getInstance().ejecutarSQL(back, null);
                 SqlHelper.getInstance().cerrar();

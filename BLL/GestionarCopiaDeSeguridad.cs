@@ -11,8 +11,8 @@ namespace BLL
 
         public static int Backup(BE.CopiaDeSeguridad copia)
         {
-            int resultado1 = DAL.CopiaSeguridadMapper.Backup(copia);
-            int resultado2 = DAL.CopiaSeguridadMapper.Insertar(copia);
+            int resultado1 = DAL.CopiaSeguridadMapper.Insertar(copia);
+            int resultado2 = DAL.CopiaSeguridadMapper.Backup(copia);
             return resultado1 + resultado2;
         }
 
