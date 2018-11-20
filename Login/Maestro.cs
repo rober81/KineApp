@@ -72,7 +72,7 @@ namespace GUI
 
         private void perfilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new Perfiles());
+            abrirFormulario(new AbmPerfiles());
         }
 
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)

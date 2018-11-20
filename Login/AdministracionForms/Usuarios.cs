@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -99,6 +100,15 @@ namespace GUI
             if (txtPass.Text.Length < 6)
             {
                 Mensaje("msgLargoPass", "msgFaltaCompletarTitulo");
+                return false;
+            }
+
+            try
+            {
+                MailAddress mail = new MailAddress(txtCorreo.Text.Trim());
+            }
+            catch (FormatException)
+            {
                 return false;
             }
             return base.ValidarTextbox();

@@ -48,10 +48,29 @@ namespace BLL
 
         public List<Perfiles> ListarPerfiles()
         {
+            return lista;
+        }
+
+        public List<Perfiles> ListarPerfilesPadres()
+        {
             var filtro = from item in lista
                          where item.Padre == 0
                          select item;
             return filtro.ToList<Perfiles>();
+        }
+
+        public int Insertar(Perfiles param)
+        {
+            int res = PerfilMapper.Insertar(param);
+            Bitacora("Insertar", param);
+            return res;
+        }
+
+        public int Modificar(Perfiles param)
+        {
+            int res = PerfilMapper.Modificar(param);
+            Bitacora("Modificar", param);
+            return res;
         }
 
         public List<iPermisos> ListarUsuarioPerfil(Usuario param)
@@ -79,6 +98,15 @@ namespace BLL
             }
             Bitacora("Insertar", param);
             return res;
+        }
+
+        private void Bitacora(string accion, Perfiles param)
+        {
+            BE.Bitacora bitacora = new BE.Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "Perfil";
+            bitacora.Dato = param.ToString();
+            BLL.GestionarBitacora.Insertar(bitacora);
         }
 
         private void Bitacora(string accion, Usuario param)

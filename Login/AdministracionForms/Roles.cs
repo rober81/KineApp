@@ -27,7 +27,7 @@ namespace GUI
             cmbUsuarios.DataSource = null;
             cmbUsuarios.DataSource = GestionarUsuario.Listar();
             cmbRoles.DataSource = null;
-            cmbRoles.DataSource = gestorRolesPerfiles.ListarPerfiles();
+            cmbRoles.DataSource = gestorRolesPerfiles.ListarPerfilesPadres();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

@@ -1,10 +1,7 @@
 ﻿using BE;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 
 namespace DAL
 {
@@ -22,11 +19,28 @@ namespace DAL
                 Perfiles obj = new Perfiles();
                 obj.Id = int.Parse(item["id"].ToString());
                 obj.Nombre = item["nombre"].ToString();
-                if (! string.IsNullOrEmpty(item["padre"].ToString()))
-                    obj.Padre = int.Parse(item["padre"].ToString());
+                obj.Padre = int.Parse(item["padre"].ToString());
                 lista.Add(obj);
             }
             return lista;
+        }
+
+        public static int Insertar(Perfiles perfil)
+        {
+            SqlParameter[] parametros = new SqlParameter[2];
+            parametros[0] = new SqlParameter("@nombre", perfil.Nombre);
+            parametros[1] = new SqlParameter("@padre", perfil.Padre);
+            int res = SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
+            return res;
+        }
+
+        public static int Modificar(Perfiles perfil)
+        {
+            SqlParameter[] parametros = new SqlParameter[2];
+            parametros[0] = new SqlParameter("@nombre", perfil.Nombre);
+            parametros[1] = new SqlParameter("@padre", perfil.Padre);
+            int res = SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
+            return res;
         }
 
         public static List<Perfiles> ListarUsuarioPerfil(Usuario param)
@@ -40,8 +54,7 @@ namespace DAL
                 Perfiles per = new Perfiles();
                 per.Id = int.Parse(item["perfil"].ToString());
                 per.Nombre = item["nombre"].ToString();
-                if (!string.IsNullOrEmpty(item["padre"].ToString()))
-                    per.Padre = int.Parse(item["padre"].ToString());
+                per.Padre = int.Parse(item["padre"].ToString());
                 lista.Add(per);
             }
             return lista;
