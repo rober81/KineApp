@@ -1,30 +1,46 @@
-﻿using System;
+﻿using BE;
+using BLL;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class Roles : Form
     {
+        GestionarRolesPerfiles gestorRolesPerfiles = new GestionarRolesPerfiles();
         public Roles()
         {
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Roles_Load(object sender, EventArgs e)
         {
-            this.Close();
+            actualizar();
+
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void actualizar()
         {
-            this.Close();
+            cmbUsuarios.DataSource = null;
+            cmbUsuarios.DataSource = GestionarUsuario.Listar();
+            cmbRoles.DataSource = null;
+            cmbRoles.DataSource = new GestionarRolesPerfiles().arbol;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            List<iPermisos> perfiles = gestorRolesPerfiles.ListarUsuarioPerfil((Usuario)cmbUsuarios.SelectedItem);
+            foreach (var item in perfiles)
+            {
+                listBox1.Items.Add(item);
+            }
         }
     }
 }

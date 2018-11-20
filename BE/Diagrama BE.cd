@@ -3,7 +3,7 @@
   <Class Name="BE.Persona">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAEAAAAgAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAEAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Persona.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -61,7 +61,7 @@
   <Class Name="BE.Perfil">
     <Position X="4.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAgAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Perfil.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -69,7 +69,7 @@
   <Class Name="BE.Rol">
     <Position X="6.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAICAAgAAAAAAAAAAAAAhAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAICAAgAAAAIAAAAAAAAhAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Rol.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -91,7 +91,7 @@
   <Interface Name="BE.iPermisos">
     <Position X="5.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAgAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>iPermisos.cs</FileName>
     </TypeIdentifier>
   </Interface>

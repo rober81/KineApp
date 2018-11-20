@@ -1,22 +1,27 @@
-﻿using System;
+﻿using BE;
+using DAL;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace BLL
 {
     public class GestionarRolesPerfiles
     {
-        List<BE.iPermisos> arbol = new List<BE.iPermisos>();
-        List<BE.Perfiles> lista = DAL.PerfilMapper.ListarPerfiles();
+        public List<iPermisos> arbol { get; set; }
+        List<Perfiles> lista = PerfilMapper.ListarPerfiles();
+
+        public GestionarRolesPerfiles()
+        {
+            arbol = new List<iPermisos>();
+            armarArbol();
+        }
 
         private void armarArbol()
         {
-            foreach (BE.Perfiles item in lista)
+            foreach (Perfiles item in lista)
             {
                 if (item.Padre == 0)
                 {
-                    BE.Rol rol = new BE.Rol();
+                    Rol rol = new Rol();
                     rol.Id = item.Id;
                     rol.Nombre = item.Nombre;
                     arbol.Add(rol);
@@ -25,13 +30,13 @@ namespace BLL
             }
         }
 
-        private void Buscar(BE.Rol punto)
+        private void Buscar(Rol punto)
         {
-            foreach (BE.Perfiles item in lista)
+            foreach (Perfiles item in lista)
             {
                 if (item.Padre == punto.Id)
                 {
-                    BE.Perfil perfil = new BE.Perfil();
+                    Perfil perfil = new Perfil();
                     perfil.Id = item.Id;
                     perfil.Nombre = item.Nombre;
                     punto.Add(perfil);
@@ -40,19 +45,30 @@ namespace BLL
             }
         }
 
-        public List<BE.iPermisos> ListarUsuarioPerfil(BE.Usuario param)
+        public List<iPermisos> ListarUsuarioPerfil(Usuario param)
         {
             armarArbol();
-            List<int> lista = DAL.PerfilMapper.ListarUsuarioPerfil(param);
-            List<BE.iPermisos> permisosDelUsuario = new List<BE.iPermisos>();
-            foreach (BE.iPermisos item in arbol)
+            List<Perfiles> lista = PerfilMapper.ListarUsuarioPerfil(param);
+            List<iPermisos> permisosDelUsuario = new List<iPermisos>();
+            foreach (iPermisos item in arbol)
             {
-                if (lista.Contains(item.Id))
+                foreach (Perfiles item2 in lista)
                 {
-                    permisosDelUsuario.Add(item);
+                    if (item.Id == item2.Id)
+                        permisosDelUsuario.Add(item);
                 }
             }
             return permisosDelUsuario;
+        }
+
+        public int InsertarUsuarioPerfil(Usuario param, Perfiles perfil)
+        {
+            return PerfilMapper.InsertarUsuarioPerfil(param, perfil);
+        }
+
+        public int BorrarUsuarioPerfil(Usuario param, Perfiles perfil)
+        {
+            return PerfilMapper.BorrarUsuarioPerfil(param, perfil);
         }
     }
 }

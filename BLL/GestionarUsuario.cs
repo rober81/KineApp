@@ -1,29 +1,56 @@
-﻿using System.Collections.Generic;
+﻿using BE;
+using DAL;
+using System.Collections.Generic;
 
 namespace BLL
 {
     public class GestionarUsuario
     {
-        public static BE.Usuario Login(BE.Usuario usr)
+        public static BE.Usuario Login(Usuario usr)
         {
             return DAL.UsuarioMapper.Login(usr);
         }
 
-        public static int Insertar(BE.Usuario usr)
+        public static int Insertar(Usuario usr)
         {
             usr.Password = GestionarEncriptacion.Encriptar(usr.Password);
-            return DAL.UsuarioMapper.Insertar(usr);
+            int res = UsuarioMapper.Insertar(usr);
+            CalcularDVV();
+            Bitacora("Inserta", usr);
+            return res;
         }
 
-        public static int Modificar(BE.Usuario usr)
+        public static int Modificar(Usuario usr)
         {
             usr.Password = GestionarEncriptacion.Encriptar(usr.Password);
-            return DAL.UsuarioMapper.Modificar(usr);
+            int res = UsuarioMapper.Modificar(usr);
+            Bitacora("Modifica", usr);
+            CalcularDVV();
+            return res;
         }
 
-        public static List<BE.Usuario> Listar()
+        public static List<Usuario> Listar()
         {
-            return DAL.UsuarioMapper.Listar();
+            return UsuarioMapper.Listar();
+        }
+
+        private static void Bitacora(string accion, Usuario param)
+        {
+            BE.Bitacora bitacora = new BE.Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "Paciente";
+            bitacora.Dato = param.ToString();
+            BLL.GestionarBitacora.Insertar(bitacora);
+        }
+
+        private static void CalcularDVV()
+        {
+            BE.DigitoVerificador digito = new BE.DigitoVerificador();
+            digito.Tabla = "Usuario";
+            List<BE.iDigitoVerificador> lista = new List<BE.iDigitoVerificador>();
+            lista.AddRange(Listar());
+            digito.DVV = GestionarDigitoVerificador.CalcularDVV(lista);
+            DigitoVerificadorMapper.Modificar(digito);
         }
     }
 }

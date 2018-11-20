@@ -28,58 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.cmbUsuarios = new System.Windows.Forms.ComboBox();
+            this.cmbRoles = new System.Windows.Forms.ComboBox();
+            this.lblRol = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.lblRolUsuario = new System.Windows.Forms.Label();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblUsuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Usuario";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(33, 35);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(57, 17);
+            this.lblUsuario.TabIndex = 0;
+            this.lblUsuario.Tag = "lblUsuario";
+            this.lblUsuario.Text = "Usuario";
             // 
-            // comboBox1
+            // cmbUsuarios
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbUsuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUsuarios.FormattingEnabled = true;
+            this.cmbUsuarios.Items.AddRange(new object[] {
             "AlbertoMessi",
             "GermanMascherano",
             "PedroGago"});
-            this.comboBox1.Location = new System.Drawing.Point(116, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(261, 24);
-            this.comboBox1.TabIndex = 1;
+            this.cmbUsuarios.Location = new System.Drawing.Point(112, 28);
+            this.cmbUsuarios.Name = "cmbUsuarios";
+            this.cmbUsuarios.Size = new System.Drawing.Size(281, 24);
+            this.cmbUsuarios.TabIndex = 1;
+            this.cmbUsuarios.SelectedIndexChanged += new System.EventHandler(this.cmbUsuarios_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cmbRoles
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cmbRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoles.FormattingEnabled = true;
+            this.cmbRoles.Items.AddRange(new object[] {
             "Usuario",
             "Administrador"});
-            this.comboBox2.Location = new System.Drawing.Point(116, 316);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(261, 24);
-            this.comboBox2.TabIndex = 3;
+            this.cmbRoles.Location = new System.Drawing.Point(112, 68);
+            this.cmbRoles.Name = "cmbRoles";
+            this.cmbRoles.Size = new System.Drawing.Size(281, 24);
+            this.cmbRoles.TabIndex = 3;
             // 
-            // label2
+            // lblRol
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 323);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Rol";
+            this.lblRol.AutoSize = true;
+            this.lblRol.Location = new System.Drawing.Point(36, 75);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(29, 17);
+            this.lblRol.TabIndex = 2;
+            this.lblRol.Tag = "lblRol";
+            this.lblRol.Text = "Rol";
             // 
             // listBox1
             // 
@@ -88,75 +93,80 @@
             this.listBox1.Items.AddRange(new object[] {
             "Usuario",
             "Administrador"});
-            this.listBox1.Location = new System.Drawing.Point(40, 106);
+            this.listBox1.Location = new System.Drawing.Point(39, 142);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(337, 180);
+            this.listBox1.Size = new System.Drawing.Size(354, 212);
             this.listBox1.TabIndex = 4;
             // 
-            // label3
+            // lblRolUsuario
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Roles del usuario:";
+            this.lblRolUsuario.AutoSize = true;
+            this.lblRolUsuario.Location = new System.Drawing.Point(36, 111);
+            this.lblRolUsuario.Name = "lblRolUsuario";
+            this.lblRolUsuario.Size = new System.Drawing.Size(122, 17);
+            this.lblRolUsuario.TabIndex = 5;
+            this.lblRolUsuario.Tag = "lblRolUsuario";
+            this.lblRolUsuario.Text = "Roles del usuario:";
             // 
-            // button2
+            // btnRemover
             // 
-            this.button2.Location = new System.Drawing.Point(383, 243);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 43);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRemover.Location = new System.Drawing.Point(399, 142);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(87, 43);
+            this.btnRemover.TabIndex = 19;
+            this.btnRemover.Tag = "btnRemover";
+            this.btnRemover.Text = "Eliminar";
+            this.btnRemover.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAgregar
             // 
-            this.button1.Location = new System.Drawing.Point(383, 306);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 43);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAgregar.Location = new System.Drawing.Point(399, 62);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(87, 43);
+            this.btnAgregar.TabIndex = 18;
+            this.btnAgregar.Tag = "btnAgregar";
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // button3
+            // btnCancelar
             // 
-            this.button3.Location = new System.Drawing.Point(271, 364);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 43);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnCancelar.Location = new System.Drawing.Point(306, 360);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(87, 43);
+            this.btnCancelar.TabIndex = 21;
+            this.btnCancelar.Tag = "btnCancelar";
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnAceptar
             // 
-            this.button4.Location = new System.Drawing.Point(383, 364);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(87, 43);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Aceptar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnAceptar.Location = new System.Drawing.Point(399, 360);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(87, 43);
+            this.btnAceptar.TabIndex = 20;
+            this.btnAceptar.Tag = "btnAceptar";
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
             // 
             // Roles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 430);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.btnRemover);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.lblRolUsuario);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbRoles);
+            this.Controls.Add(this.lblRol);
+            this.Controls.Add(this.cmbUsuarios);
+            this.Controls.Add(this.lblUsuario);
             this.Name = "Roles";
             this.Text = "Roles";
+            this.Load += new System.EventHandler(this.Roles_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,15 +174,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.ComboBox cmbUsuarios;
+        private System.Windows.Forms.ComboBox cmbRoles;
+        private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label lblRolUsuario;
+        private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAceptar;
     }
 }
