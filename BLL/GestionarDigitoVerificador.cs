@@ -1,26 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace BLL
 {
     public class GestionarDigitoVerificador
     {
-        public static int calcularDigito(BE.iDigitoVerificador mensaje)
+        public int calcularDigito(BE.iDigitoVerificador mensaje)
         {
             return Util.DigitoVerificador.CalcularDV(mensaje.getDVH());
         }
 
-        public static string VerificarDVH()
-        {
-            List<BE.iDigitoVerificador> lista = new List<BE.iDigitoVerificador>();
-            lista.AddRange(DAL.UsuarioMapper.Listar());
-            string resultado = VerificarDVH(lista, DAL.UsuarioMapper.Tabla);
-            return resultado;
-        }
-
-        private static string VerificarDVH(List<BE.iDigitoVerificador> lista, string tabla)
+        protected string VerificarDVHLog(List<BE.iDigitoVerificador> lista, string tabla)
         {
             string resultado = Traducir("msgComprobando") + tabla + Environment.NewLine;
             int cantidad = 0;
@@ -32,29 +22,33 @@ namespace BLL
                 }
                 cantidad++;
             }
-            resultado += Traducir("msgRegistrosComprobados") + cantidad + Environment.NewLine;
+            resultado += Traducir("msgRegistrosComprobados") + cantidad + Environment.NewLine + Environment.NewLine;
             return resultado;
         }
 
-        public static string CalcularDVH()
+        protected int VerificarDVH(List<BE.iDigitoVerificador> lista, string tabla)
         {
-            string resultado = Traducir("msgComprobando") + DAL.UsuarioMapper.Tabla + Environment.NewLine;
-            int cant = DAL.UsuarioMapper.CalcularDVH();
-            resultado += Traducir("msgRegistrosCalculados") + cant + Environment.NewLine;
-            return resultado;
-        }
-
-
-        public static string VerificarDVV()
-        {
-            string resultado = Traducir("msgVerificandoDVV") + Environment.NewLine;
             int cantidad = 0;
-            List <BE.DigitoVerificador> lista = DAL.DigitoVerificadorMapper.Listar();
-            foreach (BE.DigitoVerificador item in lista)
+            foreach (BE.iDigitoVerificador item in lista)
             {
-                if (item.Tabla.Equals(DAL.UsuarioMapper.Tabla))
+                if (!calcularDigito(item).Equals(item.DVH))
                 {
-                    int dvv = DAL.UsuarioMapper.CalcularDVV();
+                    cantidad++;
+                }
+            }
+            return cantidad;
+        }
+
+        public string VerificarDVVLog(List<BE.iDigitoVerificador> lista, string tabla)
+        {
+            string resultado = string.Empty;
+            int cantidad = 0;
+            List <BE.DigitoVerificador> listaDv = DAL.DigitoVerificadorMapper.Listar();
+            foreach (BE.DigitoVerificador item in listaDv)
+            {
+                if (item.Tabla.Equals(tabla))
+                {
+                    int dvv = CalcularDVV(lista);
                     if (! item.DVV.Equals(dvv))
                         resultado += Traducir("msgErrorRegistro") + item.getID() + Environment.NewLine;
                     else
@@ -62,25 +56,37 @@ namespace BLL
                 }
                 cantidad++;
             }
-            resultado += Traducir("msgRegistrosComprobados") + cantidad + Environment.NewLine;
+            resultado += Traducir("msgRegistrosComprobados") + cantidad + Environment.NewLine + Environment.NewLine;
             return resultado;
         }
 
-        public static string CalcularDVV()
+        public int VerificarDVV(List<BE.iDigitoVerificador> lista, string tabla)
         {
-            string resultado = Traducir("msgCalculandoDVV") + DAL.UsuarioMapper.Tabla + Environment.NewLine;
-            int dvv = DAL.UsuarioMapper.CalcularDVV();
-            BE.DigitoVerificador digito = new BE.DigitoVerificador();
-            digito.Tabla = DAL.UsuarioMapper.Tabla;
-            digito.DVV = DAL.UsuarioMapper.CalcularDVV();
-            digito.DVH = calcularDigito(digito);
-            DAL.DigitoVerificadorMapper.Modificar(digito);
-
-            resultado += Traducir("msgResultado") + digito.DVV + Environment.NewLine;
-            return resultado;
+            int cantidad = 0;
+            List<BE.DigitoVerificador> listaDv = DAL.DigitoVerificadorMapper.Listar();
+            foreach (BE.DigitoVerificador item in listaDv)
+            {
+                if (item.Tabla.Equals(tabla))
+                {
+                    int dvv = CalcularDVV(lista);
+                    if (!item.DVV.Equals(dvv))
+                        cantidad++;
+                }
+            }
+            return cantidad;
         }
 
-        private static string Traducir(string texto)
+        public static int CalcularDVV(List<BE.iDigitoVerificador> lista)
+        {
+            string cadena = string.Empty;
+            foreach (var item in lista)
+            {
+                cadena += item.DVH;
+            }
+            return Util.DigitoVerificador.CalcularDV(cadena);
+        }
+
+        protected string Traducir(string texto)
         {
             return BLL.GestionarIdioma.getInstance().getTexto(texto);
         }

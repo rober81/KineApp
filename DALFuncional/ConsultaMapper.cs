@@ -24,6 +24,7 @@ namespace DALFuncional
                 obj.Paciente = new Paciente() { Dni = int.Parse(item["paciente"].ToString()) };
                 obj.Fecha = DateTime.Parse(item["fecha"].ToString());
                 obj.Resumen = item["resumen"].ToString();
+                obj.DVH = int.Parse(item["DVH"].ToString());
                 lista.Add(obj);
             }
             return lista;
@@ -41,6 +42,7 @@ namespace DALFuncional
                 obj.Id = int.Parse(item["id"].ToString());
                 obj.Paciente = new Paciente() { Dni = int.Parse(item["paciente"].ToString()) };
                 obj.Fecha = DateTime.Parse(item["fecha"].ToString());
+                obj.DVH = int.Parse(item["DVH"].ToString());
                 obj.Resumen = item["resumen"].ToString();
             }
             return obj;
@@ -48,30 +50,32 @@ namespace DALFuncional
 
         public static int Insertar(Consulta param)
         {
-            SqlParameter[] parametros = new SqlParameter[4];
+            SqlParameter[] parametros = new SqlParameter[5];
             parametros[0] = new SqlParameter("@paciente", param.Paciente.Dni);
             parametros[1] = new SqlParameter("@fecha", param.Fecha);
             parametros[2] = new SqlParameter("@resumen", param.Resumen);
-            parametros[3] = new SqlParameter("@id", 0);
-            parametros[3].Direction = ParameterDirection.Output;
+            parametros[3] = new SqlParameter("@dvh", Util.DigitoVerificador.CalcularDV(param.getDVH()));
+            parametros[4] = new SqlParameter("@id", 0);
+            parametros[4].Direction = ParameterDirection.Output;
             SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
             return int.Parse(parametros[3].Value.ToString());
         }
 
         public static int Modificar(Consulta param)
         {
-            SqlParameter[] parametros = new SqlParameter[4];
+            SqlParameter[] parametros = new SqlParameter[5];
             parametros[0] = new SqlParameter("@paciente", param.Paciente.Dni);
             parametros[1] = new SqlParameter("@fecha", param.Fecha);
             parametros[2] = new SqlParameter("@resumen", param.Resumen);
-            parametros[3] = new SqlParameter("@id", param.Id);
+            parametros[3] = new SqlParameter("@dvh", Util.DigitoVerificador.CalcularDV(param.getDVH()));
+            parametros[4] = new SqlParameter("@id", param.Id);
             return SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
         }
 
         public static int InsertarDetalle(int id, ConsultaDetalle detalle)
         {
             DatoBase item = detalle.Item;
-            SqlParameter[] parametros = new SqlParameter[7];
+            SqlParameter[] parametros = new SqlParameter[8];
             parametros[0] = new SqlParameter("@id_consulta", id);
             parametros[1] = new SqlParameter("@id_ejercicio", (item is Ejercicio) ? item.Id:0);
             parametros[2] = new SqlParameter("@id_entrenamiento", (item is Entrenamiento) ? item.Id : 0);
@@ -79,6 +83,7 @@ namespace DALFuncional
             parametros[4] = new SqlParameter("@id_patologia", (item is Patologia) ? item.Id : 0);
             parametros[5] = new SqlParameter("@resultado", (detalle.Resultado != null) ? detalle.Resultado : "");
             parametros[6] = new SqlParameter("@observaciones", (detalle.Observaciones != null) ? detalle.Observaciones : "");
+            parametros[7] = new SqlParameter("@dvh", Util.DigitoVerificador.CalcularDV(detalle.getDVH()));
             return SqlHelper.getInstance().escribir(Tabla2 + "_alta", parametros);
         }
 
@@ -95,7 +100,7 @@ namespace DALFuncional
                 int entrenamiento = int.Parse(item["id_entrenamiento"].ToString());
                 int tratamiento = int.Parse(item["id_tratamiento"].ToString());
                 int patologia = int.Parse(item["id_patologia"].ToString());
-
+                
                 detalle = new ConsultaDetalle();
                 if (ejercicio != 0)
                     detalle.Item = new Ejercicio() { Id = ejercicio };
@@ -108,6 +113,7 @@ namespace DALFuncional
 
                 detalle.Resultado = item["resultado"].ToString();
                 detalle.Observaciones = item["observaciones"].ToString();
+                detalle.DVH = int.Parse(item["DVH"].ToString());
                 lista.Add(detalle);
             }
             return lista;

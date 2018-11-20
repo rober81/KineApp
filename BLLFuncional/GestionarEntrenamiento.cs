@@ -51,6 +51,7 @@ namespace BLLFuncional
             {
                 EjercicioMapper.InsertarEjercicio(param, item);
             }
+            Bitacora("Insertar", param);
             return param.Id;
         }
 
@@ -61,7 +62,18 @@ namespace BLLFuncional
             {
                 EjercicioMapper.InsertarEjercicio(param, item);
             }
-            return mapper.Modificar(param);
+            int res = mapper.Modificar(param);
+            Bitacora("Modificar", param);
+            return res;
+        }
+
+        private void Bitacora(string accion, DatoBase param)
+        {
+            BE.Bitacora bitacora = new BE.Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "Entrenamiento";
+            bitacora.Dato = param.ToString();
+            BLL.GestionarBitacora.Insertar(bitacora);
         }
     }
 }

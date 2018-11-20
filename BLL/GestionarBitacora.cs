@@ -47,6 +47,7 @@ namespace BLL
 
         public static void Insertar(BE.Bitacora bitacora)
         {
+            bitacora.Usuario = GestionarSesion.getInstance().Usuario;
             int filas = DAL.BitacoraMapper.Insertar(bitacora);
             if (filas == 0)
             {

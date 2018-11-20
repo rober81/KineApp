@@ -1,9 +1,11 @@
 ﻿using System;
-
+using BLLFuncional;
 namespace GUI
 {
     public partial class DigitoVerificador : IdiomaForm
     {
+        GestionarDV gestor = new GestionarDV();
+
         public DigitoVerificador()
         {
             InitializeComponent();
@@ -11,22 +13,12 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Text += BLL.GestionarDigitoVerificador.VerificarDVH() + Environment.NewLine;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += BLL.GestionarDigitoVerificador.CalcularDVH() + Environment.NewLine;
+            textBox1.Text += gestor.VerificarDVHLog() + Environment.NewLine;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Text += BLL.GestionarDigitoVerificador.VerificarDVV() + Environment.NewLine;
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += BLL.GestionarDigitoVerificador.CalcularDVV() + Environment.NewLine;
+            textBox1.Text += gestor.VerificarDVVLog() + Environment.NewLine;
         }
 
         private void button5_Click(object sender, EventArgs e)

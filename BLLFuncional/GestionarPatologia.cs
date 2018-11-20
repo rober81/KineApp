@@ -40,12 +40,25 @@ namespace BLLFuncional
 
         public int Insertar(Patologia param)
         {
-            return mapper.Insertar(param);
+            int res = mapper.Insertar(param);
+            Bitacora("Insertar", param);
+            return res;
         }
 
         public int Modificar(Patologia param)
         {
-            return mapper.Modificar(param);
+            int res = mapper.Modificar(param);
+            Bitacora("Modificar", param);
+            return res;
+        }
+
+        private void Bitacora(string accion, DatoBase param)
+        {
+            BE.Bitacora bitacora = new BE.Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "Patologia";
+            bitacora.Dato = param.ToString();
+            BLL.GestionarBitacora.Insertar(bitacora);
         }
     }
 }

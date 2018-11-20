@@ -1,4 +1,5 @@
 ﻿using BEFuncional;
+using DAL;
 using DALFuncional;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,8 @@ namespace BLLFuncional
             {
                 ConsultaMapper.InsertarDetalle(param.Id, item);
             }
+            Bitacora("Insertar", param);
+            CalcularDVV();
             return param.Id;
         }
 
@@ -74,12 +77,34 @@ namespace BLLFuncional
             {
                 ConsultaMapper.InsertarDetalle(param.Id, item);
             }
-            return ConsultaMapper.Modificar(param);
+            int res = ConsultaMapper.Modificar(param);
+            Bitacora("Modificar", param);
+            CalcularDVV();
+            return res;
         }
 
         public List<ConsultaDetalle> BuscarDetalle(Consulta param)
         {
             return ConsultaMapper.BuscarDetalle(param);
+        }
+
+        private void Bitacora(string accion, Consulta param)
+        {
+            BE.Bitacora bitacora = new BE.Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "Consulta";
+            bitacora.Dato = param.ToString();
+            BLL.GestionarBitacora.Insertar(bitacora);
+        }
+
+        private void CalcularDVV()
+        {
+            BE.DigitoVerificador digito = new BE.DigitoVerificador();
+            digito.Tabla = "Consulta";
+            List<BE.iDigitoVerificador> lista = new List<BE.iDigitoVerificador>();
+            lista.AddRange(Listar());
+            digito.DVV = GestionarDV.CalcularDVV(lista);
+            DigitoVerificadorMapper.Modificar(digito);
         }
     }
 }

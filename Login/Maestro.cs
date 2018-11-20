@@ -1,4 +1,5 @@
-﻿using GUI.PacienteForms;
+﻿using BLLFuncional;
+using GUI.PacienteForms;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -126,6 +127,22 @@ namespace GUI
             this.actualizar();
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.MinimizeBox = true;
+
+            GestionarDV gestorDigito = new GestionarDV();
+            int cantidad = gestorDigito.VerificarDVH() + gestorDigito.VerificarDVV();
+            if (cantidad != 0 && gestiónDeDigitoVerificadorToolStripMenuItem.Enabled == false)
+            {
+                DialogResult result = MessageBox.Show(Traducir("msgErrorVerificarDV") + "-" + cantidad, Traducir("msgError"), MessageBoxButtons.OK);
+                if (result == DialogResult.OK && gestiónDeDigitoVerificadorToolStripMenuItem.Enabled == false)
+                {
+                    Application.Exit();
+                }
+            }
+            else if (cantidad != 0 && gestiónDeDigitoVerificadorToolStripMenuItem.Enabled == true)
+            {
+                MessageBox.Show(Traducir("msgErrorVerificarDV2") + "-" + cantidad, Traducir("msgError"), MessageBoxButtons.OK);
+                abrirFormulario(new DigitoVerificador());
+            }
         }
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)

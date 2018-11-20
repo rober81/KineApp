@@ -71,27 +71,5 @@ namespace DAL
         {
             return SqlHelper.getInstance().escribir(Tabla + "_modificar", crearParametros(param));
         }
-
-        public static int CalcularDVH()
-        {
-            int cantidad = 0;
-            foreach (Usuario item in Listar())
-            {
-                item.DVH = Util.DigitoVerificador.CalcularDV(item.getDVH());
-                Modificar(item);
-                cantidad++;
-            }
-            return cantidad;
-        }
-
-        public static int CalcularDVV()
-        {
-            string cadena = string.Empty;
-            foreach (Usuario item in Listar())
-            {
-                cadena += item.DVH;
-            }
-            return Util.DigitoVerificador.CalcularDV(cadena);
-        }
     }
 }

@@ -12,7 +12,7 @@ namespace BEFuncional
 
         public override string ToString()
         {
-            return Dni + " " + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Nombre) + " " + CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Apellido);
+            return Dni + " " + Nombre + " " + Apellido;
         }
 
         public string getDVH()

@@ -37,12 +37,25 @@ namespace BLLFuncional
 
         public static int Insertar(Ejercicio param)
         {
-            return EjercicioMapper.Insertar(param);
+            int res = EjercicioMapper.Insertar(param);
+            Bitacora("Insertar", param);
+            return res;
         }
 
         public static int Modificar(Ejercicio param)
         {
-            return EjercicioMapper.Modificar(param);
+            int res = EjercicioMapper.Modificar(param);
+            Bitacora("Modificar", param);
+            return res;
+        }
+
+        private static void Bitacora(string accion, Ejercicio param)
+        {
+            BE.Bitacora bitacora = new BE.Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "Ejercicio";
+            bitacora.Dato = param.ToString();
+            BLL.GestionarBitacora.Insertar(bitacora);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace DALFuncional
                 obj.Nombre = item["nombre"].ToString();
                 obj.Apellido = item["apellido"].ToString();
                 obj.FechaNacimiento = DateTime.Parse(item["fechaNacimiento"].ToString());
-                obj.DVH = int.Parse(item["Dvh"].ToString());
+                obj.DVH = int.Parse(item["DVH"].ToString());
                 lista.Add(obj);
             }
             return lista;

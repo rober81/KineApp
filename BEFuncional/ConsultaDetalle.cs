@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace BEFuncional
+﻿namespace BEFuncional
 {
-    public class ConsultaDetalle
+    public class ConsultaDetalle : BE.iDigitoVerificador
     {
         public DatoBase Item { get; set; }
         public string Observaciones { get; set; }
@@ -11,6 +9,18 @@ namespace BEFuncional
         public override string ToString()
         {
             return Item.ToString();
+        }
+
+        public int DVH { get; set; }
+
+        public string getID()
+        {
+            return Item.Id.ToString();
+        }
+
+        public string getDVH()
+        {
+            return Item.Id + Observaciones + Resultado;
         }
     }
 }

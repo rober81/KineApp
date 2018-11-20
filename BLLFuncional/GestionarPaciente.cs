@@ -1,4 +1,5 @@
 ﻿using BEFuncional;
+using DAL;
 using DALFuncional;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,11 +39,36 @@ namespace BLLFuncional
 
         public int Insertar(Paciente param)
         {
-            return PacienteMapper.Insertar(param);
+            int res = PacienteMapper.Insertar(param);
+            Bitacora("Inserta",param);
+            CalcularDVV();
+            return res;
         }
         public int Modificar(Paciente param)
         {
-            return PacienteMapper.Modificar(param);
+            int res = PacienteMapper.Modificar(param);
+            Bitacora("Modifica", param);
+            CalcularDVV();
+            return res;
+        }
+
+        private void Bitacora (string accion,Paciente param)
+        {
+            BE.Bitacora bitacora = new BE.Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "Paciente";
+            bitacora.Dato = param.ToString();
+            BLL.GestionarBitacora.Insertar(bitacora);
+        }
+
+        private void CalcularDVV()
+        {
+            BE.DigitoVerificador digito = new BE.DigitoVerificador();
+            digito.Tabla = "Paciente";
+            List<BE.iDigitoVerificador> lista = new List<BE.iDigitoVerificador>();
+            lista.AddRange(Listar());
+            digito.DVV = GestionarDV.CalcularDVV(lista);
+            DigitoVerificadorMapper.Modificar(digito);
         }
     }
 }
