@@ -39,11 +39,13 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtRepeticiones
             // 
-            this.txtRepeticiones.Location = new System.Drawing.Point(112, 293);
+            this.txtRepeticiones.Location = new System.Drawing.Point(111, 450);
             this.txtRepeticiones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRepeticiones.MaxLength = 1000;
             this.txtRepeticiones.Multiline = true;
@@ -56,7 +58,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 320);
+            this.label5.Location = new System.Drawing.Point(15, 477);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 17);
             this.label5.TabIndex = 31;
@@ -65,7 +67,7 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(112, 174);
+            this.txtCantidad.Location = new System.Drawing.Point(111, 331);
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCantidad.MaxLength = 1000;
             this.txtCantidad.Multiline = true;
@@ -77,7 +79,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(112, 54);
+            this.txtDescripcion.Location = new System.Drawing.Point(111, 211);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescripcion.MaxLength = 1000;
             this.txtDescripcion.Multiline = true;
@@ -89,7 +91,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(112, 22);
+            this.txtNombre.Location = new System.Drawing.Point(111, 179);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
@@ -100,7 +102,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 177);
+            this.label3.Location = new System.Drawing.Point(15, 334);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 25;
@@ -110,7 +112,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 54);
+            this.label2.Location = new System.Drawing.Point(15, 211);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 17);
             this.label2.TabIndex = 24;
@@ -120,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 22);
+            this.label1.Location = new System.Drawing.Point(15, 179);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 23;
@@ -129,7 +131,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(827, 401);
+            this.btnCancelar.Location = new System.Drawing.Point(826, 558);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(91, 39);
@@ -141,7 +143,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(923, 401);
+            this.btnAceptar.Location = new System.Drawing.Point(922, 558);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(91, 39);
@@ -155,7 +157,7 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.CausesValidation = false;
-            this.lblID.Location = new System.Drawing.Point(16, 150);
+            this.lblID.Location = new System.Drawing.Point(15, 307);
             this.lblID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(21, 17);
@@ -163,11 +165,22 @@
             this.lblID.Text = "ID";
             this.lblID.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GUI.Properties.Resources._7;
+            this.pictureBox1.Location = new System.Drawing.Point(-4, -18);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1037, 167);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabStop = false;
+            // 
             // AbmEjercicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 457);
+            this.ClientSize = new System.Drawing.Size(1028, 613);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -188,6 +201,7 @@
             this.Tag = "menuEntrenamientosEjercicios";
             this.Text = "Ejercicios";
             this.Load += new System.EventHandler(this.AbmEjercicios_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +219,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

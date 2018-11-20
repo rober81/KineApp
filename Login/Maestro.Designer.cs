@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Maestro));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,10 +37,11 @@
             this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ejerciciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entrenamientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.patologiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tratamientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +53,6 @@
             this.españolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.patologiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tratamientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,8 +103,7 @@
             this.pacientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaToolStripMenuItem,
             this.modificaciónToolStripMenuItem,
-            this.consultaToolStripMenuItem,
-            this.historialToolStripMenuItem});
+            this.consultaToolStripMenuItem});
             this.pacientesToolStripMenuItem.Name = "pacientesToolStripMenuItem";
             this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
             this.pacientesToolStripMenuItem.Tag = "menuGestionPacientes";
@@ -113,7 +112,7 @@
             // altaToolStripMenuItem
             // 
             this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.altaToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.altaToolStripMenuItem.Tag = "menuPacienteAlta";
             this.altaToolStripMenuItem.Text = "Alta";
             this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
@@ -121,7 +120,7 @@
             // modificaciónToolStripMenuItem
             // 
             this.modificaciónToolStripMenuItem.Name = "modificaciónToolStripMenuItem";
-            this.modificaciónToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.modificaciónToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.modificaciónToolStripMenuItem.Tag = "menuPacienteModificacion";
             this.modificaciónToolStripMenuItem.Text = "Modificación";
             this.modificaciónToolStripMenuItem.Click += new System.EventHandler(this.modificaciónToolStripMenuItem_Click);
@@ -129,18 +128,10 @@
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.consultaToolStripMenuItem.Tag = "menuPacienteConsulta";
             this.consultaToolStripMenuItem.Text = "Consulta";
             this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
-            // 
-            // historialToolStripMenuItem
-            // 
-            this.historialToolStripMenuItem.Name = "historialToolStripMenuItem";
-            this.historialToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
-            this.historialToolStripMenuItem.Tag = "menuPacienteHistorial";
-            this.historialToolStripMenuItem.Text = "Historial";
-            this.historialToolStripMenuItem.Click += new System.EventHandler(this.historialToolStripMenuItem_Click);
             // 
             // serviciosToolStripMenuItem
             // 
@@ -169,6 +160,22 @@
             this.entrenamientosToolStripMenuItem.Tag = "menuEntrenamientosEntrenamientos";
             this.entrenamientosToolStripMenuItem.Text = "Entrenamientos";
             this.entrenamientosToolStripMenuItem.Click += new System.EventHandler(this.entrenamientosToolStripMenuItem_Click);
+            // 
+            // patologiasToolStripMenuItem
+            // 
+            this.patologiasToolStripMenuItem.Name = "patologiasToolStripMenuItem";
+            this.patologiasToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.patologiasToolStripMenuItem.Tag = "frmConsultaPatologias";
+            this.patologiasToolStripMenuItem.Text = "Patologias";
+            this.patologiasToolStripMenuItem.Click += new System.EventHandler(this.patologiasToolStripMenuItem_Click);
+            // 
+            // tratamientosToolStripMenuItem
+            // 
+            this.tratamientosToolStripMenuItem.Name = "tratamientosToolStripMenuItem";
+            this.tratamientosToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.tratamientosToolStripMenuItem.Tag = "frmConsultaTratamientos";
+            this.tratamientosToolStripMenuItem.Text = "Tratamientos";
+            this.tratamientosToolStripMenuItem.Click += new System.EventHandler(this.tratamientosToolStripMenuItem_Click_1);
             // 
             // administraciónToolStripMenuItem
             // 
@@ -269,22 +276,6 @@
             this.agregarIdiomaToolStripMenuItem.Text = "Administrar Idioma";
             this.agregarIdiomaToolStripMenuItem.Click += new System.EventHandler(this.agregarIdiomaToolStripMenuItem_Click);
             // 
-            // patologiasToolStripMenuItem
-            // 
-            this.patologiasToolStripMenuItem.Name = "patologiasToolStripMenuItem";
-            this.patologiasToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
-            this.patologiasToolStripMenuItem.Tag = "frmConsultaPatologias";
-            this.patologiasToolStripMenuItem.Text = "Patologias";
-            this.patologiasToolStripMenuItem.Click += new System.EventHandler(this.patologiasToolStripMenuItem_Click);
-            // 
-            // tratamientosToolStripMenuItem
-            // 
-            this.tratamientosToolStripMenuItem.Name = "tratamientosToolStripMenuItem";
-            this.tratamientosToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
-            this.tratamientosToolStripMenuItem.Tag = "frmConsultaTratamientos";
-            this.tratamientosToolStripMenuItem.Text = "Tratamientos";
-            this.tratamientosToolStripMenuItem.Click += new System.EventHandler(this.tratamientosToolStripMenuItem_Click_1);
-            // 
             // Maestro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -292,6 +283,7 @@
             this.ClientSize = new System.Drawing.Size(925, 481);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -321,7 +313,6 @@
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copiaDeSeguridadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificaciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem historialToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviciosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ejerciciosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entrenamientosToolStripMenuItem;

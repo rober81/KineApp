@@ -38,11 +38,13 @@
             this.lblEdad = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(498, 217);
+            this.btnCancelar.Location = new System.Drawing.Point(498, 341);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(91, 39);
@@ -54,7 +56,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(594, 217);
+            this.btnAceptar.Location = new System.Drawing.Point(594, 341);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(91, 39);
@@ -68,7 +70,7 @@
             // 
             this.dtFecha.CustomFormat = "dd/MM/yyyy";
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFecha.Location = new System.Drawing.Point(200, 165);
+            this.dtFecha.Location = new System.Drawing.Point(200, 289);
             this.dtFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtFecha.MinDate = new System.DateTime(1910, 1, 1, 0, 0, 0, 0);
             this.dtFecha.Name = "dtFecha";
@@ -78,7 +80,7 @@
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(53, 56);
+            this.lblDni.Location = new System.Drawing.Point(53, 180);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(31, 17);
             this.lblDni.TabIndex = 30;
@@ -87,7 +89,7 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(130, 128);
+            this.txtApellido.Location = new System.Drawing.Point(130, 252);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtApellido.MaxLength = 50;
             this.txtApellido.Name = "txtApellido";
@@ -97,7 +99,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(130, 91);
+            this.txtNombre.Location = new System.Drawing.Point(130, 215);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
@@ -107,7 +109,7 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(130, 56);
+            this.txtDni.Location = new System.Drawing.Point(130, 180);
             this.txtDni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDni.MaxLength = 11;
             this.txtDni.Name = "txtDni";
@@ -118,7 +120,7 @@
             // lblEdad
             // 
             this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(53, 171);
+            this.lblEdad.Location = new System.Drawing.Point(53, 295);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(141, 17);
             this.lblEdad.TabIndex = 26;
@@ -128,7 +130,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(53, 133);
+            this.lblApellido.Location = new System.Drawing.Point(53, 257);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(58, 17);
             this.lblApellido.TabIndex = 25;
@@ -138,18 +140,29 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(53, 94);
+            this.lblNombre.Location = new System.Drawing.Point(53, 218);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(58, 17);
             this.lblNombre.TabIndex = 24;
             this.lblNombre.Tag = "lblNombre";
             this.lblNombre.Text = "Nombre";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GUI.Properties.Resources._1;
+            this.pictureBox1.Location = new System.Drawing.Point(-5, -46);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(744, 197);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 31;
+            this.pictureBox1.TabStop = false;
+            // 
             // AbmPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 312);
+            this.ClientSize = new System.Drawing.Size(738, 401);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dtFecha);
@@ -169,6 +182,7 @@
             this.Tag = "frmModificarPaciente";
             this.Text = "Modificar Paciente";
             this.Load += new System.EventHandler(this.AbmPaciente_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +199,6 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
