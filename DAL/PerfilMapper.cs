@@ -40,27 +40,27 @@ namespace DAL
                 Perfiles per = new Perfiles();
                 per.Id = int.Parse(item["perfil"].ToString());
                 per.Nombre = item["nombre"].ToString();
-                //per.Padre = int.Parse(item["padre"].ToString());
+                if (!string.IsNullOrEmpty(item["padre"].ToString()))
+                    per.Padre = int.Parse(item["padre"].ToString());
                 lista.Add(per);
             }
             return lista;
         }
 
-        public static int InsertarUsuarioPerfil(Usuario param, Perfiles perfil)
+        public static int InsertarUsuarioPerfil(Usuario param, iPermisos perfil)
         {
             SqlParameter[] parametros = new SqlParameter[2];
-            parametros[0] = new SqlParameter("@usuario", param.Dni);
+            parametros[0] = new SqlParameter("@usuario", param.Login);
             parametros[1] = new SqlParameter("@perfil", perfil.Id);
             int res = SqlHelper.getInstance().escribir(Tabla2 + "_alta", parametros);
             return res;
         }
 
-        public static int BorrarUsuarioPerfil(Usuario param, Perfiles perfil)
+        public static int BorrarUsuarioPerfil(Usuario param)
         {
-            SqlParameter[] parametros = new SqlParameter[2];
-            parametros[0] = new SqlParameter("@usuario", param.Dni);
-            parametros[1] = new SqlParameter("@perfil", perfil.Id);
-            return SqlHelper.getInstance().escribir(Tabla + "_borrar", parametros);
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = new SqlParameter("@usuario", param.Login);
+            return SqlHelper.getInstance().escribir(Tabla2 + "_borrar", parametros);
         }
     }
 }

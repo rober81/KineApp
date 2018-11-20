@@ -2,11 +2,10 @@
 using BLL;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Roles : Form
+    public partial class Roles : IdiomaForm
     {
         GestionarRolesPerfiles gestorRolesPerfiles = new GestionarRolesPerfiles();
         public Roles()
@@ -16,21 +15,24 @@ namespace GUI
 
         private void Roles_Load(object sender, EventArgs e)
         {
-            actualizar();
-
+            Estilo.Guardar(btnAceptar);
+            Estilo.Cancelar(btnCancelar);
+            Estilo.Agregar(btnAgregar);
+            Estilo.Remover(btnRemover);
+            actualizarCombos();
         }
 
-        private void actualizar()
+        private void actualizarCombos()
         {
             cmbUsuarios.DataSource = null;
             cmbUsuarios.DataSource = GestionarUsuario.Listar();
             cmbRoles.DataSource = null;
-            cmbRoles.DataSource = new GestionarRolesPerfiles().arbol;
+            cmbRoles.DataSource = gestorRolesPerfiles.ListarPerfiles();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            listBox1.Items.Add(cmbRoles.SelectedItem);
         }
 
         private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,6 +42,37 @@ namespace GUI
             foreach (var item in perfiles)
             {
                 listBox1.Items.Add(item);
+            }
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Remove(listBox1.SelectedItem);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (listBox1.Items.Count > 0)
+            {
+                Usuario usr = (Usuario)cmbUsuarios.SelectedItem;
+                List<iPermisos> permisos = new List<iPermisos>();
+                foreach (iPermisos item in listBox1.Items)
+                {
+                    permisos.Add(item);
+                }
+                int respuesta = gestorRolesPerfiles.InsertarUsuarioPerfil(usr, permisos);
+                if (respuesta == 0)
+                    Mensaje("msgErrorAlta", "msgError");
+                else
+                    Mensaje("msgOperacionOk");
+            } else
+            {
+                Mensaje("msgErrorUnItem", "msgError");
             }
         }
     }

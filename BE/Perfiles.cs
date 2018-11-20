@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BE
 {
-    public class Perfiles
+    public class Perfiles : iPermisos
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
@@ -14,6 +14,14 @@ namespace BE
         public override string ToString()
         {
             return Id + " - " + Nombre;
+        }
+
+        public List<iPermisos> Hijos
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

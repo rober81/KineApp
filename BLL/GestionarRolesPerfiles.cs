@@ -1,6 +1,7 @@
 ﻿using BE;
 using DAL;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BLL
 {
@@ -45,30 +46,38 @@ namespace BLL
             }
         }
 
+        public List<Perfiles> ListarPerfiles()
+        {
+            var filtro = from item in lista
+                         where item.Padre == 0
+                         select item;
+            return filtro.ToList<Perfiles>();
+        }
+
         public List<iPermisos> ListarUsuarioPerfil(Usuario param)
         {
-            armarArbol();
             List<Perfiles> lista = PerfilMapper.ListarUsuarioPerfil(param);
             List<iPermisos> permisosDelUsuario = new List<iPermisos>();
-            foreach (iPermisos item in arbol)
+            foreach (Perfiles item in lista)
             {
-                foreach (Perfiles item2 in lista)
+                foreach (iPermisos item2 in arbol)
                 {
                     if (item.Id == item2.Id)
-                        permisosDelUsuario.Add(item);
+                        permisosDelUsuario.Add(item2);
                 }
             }
             return permisosDelUsuario;
         }
 
-        public int InsertarUsuarioPerfil(Usuario param, Perfiles perfil)
+        public int InsertarUsuarioPerfil(Usuario param, List<iPermisos> perfiles)
         {
-            return PerfilMapper.InsertarUsuarioPerfil(param, perfil);
-        }
-
-        public int BorrarUsuarioPerfil(Usuario param, Perfiles perfil)
-        {
-            return PerfilMapper.BorrarUsuarioPerfil(param, perfil);
+            PerfilMapper.BorrarUsuarioPerfil(param);
+            int res = 0;
+            foreach ( var item in perfiles)
+            {
+                res += PerfilMapper.InsertarUsuarioPerfil(param, item);
+            }
+            return res;
         }
     }
 }

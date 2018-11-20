@@ -117,6 +117,7 @@
             this.btnRemover.Tag = "btnRemover";
             this.btnRemover.Text = "Eliminar";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnAgregar
             // 
@@ -138,6 +139,7 @@
             this.btnCancelar.Tag = "btnCancelar";
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -148,6 +150,7 @@
             this.btnAceptar.Tag = "btnAceptar";
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // Roles
             // 
