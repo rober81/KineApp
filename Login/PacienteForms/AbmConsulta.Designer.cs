@@ -111,12 +111,12 @@
             // 
             // btnBuscarPaciente
             // 
-            this.btnBuscarPaciente.Location = new System.Drawing.Point(684, 26);
+            this.btnBuscarPaciente.Location = new System.Drawing.Point(695, 18);
             this.btnBuscarPaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarPaciente.Name = "btnBuscarPaciente";
-            this.btnBuscarPaciente.Size = new System.Drawing.Size(91, 39);
+            this.btnBuscarPaciente.Size = new System.Drawing.Size(111, 54);
             this.btnBuscarPaciente.TabIndex = 40;
-            this.btnBuscarPaciente.Tag = "btnBuscar";
+            this.btnBuscarPaciente.Tag = "btnBuscarPaciente";
             this.btnBuscarPaciente.Text = "Buscar";
             this.btnBuscarPaciente.UseVisualStyleBackColor = true;
             this.btnBuscarPaciente.Click += new System.EventHandler(this.btnBuscarPaciente_Click);
@@ -125,7 +125,7 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.CausesValidation = false;
-            this.lblID.Location = new System.Drawing.Point(799, 37);
+            this.lblID.Location = new System.Drawing.Point(301, 76);
             this.lblID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(21, 17);
@@ -455,9 +455,9 @@
             this.Controls.Add(this.lblResumen);
             this.Controls.Add(this.txtResumen);
             this.Controls.Add(this.dtFecha);
+            this.Controls.Add(this.btnBuscarPaciente);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblID);
-            this.Controls.Add(this.btnBuscarPaciente);
             this.Controls.Add(this.txtPaciente);
             this.Controls.Add(this.lblPaciente);
             this.Controls.Add(this.btnCancelar);

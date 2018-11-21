@@ -31,7 +31,8 @@ namespace Util
             Configuracion config = new Configuracion();
             config.aplicacionDB = "KineApp";
             config.bitacoraDB = "KineAppBitacora";
-            config.servidor = "SQLEXPRESS";
+            //config.servidor = "SQLEXPRESS";
+            config.servidor = "SQL_UAI";
             File.WriteAllText(configuracionArchivo, JsonConvert.SerializeObject(config));
         }
 
