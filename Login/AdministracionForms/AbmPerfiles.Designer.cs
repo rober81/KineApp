@@ -36,6 +36,7 @@
             this.cmbPadre = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnNuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +98,7 @@
             // 
             // cmbPadre
             // 
+            this.cmbPadre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPadre.FormattingEnabled = true;
             this.cmbPadre.Location = new System.Drawing.Point(152, 421);
             this.cmbPadre.Name = "cmbPadre";
@@ -131,11 +133,24 @@
             this.label2.Tag = "lblPadre";
             this.label2.Text = "Padre";
             // 
-            // Perfiles
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(367, 485);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(91, 39);
+            this.btnNuevo.TabIndex = 74;
+            this.btnNuevo.Tag = "btnNuevo";
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // AbmPerfiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 563);
+            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmbPadre);
@@ -147,7 +162,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Perfiles";
+            this.Name = "AbmPerfiles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Perfiles";
             this.Load += new System.EventHandler(this.Perfiles_Load);
@@ -167,5 +182,6 @@
         private System.Windows.Forms.ComboBox cmbPadre;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }

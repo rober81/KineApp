@@ -111,7 +111,7 @@
             // 
             this.txtDni.Location = new System.Drawing.Point(130, 180);
             this.txtDni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDni.MaxLength = 11;
+            this.txtDni.MaxLength = 9;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(247, 22);
             this.txtDni.TabIndex = 4;

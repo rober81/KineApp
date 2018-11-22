@@ -19,6 +19,7 @@ namespace GUI
             gestor = new GestionarRolesPerfiles();
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
+            Estilo.Nuevo(btnNuevo);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
             Actualizar();
@@ -69,9 +70,13 @@ namespace GUI
                     if (respuesta == 0)
                         Mensaje("msgErrorAlta", "msgError");
                     else
+                    {
                         Mensaje("msgOperacionOk");
+                        Actualizar();
+                    }
                     if (this.Owner != null)
                         this.Close();
+                    
                 }
                 else
                     this.DialogResult = DialogResult.None;
@@ -101,6 +106,13 @@ namespace GUI
                     }
                 }
             }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            cmbPadre.SelectedIndex = 0;
+            txtNombre.Text = string.Empty;
+            lblID.Text = string.Empty;
         }
     }
 }

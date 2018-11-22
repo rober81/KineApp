@@ -55,6 +55,8 @@ namespace GUI
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int respuesta;
+            if (Seleccionado == null)
+                Seleccionado = new Paciente();
             try
             {
                 if (this.ValidarTextbox())
@@ -63,11 +65,12 @@ namespace GUI
                     Seleccionado.Nombre = txtNombre.Text.Trim();
                     Seleccionado.Apellido = txtApellido.Text.Trim();
                     Seleccionado.FechaNacimiento = dtFecha.Value;
-                    if (string.IsNullOrWhiteSpace(txtDni.Text))
+
+                    Paciente existe = GestionarPaciente.Buscar(Seleccionado);
+                    if (existe == null)
                         respuesta = gestor.Insertar(Seleccionado);
                     else
                     {
-                        Seleccionado.Dni = int.Parse(txtDni.Text);
                         respuesta = gestor.Modificar(Seleccionado);
                     }
                     if (respuesta == 0)
@@ -80,7 +83,7 @@ namespace GUI
                 else
                     this.DialogResult = DialogResult.None;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }

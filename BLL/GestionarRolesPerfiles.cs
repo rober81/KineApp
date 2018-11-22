@@ -48,6 +48,7 @@ namespace BLL
 
         public List<Perfiles> ListarPerfiles()
         {
+            lista = PerfilMapper.ListarPerfiles();
             return lista;
         }
 

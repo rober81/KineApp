@@ -53,7 +53,7 @@ namespace GUI
         {
             comboBox1.SelectedIndex = 0;
             dateTimePicker1.Value = DateTime.Parse("01/01/2018");
-            dateTimePicker2.Value = DateTime.Now;
+            //dateTimePicker2.Value = DateTime.Now;
             Actualizar(lista);
         }
 

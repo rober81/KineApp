@@ -36,9 +36,10 @@ namespace DAL
 
         public static int Modificar(Perfiles perfil)
         {
-            SqlParameter[] parametros = new SqlParameter[2];
+            SqlParameter[] parametros = new SqlParameter[3];
             parametros[0] = new SqlParameter("@nombre", perfil.Nombre);
             parametros[1] = new SqlParameter("@padre", perfil.Padre);
+            parametros[2] = new SqlParameter("@id", perfil.Id);
             int res = SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
             return res;
         }

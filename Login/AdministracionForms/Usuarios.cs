@@ -109,6 +109,7 @@ namespace GUI
             }
             catch (FormatException)
             {
+                Mensaje("msgERrorMail", "msgFaltaCompletarTitulo");
                 return false;
             }
             return base.ValidarTextbox();

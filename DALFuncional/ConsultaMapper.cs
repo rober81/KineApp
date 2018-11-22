@@ -58,7 +58,7 @@ namespace DALFuncional
             parametros[4] = new SqlParameter("@id", 0);
             parametros[4].Direction = ParameterDirection.Output;
             SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
-            return int.Parse(parametros[3].Value.ToString());
+            return int.Parse(parametros[4].Value.ToString());
         }
 
         public static int Modificar(Consulta param)

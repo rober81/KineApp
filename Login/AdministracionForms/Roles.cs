@@ -32,7 +32,8 @@ namespace GUI
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Add(cmbRoles.SelectedItem);
+            if (! listBox1.Items.Contains(cmbRoles.SelectedItem))
+                listBox1.Items.Add(cmbRoles.SelectedItem);
         }
 
         private void cmbUsuarios_SelectedIndexChanged(object sender, EventArgs e)

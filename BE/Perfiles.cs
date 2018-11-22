@@ -16,6 +16,15 @@ namespace BE
             return Id + " - " + Nombre;
         }
 
+        public override bool Equals(object obj)
+        {
+            var cmp = obj as Perfiles;
+            if (cmp == null)
+                return false;
+            else
+            return Id.Equals(cmp.Id);
+        }
+
         public List<iPermisos> Hijos
         {
             get

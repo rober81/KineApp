@@ -60,6 +60,9 @@ namespace GUI.PacienteForms
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 ActualizarLista(gestor.Listar());
+            } else
+            {
+                ActualizarLista(gestor.Listar());
             }
             dialog.Dispose();
         }

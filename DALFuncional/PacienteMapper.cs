@@ -31,18 +31,20 @@ namespace DALFuncional
 
         public static Paciente Buscar(Paciente param)
         {
+            Paciente buscado = null;
             SqlParameter[] parametros = new SqlParameter[1];
             parametros[0] = new SqlParameter("@dni", param.Dni);
             DataTable tabla = SqlHelper.getInstance().leer(Tabla + "_buscar", parametros);
             foreach (DataRow item in tabla.Rows)
             {
-                param.Dni = int.Parse(item["dni"].ToString());
-                param.Nombre = item["nombre"].ToString();
-                param.Apellido = item["apellido"].ToString();
-                param.FechaNacimiento = DateTime.Parse(item["fechaNacimiento"].ToString());
-                param.DVH = int.Parse(item["Dvh"].ToString());
+                buscado = new Paciente();
+                buscado.Dni = int.Parse(item["dni"].ToString());
+                buscado.Nombre = item["nombre"].ToString();
+                buscado.Apellido = item["apellido"].ToString();
+                buscado.FechaNacimiento = DateTime.Parse(item["fechaNacimiento"].ToString());
+                buscado.DVH = int.Parse(item["Dvh"].ToString());
             }
-            return param;
+            return buscado;
         }
 
         private static SqlParameter[] crearParametros(Paciente param)

@@ -70,7 +70,6 @@ namespace GUI.PacienteForms
             {
                 if (this.validar())
                 {
-                    Consulta obj = new Consulta();
                     Seleccionado.Resumen = txtResumen.Text.Trim();
                     Seleccionado.Fecha = dtFecha.Value;
                     Seleccionado.Detalle = new List<ConsultaDetalle>();
