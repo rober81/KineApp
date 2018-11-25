@@ -10,6 +10,7 @@ namespace GUI.PacienteForms
     {
         GestionarEntrenamiento gestor;
         public Entrenamiento Seleccionado { get; set; }
+        public string PalabrasClave { get; set; }
 
         public ConsultarEntrenamiento()
         {
@@ -25,7 +26,7 @@ namespace GUI.PacienteForms
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
             gestor = new GestionarEntrenamiento();
-            ActualizarLista(gestor.Listar());
+            ActualizarLista(FiltrarLista());
         }
 
         private void ActualizarLista(List<Entrenamiento> lista)
@@ -38,6 +39,7 @@ namespace GUI.PacienteForms
             dataGridView1.Columns["Nombre"].Width = 220;
             dataGridView1.Columns["descripcion"].DisplayIndex = 2;
             dataGridView1.Columns["descripcion"].Width = 460;
+            dataGridView1.Columns["PalabrasClave"].Width = 120;
             if (Seleccionado != null)
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -59,10 +61,10 @@ namespace GUI.PacienteForms
             AbmEntrenamiento dialog = new AbmEntrenamiento();
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
-                ActualizarLista(gestor.Listar());
+                ActualizarLista(FiltrarLista());
             } else
             {
-                ActualizarLista(gestor.Listar());
+                ActualizarLista(FiltrarLista());
             }
             dialog.Dispose();
         }
@@ -88,7 +90,7 @@ namespace GUI.PacienteForms
                 dialog.EntrenamientoSeleccionado = (Entrenamiento)dataGridView1.SelectedRows[0].DataBoundItem;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    ActualizarLista(gestor.Listar());
+                    ActualizarLista(FiltrarLista());
                 }
                 dialog.Dispose();
             }
@@ -98,11 +100,27 @@ namespace GUI.PacienteForms
         {
             if (string.IsNullOrWhiteSpace((txtBuscar.Text)))
             {
-                ActualizarLista(gestor.Listar());
+                ActualizarLista(FiltrarLista());
             } else
             {
-                ActualizarLista(gestor.Listar(txtBuscar.Text));
+                ActualizarLista(FiltrarLista(txtBuscar.Text));
             }
+        }
+
+        private List<Entrenamiento> FiltrarLista()
+        {
+            if (string.IsNullOrWhiteSpace(PalabrasClave))
+                return gestor.Listar();
+            else
+                return gestor.Filtrar(PalabrasClave);
+        }
+
+        private List<Entrenamiento> FiltrarLista(string busqueda)
+        {
+            if (string.IsNullOrWhiteSpace(PalabrasClave))
+                return gestor.Listar(busqueda);
+            else
+                return gestor.Filtrar(busqueda, PalabrasClave);
         }
     }
 }

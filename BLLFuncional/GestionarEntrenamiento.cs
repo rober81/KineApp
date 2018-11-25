@@ -16,6 +16,13 @@ namespace BLLFuncional
             lista = Listar();
         }
 
+        public Entrenamiento Buscar(Entrenamiento param)
+        {
+            Entrenamiento resultado = mapper.Buscar(param);
+            resultado.ListaEjercicios = EjercicioMapper.BuscarEjercicio(param);
+            return resultado;
+        }
+
         public List<Entrenamiento> Listar()
         {
             lista = mapper.Listar();
@@ -26,17 +33,42 @@ namespace BLLFuncional
             return lista;
         }
 
-        public Entrenamiento Buscar(Entrenamiento param)
-        {
-            Entrenamiento resultado = mapper.Buscar(param);
-            resultado.ListaEjercicios = EjercicioMapper.BuscarEjercicio(param);
-            return resultado;
-        }
-
         public List<Entrenamiento> Listar(string busqueda)
         {
             string bus = busqueda.Trim().ToLower();
             var filtro = from item in lista
+                         where item.Nombre.ToLower().Contains(bus) ||
+                         item.Descripcion.ToLower().Contains(bus) ||
+                         item.PalabrasClave.ToLower().Contains(bus) ||
+                         item.Id.ToString().Contains(bus)
+                         select item;
+            return filtro.ToList<Entrenamiento>();
+        }
+
+        public List<Entrenamiento> Filtrar(string palabrasClave)
+        {
+            lista = mapper.Listar();
+            List<string> palabras = palabrasClave.Split(',').Select(p => p.Trim()).ToList();
+            palabras.Remove("");
+            palabras.Remove(" ");
+            List<Entrenamiento> subLista = new List<Entrenamiento>();
+            List<string> palabrasItem;
+            foreach (var item in lista)
+            {
+                palabrasItem = new List<string>(item.PalabrasClave.Split(',').Select(p => p.Trim()).ToList());
+                foreach (string palabra in palabras)
+                {
+                    if (palabrasItem.Contains(palabra) && (!subLista.Contains(item)))
+                        subLista.Add(item);
+                }
+            }
+            return subLista;
+        }
+
+        public List<Entrenamiento> Filtrar(string busqueda, string palabrasClave)
+        {
+            string bus = busqueda.Trim().ToLower();
+            var filtro = from item in Filtrar(palabrasClave)
                          where item.Nombre.ToLower().Contains(bus) ||
                          item.Descripcion.ToLower().Contains(bus) ||
                          item.Id.ToString().Contains(bus)

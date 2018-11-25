@@ -16,21 +16,53 @@ namespace BLLFuncional
             lista = Listar();
         }
 
+        public Tratamiento Buscar(Tratamiento param)
+        {
+            return mapper.Buscar(param);
+        }
+
         public List<Tratamiento> Listar()
         {
             lista = mapper.Listar();
             return lista;
         }
 
-        public Tratamiento Buscar(Tratamiento param)
-        {
-            return mapper.Buscar(param);
-        }
-
         public List<Tratamiento> Listar(string busqueda)
         {
             string bus = busqueda.Trim().ToLower();
             var filtro = from item in lista
+                         where item.Nombre.ToLower().Contains(bus) ||
+                         item.Descripcion.ToLower().Contains(bus) ||
+                         item.PalabrasClave.ToLower().Contains(bus) ||
+                         item.Id.ToString().Contains(bus)
+                         select item;
+            return filtro.ToList<Tratamiento>();
+        }
+
+        public List<Tratamiento> Filtrar(string palabrasClave)
+        {
+            lista = mapper.Listar();
+            List<string> palabras = palabrasClave.Split(',').Select(p => p.Trim()).ToList();
+            palabras.Remove("");
+            palabras.Remove(" ");
+            List<Tratamiento> subLista = new List<Tratamiento>();
+            List<string> palabrasItem;
+            foreach (var item in lista)
+            {
+                palabrasItem = new List<string>(item.PalabrasClave.Split(',').Select(p => p.Trim()).ToList());
+                foreach (string palabra in palabras)
+                {
+                    if (palabrasItem.Contains(palabra) && (!subLista.Contains(item)))
+                        subLista.Add(item);
+                }
+            }
+            return subLista;
+        }
+
+        public List<Tratamiento> Filtrar(string busqueda, string palabrasClave)
+        {
+            string bus = busqueda.Trim().ToLower();
+            var filtro = from item in Filtrar(palabrasClave)
                          where item.Nombre.ToLower().Contains(bus) ||
                          item.Descripcion.ToLower().Contains(bus) ||
                          item.Id.ToString().Contains(bus)

@@ -12,6 +12,8 @@ namespace GUI.PacienteForms
         GestionarConsulta gestor;
         private Patologia patologiaSeleccionada;
         private DatoBase tratamientoSeleccionado;
+        private ConsultaDetalle detallePAT;
+        private ConsultaDetalle detalleTRAT;
 
         public AbmConsulta()
         {
@@ -140,6 +142,7 @@ namespace GUI.PacienteForms
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 patologiaSeleccionada = dialog.Seleccionado;
+                detallePAT = null;
                 txtDescripcionPAT.Text = patologiaSeleccionada.ToString();
             }
             else
@@ -153,9 +156,12 @@ namespace GUI.PacienteForms
         {
             ConsultarTratamiento dialog = new ConsultarTratamiento();
             dialog.Seleccionado = tratamientoSeleccionado as Tratamiento;
+            dialog.PalabrasClave = ArmarPalabraClave();
+
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 tratamientoSeleccionado = dialog.Seleccionado;
+                detalleTRAT = null;
                 txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
             }
             else
@@ -165,13 +171,26 @@ namespace GUI.PacienteForms
             dialog.Dispose();
         }
 
+        private string ArmarPalabraClave()
+        {
+            string palabras = "";
+            foreach (ConsultaDetalle item in listaPAT.Items)
+            {
+                palabras = palabras + item.Item.PalabrasClave + ",";
+            }
+            return palabras;
+        }
+
         private void btnBuscarEN_Click(object sender, EventArgs e)
         {
             ConsultarEntrenamiento dialog = new ConsultarEntrenamiento();
             dialog.Seleccionado = tratamientoSeleccionado as Entrenamiento;
+            dialog.PalabrasClave = ArmarPalabraClave();
+
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 tratamientoSeleccionado = dialog.Seleccionado;
+                detalleTRAT = null;
                 txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
             }
             else
@@ -185,9 +204,12 @@ namespace GUI.PacienteForms
         {
             ConsultarEjercicio dialog = new ConsultarEjercicio();
             dialog.Seleccionado = tratamientoSeleccionado as Ejercicio;
+            dialog.PalabrasClave = ArmarPalabraClave();
+
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 tratamientoSeleccionado = dialog.Seleccionado;
+                detalleTRAT = null;
                 txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
             }
             else
@@ -204,6 +226,7 @@ namespace GUI.PacienteForms
                 ConsultaDetalle detalle = new ConsultaDetalle();
                 detalle.Item = patologiaSeleccionada;
                 detalle.Observaciones = txtObservacionesPAT.Text;
+                listaPAT.Items.Remove(detallePAT);
                 listaPAT.Items.Add(detalle);
                 LimpiarPatologia();
             }
@@ -217,6 +240,7 @@ namespace GUI.PacienteForms
                 detalle.Item = tratamientoSeleccionado;
                 detalle.Observaciones = txtObservacionesTRA.Text;
                 detalle.Resultado = txtResultadoTRA.Text;
+                listaPAT.Items.Remove(detalleTRAT);
                 listaTRA.Items.Add(detalle);
                 LimpiarTratamiento();
             }
@@ -237,6 +261,7 @@ namespace GUI.PacienteForms
         private void listaPAT_SelectedIndexChanged(object sender, EventArgs e)
         {
             ConsultaDetalle detalle = listaPAT.SelectedItem as ConsultaDetalle;
+            detallePAT = detalle;
             if (detalle != null)
             {
                 patologiaSeleccionada = (Patologia) detalle.Item;
@@ -248,6 +273,7 @@ namespace GUI.PacienteForms
         private void listaTRA_SelectedIndexChanged(object sender, EventArgs e)
         {
             ConsultaDetalle detalle = listaTRA.SelectedItem as ConsultaDetalle;
+            detalleTRAT = detalle;
             if (detalle != null)
             {
                 tratamientoSeleccionado = (DatoBase)detalle.Item;

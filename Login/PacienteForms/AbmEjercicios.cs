@@ -1,4 +1,5 @@
 ﻿using BEFuncional;
+using BLL;
 using BLLFuncional;
 using System;
 using System.Collections.Generic;
@@ -38,14 +39,11 @@ namespace GUI
                 txtDescripcion.Text = Seleccionado.Descripcion;
                 txtCantidad.Text = Seleccionado.Cantidad;
                 txtRepeticiones.Text = Seleccionado.Repeticiones;
+                txtPalabrasClave.Text = Seleccionado.PalabrasClave;
             }
             else
             {
-                lblID.Text = string.Empty;
-                txtNombre.Text = string.Empty;
-                txtDescripcion.Text = string.Empty;
-                txtCantidad.Text = string.Empty;
-                txtRepeticiones.Text = string.Empty;
+                nuevo();
             }
         }
 
@@ -66,6 +64,7 @@ namespace GUI
                     ej.Descripcion = txtDescripcion.Text.Trim();
                     ej.Cantidad = txtCantidad.Text.Trim();
                     ej.Repeticiones = txtRepeticiones.Text.Trim();
+                    ej.PalabrasClave = txtPalabrasClave.Text.Trim();
                     if (string.IsNullOrWhiteSpace(lblID.Text))
                         respuesta = GestionarEjercicio.Insertar(ej);
                     else
@@ -85,8 +84,9 @@ namespace GUI
                 else
                     this.DialogResult = DialogResult.None;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                GestionarError.loguear(ex.ToString());
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }
         }
@@ -98,6 +98,7 @@ namespace GUI
             txtDescripcion.Text = string.Empty;
             txtCantidad.Text = string.Empty;
             txtRepeticiones.Text = string.Empty;
+            txtPalabrasClave.Text = string.Empty;
         }
     }
 }

@@ -21,12 +21,18 @@ namespace GUI
             InitializeComponent();
         }
 
+        private GestionarRolesPerfiles gestor;
+
         private void Usuarios_Load(object sender, EventArgs e)
         {
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
             Estilo.Nuevo(btnNuevo);
             ActualizarLista();
+            gestor = new GestionarRolesPerfiles();
+            cmbPerfil.DataSource = null;
+            cmbPerfil.DataSource = gestor.ListarPerfilesPadres();
+            Nuevo();
         }
 
         private void ActualizarLista()
@@ -37,6 +43,11 @@ namespace GUI
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            Nuevo();
+        }
+
+        private void Nuevo()
+        {
             txtUsuario.Text = string.Empty;
             txtUsuario.Enabled = true;
             txtPass.Text = string.Empty;
@@ -45,7 +56,9 @@ namespace GUI
             txtDni.Text = string.Empty;
             txtNombre.Text = string.Empty;
             txtApellido.Text = string.Empty;
-            listBox1.SelectedItem = null;
+            listBox1.ClearSelected();
+            lblPerfiles.Visible = true;
+            cmbPerfil.Visible = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -73,7 +86,12 @@ namespace GUI
                     usr.Correo = txtCorreo.Text.Trim();
                     usr.Dni = int.Parse(txtDni.Text.Trim());
                     if (txtUsuario.Enabled)
+                    {
                         respuesta = GestionarUsuario.Insertar(usr);
+                        List<iPermisos> permisos = new List<iPermisos>();
+                        permisos.Add((iPermisos)cmbPerfil.SelectedItem);
+                        gestor.InsertarUsuarioPerfil(usr, permisos);
+                    }
                     else
                         respuesta = GestionarUsuario.Modificar(usr);
                     if (respuesta == 0)
@@ -128,6 +146,8 @@ namespace GUI
                 txtDni.Text = usr.Dni.ToString();
                 txtNombre.Text = usr.Nombre;
                 txtApellido.Text = usr.Apellido;
+                lblPerfiles.Visible = false;
+                cmbPerfil.Visible = false;
             } else
             {
                 btnNuevo_Click(null,null);

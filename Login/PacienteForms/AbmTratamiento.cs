@@ -2,6 +2,7 @@
 using BEFuncional;
 using BLLFuncional;
 using System.Windows.Forms;
+using BLL;
 
 namespace GUI.PacienteForms
 {
@@ -31,12 +32,14 @@ namespace GUI.PacienteForms
                 lblID.Text = Seleccionado.Id.ToString();
                 txtNombre.Text = Seleccionado.Nombre;
                 txtDescripcion.Text = Seleccionado.Descripcion;
+                txtPalabrasClave.Text = Seleccionado.PalabrasClave;
             }
             else
             {
                 lblID.Text = string.Empty;
                 txtNombre.Text = string.Empty;
                 txtDescripcion.Text = string.Empty;
+                txtPalabrasClave.Text = string.Empty;
             }
         }
 
@@ -55,6 +58,7 @@ namespace GUI.PacienteForms
                     Tratamiento obj = new Tratamiento();
                     obj.Nombre = txtNombre.Text.Trim();
                     obj.Descripcion = txtDescripcion.Text.Trim();
+                    obj.PalabrasClave = txtPalabrasClave.Text.Trim();
                     if (string.IsNullOrWhiteSpace(lblID.Text))
                         respuesta = gestor.Insertar(obj);
                     else
@@ -72,8 +76,9 @@ namespace GUI.PacienteForms
                 else
                     this.DialogResult = DialogResult.None;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                GestionarError.loguear(ex.ToString());
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }
         }

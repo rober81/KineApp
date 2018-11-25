@@ -33,6 +33,7 @@ namespace BLLFuncional
             var filtro = from item in lista
                          where item.Nombre.ToLower().Contains(bus) ||
                          item.Descripcion.ToLower().Contains(bus) ||
+                         item.PalabrasClave.ToLower().Contains(bus) ||
                          item.Id.ToString().Contains(bus)
                          select item;
             return filtro.ToList<Patologia>();

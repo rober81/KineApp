@@ -40,6 +40,9 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtPalabrasClave = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,7 +134,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(826, 558);
+            this.btnCancelar.Location = new System.Drawing.Point(824, 602);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(91, 39);
@@ -143,7 +146,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(922, 558);
+            this.btnAceptar.Location = new System.Drawing.Point(920, 602);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(91, 39);
@@ -175,11 +178,44 @@
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(108, 592);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 17);
+            this.label9.TabIndex = 73;
+            this.label9.Tag = "lblPalabrasClaveInfo";
+            this.label9.Text = "lblPalabrasClaveInfo";
+            // 
+            // txtPalabrasClave
+            // 
+            this.txtPalabrasClave.Location = new System.Drawing.Point(111, 556);
+            this.txtPalabrasClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPalabrasClave.MaxLength = 100;
+            this.txtPalabrasClave.Name = "txtPalabrasClave";
+            this.txtPalabrasClave.Size = new System.Drawing.Size(900, 22);
+            this.txtPalabrasClave.TabIndex = 72;
+            this.txtPalabrasClave.Tag = "lblPalabrasClave";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 560);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(103, 17);
+            this.label4.TabIndex = 71;
+            this.label4.Tag = "lblPalabrasClave";
+            this.label4.Text = "Palabras Clave";
+            // 
             // AbmEjercicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 613);
+            this.ClientSize = new System.Drawing.Size(1028, 669);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtPalabrasClave);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnCancelar);
@@ -220,5 +256,8 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtPalabrasClave;
+        private System.Windows.Forms.Label label4;
     }
 }

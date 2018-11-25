@@ -39,6 +39,7 @@ namespace GUI
             dataGridView1.Columns["Nombre"].Width = 220;
             dataGridView1.Columns["descripcion"].DisplayIndex = 2;
             dataGridView1.Columns["descripcion"].Width = 460;
+            dataGridView1.Columns["PalabrasClave"].Width = 120;
             if (Seleccionado != null)
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)

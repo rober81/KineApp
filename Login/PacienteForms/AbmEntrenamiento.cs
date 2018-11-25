@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using BLLFuncional;
+using BLL;
 
 namespace GUI
 {
@@ -79,6 +80,7 @@ namespace GUI
                 lblID.Text = EntrenamientoSeleccionado.Id.ToString();
                 txtNombreE.Text = EntrenamientoSeleccionado.Nombre;
                 txtDescripcionE.Text = EntrenamientoSeleccionado.Descripcion;
+                txtPalabrasClave.Text = EntrenamientoSeleccionado.PalabrasClave;
                 actualizarListaEjercicios();
             }
             else
@@ -130,6 +132,8 @@ namespace GUI
                 {
                     EntrenamientoSeleccionado.Nombre = txtNombreE.Text.Trim();
                     EntrenamientoSeleccionado.Descripcion = txtDescripcionE.Text.Trim();
+                    EntrenamientoSeleccionado.PalabrasClave = txtPalabrasClave.Text;
+
                     if (string.IsNullOrWhiteSpace(lblID.Text) || "0".Equals(lblID.Text))
                         respuesta = gestor.Insertar(EntrenamientoSeleccionado);
                     else
@@ -151,8 +155,9 @@ namespace GUI
                     this.DialogResult = DialogResult.None;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                GestionarError.loguear(ex.ToString());
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }
         }

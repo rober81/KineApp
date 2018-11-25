@@ -43,7 +43,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(70, 25);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(557, 22);
+            this.txtBuscar.Size = new System.Drawing.Size(715, 22);
             this.txtBuscar.TabIndex = 31;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
@@ -68,12 +68,12 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1000, 554);
+            this.dataGridView1.Size = new System.Drawing.Size(1158, 580);
             this.dataGridView1.TabIndex = 33;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(825, 16);
+            this.btnCancelar.Location = new System.Drawing.Point(983, 11);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(91, 39);
@@ -85,7 +85,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(729, 16);
+            this.btnNuevo.Location = new System.Drawing.Point(887, 11);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(91, 39);
@@ -97,7 +97,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(921, 16);
+            this.btnAceptar.Location = new System.Drawing.Point(1079, 11);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(91, 39);
@@ -109,7 +109,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(633, 16);
+            this.btnModificar.Location = new System.Drawing.Point(791, 11);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(91, 39);
@@ -123,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 633);
+            this.ClientSize = new System.Drawing.Size(1182, 653);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnNuevo);

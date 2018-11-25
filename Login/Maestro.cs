@@ -130,15 +130,15 @@ namespace GUI
 
             GestionarDV gestorDigito = new GestionarDV();
             int cantidad = gestorDigito.VerificarDVH() + gestorDigito.VerificarDVV();
-            if (cantidad != 0 && gestiónDeDigitoVerificadorToolStripMenuItem.Enabled == false)
+            if (cantidad != 0 && MenuDigitoVerificador.Enabled == false)
             {
                 DialogResult result = MessageBox.Show(Traducir("msgErrorVerificarDV") + "-" + cantidad, Traducir("msgError"), MessageBoxButtons.OK);
-                if (result == DialogResult.OK && gestiónDeDigitoVerificadorToolStripMenuItem.Enabled == false)
+                if (result == DialogResult.OK && MenuDigitoVerificador.Enabled == false)
                 {
                     Application.Exit();
                 }
             }
-            else if (cantidad != 0 && gestiónDeDigitoVerificadorToolStripMenuItem.Enabled == true)
+            else if (cantidad != 0 && MenuDigitoVerificador.Enabled == true)
             {
                 MessageBox.Show(Traducir("msgErrorVerificarDV2") + "-" + cantidad, Traducir("msgError"), MessageBoxButtons.OK);
                 abrirFormulario(new DigitoVerificador());

@@ -34,25 +34,25 @@
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuPacienteAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuPacienteModificar = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuConsulta = new System.Windows.Forms.ToolStripMenuItem();
             this.serviciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ejerciciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entrenamientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.patologiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tratamientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuEjercicios = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuEntrenamientos = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuPatologias = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuTratamientos = new System.Windows.Forms.ToolStripMenuItem();
             this.administraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.perfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copiaDeSeguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDeDigitoVerificadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuRoles = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuPerfiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuBitacora = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuCopiaSeguridad = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDigitoVerificador = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.españolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuIdioma = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,150 +101,150 @@
             // pacientesToolStripMenuItem
             // 
             this.pacientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.altaToolStripMenuItem,
-            this.modificaciónToolStripMenuItem,
-            this.consultaToolStripMenuItem});
+            this.MenuPacienteAlta,
+            this.MenuPacienteModificar,
+            this.MenuConsulta});
             this.pacientesToolStripMenuItem.Name = "pacientesToolStripMenuItem";
             this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
             this.pacientesToolStripMenuItem.Tag = "menuGestionPacientes";
             this.pacientesToolStripMenuItem.Text = "Gestión de Pacientes";
             // 
-            // altaToolStripMenuItem
+            // MenuPacienteAlta
             // 
-            this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.altaToolStripMenuItem.Tag = "menuPacienteAlta";
-            this.altaToolStripMenuItem.Text = "Alta";
-            this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
+            this.MenuPacienteAlta.Name = "MenuPacienteAlta";
+            this.MenuPacienteAlta.Size = new System.Drawing.Size(181, 26);
+            this.MenuPacienteAlta.Tag = "menuPacienteAlta";
+            this.MenuPacienteAlta.Text = "Alta";
+            this.MenuPacienteAlta.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
             // 
-            // modificaciónToolStripMenuItem
+            // MenuPacienteModificar
             // 
-            this.modificaciónToolStripMenuItem.Name = "modificaciónToolStripMenuItem";
-            this.modificaciónToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.modificaciónToolStripMenuItem.Tag = "menuPacienteModificacion";
-            this.modificaciónToolStripMenuItem.Text = "Modificación";
-            this.modificaciónToolStripMenuItem.Click += new System.EventHandler(this.modificaciónToolStripMenuItem_Click);
+            this.MenuPacienteModificar.Name = "MenuPacienteModificar";
+            this.MenuPacienteModificar.Size = new System.Drawing.Size(181, 26);
+            this.MenuPacienteModificar.Tag = "menuPacienteModificacion";
+            this.MenuPacienteModificar.Text = "Modificación";
+            this.MenuPacienteModificar.Click += new System.EventHandler(this.modificaciónToolStripMenuItem_Click);
             // 
-            // consultaToolStripMenuItem
+            // MenuConsulta
             // 
-            this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.consultaToolStripMenuItem.Tag = "menuPacienteConsulta";
-            this.consultaToolStripMenuItem.Text = "Consulta";
-            this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
+            this.MenuConsulta.Name = "MenuConsulta";
+            this.MenuConsulta.Size = new System.Drawing.Size(181, 26);
+            this.MenuConsulta.Tag = "menuPacienteConsulta";
+            this.MenuConsulta.Text = "Consulta";
+            this.MenuConsulta.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
             // 
             // serviciosToolStripMenuItem
             // 
             this.serviciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ejerciciosToolStripMenuItem,
-            this.entrenamientosToolStripMenuItem,
-            this.patologiasToolStripMenuItem,
-            this.tratamientosToolStripMenuItem});
+            this.MenuEjercicios,
+            this.MenuEntrenamientos,
+            this.MenuPatologias,
+            this.MenuTratamientos});
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
             this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
             this.serviciosToolStripMenuItem.Tag = "menuEntrenamientos";
             this.serviciosToolStripMenuItem.Text = "Gestión de Entrenamientos";
             // 
-            // ejerciciosToolStripMenuItem
+            // MenuEjercicios
             // 
-            this.ejerciciosToolStripMenuItem.Name = "ejerciciosToolStripMenuItem";
-            this.ejerciciosToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
-            this.ejerciciosToolStripMenuItem.Tag = "menuEntrenamientosEjercicios";
-            this.ejerciciosToolStripMenuItem.Text = "Ejercicios";
-            this.ejerciciosToolStripMenuItem.Click += new System.EventHandler(this.tratamientosToolStripMenuItem_Click);
+            this.MenuEjercicios.Name = "MenuEjercicios";
+            this.MenuEjercicios.Size = new System.Drawing.Size(187, 26);
+            this.MenuEjercicios.Tag = "menuEntrenamientosEjercicios";
+            this.MenuEjercicios.Text = "Ejercicios";
+            this.MenuEjercicios.Click += new System.EventHandler(this.tratamientosToolStripMenuItem_Click);
             // 
-            // entrenamientosToolStripMenuItem
+            // MenuEntrenamientos
             // 
-            this.entrenamientosToolStripMenuItem.Name = "entrenamientosToolStripMenuItem";
-            this.entrenamientosToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
-            this.entrenamientosToolStripMenuItem.Tag = "menuEntrenamientosEntrenamientos";
-            this.entrenamientosToolStripMenuItem.Text = "Entrenamientos";
-            this.entrenamientosToolStripMenuItem.Click += new System.EventHandler(this.entrenamientosToolStripMenuItem_Click);
+            this.MenuEntrenamientos.Name = "MenuEntrenamientos";
+            this.MenuEntrenamientos.Size = new System.Drawing.Size(187, 26);
+            this.MenuEntrenamientos.Tag = "menuEntrenamientos";
+            this.MenuEntrenamientos.Text = "Entrenamientos";
+            this.MenuEntrenamientos.Click += new System.EventHandler(this.entrenamientosToolStripMenuItem_Click);
             // 
-            // patologiasToolStripMenuItem
+            // MenuPatologias
             // 
-            this.patologiasToolStripMenuItem.Name = "patologiasToolStripMenuItem";
-            this.patologiasToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
-            this.patologiasToolStripMenuItem.Tag = "frmConsultaPatologias";
-            this.patologiasToolStripMenuItem.Text = "Patologias";
-            this.patologiasToolStripMenuItem.Click += new System.EventHandler(this.patologiasToolStripMenuItem_Click);
+            this.MenuPatologias.Name = "MenuPatologias";
+            this.MenuPatologias.Size = new System.Drawing.Size(187, 26);
+            this.MenuPatologias.Tag = "MenuPatologias";
+            this.MenuPatologias.Text = "Patologias";
+            this.MenuPatologias.Click += new System.EventHandler(this.patologiasToolStripMenuItem_Click);
             // 
-            // tratamientosToolStripMenuItem
+            // MenuTratamientos
             // 
-            this.tratamientosToolStripMenuItem.Name = "tratamientosToolStripMenuItem";
-            this.tratamientosToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
-            this.tratamientosToolStripMenuItem.Tag = "frmConsultaTratamientos";
-            this.tratamientosToolStripMenuItem.Text = "Tratamientos";
-            this.tratamientosToolStripMenuItem.Click += new System.EventHandler(this.tratamientosToolStripMenuItem_Click_1);
+            this.MenuTratamientos.Name = "MenuTratamientos";
+            this.MenuTratamientos.Size = new System.Drawing.Size(187, 26);
+            this.MenuTratamientos.Tag = "MenuTratamientos";
+            this.MenuTratamientos.Text = "Tratamientos";
+            this.MenuTratamientos.Click += new System.EventHandler(this.tratamientosToolStripMenuItem_Click_1);
             // 
             // administraciónToolStripMenuItem
             // 
             this.administraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usuariosToolStripMenuItem,
-            this.rolesToolStripMenuItem,
-            this.perfilesToolStripMenuItem,
-            this.bitacoraToolStripMenuItem,
-            this.copiaDeSeguridadToolStripMenuItem,
-            this.gestiónDeDigitoVerificadorToolStripMenuItem});
+            this.MenuUsuarios,
+            this.MenuRoles,
+            this.MenuPerfiles,
+            this.MenuBitacora,
+            this.MenuCopiaSeguridad,
+            this.MenuDigitoVerificador});
             this.administraciónToolStripMenuItem.Name = "administraciónToolStripMenuItem";
             this.administraciónToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
             this.administraciónToolStripMenuItem.Tag = "menuAdministracion";
             this.administraciónToolStripMenuItem.Text = "Administración";
             // 
-            // usuariosToolStripMenuItem
+            // MenuUsuarios
             // 
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
-            this.usuariosToolStripMenuItem.Tag = "menuAdmUsuarios";
-            this.usuariosToolStripMenuItem.Text = "Gestión de Usuarios";
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            this.MenuUsuarios.Name = "MenuUsuarios";
+            this.MenuUsuarios.Size = new System.Drawing.Size(291, 26);
+            this.MenuUsuarios.Tag = "menuAdmUsuarios";
+            this.MenuUsuarios.Text = "Gestión de Usuarios";
+            this.MenuUsuarios.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
-            // rolesToolStripMenuItem
+            // MenuRoles
             // 
-            this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
-            this.rolesToolStripMenuItem.Tag = "menuAdmRoles";
-            this.rolesToolStripMenuItem.Text = "Gestión de Roles";
-            this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
+            this.MenuRoles.Name = "MenuRoles";
+            this.MenuRoles.Size = new System.Drawing.Size(291, 26);
+            this.MenuRoles.Tag = "menuAdmRoles";
+            this.MenuRoles.Text = "Gestión de Roles";
+            this.MenuRoles.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
-            // perfilesToolStripMenuItem
+            // MenuPerfiles
             // 
-            this.perfilesToolStripMenuItem.Name = "perfilesToolStripMenuItem";
-            this.perfilesToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
-            this.perfilesToolStripMenuItem.Tag = "menuAdmPerfiles";
-            this.perfilesToolStripMenuItem.Text = "Gestión de Perfiles";
-            this.perfilesToolStripMenuItem.Click += new System.EventHandler(this.perfilesToolStripMenuItem_Click);
+            this.MenuPerfiles.Name = "MenuPerfiles";
+            this.MenuPerfiles.Size = new System.Drawing.Size(291, 26);
+            this.MenuPerfiles.Tag = "menuAdmPerfiles";
+            this.MenuPerfiles.Text = "Gestión de Perfiles";
+            this.MenuPerfiles.Click += new System.EventHandler(this.perfilesToolStripMenuItem_Click);
             // 
-            // bitacoraToolStripMenuItem
+            // MenuBitacora
             // 
-            this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
-            this.bitacoraToolStripMenuItem.Tag = "menuAdmBitacora";
-            this.bitacoraToolStripMenuItem.Text = "Consultar Bitácora";
-            this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
+            this.MenuBitacora.Name = "MenuBitacora";
+            this.MenuBitacora.Size = new System.Drawing.Size(291, 26);
+            this.MenuBitacora.Tag = "menuAdmBitacora";
+            this.MenuBitacora.Text = "Consultar Bitácora";
+            this.MenuBitacora.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
-            // copiaDeSeguridadToolStripMenuItem
+            // MenuCopiaSeguridad
             // 
-            this.copiaDeSeguridadToolStripMenuItem.Name = "copiaDeSeguridadToolStripMenuItem";
-            this.copiaDeSeguridadToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
-            this.copiaDeSeguridadToolStripMenuItem.Tag = "menuAdmBackup";
-            this.copiaDeSeguridadToolStripMenuItem.Text = "Gestión de Copia de Seguridad";
-            this.copiaDeSeguridadToolStripMenuItem.Click += new System.EventHandler(this.copiaDeSeguridadToolStripMenuItem_Click);
+            this.MenuCopiaSeguridad.Name = "MenuCopiaSeguridad";
+            this.MenuCopiaSeguridad.Size = new System.Drawing.Size(291, 26);
+            this.MenuCopiaSeguridad.Tag = "menuAdmBackup";
+            this.MenuCopiaSeguridad.Text = "Gestión de Copia de Seguridad";
+            this.MenuCopiaSeguridad.Click += new System.EventHandler(this.copiaDeSeguridadToolStripMenuItem_Click);
             // 
-            // gestiónDeDigitoVerificadorToolStripMenuItem
+            // MenuDigitoVerificador
             // 
-            this.gestiónDeDigitoVerificadorToolStripMenuItem.Name = "gestiónDeDigitoVerificadorToolStripMenuItem";
-            this.gestiónDeDigitoVerificadorToolStripMenuItem.Size = new System.Drawing.Size(291, 26);
-            this.gestiónDeDigitoVerificadorToolStripMenuItem.Tag = "frmDigito";
-            this.gestiónDeDigitoVerificadorToolStripMenuItem.Text = "Gestión de Digito Verificador";
-            this.gestiónDeDigitoVerificadorToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeDigitoVerificadorToolStripMenuItem_Click);
+            this.MenuDigitoVerificador.Name = "MenuDigitoVerificador";
+            this.MenuDigitoVerificador.Size = new System.Drawing.Size(291, 26);
+            this.MenuDigitoVerificador.Tag = "frmDigito";
+            this.MenuDigitoVerificador.Text = "Gestión de Digito Verificador";
+            this.MenuDigitoVerificador.Click += new System.EventHandler(this.gestiónDeDigitoVerificadorToolStripMenuItem_Click);
             // 
             // idiomaToolStripMenuItem
             // 
             this.idiomaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.españolToolStripMenuItem,
             this.inglesToolStripMenuItem,
-            this.agregarIdiomaToolStripMenuItem});
+            this.MenuIdioma});
             this.idiomaToolStripMenuItem.Name = "idiomaToolStripMenuItem";
             this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.idiomaToolStripMenuItem.Tag = "menuIdioma";
@@ -268,13 +268,13 @@
             this.inglesToolStripMenuItem.Text = "Ingles";
             this.inglesToolStripMenuItem.Click += new System.EventHandler(this.inglesToolStripMenuItem_Click);
             // 
-            // agregarIdiomaToolStripMenuItem
+            // MenuIdioma
             // 
-            this.agregarIdiomaToolStripMenuItem.Name = "agregarIdiomaToolStripMenuItem";
-            this.agregarIdiomaToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
-            this.agregarIdiomaToolStripMenuItem.Tag = "menuAdminIdioma";
-            this.agregarIdiomaToolStripMenuItem.Text = "Administrar Idioma";
-            this.agregarIdiomaToolStripMenuItem.Click += new System.EventHandler(this.agregarIdiomaToolStripMenuItem_Click);
+            this.MenuIdioma.Name = "MenuIdioma";
+            this.MenuIdioma.Size = new System.Drawing.Size(212, 26);
+            this.MenuIdioma.Tag = "menuAdminIdioma";
+            this.MenuIdioma.Text = "Administrar Idioma";
+            this.MenuIdioma.Click += new System.EventHandler(this.agregarIdiomaToolStripMenuItem_Click);
             // 
             // Maestro
             // 
@@ -306,26 +306,26 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pacientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuPacienteAlta;
         private System.Windows.Forms.ToolStripMenuItem administraciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rolesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem copiaDeSeguridadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem MenuRoles;
+        private System.Windows.Forms.ToolStripMenuItem MenuBitacora;
+        private System.Windows.Forms.ToolStripMenuItem MenuCopiaSeguridad;
+        private System.Windows.Forms.ToolStripMenuItem MenuPacienteModificar;
         private System.Windows.Forms.ToolStripMenuItem serviciosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ejerciciosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem entrenamientosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuEjercicios;
+        private System.Windows.Forms.ToolStripMenuItem MenuEntrenamientos;
         private System.Windows.Forms.ToolStripMenuItem idiomaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem españolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inglesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarIdiomaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem perfilesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuIdioma;
+        private System.Windows.Forms.ToolStripMenuItem MenuPerfiles;
+        private System.Windows.Forms.ToolStripMenuItem MenuConsulta;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestiónDeDigitoVerificadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem patologiasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tratamientosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuDigitoVerificador;
+        private System.Windows.Forms.ToolStripMenuItem MenuPatologias;
+        private System.Windows.Forms.ToolStripMenuItem MenuTratamientos;
     }
 }
 

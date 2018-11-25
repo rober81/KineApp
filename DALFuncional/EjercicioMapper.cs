@@ -24,6 +24,7 @@ namespace DALFuncional
                 obj.Descripcion = item["descripcion"].ToString();
                 obj.Cantidad = item["cantidad"].ToString();
                 obj.Repeticiones = item["repeticiones"].ToString();
+                obj.PalabrasClave = item["palabras"].ToString();
                 lista.Add(obj);
             }
             return lista;
@@ -43,28 +44,31 @@ namespace DALFuncional
                 obj.Descripcion = item["descripcion"].ToString();
                 obj.Cantidad = item["cantidad"].ToString();
                 obj.Repeticiones = item["repeticiones"].ToString();
+                obj.PalabrasClave = item["palabras"].ToString();
             }
             return obj;
         }
 
         public static int Insertar(Ejercicio param)
         {
-            SqlParameter[] parametros = new SqlParameter[4];
+            SqlParameter[] parametros = new SqlParameter[5];
             parametros[0] = new SqlParameter("@nombre", param.Nombre);
             parametros[1] = new SqlParameter("@descripcion", param.Descripcion);
             parametros[2] = new SqlParameter("@cantidad", param.Cantidad);
             parametros[3] = new SqlParameter("@repeticiones", param.Repeticiones);
+            parametros[4] = new SqlParameter("@palabras", param.PalabrasClave);
             return SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
         }
 
         public static int Modificar(Ejercicio param)
         {
-            SqlParameter[] parametros = new SqlParameter[5];
+            SqlParameter[] parametros = new SqlParameter[6];
             parametros[0] = new SqlParameter("@id", param.Id);
             parametros[1] = new SqlParameter("@nombre", param.Nombre);
             parametros[2] = new SqlParameter("@descripcion", param.Descripcion);
             parametros[3] = new SqlParameter("@cantidad", param.Cantidad);
             parametros[4] = new SqlParameter("@repeticiones", param.Repeticiones);
+            parametros[5] = new SqlParameter("@palabras", param.PalabrasClave);
             return SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
         }
 

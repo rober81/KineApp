@@ -52,6 +52,9 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
+            this.txtPalabrasClave = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +67,7 @@
             this.txtDescripcionE.Multiline = true;
             this.txtDescripcionE.Name = "txtDescripcionE";
             this.txtDescripcionE.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescripcionE.Size = new System.Drawing.Size(325, 147);
+            this.txtDescripcionE.Size = new System.Drawing.Size(351, 147);
             this.txtDescripcionE.TabIndex = 14;
             this.txtDescripcionE.Tag = "lblDescripcion";
             // 
@@ -74,7 +77,7 @@
             this.txtNombreE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombreE.MaxLength = 100;
             this.txtNombreE.Name = "txtNombreE";
-            this.txtNombreE.Size = new System.Drawing.Size(325, 22);
+            this.txtNombreE.Size = new System.Drawing.Size(351, 22);
             this.txtNombreE.TabIndex = 13;
             this.txtNombreE.Tag = "lblNombre";
             // 
@@ -112,7 +115,7 @@
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(466, 12);
+            this.groupBox1.Location = new System.Drawing.Point(485, 16);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -267,11 +270,11 @@
             // 
             this.groupBox2.Controls.Add(this.btnRemover);
             this.groupBox2.Controls.Add(this.EjerCargados);
-            this.groupBox2.Location = new System.Drawing.Point(22, 208);
+            this.groupBox2.Location = new System.Drawing.Point(22, 283);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(436, 407);
+            this.groupBox2.Size = new System.Drawing.Size(456, 332);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Tag = "menuEntrenamientosEjercicios";
@@ -279,7 +282,7 @@
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(328, 354);
+            this.btnRemover.Location = new System.Drawing.Point(358, 281);
             this.btnRemover.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(91, 39);
@@ -293,10 +296,10 @@
             // 
             this.EjerCargados.FormattingEnabled = true;
             this.EjerCargados.ItemHeight = 16;
-            this.EjerCargados.Location = new System.Drawing.Point(19, 32);
+            this.EjerCargados.Location = new System.Drawing.Point(7, 21);
             this.EjerCargados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EjerCargados.Name = "EjerCargados";
-            this.EjerCargados.Size = new System.Drawing.Size(400, 308);
+            this.EjerCargados.Size = new System.Drawing.Size(442, 244);
             this.EjerCargados.TabIndex = 33;
             this.EjerCargados.SelectedIndexChanged += new System.EventHandler(this.EjerCargados_SelectedIndexChanged);
             // 
@@ -348,11 +351,44 @@
             this.lblID.Text = "ID";
             this.lblID.Visible = false;
             // 
+            // txtPalabrasClave
+            // 
+            this.txtPalabrasClave.Location = new System.Drawing.Point(120, 217);
+            this.txtPalabrasClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPalabrasClave.MaxLength = 100;
+            this.txtPalabrasClave.Name = "txtPalabrasClave";
+            this.txtPalabrasClave.Size = new System.Drawing.Size(351, 22);
+            this.txtPalabrasClave.TabIndex = 68;
+            this.txtPalabrasClave.Tag = "lblPalabrasClave";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(18, 221);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(103, 17);
+            this.label8.TabIndex = 67;
+            this.label8.Tag = "lblPalabrasClave";
+            this.label8.Text = "Palabras Clave";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 252);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 17);
+            this.label9.TabIndex = 69;
+            this.label9.Tag = "lblPalabrasClaveInfo";
+            this.label9.Text = "lblPalabrasClaveInfo";
+            // 
             // AbmEntrenamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1387, 681);
+            this.ClientSize = new System.Drawing.Size(1404, 703);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtPalabrasClave);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnCancelar);
@@ -405,5 +441,8 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.TextBox txtPalabrasClave;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

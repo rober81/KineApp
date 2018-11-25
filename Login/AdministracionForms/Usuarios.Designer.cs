@@ -49,6 +49,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.cmbPerfil = new System.Windows.Forms.ComboBox();
+            this.lblPerfiles = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -61,7 +63,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(332, 441);
+            this.groupBox2.Size = new System.Drawing.Size(332, 502);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Tag = "lblUsuarios";
@@ -74,12 +76,14 @@
             this.listBox1.Location = new System.Drawing.Point(13, 33);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(305, 388);
+            this.listBox1.Size = new System.Drawing.Size(305, 452);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblPerfiles);
+            this.groupBox3.Controls.Add(this.cmbPerfil);
             this.groupBox3.Controls.Add(this.txtCorreo);
             this.groupBox3.Controls.Add(this.btnNuevo);
             this.groupBox3.Controls.Add(this.txtPass2);
@@ -96,7 +100,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(548, 441);
+            this.groupBox3.Size = new System.Drawing.Size(548, 502);
             this.groupBox3.TabIndex = 30;
             this.groupBox3.TabStop = false;
             this.groupBox3.Tag = "lblUsuario";
@@ -114,7 +118,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(240, 379);
+            this.btnNuevo.Location = new System.Drawing.Point(240, 440);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(87, 43);
@@ -143,7 +147,7 @@
             this.groupBox1.Controls.Add(this.txtDni);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.txtApellido);
-            this.groupBox1.Location = new System.Drawing.Point(16, 197);
+            this.groupBox1.Location = new System.Drawing.Point(16, 258);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -276,7 +280,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(332, 379);
+            this.btnCancelar.Location = new System.Drawing.Point(332, 440);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(87, 43);
@@ -288,7 +292,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(424, 379);
+            this.btnAceptar.Location = new System.Drawing.Point(424, 440);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(87, 43);
@@ -298,15 +302,38 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // cmbPerfil
+            // 
+            this.cmbPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPerfil.FormattingEnabled = true;
+            this.cmbPerfil.Location = new System.Drawing.Point(160, 180);
+            this.cmbPerfil.Name = "cmbPerfil";
+            this.cmbPerfil.Size = new System.Drawing.Size(328, 24);
+            this.cmbPerfil.TabIndex = 72;
+            // 
+            // lblPerfiles
+            // 
+            this.lblPerfiles.AutoSize = true;
+            this.lblPerfiles.Location = new System.Drawing.Point(24, 187);
+            this.lblPerfiles.Name = "lblPerfiles";
+            this.lblPerfiles.Size = new System.Drawing.Size(40, 17);
+            this.lblPerfiles.TabIndex = 73;
+            this.lblPerfiles.Tag = "lblPerfiles";
+            this.lblPerfiles.Text = "Perfil";
+            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 487);
+            this.ClientSize = new System.Drawing.Size(925, 540);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Usuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "lblUsuarios";
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.Usuarios_Load);
@@ -342,5 +369,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label lblPerfiles;
+        private System.Windows.Forms.ComboBox cmbPerfil;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BEFuncional;
+using BLL;
 using BLLFuncional;
 using System;
 using System.Windows.Forms;
@@ -76,15 +77,17 @@ namespace GUI
                     if (respuesta == 0)
                         Mensaje("msgErrorAlta", "msgError");
                     else
+                    {
                         Mensaje("msgOperacionOk");
-                    if (this.Owner != null)
                         this.Close();
+                    }
                 }
                 else
                     this.DialogResult = DialogResult.None;
             }
             catch (Exception ex)
             {
+                GestionarError.loguear(ex.ToString());
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }
         }

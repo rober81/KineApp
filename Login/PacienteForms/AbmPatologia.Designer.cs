@@ -36,12 +36,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtPalabrasClave = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(454, 447);
+            this.btnCancelar.Location = new System.Drawing.Point(454, 491);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(91, 39);
@@ -53,7 +56,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(550, 447);
+            this.btnAceptar.Location = new System.Drawing.Point(550, 491);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(91, 39);
@@ -127,11 +130,44 @@
             this.pictureBox1.TabIndex = 64;
             this.pictureBox1.TabStop = false;
             // 
+            // txtPalabrasClave
+            // 
+            this.txtPalabrasClave.Location = new System.Drawing.Point(131, 436);
+            this.txtPalabrasClave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPalabrasClave.MaxLength = 100;
+            this.txtPalabrasClave.Name = "txtPalabrasClave";
+            this.txtPalabrasClave.Size = new System.Drawing.Size(510, 22);
+            this.txtPalabrasClave.TabIndex = 66;
+            this.txtPalabrasClave.Tag = "lblPalabrasClave";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(29, 440);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 17);
+            this.label3.TabIndex = 65;
+            this.label3.Tag = "lblPalabrasClave";
+            this.label3.Text = "Palabras Clave";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(128, 468);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 17);
+            this.label9.TabIndex = 70;
+            this.label9.Tag = "lblPalabrasClaveInfo";
+            this.label9.Text = "lblPalabrasClaveInfo";
+            // 
             // AbmPatologia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 500);
+            this.ClientSize = new System.Drawing.Size(670, 543);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtPalabrasClave);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -164,5 +200,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtPalabrasClave;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label9;
     }
 }
