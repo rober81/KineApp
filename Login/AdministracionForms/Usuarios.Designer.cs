@@ -31,6 +31,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblPerfiles = new System.Windows.Forms.Label();
+            this.cmbPerfil = new System.Windows.Forms.ComboBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtPass2 = new System.Windows.Forms.TextBox();
@@ -49,8 +51,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.cmbPerfil = new System.Windows.Forms.ComboBox();
-            this.lblPerfiles = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -105,6 +105,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Tag = "lblUsuario";
             this.groupBox3.Text = "groupBox3";
+            // 
+            // lblPerfiles
+            // 
+            this.lblPerfiles.AutoSize = true;
+            this.lblPerfiles.Location = new System.Drawing.Point(24, 187);
+            this.lblPerfiles.Name = "lblPerfiles";
+            this.lblPerfiles.Size = new System.Drawing.Size(40, 17);
+            this.lblPerfiles.TabIndex = 73;
+            this.lblPerfiles.Tag = "lblPerfiles";
+            this.lblPerfiles.Text = "Perfil";
+            // 
+            // cmbPerfil
+            // 
+            this.cmbPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPerfil.FormattingEnabled = true;
+            this.cmbPerfil.Location = new System.Drawing.Point(160, 180);
+            this.cmbPerfil.Name = "cmbPerfil";
+            this.cmbPerfil.Size = new System.Drawing.Size(328, 24);
+            this.cmbPerfil.TabIndex = 72;
             // 
             // txtCorreo
             // 
@@ -191,7 +210,7 @@
             // 
             this.txtDni.Location = new System.Drawing.Point(144, 34);
             this.txtDni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDni.MaxLength = 10;
+            this.txtDni.MaxLength = 9;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(328, 22);
             this.txtDni.TabIndex = 5;
@@ -301,25 +320,6 @@
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // cmbPerfil
-            // 
-            this.cmbPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPerfil.FormattingEnabled = true;
-            this.cmbPerfil.Location = new System.Drawing.Point(160, 180);
-            this.cmbPerfil.Name = "cmbPerfil";
-            this.cmbPerfil.Size = new System.Drawing.Size(328, 24);
-            this.cmbPerfil.TabIndex = 72;
-            // 
-            // lblPerfiles
-            // 
-            this.lblPerfiles.AutoSize = true;
-            this.lblPerfiles.Location = new System.Drawing.Point(24, 187);
-            this.lblPerfiles.Name = "lblPerfiles";
-            this.lblPerfiles.Size = new System.Drawing.Size(40, 17);
-            this.lblPerfiles.TabIndex = 73;
-            this.lblPerfiles.Tag = "lblPerfiles";
-            this.lblPerfiles.Text = "Perfil";
             // 
             // Usuarios
             // 

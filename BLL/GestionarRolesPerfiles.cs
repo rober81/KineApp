@@ -20,7 +20,7 @@ namespace BLL
         {
             foreach (Perfiles item in lista)
             {
-                if (item.Padre == 0)
+                if (item.Padre == null || item.Padre.Id == 0)
                 {
                     Rol rol = new Rol();
                     rol.Id = item.Id;
@@ -35,7 +35,7 @@ namespace BLL
         {
             foreach (Perfiles item in lista)
             {
-                if (item.Padre == punto.Id)
+                if (item.Padre == null || item.Padre.Id == punto.Id)
                 {
                     Perfil perfil = new Perfil();
                     perfil.Id = item.Id;
@@ -55,7 +55,7 @@ namespace BLL
         public List<Perfiles> ListarPerfilesPadres()
         {
             var filtro = from item in lista
-                         where item.Padre == 0
+                         where item.Padre == null
                          select item;
             return filtro.ToList<Perfiles>();
         }
@@ -117,6 +117,29 @@ namespace BLL
             bitacora.Tabla = "UsuarioPerfil";
             bitacora.Dato = param.ToString();
             BLL.GestionarBitacora.Insertar(bitacora);
+        }
+
+        public List<string> ListarPermisos()
+        {
+            List<string> lista = new List<string>();
+            lista.Add("MenuPacienteAlta");
+            lista.Add("MenuPacienteModificar");
+            lista.Add("MenuConsulta");
+            lista.Add("MenuEntrenamientos");
+            lista.Add("MenuEjercicios");
+            lista.Add("MenuEntrenamientos");
+            lista.Add("MenuPatologias");
+            lista.Add("MenuTratamientos");
+            lista.Add("MenuUsuarios");
+            lista.Add("MenuRoles");
+            lista.Add("MenuPerfiles");
+            lista.Add("MenuIdioma");
+            lista.Add("MenuBitacora");
+            lista.Add("MenuCopiaSeguridad");
+            lista.Add("MenuDigitoVerificador");
+            lista.Add("MenuPacienteAlta");
+            lista.Add("MenuPacienteModificar");
+            return lista;
         }
     }
 }

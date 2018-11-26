@@ -19,17 +19,32 @@ namespace DAL
                 Perfiles obj = new Perfiles();
                 obj.Id = int.Parse(item["id"].ToString());
                 obj.Nombre = item["nombre"].ToString();
-                obj.Padre = int.Parse(item["padre"].ToString());
+                obj.Padre = Buscar(int.Parse(item["padre"].ToString()));
                 lista.Add(obj);
             }
             return lista;
+        }
+
+        public static Perfiles Buscar(int id)
+        {
+            Perfiles obj = null;
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = new SqlParameter("@id", id);
+            DataTable tabla = SqlHelper.getInstance().leer(Tabla + "_buscar", parametros);
+            foreach (DataRow item in tabla.Rows)
+            {
+                obj = new Perfiles();
+                obj.Id = int.Parse(item["id"].ToString());
+                obj.Nombre = item["nombre"].ToString();
+            }
+            return obj;
         }
 
         public static int Insertar(Perfiles perfil)
         {
             SqlParameter[] parametros = new SqlParameter[2];
             parametros[0] = new SqlParameter("@nombre", perfil.Nombre);
-            parametros[1] = new SqlParameter("@padre", perfil.Padre);
+            parametros[1] = new SqlParameter("@padre", perfil.Padre == null ? 0 : perfil.Padre.Id);
             int res = SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
             return res;
         }
@@ -38,7 +53,7 @@ namespace DAL
         {
             SqlParameter[] parametros = new SqlParameter[3];
             parametros[0] = new SqlParameter("@nombre", perfil.Nombre);
-            parametros[1] = new SqlParameter("@padre", perfil.Padre);
+            parametros[1] = new SqlParameter("@padre", perfil.Padre==null? 0: perfil.Padre.Id);
             parametros[2] = new SqlParameter("@id", perfil.Id);
             int res = SqlHelper.getInstance().escribir(Tabla + "_modificar", parametros);
             return res;
@@ -55,7 +70,7 @@ namespace DAL
                 Perfiles per = new Perfiles();
                 per.Id = int.Parse(item["perfil"].ToString());
                 per.Nombre = item["nombre"].ToString();
-                per.Padre = int.Parse(item["padre"].ToString());
+                per.Padre = Buscar(int.Parse(item["padre"].ToString()));
                 lista.Add(per);
             }
             return lista;

@@ -32,7 +32,13 @@ namespace GUI
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (! listBox1.Items.Contains(cmbRoles.SelectedItem))
+            int index = -1;
+            foreach (iPermisos itemDetalle in listBox1.Items)
+            {
+                if (itemDetalle.Id == ((iPermisos)cmbRoles.SelectedItem).Id)
+                    index = listBox1.Items.IndexOf(itemDetalle);
+            }
+            if (index == -1)
                 listBox1.Items.Add(cmbRoles.SelectedItem);
         }
 
@@ -70,7 +76,10 @@ namespace GUI
                 if (respuesta == 0)
                     Mensaje("msgErrorAlta", "msgError");
                 else
+                {
                     Mensaje("msgOperacionOk");
+                    this.Close();
+                }  
             } else
             {
                 Mensaje("msgErrorUnItem", "msgError");

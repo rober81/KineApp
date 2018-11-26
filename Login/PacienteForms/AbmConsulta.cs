@@ -144,12 +144,14 @@ namespace GUI.PacienteForms
                 patologiaSeleccionada = dialog.Seleccionado;
                 detallePAT = null;
                 txtDescripcionPAT.Text = patologiaSeleccionada.ToString();
+                txtObservacionesPAT.Text = string.Empty;
             }
             else
             {
                 LimpiarPatologia();
             }
             dialog.Dispose();
+            listaPAT.ClearSelected();
         }
 
         private void btnBuscarTRA_Click(object sender, EventArgs e)
@@ -163,12 +165,15 @@ namespace GUI.PacienteForms
                 tratamientoSeleccionado = dialog.Seleccionado;
                 detalleTRAT = null;
                 txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
+                txtObservacionesTRA.Text = string.Empty;
+                txtResultadoTRA.Text = string.Empty;
             }
             else
             {
                 LimpiarTratamiento();
             }
             dialog.Dispose();
+            listaTRA.ClearSelected();
         }
 
         private string ArmarPalabraClave()
@@ -192,12 +197,15 @@ namespace GUI.PacienteForms
                 tratamientoSeleccionado = dialog.Seleccionado;
                 detalleTRAT = null;
                 txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
+                txtObservacionesTRA.Text = string.Empty;
+                txtResultadoTRA.Text = string.Empty;
             }
             else
             {
                 LimpiarTratamiento();
             }
             dialog.Dispose();
+            listaTRA.ClearSelected();
         }
 
         private void btnBuscarEJ_Click(object sender, EventArgs e)
@@ -211,12 +219,15 @@ namespace GUI.PacienteForms
                 tratamientoSeleccionado = dialog.Seleccionado;
                 detalleTRAT = null;
                 txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
+                txtObservacionesTRA.Text = string.Empty;
+                txtResultadoTRA.Text = string.Empty;
             }
             else
             {
                 LimpiarTratamiento();
             }
             dialog.Dispose();
+            listaTRA.ClearSelected();
         }
 
         private void btnAgregarPAT_Click(object sender, EventArgs e)
@@ -226,8 +237,17 @@ namespace GUI.PacienteForms
                 ConsultaDetalle detalle = new ConsultaDetalle();
                 detalle.Item = patologiaSeleccionada;
                 detalle.Observaciones = txtObservacionesPAT.Text;
-                listaPAT.Items.Remove(detallePAT);
+
+                int index = -1;
+                foreach (ConsultaDetalle itemDetalle in listaPAT.Items)
+                {
+                    if (itemDetalle.Item.Id == patologiaSeleccionada.Id)
+                        index = listaPAT.Items.IndexOf(itemDetalle);
+                }
+                if (index >=0)
+                    listaPAT.Items.RemoveAt(index);
                 listaPAT.Items.Add(detalle);
+                listaPAT.ClearSelected();
                 LimpiarPatologia();
             }
         }
@@ -240,8 +260,17 @@ namespace GUI.PacienteForms
                 detalle.Item = tratamientoSeleccionado;
                 detalle.Observaciones = txtObservacionesTRA.Text;
                 detalle.Resultado = txtResultadoTRA.Text;
-                listaPAT.Items.Remove(detalleTRAT);
+
+                int index = -1;
+                foreach (ConsultaDetalle itemDetalle in listaTRA.Items)
+                {
+                    if (itemDetalle.Item.Id == tratamientoSeleccionado.Id)
+                        index = listaTRA.Items.IndexOf(itemDetalle);
+                }
+                if (index >= 0)
+                    listaTRA.Items.RemoveAt(index);
                 listaTRA.Items.Add(detalle);
+                listaTRA.ClearSelected();
                 LimpiarTratamiento();
             }
         }
@@ -249,12 +278,14 @@ namespace GUI.PacienteForms
         private void btnRemoverPAT_Click(object sender, EventArgs e)
         {
             listaPAT.Items.Remove(listaPAT.SelectedItem);
+            detallePAT = null;
             LimpiarPatologia();
         }
 
         private void btnRemoverTRA_Click(object sender, EventArgs e)
         {
             listaTRA.Items.Remove(listaTRA.SelectedItem);
+            detalleTRAT = null;
             LimpiarTratamiento();
         }
 

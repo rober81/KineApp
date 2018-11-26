@@ -8,6 +8,7 @@ namespace GUI
     public partial class AbmPerfiles : IdiomaForm
     {
         private GestionarRolesPerfiles gestor;
+        private Perfiles perfilSeleccionado;
 
         public AbmPerfiles()
         {
@@ -17,12 +18,14 @@ namespace GUI
         private void Perfiles_Load(object sender, EventArgs e)
         {
             gestor = new GestionarRolesPerfiles();
+            Estilo.Guardar(btnCrearGrupo);
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
             Estilo.Nuevo(btnNuevo);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
             Actualizar();
+            nuevo();
         }
 
         private void Actualizar()
@@ -30,14 +33,12 @@ namespace GUI
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = gestor.ListarPerfiles();
             dataGridView1.Columns[0].Width = 50;
-            dataGridView1.Columns[1].Width = 310;
-            dataGridView1.Columns[2].Width = 50;
-            cmbPadre.Items.Clear();
-            cmbPadre.Items.Add("");
-            foreach (var item in gestor.ListarPerfilesPadres())
-            {
-                cmbPadre.Items.Add(item);
-            }
+            dataGridView1.Columns[1].Width = 220;
+            dataGridView1.Columns[2].Width = 150;
+            cmbPadre.DataSource = null;
+            cmbPadre.DataSource = gestor.ListarPerfilesPadres();
+            cmbItem.DataSource = null;
+            cmbItem.DataSource = gestor.ListarPermisos();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -50,36 +51,23 @@ namespace GUI
             int respuesta;
             try
             {
-                if (this.ValidarTextbox())
-                {
-                    Perfiles obj = new Perfiles();
-                    obj.Nombre = txtNombre.Text.Trim();
-                    Perfiles padre = cmbPadre.SelectedItem as Perfiles;
-                    if (padre == null)
-                        obj.Padre = 0;
-                    else
-                        obj.Padre = padre.Id;
-
-                    if (string.IsNullOrWhiteSpace(lblID.Text))
-                        respuesta = gestor.Insertar(obj);
-                    else
-                    {
-                        obj.Id = int.Parse(lblID.Text);
-                        respuesta = gestor.Modificar(obj);
-                    }
-                    if (respuesta == 0)
-                        Mensaje("msgErrorAlta", "msgError");
-                    else
-                    {
-                        Mensaje("msgOperacionOk");
-                        Actualizar();
-                    }
-                    if (this.Owner != null)
-                        this.Close();
-                    
-                }
+                Perfiles obj = new Perfiles();
+                obj.Nombre = cmbItem.SelectedItem.ToString();
+                Perfiles padre = cmbPadre.SelectedItem as Perfiles;
+                if (padre == null)
+                    obj.Padre = new Perfiles() { Id = 0 };
                 else
-                    this.DialogResult = DialogResult.None;
+                    obj.Padre = padre;
+
+                respuesta = gestor.Insertar(obj);
+
+                if (respuesta == 0)
+                    Mensaje("msgErrorAlta", "msgError");
+                else
+                {
+                    Mensaje("msgOperacionOk");
+                    Actualizar();
+                }                    
             }
             catch (Exception)
             {
@@ -91,28 +79,59 @@ namespace GUI
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                lblID.Text = row.Cells[0].Value.ToString();
-                txtNombre.Text = row.Cells[1].Value.ToString();
-                int padre = int.Parse(row.Cells[2].Value.ToString());
-                if (padre == 0)
-                    cmbPadre.SelectedIndex = 0;
-                else
-                {
-                    foreach (var item in gestor.ListarPerfilesPadres())
-                    {
-                        if (item.Id == padre)
-                            cmbPadre.SelectedItem = item;
-                    }
-                }
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                perfilSeleccionado = row.DataBoundItem as Perfiles;
+                txtNombre.Text = perfilSeleccionado.Nombre;
             }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            cmbPadre.SelectedIndex = 0;
+            nuevo();
+        }
+
+        private void nuevo()
+        {
             txtNombre.Text = string.Empty;
             lblID.Text = string.Empty;
+            perfilSeleccionado = null;
+            dataGridView1.ClearSelection();
+        }
+
+        private void btnCrearGrupo_Click(object sender, EventArgs e)
+        {
+            int respuesta;
+            try
+            {
+                if (this.ValidarTextbox())
+                {
+                    if (perfilSeleccionado == null)
+                    {
+                        perfilSeleccionado = new Perfiles();
+                        perfilSeleccionado.Nombre = txtNombre.Text.Trim();
+                        perfilSeleccionado.Padre = new Perfiles() { Id = 0 };
+                        respuesta = gestor.Insertar(perfilSeleccionado);
+                    } else
+                    {
+                        perfilSeleccionado.Nombre = txtNombre.Text.Trim();
+                        respuesta = gestor.Modificar(perfilSeleccionado);
+                    }
+                    if (respuesta == 0)
+                        Mensaje("msgErrorAlta", "msgError");
+                    else
+                    {
+                        Mensaje("msgOperacionOk");
+                        Actualizar();
+                        nuevo();
+                    }
+                }
+                else
+                    this.DialogResult = DialogResult.None;
+            }
+            catch (Exception)
+            {
+                Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
+            }
         }
     }
 }
