@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministracionForms\Ayuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministracionForms\Ayuda.Designer.cs">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="PacienteForms\AbmConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     <Compile Include="AdministracionForms\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdministracionForms\Ayuda.resx">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PacienteForms\AbmConsulta.resx">
       <DependentUpon>AbmConsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,6 +364,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AbmConsulta.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AbmEjercicios.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AbmEntrenamiento.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AbmPaciente.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AbmPatologia.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AbmPerfiles.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AbmTratamiento.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdminIdioma.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bitacora.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsultarConsulta.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsultarEjercicio.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsultarEntrenamiento.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsultarPaciente.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsultarPatologia.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConsultarTratamiento.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CopiaSeguridad.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DigitoVerificador.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roles.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuarios.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

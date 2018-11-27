@@ -50,6 +50,8 @@ namespace GUI
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             actualizar();
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.Ayuda);
+            this.HelpButton = true;
         }
 
         protected virtual Boolean ValidarTextbox()
@@ -72,6 +74,15 @@ namespace GUI
                 }
             }
             return resultado;
+        }
+
+        private void Ayuda(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            AdministracionForms.Ayuda dialog = new AdministracionForms.Ayuda();
+            dialog.Formulario = this.Name;
+            dialog.ShowDialog(this);
+            dialog.Dispose();
         }
     }
 }

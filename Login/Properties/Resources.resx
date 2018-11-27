@@ -142,4 +142,64 @@
   <data name="_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AbmConsulta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbmConsulta.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AbmEjercicios" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbmEjercicios.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AbmEntrenamiento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbmEntrenamiento.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AbmPaciente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbmPaciente.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AbmPatologia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbmPatologia.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AbmPerfiles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbmPerfiles.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AbmTratamiento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbmTratamiento.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AdminIdioma" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AdminIdioma.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bitacora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bitacora.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConsultarConsulta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConsultarConsulta.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConsultarEjercicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConsultarEjercicio.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConsultarEntrenamiento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConsultarEntrenamiento.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConsultarPaciente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConsultarPaciente.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConsultarPatologia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConsultarPatologia.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConsultarTratamiento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConsultarTratamiento.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CopiaSeguridad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CopiaSeguridad.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DigitoVerificador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DigitoVerificador.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Login.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Roles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Roles.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Usuarios.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
