@@ -25,5 +25,11 @@ namespace GUI
         {
             textBox1.Clear();
         }
+
+        private void DigitoVerificador_Load(object sender, EventArgs e)
+        {
+            textBox1.Text += gestor.VerificarDVHLog() + Environment.NewLine;
+            textBox1.Text += gestor.VerificarDVVLog() + Environment.NewLine;
+        }
     }
 }

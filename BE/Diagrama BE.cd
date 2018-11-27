@@ -30,9 +30,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BE.IdiomaDetalle">
-    <Position X="2.5" Y="6.25" Width="1.5" />
+    <Position X="4.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAEAAAAAAAAAQAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>IdiomaDetalle.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -54,9 +54,10 @@
   <Class Name="BE.Perfiles">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAASAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAASAAAAAAAIAAAEAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Perfiles.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="BE.Perfil">
     <Position X="4.75" Y="4.5" Width="1.5" />
@@ -69,7 +70,7 @@
   <Class Name="BE.Rol">
     <Position X="6.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAICAAgAAAAIAAAAAAAAhAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAICAAgAAAAIAAAEAAAAhAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Rol.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -89,7 +90,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="BE.iPermisos">
-    <Position X="5.5" Y="2.25" Width="1.5" />
+    <Position X="4.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>iPermisos.cs</FileName>
