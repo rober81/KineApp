@@ -20,9 +20,10 @@ namespace BLL
             return res;
         }
 
-        public static int Modificar(Usuario usr)
+        public static int Modificar(Usuario usr, bool yaEncriptado)
         {
-            usr.Password = GestionarEncriptacion.Encriptar(usr.Password);
+            if (! yaEncriptado)
+                usr.Password = GestionarEncriptacion.Encriptar(usr.Password);
             int res = UsuarioMapper.Modificar(usr);
             Bitacora("Modificar", usr);
             CalcularDVV();

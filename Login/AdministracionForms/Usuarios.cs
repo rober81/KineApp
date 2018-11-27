@@ -1,16 +1,10 @@
 ﻿using BE;
 using BLL;
-using GUI;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace GUI
 {
@@ -22,6 +16,7 @@ namespace GUI
         }
 
         private GestionarRolesPerfiles gestor;
+        private string encriptado;
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
@@ -93,7 +88,7 @@ namespace GUI
                         gestor.InsertarUsuarioPerfil(usr, permisos);
                     }
                     else
-                        respuesta = GestionarUsuario.Modificar(usr);
+                        respuesta = GestionarUsuario.Modificar(usr,encriptado.Equals(usr.Password));
                     if (respuesta == 0)
                         Mensaje("msgErrorAlta", "msgError");
                     else
@@ -141,6 +136,7 @@ namespace GUI
                 txtUsuario.Text = usr.Login;
                 txtPass.Text = usr.Password;
                 txtPass2.Text = usr.Password;
+                encriptado = usr.Password;
                 txtUsuario.Enabled = false;
                 txtCorreo.Text = usr.Correo;
                 txtDni.Text = usr.Dni.ToString();

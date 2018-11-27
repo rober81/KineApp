@@ -20,7 +20,7 @@ namespace BEFuncional
 
         public string getDVH()
         {
-            return Id + Paciente.Dni + Fecha.ToString("dd/MM/yyyy") + Resumen;
+            return Paciente.Dni + Fecha.ToString("dd/MM/yyyy") + Resumen;
         }
 
         public override string ToString()

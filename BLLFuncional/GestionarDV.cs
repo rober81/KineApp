@@ -23,9 +23,9 @@ namespace BLLFuncional
             lista.AddRange(ConsultaMapper.Listar());
             resultado += base.VerificarDVHLog(lista, ConsultaMapper.Tabla);
 
-            lista.Clear();
-            lista.AddRange(ConsultaMapper.Listar());
-            resultado += base.VerificarDVHLog(lista, ConsultaMapper.Tabla2);
+            //lista.Clear();
+            //lista.AddRange(ConsultaMapper.Listar());
+            //resultado += base.VerificarDVHLog(lista, ConsultaMapper.Tabla2);
             return resultado;
         }
 
@@ -45,9 +45,9 @@ namespace BLLFuncional
             lista.AddRange(ConsultaMapper.Listar());
             resultado += base.VerificarDVH(lista, ConsultaMapper.Tabla);
 
-            lista.Clear();
-            lista.AddRange(ConsultaMapper.Listar());
-            resultado += base.VerificarDVH(lista, ConsultaMapper.Tabla2);
+            //lista.Clear();
+            //lista.AddRange(ConsultaMapper.Listar());
+            //resultado += base.VerificarDVH(lista, ConsultaMapper.Tabla2);
             return resultado;
         }
 
@@ -67,9 +67,9 @@ namespace BLLFuncional
             lista.AddRange(ConsultaMapper.Listar());
             resultado += base.VerificarDVVLog(lista, ConsultaMapper.Tabla);
 
-            lista.Clear();
-            lista.AddRange(ConsultaMapper.Listar());
-            resultado += base.VerificarDVVLog(lista, ConsultaMapper.Tabla2);
+            //lista.Clear();
+            //lista.AddRange(ConsultaMapper.Listar());
+            //resultado += base.VerificarDVVLog(lista, ConsultaMapper.Tabla2);
             return resultado;
         }
 
@@ -89,9 +89,9 @@ namespace BLLFuncional
             lista.AddRange(ConsultaMapper.Listar());
             resultado += base.VerificarDVV(lista, ConsultaMapper.Tabla);
 
-            lista.Clear();
-            lista.AddRange(ConsultaMapper.Listar());
-            resultado += base.VerificarDVV(lista, ConsultaMapper.Tabla2);
+            //lista.Clear();
+            //lista.AddRange(ConsultaMapper.Listar());
+            //resultado += base.VerificarDVV(lista, ConsultaMapper.Tabla2);
             return resultado;
         }
     }
