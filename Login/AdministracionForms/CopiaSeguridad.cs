@@ -21,7 +21,10 @@ namespace GUI
                     if (File.Exists(copia.Nombre)){
                         BLL.GestionarCopiaDeSeguridad.Restaurar(copia);
                         Mensaje("msgRestoreOk");
-                        Application.Exit();
+                        BLL.GestionarSesion.getInstance().cerrarSesion();
+                        this.Hide();
+                        Login form = new Login();
+                        form.ShowDialog();
                     } else
                     {
                         Mensaje("msgErrorArchivoNoExiste", "msgError");
