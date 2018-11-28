@@ -118,9 +118,15 @@ namespace GUI.PacienteForms
                 resultado = false;
             }
             if (listaPAT.Items.Count == 0)
+            {
                 resultado = false;
+                Mensaje("msgErrorUnItem", "msgFaltaCompletarTitulo");
+            }
             if (listaTRA.Items.Count == 0)
+            {
                 resultado = false;
+                Mensaje("msgErrorUnItem", "msgFaltaCompletarTitulo");
+            }
             return resultado && this.ValidarTextbox();
         }
 
@@ -130,7 +136,8 @@ namespace GUI.PacienteForms
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 Seleccionado.Paciente = dialog.Seleccionado;
-                txtPaciente.Text = Seleccionado.Paciente.ToString();
+                if (Seleccionado.Paciente != null)
+                    txtPaciente.Text = Seleccionado.Paciente.ToString();
             }
             dialog.Dispose();
         }
@@ -163,10 +170,13 @@ namespace GUI.PacienteForms
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 tratamientoSeleccionado = dialog.Seleccionado;
-                detalleTRAT = null;
-                txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
-                txtObservacionesTRA.Text = string.Empty;
-                txtResultadoTRA.Text = string.Empty;
+                if (tratamientoSeleccionado != null)
+                {
+                    txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
+                }
+                    detalleTRAT = null;
+                    txtObservacionesTRA.Text = string.Empty;
+                    txtResultadoTRA.Text = string.Empty;
             }
             else
             {
@@ -195,10 +205,13 @@ namespace GUI.PacienteForms
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 tratamientoSeleccionado = dialog.Seleccionado;
-                detalleTRAT = null;
-                txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
-                txtObservacionesTRA.Text = string.Empty;
-                txtResultadoTRA.Text = string.Empty;
+                if (tratamientoSeleccionado != null)
+                {
+                    txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
+                }
+                    detalleTRAT = null;
+                    txtObservacionesTRA.Text = string.Empty;
+                    txtResultadoTRA.Text = string.Empty;
             }
             else
             {
@@ -217,10 +230,13 @@ namespace GUI.PacienteForms
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
                 tratamientoSeleccionado = dialog.Seleccionado;
-                detalleTRAT = null;
-                txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
-                txtObservacionesTRA.Text = string.Empty;
-                txtResultadoTRA.Text = string.Empty;
+                if (tratamientoSeleccionado != null)
+                {
+                    txtDescripcionTRA.Text = tratamientoSeleccionado.ToString();
+                }
+                    detalleTRAT = null;
+                    txtObservacionesTRA.Text = string.Empty;
+                    txtResultadoTRA.Text = string.Empty;
             }
             else
             {

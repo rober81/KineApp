@@ -52,9 +52,9 @@ namespace Util
                     config = (Configuracion)serializer.Deserialize(file, typeof(Configuracion));
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Log("Error al leer Configuracion.json");
+                Log("Error al leer Configuracion.json" + Environment.NewLine + ex.ToString());
             }
             return config;
         }

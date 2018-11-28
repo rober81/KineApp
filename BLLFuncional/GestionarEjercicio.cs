@@ -39,14 +39,14 @@ namespace BLLFuncional
         public List<Ejercicio> Filtrar(string palabrasClave)
         {
             lista = EjercicioMapper.Listar();
-            List<string> palabras = palabrasClave.Split(',').Select(p => p.Trim()).ToList();
+            List<string> palabras = palabrasClave.Split(',').Select(p => p.Trim().ToLower()).ToList();
             palabras.Remove("");
             palabras.Remove(" ");
             List<Ejercicio> subLista = new List<Ejercicio>();
             List<string> palabrasItem;
             foreach (var item in lista)
             {
-                palabrasItem = new List<string>(item.PalabrasClave.Split(',').Select(p => p.Trim()).ToList());
+                palabrasItem = new List<string>(item.PalabrasClave.Split(',').Select(p => p.Trim().ToLower()).ToList());
                 foreach (string palabra in palabras)
                 {
                     if (palabrasItem.Contains(palabra) && (!subLista.Contains(item)))
