@@ -3,6 +3,7 @@ using BLLFuncional;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Util;
 
 namespace GUI.PacienteForms
 {
@@ -98,6 +99,7 @@ namespace GUI.PacienteForms
                     else
                     {
                         Mensaje("msgOperacionOk");
+                        this.DialogResult = DialogResult.None;
                     }
                 }
                 else
@@ -343,6 +345,24 @@ namespace GUI.PacienteForms
             patologiaSeleccionada = null;
             txtDescripcionPAT.Text = string.Empty;
             txtObservacionesPAT.Text = string.Empty;
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            //string xml = SerializarXML.Serializar<Consulta>(Seleccionado);
+            //MessageBox.Show(xml);
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "PDF|*.pdf";
+            saveFileDialog1.Title = "Save an Pdf File";
+            saveFileDialog1.ShowDialog();
+
+            // If the file name is not an empty string open it for saving.  
+            if (saveFileDialog1.FileName != "")
+            {
+                GeneradorPDF generador = new GeneradorPDF(saveFileDialog1.FileName);
+                generador.LeerTemplate(Seleccionado);
+                Mensaje("msgOperacionOk");
+            }
         }
     }
 }

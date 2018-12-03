@@ -70,10 +70,11 @@ namespace GUI
                 AbmConsulta dialog = new AbmConsulta();
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
                 dialog.Seleccionado = new Consulta() { Id = int.Parse(filaSeleccionada.Cells[0].Value.ToString()) };
-                    if (dialog.ShowDialog(this) == DialogResult.OK)
+                if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                    ActualizarLista(gestor.Listar());
-                }
+                } else
+                    ActualizarLista(gestor.Listar());
                 dialog.Dispose();
             }
         }
@@ -85,6 +86,8 @@ namespace GUI
             {
                 ActualizarLista(gestor.Listar());
             }
+            else
+                ActualizarLista(gestor.Listar());
             dialog.Dispose();
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using BE;
 using System.Globalization;
+using System.Xml.Serialization;
 
 namespace BEFuncional
 {
@@ -8,6 +9,7 @@ namespace BEFuncional
     {
         public DateTime FechaNacimiento { get; set; }
 
+        [XmlIgnore]
         public int DVH { get; set; }
 
         public override string ToString()

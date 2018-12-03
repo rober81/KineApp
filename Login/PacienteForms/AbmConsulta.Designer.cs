@@ -60,6 +60,7 @@
             this.btnAgregarTRA = new System.Windows.Forms.Button();
             this.listaTRA = new System.Windows.Forms.ListBox();
             this.txtObservacionesTRA = new System.Windows.Forms.TextBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -445,11 +446,25 @@
             this.txtObservacionesTRA.TabIndex = 61;
             this.txtObservacionesTRA.Tag = "lblObservaciones";
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(1197, 659);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(91, 39);
+            this.btnImprimir.TabIndex = 68;
+            this.btnImprimir.Tag = "btnImprimir";
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // AbmConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1346, 801);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1346, 803);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblResumen);
@@ -463,6 +478,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.HelpButton = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AbmConsulta";
@@ -513,5 +529,6 @@
         private System.Windows.Forms.TextBox txtObservacionesTRA;
         private System.Windows.Forms.Button btnBuscarEJ;
         private System.Windows.Forms.Button btnBuscarEN;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

@@ -15,16 +15,7 @@ namespace Util
             File.AppendAllText(logArchivo, mensaje);
         }
 
-        public static string Serializar (Object objeto)
-        {
-            string resultado = JsonConvert.SerializeObject(objeto);
-            return resultado;
-        }
-        public static T DesSerializar<T>(string mensaje)
-        {
-            T resultado = JsonConvert.DeserializeObject<T>(mensaje);
-            return resultado;
-        }
+
 
         public static void CrearConfiguracion()
         {
@@ -33,7 +24,7 @@ namespace Util
             config.bitacoraDB = "KineAppBitacora";
             //config.servidor = "SQLEXPRESS";
             config.servidor = "SQL_UAI";
-            File.WriteAllText(configuracionArchivo, JsonConvert.SerializeObject(config));
+            File.WriteAllText(configuracionArchivo, SerializarJson.Serializar(config));
         }
 
         public static Configuracion LeerConfiguracion()
@@ -48,8 +39,7 @@ namespace Util
                 }
                 using (StreamReader file = File.OpenText(configuracionArchivo))
                 {
-                    JsonSerializer serializer = new JsonSerializer();
-                    config = (Configuracion)serializer.Deserialize(file, typeof(Configuracion));
+                    config = SerializarJson.DesSerializar<Configuracion>(file);
                 }
             }
             catch (Exception ex)

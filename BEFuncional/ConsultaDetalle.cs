@@ -1,5 +1,13 @@
-﻿namespace BEFuncional
+﻿using System;
+using System.Xml.Serialization;
+
+namespace BEFuncional
 {
+    [XmlInclude(typeof(Patologia))]
+    [XmlInclude(typeof(Tratamiento))]
+    [XmlInclude(typeof(Entrenamiento))]
+    [XmlInclude(typeof(Ejercicio))]
+
     public class ConsultaDetalle : BE.iDigitoVerificador
     {
         public DatoBase Item { get; set; }
@@ -11,6 +19,7 @@
             return Item.ToString();
         }
 
+        [XmlIgnore]
         public int DVH { get; set; }
 
         public string getID()
