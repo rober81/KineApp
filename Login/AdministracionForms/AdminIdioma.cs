@@ -20,7 +20,7 @@ namespace GUI
 
         private void AdminIdioma_Load(object sender, EventArgs e)
         {
-            this.AcceptButton = this.button1;
+            this.AcceptButton = this.btnGuardar;
             cargar();
         }
 

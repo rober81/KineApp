@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BE;
 
 namespace Util
 {
@@ -11,6 +7,8 @@ namespace Util
         public string servidor { get; set; }
         public string aplicacionDB { get; set; }
         public string bitacoraDB { get; set; }
+        public Idioma idioma { get; set; }
+
         private static Configuracion instancia = null;
 
         public static Configuracion getInstance()
@@ -25,6 +23,11 @@ namespace Util
         internal Configuracion()
         {
 
+        }
+
+        public void Actualizar()
+        {
+            IoHelper.ActualizarConfiguracion();
         }
     }
 }

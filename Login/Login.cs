@@ -1,13 +1,17 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Windows.Forms;
+using Util;
 
 namespace GUI
 {
     public partial class Login : IdiomaForm
     {
+        private Idioma porDefecto;
         public Login()
         {
-            BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma("Español"));
+            porDefecto = Configuracion.getInstance().idioma;
+            BLL.GestionarIdioma.getInstance().CambiarIdioma(porDefecto);
             InitializeComponent();
         }
 
@@ -19,6 +23,7 @@ namespace GUI
                 if (sesion.iniciarSesion(txtUsuario.Text, txtPass.Text)){
                     this.Hide();
                     Maestro form = new Maestro();
+                    form.IdiomaPorDefecto = porDefecto;
                     form.Show();
                 } else
                 {
@@ -67,12 +72,7 @@ namespace GUI
             try
             {
                 cmbIdioma.DataSource = BLL.GestionarIdioma.getInstance().Listar();
-                if (cmbIdioma.Items.Count > 0)
-                {
-                    cmbIdioma.SelectedIndex = 0;
-                    BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma(cmbIdioma.SelectedItem.ToString()));
-                    actualizar();
-                }
+                cmbIdioma.SelectedItem = porDefecto;
             }
             catch (Exception ex)
             {

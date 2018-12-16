@@ -15,15 +15,20 @@ namespace Util
             File.AppendAllText(logArchivo, mensaje);
         }
 
-
-
         public static void CrearConfiguracion()
         {
             Configuracion config = new Configuracion();
             config.aplicacionDB = "KineApp";
             config.bitacoraDB = "KineAppBitacora";
-            //config.servidor = "SQLEXPRESS";
-            config.servidor = "SQL_UAI";
+            config.idioma = new BE.Idioma("Español");
+            config.servidor = "SQLEXPRESS";
+            //config.servidor = "SQL_UAI";
+            File.WriteAllText(configuracionArchivo, SerializarJson.Serializar(config));
+        }
+
+        public static void ActualizarConfiguracion()
+        {
+            Configuracion config = Configuracion.getInstance();
             File.WriteAllText(configuracionArchivo, SerializarJson.Serializar(config));
         }
 
@@ -48,7 +53,5 @@ namespace Util
             }
             return config;
         }
-
-
     }
 }

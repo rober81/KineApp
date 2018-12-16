@@ -1,5 +1,6 @@
 ﻿using BE;
 using System.Collections.Generic;
+using Util;
 
 namespace BLL
 {
@@ -31,6 +32,8 @@ namespace BLL
         {
             Cargar(unIdioma);
             IdiomaSeleccionado = unIdioma;
+            Configuracion.getInstance().idioma = new BE.Idioma(unIdioma.Nombre);
+            Configuracion.getInstance().Actualizar();
         }
 
         public string getTexto (string clave)

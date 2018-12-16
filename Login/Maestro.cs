@@ -1,4 +1,5 @@
-﻿using BLLFuncional;
+﻿using BE;
+using BLLFuncional;
 using GUI.PacienteForms;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace GUI
     public partial class Maestro : IdiomaForm
     {
         private List<BE.iCambiarIdioma> formularios = new List<BE.iCambiarIdioma>();
+        public Idioma IdiomaPorDefecto { get; set; }
 
         public Maestro()
         {
@@ -116,14 +118,8 @@ namespace GUI
         private void Maestro_Load(object sender, EventArgs e)
         {
             this.FormClosing += this.Maestro_Closing;
-            if ("Español".Equals(BLL.GestionarIdioma.getInstance().IdiomaSeleccionado.Nombre)) {
-                españolToolStripMenuItem.Checked = true;
-                inglesToolStripMenuItem.Checked = false;
-            } else
-            {
-                españolToolStripMenuItem.Checked = false;
-                inglesToolStripMenuItem.Checked = true;
-            }
+            cmbIdioma.DataSource = BLL.GestionarIdioma.getInstance().Listar();
+            cmbIdioma.SelectedItem = IdiomaPorDefecto;
             this.actualizar();
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.MinimizeBox = true;
@@ -153,20 +149,6 @@ namespace GUI
             form.ShowDialog();
         }
 
-        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cambiarIdioma("Español");
-            españolToolStripMenuItem.Checked = true;
-            inglesToolStripMenuItem.Checked = false;
-        }
-
-        private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cambiarIdioma("English");
-            españolToolStripMenuItem.Checked = false;
-            inglesToolStripMenuItem.Checked = true;
-        }
-
         private void cambiarIdioma(string idioma)
         {
             BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma(idioma));
@@ -194,8 +176,12 @@ namespace GUI
             }
             cerrarSesiónToolStripMenuItem.Enabled = true;
             salirToolStripMenuItem.Enabled = true;
-            españolToolStripMenuItem.Enabled = true;
-            inglesToolStripMenuItem.Enabled = true;
+        }
+
+        private void cmbIdioma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma(cmbIdioma.SelectedItem.ToString()));
+            actualizar();
         }
 
     }
