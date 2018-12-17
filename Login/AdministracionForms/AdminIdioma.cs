@@ -1,17 +1,17 @@
 ﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class AdminIdioma : IdiomaForm
     {
-        private static string idioma1 = "Español";
-        private static string idioma2 = "English";
-        private Idioma esp = new Idioma(idioma1);
-        private Idioma ing = new Idioma(idioma2);
-        private List<IdiomaFila> lista = new List<IdiomaFila>();
+
+        List<Idioma> listaDeIdiomas = GestionarIdioma.getInstance().Listar();
+        private DataTable dataTable;
 
         public AdminIdioma()
         {
@@ -20,86 +20,148 @@ namespace GUI
 
         private void AdminIdioma_Load(object sender, EventArgs e)
         {
-            this.AcceptButton = this.btnGuardar;
+            this.AcceptButton = this.btnAceptar;
+            Estilo.Guardar(btnAceptar);
+            Estilo.Cancelar(btnCancelar);
+            Estilo.Agregar(btnAgregar);
             cargar();
         }
 
         private void cargar()
         {
-            BLL.GestionarIdioma.getInstance().Cargar(esp);
-            BLL.GestionarIdioma.getInstance().Cargar(ing);
-            lista.Clear();
-            foreach (KeyValuePair<string, string> item in esp.Detalle)
+            var dictionary = new Dictionary<string, Dictionary<string, string>>();
+
+            foreach (Idioma item in listaDeIdiomas)
             {
-                IdiomaFila fila = new IdiomaFila();
-                fila.Clave = item.Key;
-                fila.Esp = item.Value;
-                fila.Ing = ing.Detalle[item.Key];
-                lista.Add(fila);
+                BLL.GestionarIdioma.getInstance().Cargar(item);
+                dictionary.Add(item.Nombre, item.Detalle);
             }
+            int cantidadIdiomas = listaDeIdiomas.Count;
+            int cantidadFilas = listaDeIdiomas[0].Detalle.Count;
+
+            dataTable = new DataTable();
+
+            dataTable.Columns.Add("Key");
+            foreach (var key in dictionary.Keys)
+            {
+                dataTable.Columns.Add(key);
+            }
+
+            foreach (var keyIdioma in listaDeIdiomas[0].Detalle)
+            {
+                var row = dataTable.Rows.Add();
+                row["Key"] = keyIdioma.Key;
+                foreach (var key in dictionary.Keys)
+                {
+                    try
+                    {
+                        var fila = dictionary[key];
+                        row[key] = fila[keyIdioma.Key];
+                    }
+                    catch
+                    {
+                        row[key] = null;
+                    }
+                }
+            }
+
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = lista;
-            dataGridView1.Columns[0].Width = 200;
-            dataGridView1.Columns[1].Width = 200;
-            dataGridView1.Columns[2].Width = 200;
+            dataGridView1.DataSource = dataTable;
+
+            for (int i = 0; i < (cantidadIdiomas + 1); i++)
+            {
+                dataGridView1.Columns[i].Width = 200;
+            }
         }
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.ValidarTextbox()){
-                IdiomaDetalle detalle = new IdiomaDetalle();
-                detalle.Idioma = idioma1;
-                detalle.Clave = textBox1.Text;
-                detalle.Texto = textBox2.Text;
-                int resultado = BLL.GestionarIdioma.getInstance().insertarDetalle(detalle);
-
-                IdiomaDetalle detalle2 = new IdiomaDetalle();
-                detalle2.Idioma = idioma2;
-                detalle2.Clave = textBox1.Text;
-                detalle2.Texto = textBox3.Text;
-                int resultado2 = BLL.GestionarIdioma.getInstance().insertarDetalle(detalle2);
-                cargar();
-                resultado += resultado2;
-            if (resultado != 2)
-                Mensaje("errorGuardar", "msgError");
-                cargar();
-                Limpiar();
-            } else
+            DataTable tabla = dataTable;
+            List<IdiomaDetalle> lista = new List<IdiomaDetalle>();
+            string clave;
+            string error = string.Empty;
+            int cantError = 0;
+            foreach (DataRow fila in tabla.Rows)
             {
-                Mensaje("errorFaltaDato", "msgError");
+                if (string.IsNullOrWhiteSpace(fila["Key"].ToString()))
+                {
+                    MessageBox.Show(Traducir("errorFaltaDato") + " Key", Traducir("msgError"));
+                    break;
+                }
+                else
+                {
+                    clave = fila["Key"].ToString();
+                }
+
+                foreach (DataColumn columna in tabla.Columns)
+                {
+                    if (! "Key".Equals(columna.Caption.ToString()))
+                    {
+                        string idioma = columna.Caption.ToString();
+                        if (string.IsNullOrWhiteSpace(fila[idioma].ToString()))
+                        {
+                            error = error + clave + (cantError < 10 ? " - " : Environment.NewLine);
+                            cantError = (cantError == 10 ? cantError = 0 : cantError++ );
+                            break;
+                        }
+                        else
+                        {
+                            IdiomaDetalle detalle = new IdiomaDetalle();
+                            detalle.Clave = clave;
+                            detalle.Idioma = idioma;
+                            detalle.Texto = fila[idioma].ToString();
+                            lista.Add(detalle);
+                        } 
+                    }
+                }
+            }
+            if (! string.IsNullOrWhiteSpace(error))
+            {
+                MessageBox.Show(Traducir("errorFaltaDato") + Environment.NewLine + error, Traducir("msgError"));
+            } else 
+            {
+                foreach (Idioma item in listaDeIdiomas)
+                {
+                    GestionarIdioma.getInstance().insertar(item);
+                }
+                foreach (var item in lista)
+                {
+                    int resultado = GestionarIdioma.getInstance().insertarDetalle(item);
+                }
+                Maestro master = this.MdiParent as Maestro;
+                master.actualizarIdioma();
+                Mensaje("msgOperacionOk");
+                this.Close();
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Limpiar();
+            this.Close();
         }
 
         private void Limpiar()
         {
-            textBox1.Text = string.Empty;
-            textBox2.Text = string.Empty;
-            textBox3.Text = string.Empty;
+            txtNombre.Text = string.Empty;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                textBox1.Text = row.Cells[0].Value.ToString();
-                textBox2.Text = row.Cells[1].Value.ToString();
-                textBox3.Text = row.Cells[2].Value.ToString();
+
             }
         }
-    }
 
-    class IdiomaFila
-    {
-        public string Clave { get; set; }
-        public string Esp { get; set; }
-        public string Ing { get; set; }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (ValidarTextbox())
+            {
+                Idioma nuevo = GestionarIdioma.getInstance().CrearIdioma(txtNombre.Text);
+                listaDeIdiomas.Add(nuevo);
+                cargar();
+            }
+            Limpiar();
+        }
     }
 }

@@ -33,7 +33,14 @@ namespace DAL
             unIdioma.Detalle = lista;
         }
 
-        public static int Insertar(BE.IdiomaDetalle detalle)
+        public static int Insertar(BE.Idioma param)
+        {
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = new SqlParameter("@idioma", param.Nombre);
+            return SqlHelper.getInstance().escribir(Tabla + "_alta", parametros);
+        }
+
+        public static int InsertarDetalle(BE.IdiomaDetalle detalle)
         {
             SqlParameter[] parametros = new SqlParameter[3];
             parametros[0] = new SqlParameter("@idioma", detalle.Idioma);

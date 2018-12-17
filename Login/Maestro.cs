@@ -180,7 +180,20 @@ namespace GUI
 
         private void cmbIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BLL.GestionarIdioma.getInstance().CambiarIdioma(new BE.Idioma(cmbIdioma.SelectedItem.ToString()));
+            IdiomaPorDefecto = cmbIdioma.SelectedItem as Idioma;
+            if (IdiomaPorDefecto != null)
+            {
+                BLL.GestionarIdioma.getInstance().CambiarIdioma(IdiomaPorDefecto);
+                actualizar();
+            }
+        }
+
+        public void actualizarIdioma()
+        {
+            IdiomaPorDefecto = cmbIdioma.SelectedItem as Idioma;
+            cmbIdioma.DataSource = null;
+            cmbIdioma.DataSource = BLL.GestionarIdioma.getInstance().Listar();
+            BLL.GestionarIdioma.getInstance().CambiarIdioma(IdiomaPorDefecto);
             actualizar();
         }
 

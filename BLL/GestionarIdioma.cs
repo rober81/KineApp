@@ -51,11 +51,27 @@ namespace BLL
             return resultado;
         }
 
+        public int insertar(Idioma param)
+        {
+            Bitacora("Insertar", param);
+            int respuesta = DAL.IdiomaMapper.Insertar(param);
+            return respuesta;
+        }
+
         public int insertarDetalle(IdiomaDetalle unDetalle)
         {
             Bitacora("Insertar", unDetalle);
-            int respuesta = DAL.IdiomaMapper.Insertar(unDetalle);
+            int respuesta = DAL.IdiomaMapper.InsertarDetalle(unDetalle);
             return respuesta;
+        }
+
+        private void Bitacora(string accion, Idioma param)
+        {
+            BE.Bitacora bitacora = new BE.Bitacora();
+            bitacora.Accion = accion;
+            bitacora.Tabla = "Idioma";
+            bitacora.Dato = param.ToString();
+            BLL.GestionarBitacora.Insertar(bitacora);
         }
 
         private void Bitacora(string accion, IdiomaDetalle param)
@@ -65,6 +81,17 @@ namespace BLL
             bitacora.Tabla = "IdiomaDetalle";
             bitacora.Dato = param.ToString();
             BLL.GestionarBitacora.Insertar(bitacora);
+        }
+
+        public Idioma CrearIdioma(string nombre)
+        {
+            Idioma nuevo = new Idioma(nombre);
+            nuevo.Detalle = new Dictionary<string, string>();
+            foreach (var item in IdiomaSeleccionado.Detalle)
+            {
+                nuevo.Detalle.Add(item.Key, string.Empty);
+            }
+            return nuevo;
         }
 
     }
