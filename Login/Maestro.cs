@@ -143,10 +143,15 @@ namespace GUI
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BLL.GestionarSesion.getInstance().cerrarSesion();
-            this.Hide();
-            Login form = new Login();
-            form.ShowDialog();
+            DialogResult dr = MessageBox.Show(Traducir("msgCerrarSesion")," ", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (dr == DialogResult.OK)
+            {
+                BLL.GestionarSesion.getInstance().cerrarSesion();
+                this.Hide();
+                Login form = new Login();
+                form.ShowDialog();
+            }
         }
 
         private void cambiarIdioma(string idioma)
