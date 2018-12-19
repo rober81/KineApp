@@ -21,6 +21,7 @@ namespace GUI
         {
             Estilo.Modificar(btnModificar);
             Estilo.Nuevo(btnNuevo);
+            Estilo.Imprimir(btnImprimir);
             gestor = new GestionarConsulta();
             lista = gestor.Listar();
             dataGridView1.ColumnCount = 5;
@@ -94,6 +95,24 @@ namespace GUI
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                AbmConsulta dialog = new AbmConsulta();
+                DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
+                dialog.habilitarImprimir();
+                dialog.Seleccionado = new Consulta() { Id = int.Parse(filaSeleccionada.Cells[0].Value.ToString()) };
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    ActualizarLista(gestor.Listar());
+                }
+                else
+                    ActualizarLista(gestor.Listar());
+                dialog.Dispose();
+            }
         }
     }
 }

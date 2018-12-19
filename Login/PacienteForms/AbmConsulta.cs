@@ -25,6 +25,7 @@ namespace GUI.PacienteForms
         {
             Estilo.Guardar(btnAceptar);
             Estilo.Cancelar(btnCancelar);
+            Estilo.Imprimir(btnImprimir);
             btnAceptar.DialogResult = DialogResult.OK;
             btnCancelar.DialogResult = DialogResult.Cancel;
             gestor = new GestionarConsulta();
@@ -100,6 +101,7 @@ namespace GUI.PacienteForms
                     {
                         Mensaje("msgOperacionOk");
                         this.DialogResult = DialogResult.None;
+                        habilitarImprimir();
                     }
                 }
                 else
@@ -109,6 +111,26 @@ namespace GUI.PacienteForms
             {
                 Mensaje("errorDatoMal", "msgFaltaCompletarTitulo");
             }
+        }
+
+        public void habilitarImprimir()
+        {
+            btnImprimir.Visible = true;
+            btnAceptar.Visible = false;
+            btnBuscarPaciente.Enabled = false;
+            btnBuscarPAT.Enabled = false;
+            btnAgregarPAT.Enabled = false;
+            btnRemoverPAT.Enabled = false;
+            btnBuscarTRA.Enabled = false;
+            btnBuscarEN.Enabled = false;
+            btnBuscarEJ.Enabled = false;
+            btnAgregarTRA.Enabled = false;
+            btnRemoverTRA.Enabled = false;
+            dtFecha.Enabled = false;
+            txtObservacionesPAT.ReadOnly = true;
+            txtObservacionesTRA.ReadOnly = true;
+            txtResultadoTRA.ReadOnly = true;
+            txtResumen.ReadOnly = true;
         }
 
         private Boolean validar()
@@ -354,8 +376,8 @@ namespace GUI.PacienteForms
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "PDF|*.pdf";
             saveFileDialog1.Title = "Save an Pdf File";
+            saveFileDialog1.FileName = "Consulta " + Seleccionado.Paciente.ToString() + " " + Seleccionado.Fecha.ToString("dd-MM-yyyy"); ;
             saveFileDialog1.ShowDialog();
-
             // If the file name is not an empty string open it for saving.  
             if (saveFileDialog1.FileName != "")
             {

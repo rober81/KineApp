@@ -44,6 +44,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(304, 20);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.Tag = "lblNombre";
             // 
             // label2
             // 

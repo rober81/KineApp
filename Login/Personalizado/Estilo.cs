@@ -44,5 +44,11 @@ namespace GUI
             boton.BackColor = System.Drawing.Color.Azure;
             boton.Size = new System.Drawing.Size(68, 32);
         }
+
+        public static void Imprimir(Button boton)
+        {
+            boton.BackColor = System.Drawing.Color.Bisque;
+            boton.Size = new System.Drawing.Size(68, 32);
+        }
     }
 }

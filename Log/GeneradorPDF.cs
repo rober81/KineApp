@@ -27,7 +27,7 @@ namespace Util
             string segundaTratamientos = ContarLineas(textoTRatamientos, 26);
 
             ArmarPagina(consulta.Paciente.Dni.ToString(),
-                         consulta.Paciente.Nombre,
+                         consulta.Paciente.Nombre + " " + consulta.Paciente.Apellido,
                          consulta.Fecha.ToString("dd/MM/yyyy"),
                          consulta.Resumen,
                          textoPatologias,

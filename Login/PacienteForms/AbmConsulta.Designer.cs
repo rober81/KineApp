@@ -67,10 +67,10 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(1093, 729);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(820, 592);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(91, 39);
+            this.btnCancelar.Size = new System.Drawing.Size(68, 32);
             this.btnCancelar.TabIndex = 37;
             this.btnCancelar.Tag = "btnCancelar";
             this.btnCancelar.Text = "Cancelar";
@@ -79,10 +79,10 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(1197, 729);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAceptar.Location = new System.Drawing.Point(898, 592);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(91, 39);
+            this.btnAceptar.Size = new System.Drawing.Size(68, 32);
             this.btnAceptar.TabIndex = 36;
             this.btnAceptar.Tag = "btnAceptar";
             this.btnAceptar.Text = "Aceptar";
@@ -91,31 +91,32 @@
             // 
             // txtPaciente
             // 
-            this.txtPaciente.Location = new System.Drawing.Point(134, 34);
-            this.txtPaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPaciente.Location = new System.Drawing.Point(100, 28);
+            this.txtPaciente.Margin = new System.Windows.Forms.Padding(2);
             this.txtPaciente.MaxLength = 100;
             this.txtPaciente.Name = "txtPaciente";
             this.txtPaciente.ReadOnly = true;
-            this.txtPaciente.Size = new System.Drawing.Size(544, 22);
+            this.txtPaciente.Size = new System.Drawing.Size(409, 20);
             this.txtPaciente.TabIndex = 39;
             this.txtPaciente.Tag = "lblPaciente";
             // 
             // lblPaciente
             // 
             this.lblPaciente.AutoSize = true;
-            this.lblPaciente.Location = new System.Drawing.Point(25, 34);
+            this.lblPaciente.Location = new System.Drawing.Point(19, 28);
+            this.lblPaciente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPaciente.Name = "lblPaciente";
-            this.lblPaciente.Size = new System.Drawing.Size(63, 17);
+            this.lblPaciente.Size = new System.Drawing.Size(49, 13);
             this.lblPaciente.TabIndex = 38;
             this.lblPaciente.Tag = "lblPaciente";
             this.lblPaciente.Text = "Paciente";
             // 
             // btnBuscarPaciente
             // 
-            this.btnBuscarPaciente.Location = new System.Drawing.Point(695, 18);
-            this.btnBuscarPaciente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarPaciente.Location = new System.Drawing.Point(521, 15);
+            this.btnBuscarPaciente.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarPaciente.Name = "btnBuscarPaciente";
-            this.btnBuscarPaciente.Size = new System.Drawing.Size(111, 54);
+            this.btnBuscarPaciente.Size = new System.Drawing.Size(83, 44);
             this.btnBuscarPaciente.TabIndex = 40;
             this.btnBuscarPaciente.Tag = "btnBuscarPaciente";
             this.btnBuscarPaciente.Text = "Buscar";
@@ -126,10 +127,9 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.CausesValidation = false;
-            this.lblID.Location = new System.Drawing.Point(301, 76);
-            this.lblID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblID.Location = new System.Drawing.Point(226, 62);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(21, 17);
+            this.lblID.Size = new System.Drawing.Size(18, 13);
             this.lblID.TabIndex = 41;
             this.lblID.Text = "ID";
             this.lblID.Visible = false;
@@ -138,41 +138,43 @@
             // 
             this.dtFecha.CustomFormat = "dd/MM/yyyy";
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFecha.Location = new System.Drawing.Point(134, 71);
-            this.dtFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtFecha.Location = new System.Drawing.Point(100, 58);
+            this.dtFecha.Margin = new System.Windows.Forms.Padding(2);
             this.dtFecha.MinDate = new System.DateTime(1910, 1, 1, 0, 0, 0, 0);
             this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(139, 22);
+            this.dtFecha.Size = new System.Drawing.Size(105, 20);
             this.dtFecha.TabIndex = 43;
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(25, 76);
+            this.lblFecha.Location = new System.Drawing.Point(19, 62);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(47, 17);
+            this.lblFecha.Size = new System.Drawing.Size(37, 13);
             this.lblFecha.TabIndex = 42;
             this.lblFecha.Tag = "lblFecha";
             this.lblFecha.Text = "Fecha";
             // 
             // txtResumen
             // 
-            this.txtResumen.Location = new System.Drawing.Point(28, 659);
-            this.txtResumen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtResumen.Location = new System.Drawing.Point(21, 535);
+            this.txtResumen.Margin = new System.Windows.Forms.Padding(2);
             this.txtResumen.MaxLength = 500;
             this.txtResumen.Multiline = true;
             this.txtResumen.Name = "txtResumen";
             this.txtResumen.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtResumen.Size = new System.Drawing.Size(1046, 109);
+            this.txtResumen.Size = new System.Drawing.Size(786, 89);
             this.txtResumen.TabIndex = 44;
             this.txtResumen.Tag = "lblResumen";
             // 
             // lblResumen
             // 
             this.lblResumen.AutoSize = true;
-            this.lblResumen.Location = new System.Drawing.Point(25, 631);
+            this.lblResumen.Location = new System.Drawing.Point(19, 513);
+            this.lblResumen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResumen.Name = "lblResumen";
-            this.lblResumen.Size = new System.Drawing.Size(68, 17);
+            this.lblResumen.Size = new System.Drawing.Size(52, 13);
             this.lblResumen.TabIndex = 45;
             this.lblResumen.Tag = "lblResumen";
             this.lblResumen.Text = "Resumen";
@@ -180,9 +182,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(524, 79);
+            this.label4.Location = new System.Drawing.Point(393, 64);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 17);
+            this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 46;
             this.label4.Tag = "lblObservaciones";
             this.label4.Text = "Observaciones";
@@ -190,21 +193,22 @@
             // txtDescripcionTRA
             // 
             this.txtDescripcionTRA.CausesValidation = false;
-            this.txtDescripcionTRA.Location = new System.Drawing.Point(633, 42);
-            this.txtDescripcionTRA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDescripcionTRA.Location = new System.Drawing.Point(475, 34);
+            this.txtDescripcionTRA.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcionTRA.MaxLength = 100;
             this.txtDescripcionTRA.Name = "txtDescripcionTRA";
             this.txtDescripcionTRA.ReadOnly = true;
-            this.txtDescripcionTRA.Size = new System.Drawing.Size(523, 22);
+            this.txtDescripcionTRA.Size = new System.Drawing.Size(393, 20);
             this.txtDescripcionTRA.TabIndex = 59;
             this.txtDescripcionTRA.Tag = "lblDescripcion";
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(524, 41);
+            this.lblDescripcion.Location = new System.Drawing.Point(393, 33);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(82, 17);
+            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcion.TabIndex = 58;
             this.lblDescripcion.Tag = "lblDescripcion";
             this.lblDescripcion.Text = "Descripcion";
@@ -219,9 +223,11 @@
             this.groupBox1.Controls.Add(this.btnRemoverPAT);
             this.groupBox1.Controls.Add(this.btnAgregarPAT);
             this.groupBox1.Controls.Add(this.listaPAT);
-            this.groupBox1.Location = new System.Drawing.Point(28, 98);
+            this.groupBox1.Location = new System.Drawing.Point(21, 80);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1306, 185);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(980, 150);
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             this.groupBox1.Tag = "frmPatologias";
@@ -230,9 +236,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(524, 71);
+            this.label1.Location = new System.Drawing.Point(393, 58);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 17);
+            this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 73;
             this.label1.Tag = "lblObservaciones";
             this.label1.Text = "Observaciones";
@@ -240,22 +247,22 @@
             // txtObservacionesPAT
             // 
             this.txtObservacionesPAT.CausesValidation = false;
-            this.txtObservacionesPAT.Location = new System.Drawing.Point(633, 68);
-            this.txtObservacionesPAT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtObservacionesPAT.Location = new System.Drawing.Point(475, 55);
+            this.txtObservacionesPAT.Margin = new System.Windows.Forms.Padding(2);
             this.txtObservacionesPAT.MaxLength = 500;
             this.txtObservacionesPAT.Multiline = true;
             this.txtObservacionesPAT.Name = "txtObservacionesPAT";
             this.txtObservacionesPAT.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtObservacionesPAT.Size = new System.Drawing.Size(523, 104);
+            this.txtObservacionesPAT.Size = new System.Drawing.Size(393, 85);
             this.txtObservacionesPAT.TabIndex = 72;
             this.txtObservacionesPAT.Tag = "lblObservaciones";
             // 
             // btnBuscarPAT
             // 
-            this.btnBuscarPAT.Location = new System.Drawing.Point(1169, 34);
-            this.btnBuscarPAT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarPAT.Location = new System.Drawing.Point(877, 28);
+            this.btnBuscarPAT.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarPAT.Name = "btnBuscarPAT";
-            this.btnBuscarPAT.Size = new System.Drawing.Size(111, 54);
+            this.btnBuscarPAT.Size = new System.Drawing.Size(83, 44);
             this.btnBuscarPAT.TabIndex = 71;
             this.btnBuscarPAT.Tag = "btnBuscarPatologia";
             this.btnBuscarPAT.Text = "Buscar";
@@ -265,31 +272,32 @@
             // txtDescripcionPAT
             // 
             this.txtDescripcionPAT.CausesValidation = false;
-            this.txtDescripcionPAT.Location = new System.Drawing.Point(633, 36);
-            this.txtDescripcionPAT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDescripcionPAT.Location = new System.Drawing.Point(475, 29);
+            this.txtDescripcionPAT.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcionPAT.MaxLength = 100;
             this.txtDescripcionPAT.Name = "txtDescripcionPAT";
             this.txtDescripcionPAT.ReadOnly = true;
-            this.txtDescripcionPAT.Size = new System.Drawing.Size(523, 22);
+            this.txtDescripcionPAT.Size = new System.Drawing.Size(393, 20);
             this.txtDescripcionPAT.TabIndex = 70;
             this.txtDescripcionPAT.Tag = "lblDescripcion";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(524, 36);
+            this.label3.Location = new System.Drawing.Point(393, 29);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 17);
+            this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 69;
             this.label3.Tag = "lblDescripcion";
             this.label3.Text = "Descripcion";
             // 
             // btnRemoverPAT
             // 
-            this.btnRemoverPAT.Location = new System.Drawing.Point(424, 133);
-            this.btnRemoverPAT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemoverPAT.Location = new System.Drawing.Point(318, 108);
+            this.btnRemoverPAT.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoverPAT.Name = "btnRemoverPAT";
-            this.btnRemoverPAT.Size = new System.Drawing.Size(91, 39);
+            this.btnRemoverPAT.Size = new System.Drawing.Size(68, 32);
             this.btnRemoverPAT.TabIndex = 68;
             this.btnRemoverPAT.Tag = "btnRemover";
             this.btnRemoverPAT.Text = "Remover";
@@ -298,10 +306,10 @@
             // 
             // btnAgregarPAT
             // 
-            this.btnAgregarPAT.Location = new System.Drawing.Point(1169, 133);
-            this.btnAgregarPAT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAgregarPAT.Location = new System.Drawing.Point(877, 108);
+            this.btnAgregarPAT.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarPAT.Name = "btnAgregarPAT";
-            this.btnAgregarPAT.Size = new System.Drawing.Size(91, 39);
+            this.btnAgregarPAT.Size = new System.Drawing.Size(68, 32);
             this.btnAgregarPAT.TabIndex = 67;
             this.btnAgregarPAT.Tag = "btnAgregar";
             this.btnAgregarPAT.Text = "Agregar";
@@ -311,10 +319,10 @@
             // listaPAT
             // 
             this.listaPAT.FormattingEnabled = true;
-            this.listaPAT.ItemHeight = 16;
-            this.listaPAT.Location = new System.Drawing.Point(19, 24);
+            this.listaPAT.Location = new System.Drawing.Point(14, 20);
+            this.listaPAT.Margin = new System.Windows.Forms.Padding(2);
             this.listaPAT.Name = "listaPAT";
-            this.listaPAT.Size = new System.Drawing.Size(399, 148);
+            this.listaPAT.Size = new System.Drawing.Size(300, 121);
             this.listaPAT.TabIndex = 66;
             this.listaPAT.SelectedIndexChanged += new System.EventHandler(this.listaPAT_SelectedIndexChanged);
             // 
@@ -332,9 +340,11 @@
             this.groupBox2.Controls.Add(this.txtDescripcionTRA);
             this.groupBox2.Controls.Add(this.lblDescripcion);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(28, 300);
+            this.groupBox2.Location = new System.Drawing.Point(21, 244);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1306, 318);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(980, 258);
             this.groupBox2.TabIndex = 67;
             this.groupBox2.TabStop = false;
             this.groupBox2.Tag = "frmTratamientos";
@@ -342,10 +352,10 @@
             // 
             // btnBuscarEJ
             // 
-            this.btnBuscarEJ.Location = new System.Drawing.Point(1169, 162);
-            this.btnBuscarEJ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarEJ.Location = new System.Drawing.Point(877, 132);
+            this.btnBuscarEJ.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarEJ.Name = "btnBuscarEJ";
-            this.btnBuscarEJ.Size = new System.Drawing.Size(111, 54);
+            this.btnBuscarEJ.Size = new System.Drawing.Size(83, 44);
             this.btnBuscarEJ.TabIndex = 70;
             this.btnBuscarEJ.Tag = "btnBuscarEjercicio";
             this.btnBuscarEJ.Text = "Ejercicio";
@@ -354,10 +364,10 @@
             // 
             // btnBuscarEN
             // 
-            this.btnBuscarEN.Location = new System.Drawing.Point(1169, 100);
-            this.btnBuscarEN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarEN.Location = new System.Drawing.Point(877, 81);
+            this.btnBuscarEN.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarEN.Name = "btnBuscarEN";
-            this.btnBuscarEN.Size = new System.Drawing.Size(111, 55);
+            this.btnBuscarEN.Size = new System.Drawing.Size(83, 45);
             this.btnBuscarEN.TabIndex = 69;
             this.btnBuscarEN.Tag = "btnBuscarEntrenamiento";
             this.btnBuscarEN.Text = "Entrenamiento";
@@ -366,10 +376,10 @@
             // 
             // btnBuscarTRA
             // 
-            this.btnBuscarTRA.Location = new System.Drawing.Point(1169, 41);
-            this.btnBuscarTRA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarTRA.Location = new System.Drawing.Point(877, 33);
+            this.btnBuscarTRA.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarTRA.Name = "btnBuscarTRA";
-            this.btnBuscarTRA.Size = new System.Drawing.Size(111, 55);
+            this.btnBuscarTRA.Size = new System.Drawing.Size(83, 45);
             this.btnBuscarTRA.TabIndex = 68;
             this.btnBuscarTRA.Tag = "btnBuscarTratamiento";
             this.btnBuscarTRA.Text = "Tratamiento";
@@ -379,32 +389,33 @@
             // txtResultadoTRA
             // 
             this.txtResultadoTRA.CausesValidation = false;
-            this.txtResultadoTRA.Location = new System.Drawing.Point(633, 199);
-            this.txtResultadoTRA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtResultadoTRA.Location = new System.Drawing.Point(475, 162);
+            this.txtResultadoTRA.Margin = new System.Windows.Forms.Padding(2);
             this.txtResultadoTRA.MaxLength = 500;
             this.txtResultadoTRA.Multiline = true;
             this.txtResultadoTRA.Name = "txtResultadoTRA";
             this.txtResultadoTRA.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtResultadoTRA.Size = new System.Drawing.Size(523, 104);
+            this.txtResultadoTRA.Size = new System.Drawing.Size(393, 85);
             this.txtResultadoTRA.TabIndex = 67;
             this.txtResultadoTRA.Tag = "lblObservaciones";
             // 
             // lblResultado
             // 
             this.lblResultado.AutoSize = true;
-            this.lblResultado.Location = new System.Drawing.Point(524, 199);
+            this.lblResultado.Location = new System.Drawing.Point(393, 162);
+            this.lblResultado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(72, 17);
+            this.lblResultado.Size = new System.Drawing.Size(55, 13);
             this.lblResultado.TabIndex = 66;
             this.lblResultado.Tag = "lblResultado";
             this.lblResultado.Text = "Resultado";
             // 
             // btnRemoverTRA
             // 
-            this.btnRemoverTRA.Location = new System.Drawing.Point(424, 264);
-            this.btnRemoverTRA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemoverTRA.Location = new System.Drawing.Point(318, 214);
+            this.btnRemoverTRA.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoverTRA.Name = "btnRemoverTRA";
-            this.btnRemoverTRA.Size = new System.Drawing.Size(91, 39);
+            this.btnRemoverTRA.Size = new System.Drawing.Size(68, 32);
             this.btnRemoverTRA.TabIndex = 65;
             this.btnRemoverTRA.Tag = "btnRemover";
             this.btnRemoverTRA.Text = "Remover";
@@ -413,10 +424,10 @@
             // 
             // btnAgregarTRA
             // 
-            this.btnAgregarTRA.Location = new System.Drawing.Point(1169, 264);
-            this.btnAgregarTRA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAgregarTRA.Location = new System.Drawing.Point(877, 214);
+            this.btnAgregarTRA.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarTRA.Name = "btnAgregarTRA";
-            this.btnAgregarTRA.Size = new System.Drawing.Size(91, 39);
+            this.btnAgregarTRA.Size = new System.Drawing.Size(68, 32);
             this.btnAgregarTRA.TabIndex = 64;
             this.btnAgregarTRA.Tag = "btnAgregar";
             this.btnAgregarTRA.Text = "Agregar";
@@ -426,44 +437,45 @@
             // listaTRA
             // 
             this.listaTRA.FormattingEnabled = true;
-            this.listaTRA.ItemHeight = 16;
-            this.listaTRA.Location = new System.Drawing.Point(19, 27);
+            this.listaTRA.Location = new System.Drawing.Point(14, 22);
+            this.listaTRA.Margin = new System.Windows.Forms.Padding(2);
             this.listaTRA.Name = "listaTRA";
-            this.listaTRA.Size = new System.Drawing.Size(399, 276);
+            this.listaTRA.Size = new System.Drawing.Size(300, 225);
             this.listaTRA.TabIndex = 62;
             this.listaTRA.SelectedIndexChanged += new System.EventHandler(this.listaTRA_SelectedIndexChanged);
             // 
             // txtObservacionesTRA
             // 
             this.txtObservacionesTRA.CausesValidation = false;
-            this.txtObservacionesTRA.Location = new System.Drawing.Point(633, 79);
-            this.txtObservacionesTRA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtObservacionesTRA.Location = new System.Drawing.Point(475, 64);
+            this.txtObservacionesTRA.Margin = new System.Windows.Forms.Padding(2);
             this.txtObservacionesTRA.MaxLength = 500;
             this.txtObservacionesTRA.Multiline = true;
             this.txtObservacionesTRA.Name = "txtObservacionesTRA";
             this.txtObservacionesTRA.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtObservacionesTRA.Size = new System.Drawing.Size(523, 104);
+            this.txtObservacionesTRA.Size = new System.Drawing.Size(393, 85);
             this.txtObservacionesTRA.TabIndex = 61;
             this.txtObservacionesTRA.Tag = "lblObservaciones";
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(1197, 659);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnImprimir.Location = new System.Drawing.Point(898, 592);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(91, 39);
+            this.btnImprimir.Size = new System.Drawing.Size(68, 32);
             this.btnImprimir.TabIndex = 68;
             this.btnImprimir.Tag = "btnImprimir";
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Visible = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // AbmConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1346, 803);
+            this.ClientSize = new System.Drawing.Size(1010, 652);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
