@@ -27,6 +27,11 @@ namespace GUI
             btnCancelar.DialogResult = DialogResult.Cancel;
             gestor = new GestionarEjercicio();
             ActualizarLista(FiltrarLista());
+            if (this.Owner != null)
+            {
+                btnModificar.Visible = false;
+                btnNuevo.Visible = false;
+            }
         }
 
         private void ActualizarLista(List<Ejercicio> lista)

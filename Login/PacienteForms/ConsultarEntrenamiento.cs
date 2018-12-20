@@ -27,6 +27,11 @@ namespace GUI.PacienteForms
             btnCancelar.DialogResult = DialogResult.Cancel;
             gestor = new GestionarEntrenamiento();
             ActualizarLista(FiltrarLista());
+            if (this.Owner != null)
+            {
+                btnModificar.Visible = false;
+                btnNuevo.Visible = false;
+            }
         }
 
         private void ActualizarLista(List<Entrenamiento> lista)

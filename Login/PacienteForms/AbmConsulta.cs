@@ -304,7 +304,7 @@ namespace GUI.PacienteForms
                 int index = -1;
                 foreach (ConsultaDetalle itemDetalle in listaTRA.Items)
                 {
-                    if (itemDetalle.Item.Id == tratamientoSeleccionado.Id)
+                    if (itemDetalle.Item.Id == tratamientoSeleccionado.Id && itemDetalle.Item.Nombre.Equals(tratamientoSeleccionado.Nombre))
                         index = listaTRA.Items.IndexOf(itemDetalle);
                 }
                 if (index >= 0)

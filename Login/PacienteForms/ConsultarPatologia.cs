@@ -27,6 +27,11 @@ namespace GUI
             btnCancelar.DialogResult = DialogResult.Cancel;
             gestor = new GestionarPatologia();
             ActualizarLista(gestor.Listar());
+            if (this.Owner != null)
+            {
+                btnModificar.Visible = false;
+                btnNuevo.Visible = false;
+            }
         }
 
         private void ActualizarLista(List<Patologia> lista)

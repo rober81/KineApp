@@ -23,6 +23,7 @@ namespace GUI
                         Mensaje("msgRestoreOk");
                         BLL.GestionarSesion.getInstance().cerrarSesion();
                         this.Hide();
+                        this.MdiParent.Hide();
                         Login form = new Login();
                         form.ShowDialog();
                     } else
@@ -50,7 +51,7 @@ namespace GUI
                     copia.Nombre = textBox1.Text;
                     copia.Fecha = DateTime.Now;
                     int res = BLL.GestionarCopiaDeSeguridad.Backup(copia);
-                    if (res == 0)
+                    if (res == 0 && File.Exists(copia.Nombre))
                     {
                         Mensaje("msgBackOk");
                         cargar();

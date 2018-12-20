@@ -12,9 +12,13 @@ namespace BLL
 
         public static int Backup(CopiaDeSeguridad param)
         {
-            int resultado1 = DAL.CopiaSeguridadMapper.Insertar(param);
             int resultado2 = DAL.CopiaSeguridadMapper.Backup(param);
-            Bitacora("Backup", param);
+            int resultado1 = 0;
+            if (resultado2 == -1)
+            {
+                resultado1 = DAL.CopiaSeguridadMapper.Insertar(param);
+                Bitacora("Backup", param);
+            }
             return resultado1 + resultado2;
         }
 

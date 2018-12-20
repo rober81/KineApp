@@ -28,6 +28,11 @@ namespace GUI
             btnCancelar.DialogResult = DialogResult.Cancel;
             gestor = new GestionarTratamiento();
             ActualizarLista(FiltrarLista());
+            if (this.Owner != null)
+            {
+                btnModificar.Visible = false;
+                btnNuevo.Visible = false;
+            }
         }
 
         private void ActualizarLista(List<Tratamiento> lista)
