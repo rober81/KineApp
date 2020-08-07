@@ -21,8 +21,8 @@ namespace Util
             config.aplicacionDB = "KineApp";
             config.bitacoraDB = "KineAppBitacora";
             config.idioma = new BE.Idioma("Español");
-            config.servidor = "SQLEXPRESS";
-            //config.servidor = "SQL_UAI";
+            //config.servidor = "SQLEXPRESS";
+            config.servidor = "SQL_UAI";
             File.WriteAllText(configuracionArchivo, SerializarJson.Serializar(config));
         }
 
